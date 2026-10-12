@@ -26,6 +26,9 @@ jobs:
       - name: Instalar dependencias
         run: npm ci
 
+      - name: Marcar número de versión
+        run: sed -i "s/__BUILD__/${{ github.run_number }}/" www/index.html
+
       - name: Copiar la app al proyecto Android
         run: npx cap sync android
 
