@@ -9,21 +9,21 @@
   --ok:#0f9f6e; --ok-soft:#e2f5ec; --gold:#b86e00; --gold-soft:#fdf1dc; --warn:#c2410c; --warn-soft:#fdece3; --bad:#d92d20;
   --fig:#3b414d; --fig2:#a7aebb; --mus:#3d5afe; --mus2:#9fb0ff; --metal:#111318; --metal2:#7a8190; --prop:#d9dde4; --prop2:#c9ced7; --shadow:#0f1115;
   --font:"Plus Jakarta Sans",system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
-  --tabs:64px;
+  --tabs:64px; --art-bg:#eef0f4;
 }
 @media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
   --bg:#0d0f13; --s1:#16191f; --s2:#1e2229; --s3:#282d36; --line:#252a32;
   --tx:#f3f4f6; --tx2:#a3a9b5; --tx3:#6f7683;
   --acc:#5b74ff; --acc-tx:#ffffff; --acc-soft:#1c2347;
   --ok:#34d399; --ok-soft:#0f2a1f; --gold:#fbbf24; --gold-soft:#2b2210; --warn:#fb923c; --warn-soft:#2b1a10; --bad:#f97066;
-  --fig:#a3abb9; --fig2:#5a616e; --mus:#6f86ff; --mus2:#3a4a9c; --metal:#f3f4f6; --metal2:#8a919e; --prop:#2c313b; --prop2:#232831; --shadow:#000;
+  --fig:#a3abb9; --fig2:#5a616e; --mus:#6f86ff; --mus2:#3a4a9c; --metal:#f3f4f6; --metal2:#8a919e; --prop:#2c313b; --prop2:#232831; --shadow:#000; --art-bg:#1b1f26;
   color-scheme:dark}}
 :root[data-theme="dark"]{
   --bg:#0d0f13; --s1:#16191f; --s2:#1e2229; --s3:#282d36; --line:#252a32;
   --tx:#f3f4f6; --tx2:#a3a9b5; --tx3:#6f7683;
   --acc:#5b74ff; --acc-tx:#ffffff; --acc-soft:#1c2347;
   --ok:#34d399; --ok-soft:#0f2a1f; --gold:#fbbf24; --gold-soft:#2b2210; --warn:#fb923c; --warn-soft:#2b1a10; --bad:#f97066;
-  --fig:#a3abb9; --fig2:#5a616e; --mus:#6f86ff; --mus2:#3a4a9c; --metal:#f3f4f6; --metal2:#8a919e; --prop:#2c313b; --prop2:#232831; --shadow:#000;
+  --fig:#a3abb9; --fig2:#5a616e; --mus:#6f86ff; --mus2:#3a4a9c; --metal:#f3f4f6; --metal2:#8a919e; --prop:#2c313b; --prop2:#232831; --shadow:#000; --art-bg:#1b1f26;
   color-scheme:dark}
 *{box-sizing:border-box}
 html,body{height:100%}
@@ -209,8 +209,8 @@ svg.i{width:20px;height:20px;flex:none;fill:none;stroke:currentColor;stroke-widt
 .pprog i{flex:1;height:4px;border-radius:2px;background:var(--s3)}
 .pprog i.done{background:var(--ok)}
 .pprog i.cur{background:var(--acc)}
-.exhead{display:grid;grid-template-columns:96px 1fr;gap:14px;align-items:center}
-.exhead .figwrap{width:96px;height:96px;border-radius:16px;background:var(--s1);border:1px solid var(--line);overflow:hidden}
+.exhead{display:grid;grid-template-columns:128px 1fr;gap:14px;align-items:center}
+.exhead .figwrap{width:128px;height:128px;border-radius:16px;background:var(--art-bg);border:1px solid var(--line);overflow:hidden;cursor:zoom-in}
 .exhead .figwrap svg{width:100%;height:100%;display:block}
 .exhead .figwrap .mth{fill:var(--s1)}
 .exhead h2{margin:0 0 4px;font-size:1.25rem;font-weight:800;letter-spacing:-.02em;line-height:1.15}
@@ -303,7 +303,8 @@ body:has(#player input:focus) #pbottom{display:none}
 #sheet h3{font-size:1.3rem;font-weight:800;letter-spacing:-.02em;margin:0 0 6px;line-height:1.2}
 #sheet .acts{display:flex;flex-direction:column;gap:8px;margin-top:18px}
 .figbox{background:var(--s2);border-radius:16px;display:flex;justify-content:center;padding:6px}
-.figbox .fig{width:100%;height:220px}
+.figbox .xa{width:min(100%,300px);aspect-ratio:1;margin:0 auto}
+.figbox{background:var(--art-bg)}
 .figbox .mth{fill:var(--s2)}
 .steps{list-style:none;margin:6px 0 0;padding:0;counter-reset:s}
 .steps li{display:grid;grid-template-columns:28px 1fr;gap:10px;padding:7px 0;counter-increment:s}
@@ -324,7 +325,7 @@ body:has(#player input:focus) #pbottom{display:none}
 /* onboarding */
 #onb{position:fixed;inset:0;z-index:70;background:var(--bg);display:flex;flex-direction:column}
 #onb .art{height:50vh;min-height:260px;background:var(--acc-soft);display:flex;align-items:flex-end;justify-content:center;padding-top:env(safe-area-inset-top,0px);position:relative}
-#onb .art .fig{width:100%;max-width:420px;height:88%}
+#onb .art .xa{height:96%;aspect-ratio:1;max-width:100%}
 #onb .art .mth{fill:var(--acc-soft)}
 #onb .art .fl{opacity:.08}
 #onb .skip{position:absolute;right:8px;top:calc(8px + env(safe-area-inset-top,0px));color:var(--tx2);font-weight:600;min-height:44px;padding:0 12px}
@@ -351,6 +352,24 @@ body:has(#player input:focus) #pbottom{display:none}
 #toast svg{width:18px;height:18px}
 
 .fig path{fill:none;stroke-linecap:round;stroke-linejoin:round}
+/* ilustraciones */
+.xa{position:relative;width:100%;height:100%;display:block}
+.xa img{position:absolute;inset:0;width:100%;height:100%;object-fit:contain;display:block;-webkit-user-drag:none;user-select:none}
+.xa.two img.b{animation:xf 3.4s cubic-bezier(.45,0,.25,1) infinite}
+.xa.two img.a{animation:xfa 3.4s cubic-bezier(.45,0,.25,1) infinite}
+@keyframes xf{0%,28%{opacity:0}46%,78%{opacity:1}96%,100%{opacity:0}}
+@keyframes xfa{0%,28%{opacity:1}46%,78%{opacity:0}96%,100%{opacity:1}}
+.xa.one img{animation:breathe 3.2s ease-in-out infinite;transform-origin:50% 80%}
+@keyframes breathe{0%,100%{transform:scale(1)}50%{transform:scale(1.015) translateY(-1px)}}
+.thumb .xa img{animation:none!important}
+.thumb{background:var(--art-bg)}
+.ph{display:flex;gap:6px;justify-content:center;margin-top:6px}
+.ph span{font-size:.66rem;font-weight:800;letter-spacing:.06em;text-transform:uppercase;padding:3px 8px;border-radius:10px;color:var(--tx3);background:var(--s3)}
+.ph.two span:first-child{animation:pha 3.4s cubic-bezier(.45,0,.25,1) infinite}
+.ph.two span:last-child{animation:phb 3.4s cubic-bezier(.45,0,.25,1) infinite}
+@keyframes pha{0%,28%,96%,100%{background:var(--acc);color:#fff}46%,78%{background:var(--s3);color:var(--tx3)}}
+@keyframes phb{0%,28%,96%,100%{background:var(--s3);color:var(--tx3)}46%,78%{background:var(--acc);color:#fff}}
+@media (prefers-reduced-motion:reduce){.xa.two img.b,.xa.two img.a,.xa.one img,.ph span{animation:none!important}.xa.two img.b{opacity:0}}
 .bn{stroke:var(--fig)}.bf{stroke:var(--fig2)}.mn{stroke:var(--mus)}.mf{stroke:var(--mus2)}
 .bnf{fill:var(--fig)}.bff{fill:var(--fig2)}.mnf{fill:var(--mus)}.mff{fill:var(--mus2)}
 .fig .bnp{fill:var(--fig);stroke:var(--fig);stroke-width:2.2}.fig .mnp{fill:var(--mus);stroke:var(--mus);stroke-width:2.2}
@@ -962,8 +981,19 @@ try{matchMedia('(prefers-color-scheme: dark)').addEventListener('change',applyTh
 
 /* ---------- utilidades ---------- */
 const mmss=s=>{s=Math.max(0,Math.round(s));return Math.floor(s/60)+':'+String(s%60).padStart(2,'0');};
-const THUMBF={'Pullover acostado':0,'Extensión de tríceps sobre la cabeza':0};
-const thumb=e=>`<span class="thumb">${figStatic(e,THUMBF[e.n]??1)}</span>`;
+const ART={'Press de pecho en el piso':['press-pecho-piso-a','press-pecho-piso-b'],'Press militar sentado':['press-militar-a','press-militar-b'],'Aperturas en el piso':['aperturas-a','aperturas-b'],'Elevaciones laterales':['elevaciones-laterales-a','elevaciones-laterales-b'],'Extensión de tríceps sobre la cabeza':['extension-triceps-a','extension-triceps-b'],'Flexiones de pecho':['flexiones-a','flexiones-b'],
+ 'Remo a una mano':['remo-mano-a','remo-mano-b'],'Remo a una mano con pausa':['remo-mano-a','remo-mano-b'],'Remo inclinado':['remo-inclinado-a','remo-inclinado-b'],'Pullover acostado':['pullover-a','pullover-b'],'Pájaros':['pajaros-a','pajaros-b'],'Curl de bíceps':['curl-biceps-a','curl-biceps-b'],'Curl martillo':['curl-martillo-a','curl-martillo-b'],
+ 'Sentadilla goblet':['goblet-a','goblet-b'],'Peso muerto rumano':['rumano-a','rumano-b'],'Zancadas alternas':['zancadas-a','zancadas-b'],'Zancada reversa':['zancadas-a','zancadas-b'],'Sentadilla búlgara':['bulgara-a','bulgara-b'],'Elevación de talones':['talones-a','talones-b'],'Plancha':['plancha-a'],
+ 'Press de pecho agarre neutro':['press-neutro-a','press-neutro-b'],'Press Arnold':['arnold-a','press-militar-b'],'Flexiones con pies elevados':['pies-elevados-a','pies-elevados-b'],'Flexiones cerradas':['cerradas-a','cerradas-b'],'Patada de tríceps':['patada-a','patada-b'],
+ 'Remo inclinado agarre supino':['remo-supino-a','remo-supino-b'],'Curl concentrado':['concentrado-a','concentrado-b'],'Curl inverso':['curl-inverso-a','curl-inverso-b'],'Bird dog':['bird-dog-a','bird-dog-b'],
+ 'Sentadilla sumo':['sumo-a','sumo-b'],'Puente de glúteo con mancuerna':['puente-a','puente-b'],'Step-ups':['stepups-a','stepups-b'],'Plancha lateral':['plancha-lateral-a'],'Elevación de piernas con rodillas dobladas':['piernas-a','piernas-b']};
+const IMG=k=>`img/${k}.webp`;
+const THUMBF={'Pullover acostado':0,'Extensión de tríceps sobre la cabeza':0,'Sentadilla búlgara':1};
+function artAnim(e,label){const a=ART[e.n];if(!a)return figAnimated(e);
+  if(a.length<2)return `<span class="xa one" role="img" aria-label="${esc(e.n)}"><img src="${IMG(a[0])}" alt="" decoding="async"></span>`;
+  return `<span class="xa two" role="img" aria-label="${esc(e.n)}"><img class="a" src="${IMG(a[0])}" alt="" decoding="async"><img class="b" src="${IMG(a[1])}" alt="" decoding="async"></span>`;}
+const phases=e=>{const a=ART[e.n];return a&&a.length>1?'<div class="ph two"><span>Inicio</span><span>Final</span></div>':'<div class="ph"><span>Mantén la posición</span></div>';};
+const thumb=e=>{const a=ART[e.n];if(!a)return `<span class="thumb">${figStatic(e,1)}</span>`;const k=a[Math.min(THUMBF[e.n]??1,a.length-1)];return `<span class="thumb"><span class="xa"><img src="${IMG(k)}" alt="" loading="lazy" decoding="async"></span></span>`;};
 function weekStart(d){const x=new Date(d);x.setHours(0,0,0,0);x.setDate(x.getDate()-((x.getDay()+6)%7));return x.getTime();}
 const dayKey=ts=>{const d=new Date(ts);return d.getFullYear()+'-'+(d.getMonth()+1)+'-'+d.getDate();};
 function doneThisWeek(dayId){const ws=weekStart(Date.now());return S.history.some(h=>h.ts>=ws&&h.day===dayId);}
@@ -1227,7 +1257,7 @@ function closeSheet(fromPop){$('#sheet').hidden=true;$('#sheet').innerHTML='';if
 function infoSheet(name){
   const e=EXMAP[name],inf=info(name),b=bestOf(name,S.history);
   const has=S.history.some(h=>(h.ex||[]).some(z=>z.n===name));
-  sheet(`<div class="figbox">${figAnimated(e)}</div>
+  sheet(`<div class="figbox" style="flex-direction:column;align-items:center;padding:10px">${artAnim(e)}${phases(e)}</div>
   <h3 style="margin-top:14px">${e.n}</h3><div class="mchips">${inf.m.map(m=>`<span class="mchip">${m}</span>`).join('')}</div>
   <div class="kv"><span>Series <b>${e.r}</b></span><span>Descanso <b>${restOf(e)} s</b></span><span><b>${e.days.join(' y ')}</b></span></div>
   <h2 class="h2" style="margin-top:18px">Cómo hacerlo</h2><ol class="steps">${inf.steps.map(s=>`<li><span>${s}</span></li>`).join('')}</ol>
@@ -1283,7 +1313,7 @@ function renderPlayer(keep){
   }
   const it=L.items[L.i],e=EXMAP[it.n],ds=dose(e),bw=isBW(e),inf=info(it.n),cr=curRow(it),b=bestNow(it.n);
   h+=`<div class="pprog">${L.items.map((x,k)=>`<i class="${x.sets.every(s=>s.done)?'done':k===L.i?'cur':''}"></i>`).join('')}</div>
-  <div class="exhead"><div class="figwrap">${figAnimated(e)}</div><div style="min-width:0"><div class="over">${L.i+1} de ${L.items.length}</div><h2>${e.n}</h2><div class="meta"><b>${it.sets.length} × ${ds.label}</b> · ${restOf(e)} s de descanso</div><button class="how" data-act="info" data-v="${esc(it.n)}">${IC.info}Cómo hacerlo</button></div></div>`;
+  <div class="exhead"><div class="figwrap" data-act="info" data-v="${esc(it.n)}">${artAnim(e)}</div><div style="min-width:0"><div class="over">${L.i+1} de ${L.items.length}</div><h2>${e.n}</h2><div class="meta"><b>${it.sets.length} × ${ds.label}</b> · ${restOf(e)} s de descanso</div><button class="how" data-act="info" data-v="${esc(it.n)}">${IC.info}Cómo hacerlo</button></div></div>`;
   if(it.up&&!it.sets.some(s=>s.done))h+=`<div class="tip">${IC.up}<div>La vez pasada llegaste al tope del rango en todas las series. <b>Sube el peso</b> y vuelve a ${ds.target} repeticiones.</div></div>`;
   h+=`<div class="card sets ${bw||ds.timed?'bw':''}"><div class="hdr"><span>#</span><span>Anterior</span>${bw||ds.timed?'':'<span>Kg c/u</span>'}<span>${ds.timed?'Seg':ds.side?'Reps/'+ds.side:'Reps'}</span><span></span></div>`;
   it.sets.forEach((s,k)=>{
@@ -1414,7 +1444,7 @@ const OB={step:0,name:'',kg:5};
 function showOnb(){$('#onb').hidden=false;renderOnb();}
 function renderOnb(){
   const s=OB.step,art=['Press militar sentado','Elevaciones laterales','Sentadilla goblet'][s];
-  let h=`<div class="art">${figAnimated(EXMAP[art])}<button class="skip" data-act="obskip">Omitir</button></div><div class="col body">`;
+  let h=`<div class="art">${artAnim(EXMAP[art])}<button class="skip" data-act="obskip">Omitir</button></div><div class="col body">`;
   if(s===0)h+=`<h1>Entrena en casa, sin excusas</h1><p>Seis días con solo un par de mancuernas. Te decimos qué hacer, cuánto peso usar y cuánto descansar.</p>`;
   if(s===1)h+=`<h1>¿Cómo te llamas?</h1><p>Para saludarte cuando entres.</p><input class="big" id="obname" placeholder="Tu nombre" value="${esc(OB.name)}" maxlength="24" autocomplete="given-name" enterkeyhint="next">`;
   if(s===2)h+=`<h1>¿Cuánto pesa cada mancuerna?</h1><p>Con ese peso empiezan los ejercicios nuevos. Después lo ajustas serie por serie.</p><div class="kg"><button data-act="obkg" data-v="-0.5" aria-label="Menos">−</button><b>${NF.format(OB.kg)}<small> kg</small></b><button data-act="obkg" data-v="0.5" aria-label="Más">+</button></div>`;
