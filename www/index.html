@@ -1150,7 +1150,13 @@ const hasUpdate=()=>!!(BUILD&&UPD&&UPD.b>BUILD&&UPD.dis!==UPD.b);
 
 /* ---------- compartir y respaldo ---------- */
 const FSP=CAP&&CAP.Plugins&&CAP.Plugins.Filesystem||null, SHP=CAP&&CAP.Plugins&&CAP.Plugins.Share||null;
-const canShareImg=()=>!!(FSP&&SHP)||!!(navigator.canShare&&window.File&&(()=>{try{return navigator.canShare({files:[new File([''],'a.png',{type:'image/png'})]});}catch(e){return false;}})());
+const canShareImg=()=>!!(FSP&&SHP)||!CAP;
+async function webSave(name,blob){
+  try{if(window.claude&&typeof window.claude.use==='function'){const dl=await window.claude.use('downloads');if(dl){try{await dl.save({filename:name,data:blob});return 'saved';}catch(e){if(e&&e.code==='declined')return 'declined';}}}}catch(e){}
+  const f=window.File?new File([blob],name,{type:blob.type}):null;
+  try{if(f&&navigator.canShare&&navigator.canShare({files:[f]})){await navigator.share({files:[f]});return 'shared';}}catch(e){if(e&&e.name==='AbortError')return 'declined';}
+  const a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download=name;document.body.appendChild(a);a.click();a.remove();return 'saved';
+}
 const loadImg=src=>new Promise(r=>{const i=new Image();i.onload=()=>r(i);i.onerror=()=>r(null);i.src=src;});
 function wrapText(g,t,maxW){const w=t.split(' '),out=[];let ln='';w.forEach(x=>{const tr=ln?ln+' '+x:x;if(g.measureText(tr).width>maxW&&ln){out.push(ln);ln=x;}else ln=tr;});if(ln)out.push(ln);return out;}
 function rr(g,x,y,w,h,r){g.beginPath();g.moveTo(x+r,y);g.arcTo(x+w,y,x+w,y+h,r);g.arcTo(x+w,y+h,x,y+h,r);g.arcTo(x,y+h,x,y,r);g.arcTo(x,y,x+w,y,r);g.closePath();}
@@ -1187,9 +1193,7 @@ async function shareRec(rec){
   if(!rec)return;toast('Preparando la imagen…');
   try{const c=await drawCard(rec),data=c.toDataURL('image/jpeg',.92);
     if(FSP&&SHP){const r=await FSP.writeFile({path:'mancuernas-'+rec.id+'.jpg',data:data.split(',')[1],directory:'CACHE'});await SHP.share({title:'Mi entrenamiento',files:[r.uri],dialogTitle:'Compartir entrenamiento'});return;}
-    const blob=await (await fetch(data)).blob(),f=new File([blob],'mancuernas.jpg',{type:'image/jpeg'});
-    if(navigator.canShare&&navigator.canShare({files:[f]})){await navigator.share({files:[f]});return;}
-    const a=document.createElement('a');a.href=data;a.download='mancuernas.jpg';document.body.appendChild(a);a.click();a.remove();
+    const blob=await (await fetch(data)).blob();await webSave('mancuernas-'+dayKey(rec.ts)+'.jpg',blob);
   }catch(e){if(!/cancel|abort/i.test(String(e&&e.message||e)))toast('No se pudo compartir la imagen');}
 }
 async function exportData(){
@@ -1197,10 +1201,7 @@ async function exportData(){
   const json=JSON.stringify({app:'mancuernas',v:3,at:Date.now(),history:S.history,body:S.body,settings:S.settings});
   try{
     if(FSP&&SHP){const r=await FSP.writeFile({path:name,data:json,directory:'CACHE',encoding:'utf8'});await SHP.share({title:'Respaldo de Mancuernas',files:[r.uri],dialogTitle:'Guardar respaldo'});return;}
-    const blob=new Blob([json],{type:'application/json'}),f=window.File?new File([blob],name,{type:'application/json'}):null;
-    if(f&&navigator.canShare&&navigator.canShare({files:[f]})){await navigator.share({files:[f]});return;}
-    const a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download=name;document.body.appendChild(a);a.click();a.remove();
-    try{await navigator.clipboard.writeText(json);toast('Respaldo descargado y copiado');}catch(e){toast('Respaldo descargado');}
+    const r=await webSave(name,new Blob([json],{type:'application/json'}));if(r==='saved')toast('Respaldo guardado');
   }catch(e){if(!/cancel|abort/i.test(String(e&&e.message||e)))toast('No se pudo exportar');}
 }
 function importData(text){
