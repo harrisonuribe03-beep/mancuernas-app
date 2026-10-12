@@ -2,5 +2,8 @@
   "appId": "com.harrison.mancuernas",
   "appName": "Mancuernas",
   "webDir": "www",
-  "android": { "backgroundColor": "#f3f4f8" }
+  "android": { "backgroundColor": "#3D5AFE" },
+  "plugins": {
+    "LocalNotifications": { "smallIcon": "ic_stat_mancuernas", "iconColor": "#3D5AFE" }
+  }
 }

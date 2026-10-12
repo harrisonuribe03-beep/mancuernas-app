@@ -4,7 +4,11 @@ import android.content.Context;
 import android.os.Build;
 import android.os.VibrationEffect;
 import android.os.Vibrator;
+import android.graphics.Color;
+import android.view.Window;
 import android.view.WindowManager;
+import androidx.core.view.WindowCompat;
+import androidx.core.view.WindowInsetsControllerCompat;
 import com.getcapacitor.Plugin;
 import com.getcapacitor.PluginCall;
 import com.getcapacitor.PluginMethod;
@@ -37,5 +41,25 @@ public class NativePlugin extends Plugin {
             else getActivity().getWindow().clearFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
         });
         call.resolve();
+    }
+
+    @PluginMethod
+    public void setBars(PluginCall call) {
+        final String c = call.getString("color", "#f4f5f8");
+        final boolean dark = Boolean.TRUE.equals(call.getBoolean("dark", false));
+        getActivity().runOnUiThread(() -> {
+            try {
+                Window w = getActivity().getWindow();
+                int col = Color.parseColor(c);
+                w.setStatusBarColor(col);
+                w.setNavigationBarColor(col);
+                WindowInsetsControllerCompat ic = WindowCompat.getInsetsController(w, w.getDecorView());
+                ic.setAppearanceLightStatusBars(!dark);
+                ic.setAppearanceLightNavigationBars(!dark);
+                call.resolve();
+            } catch (Exception e) {
+                call.reject("color inválido");
+            }
+        });
     }
 }

@@ -1,6 +1,5 @@
 package com.harrison.mancuernas;
 
-import android.graphics.Color;
 import android.os.Bundle;
 import android.webkit.WebView;
 import androidx.activity.OnBackPressedCallback;
@@ -11,7 +10,6 @@ public class MainActivity extends BridgeActivity {
     public void onCreate(Bundle savedInstanceState) {
         registerPlugin(NativePlugin.class);
         super.onCreate(savedInstanceState);
-        getWindow().setStatusBarColor(Color.parseColor("#2F4BFF"));
 
         // Botón atrás: primero cierra hojas y pantallas abiertas dentro de la app
         getOnBackPressedDispatcher().addCallback(this, new OnBackPressedCallback(true) {
