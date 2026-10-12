@@ -1,0 +1,50 @@
+name: Compilar APK
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch: {}
+
+permissions:
+  contents: write
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: 17
+
+      - name: Instalar dependencias
+        run: npm ci
+
+      - name: Copiar la app al proyecto Android
+        run: npx cap sync android
+
+      - name: Compilar
+        run: |
+          chmod +x android/gradlew
+          cd android && ./gradlew assembleRelease --no-daemon
+
+      - name: Preparar APK
+        run: cp android/app/build/outputs/apk/release/app-release.apk Mancuernas.apk
+
+      - uses: actions/upload-artifact@v4
+        with:
+          name: Mancuernas
+          path: Mancuernas.apk
+
+      - name: Publicar descarga
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          gh release delete app --yes --cleanup-tag || true
+          gh release create app Mancuernas.apk --title "Mancuernas v1.0.${{ github.run_number }}" --notes "Descarga Mancuernas.apk desde tu celular e instálala."

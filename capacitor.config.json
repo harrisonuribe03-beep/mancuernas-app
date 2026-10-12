@@ -1,0 +1,6 @@
+{
+  "appId": "com.harrison.mancuernas",
+  "appName": "Mancuernas",
+  "webDir": "www",
+  "android": { "backgroundColor": "#f3f4f8" }
+}
