@@ -1,6 +1,22 @@
 package com.harrison.mancuernas;
 
 import android.content.Context;
+import android.content.res.AssetFileDescriptor;
+import android.media.AudioAttributes;
+import android.media.AudioFocusRequest;
+import android.media.AudioManager;
+import android.media.SoundPool;
+import android.os.Bundle;
+import android.speech.tts.TextToSpeech;
+import android.speech.tts.UtteranceProgressListener;
+import com.getcapacitor.JSArray;
+import com.getcapacitor.JSObject;
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.InputStream;
+import java.io.OutputStream;
+import java.util.HashMap;
+import java.util.Locale;
 import android.os.Build;
 import android.os.VibrationEffect;
 import android.os.Vibrator;
@@ -61,5 +77,145 @@ public class NativePlugin extends Plugin {
                 call.reject("color inválido");
             }
         });
+    }
+
+    // ---------- sonidos (SoundPool, se mezclan con la música sin pausarla) ----------
+    private SoundPool pool;
+    private final HashMap<String, Integer> sounds = new HashMap<>();
+
+    private SoundPool pool() {
+        if (pool == null) {
+            AudioAttributes aa = new AudioAttributes.Builder()
+                .setUsage(AudioAttributes.USAGE_GAME)
+                .setContentType(AudioAttributes.CONTENT_TYPE_SONIFICATION).build();
+            pool = new SoundPool.Builder().setMaxStreams(6).setAudioAttributes(aa).build();
+        }
+        return pool;
+    }
+
+    @PluginMethod
+    public void loadSounds(PluginCall call) {
+        JSArray names = call.getArray("names");
+        String dir = call.getString("dir", "public/sounds");
+        int ok = 0;
+        try {
+            for (int i = 0; i < names.length(); i++) {
+                String n = names.getString(i);
+                String key = dir + "/" + n;
+                if (sounds.containsKey(key)) { ok++; continue; }
+                int id;
+                try {
+                    AssetFileDescriptor fd = getContext().getAssets().openFd(key);
+                    id = pool().load(fd, 1);
+                    fd.close();
+                } catch (Exception e) {
+                    File out = new File(getContext().getCacheDir(), key.replace('/', '_'));
+                    if (!out.exists()) {
+                        InputStream in = getContext().getAssets().open(key);
+                        OutputStream os = new FileOutputStream(out);
+                        byte[] buf = new byte[8192]; int r;
+                        while ((r = in.read(buf)) > 0) os.write(buf, 0, r);
+                        os.close(); in.close();
+                    }
+                    id = pool().load(out.getAbsolutePath(), 1);
+                }
+                sounds.put(key, id);
+                ok++;
+            }
+        } catch (Exception ignored) {}
+        JSObject r = new JSObject();
+        r.put("loaded", ok);
+        call.resolve(r);
+    }
+
+    @PluginMethod
+    public void play(PluginCall call) {
+        String key = call.getString("dir", "public/sounds") + "/" + call.getString("name", "");
+        float vol = call.getFloat("vol", 1f);
+        Integer id = sounds.get(key);
+        if (id != null) pool().play(id, vol, vol, 1, 0, 1f);
+        call.resolve();
+    }
+
+    // ---------- voz (TextToSpeech, baja el volumen de la música mientras habla) ----------
+    private TextToSpeech tts;
+    private boolean ttsReady = false;
+    private AudioFocusRequest focusReq;
+
+    private AudioManager am() { return (AudioManager) getContext().getSystemService(Context.AUDIO_SERVICE); }
+
+    private void duck(boolean on) {
+        try {
+            AudioManager a = am();
+            if (Build.VERSION.SDK_INT >= 26) {
+                if (on) {
+                    focusReq = new AudioFocusRequest.Builder(AudioManager.AUDIOFOCUS_GAIN_TRANSIENT_MAY_DUCK)
+                        .setAudioAttributes(new AudioAttributes.Builder()
+                            .setUsage(AudioAttributes.USAGE_ASSISTANCE_NAVIGATION_GUIDANCE)
+                            .setContentType(AudioAttributes.CONTENT_TYPE_SPEECH).build()).build();
+                    a.requestAudioFocus(focusReq);
+                } else if (focusReq != null) {
+                    a.abandonAudioFocusRequest(focusReq);
+                }
+            } else {
+                if (on) a.requestAudioFocus(null, AudioManager.STREAM_MUSIC, AudioManager.AUDIOFOCUS_GAIN_TRANSIENT_MAY_DUCK);
+                else a.abandonAudioFocus(null);
+            }
+        } catch (Exception ignored) {}
+    }
+
+    @PluginMethod
+    public void ttsInit(PluginCall call) {
+        if (tts != null) { JSObject r = new JSObject(); r.put("ok", ttsReady); call.resolve(r); return; }
+        tts = new TextToSpeech(getContext(), status -> {
+            if (status == TextToSpeech.SUCCESS) {
+                int res = tts.setLanguage(new Locale("es", "CO"));
+                if (res < 0) res = tts.setLanguage(new Locale("es", "US"));
+                if (res < 0) res = tts.setLanguage(new Locale("es"));
+                ttsReady = res >= 0;
+                tts.setAudioAttributes(new AudioAttributes.Builder()
+                    .setUsage(AudioAttributes.USAGE_ASSISTANCE_NAVIGATION_GUIDANCE)
+                    .setContentType(AudioAttributes.CONTENT_TYPE_SPEECH).build());
+                tts.setOnUtteranceProgressListener(new UtteranceProgressListener() {
+                    @Override public void onStart(String id) {}
+                    @Override public void onDone(String id) { if (!tts.isSpeaking()) duck(false); }
+                    @Override public void onError(String id) { duck(false); }
+                });
+            }
+            JSObject r = new JSObject();
+            r.put("ok", ttsReady);
+            call.resolve(r);
+        });
+    }
+
+    @PluginMethod
+    public void speak(PluginCall call) {
+        String text = call.getString("text", "");
+        float rate = call.getFloat("rate", 1f);
+        float pitch = call.getFloat("pitch", 1f);
+        boolean queue = Boolean.TRUE.equals(call.getBoolean("queue", false));
+        if (tts != null && ttsReady && text.length() > 0) {
+            tts.setSpeechRate(rate);
+            tts.setPitch(pitch);
+            duck(true);
+            Bundle b = new Bundle();
+            b.putFloat(TextToSpeech.Engine.KEY_PARAM_VOLUME, 1f);
+            tts.speak(text, queue ? TextToSpeech.QUEUE_ADD : TextToSpeech.QUEUE_FLUSH, b, "mc" + System.currentTimeMillis());
+        }
+        call.resolve();
+    }
+
+    @PluginMethod
+    public void stopSpeak(PluginCall call) {
+        if (tts != null) tts.stop();
+        duck(false);
+        call.resolve();
+    }
+
+    @Override
+    protected void handleOnDestroy() {
+        if (tts != null) { tts.shutdown(); tts = null; }
+        if (pool != null) { pool.release(); pool = null; }
+        super.handleOnDestroy();
     }
 }
