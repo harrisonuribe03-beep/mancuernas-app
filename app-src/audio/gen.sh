@@ -20,3 +20,8 @@ if [ "$T" = "prueba" ]; then
 L
   ls -la out/prueba
 fi
+
+if [ "$T" = "sonidos" ] || [ "$T" = "descubrir" ]; then
+  python3 discover.py
+  du -sh out/descubrir; ls out/descubrir/mp3 | wc -l
+fi
