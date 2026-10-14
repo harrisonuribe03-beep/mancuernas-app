@@ -11,7 +11,7 @@ const IMGSET=new Set((typeof IMGS==='string'?IMGS:'').split(' ').filter(Boolean)
 // Ilustración según el sexo elegido: img/f/<clave>.webp para mujer, si existe
 const IMG=k=>S.settings.sex==='m'&&IMGSET.has('f/'+k)?`img/f/${k}.webp`:`img/${k}.webp`;
 // Ejercicios de la biblioteca ampliada: x-<nombre>-a / -b
-const XART={'Escaladores':['hiit-escaladores']};
+const XART={};
 XLIB.forEach(x=>{if(ART[x.n])return;if(XART[x.n]){ART[x.n]=XART[x.n];return;}const k='x-'+slug(x.n),a=[k+'-a',k+'-b'].filter(i=>IMGSET.has(i));if(a.length)ART[x.n]=a;});
 // Sin ilustración ni figura: ficha con el ícono del equipo
 const eqArt=(e,big)=>`<span class="xph ${big?'big':''}" role="img" aria-label="${esc(e.n)}">${IC[LDIC[e.ld]||'dumb']}${big?`<small>${esc((e.eq||[]).map(q=>EQ[q]?EQ[q].t:q).join(' · ')||'Peso corporal')}</small>`:''}</span>`;
