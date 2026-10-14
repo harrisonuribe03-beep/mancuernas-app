@@ -30,3 +30,8 @@ if [ "$T" = "voz" ] || [ "$T" = "todo" ]; then
   python3 synth_voice.py
   ls out/voz | wc -l; du -sh out/voz
 fi
+
+if [ "$T" = "verificar" ]; then
+  pip install -q faster-whisper
+  python3 verify.py
+fi
