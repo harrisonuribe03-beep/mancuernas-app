@@ -22,7 +22,9 @@ const tpl=fs.readFileSync(path.join(SRC,'index.html'),'utf8').replace('/*CSS*/',
 const google=`<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap">`;
 fs.mkdirSync(path.join(SRC,'dist'),{recursive:true});
-fs.writeFileSync(path.join(SRC,'dist/mancuernas-app.html'),tpl.replace('/*FONTS*/',google));
+// La versión web no lleva los clips de voz (son más de mil archivos): usa la voz del navegador
+const tplWeb=fs.readFileSync(path.join(SRC,'index.html'),'utf8').replace('/*CSS*/',()=>css).replace('/*JS*/',()=>js.replace(/const VCLIPS="[^"]*";/,'const VCLIPS="";'));
+fs.writeFileSync(path.join(SRC,'dist/mancuernas-app.html'),tplWeb.replace('/*FONTS*/',google));
 fs.copyFileSync(path.join(SRC,'dist/mancuernas-app.html'),'/home/claude/mancuernas-app.html');
 fs.writeFileSync(path.join(SRC,'dist/app.js'),js);
 // Android
