@@ -23,7 +23,7 @@ function dose(e){
   const n=parseInt(rest,10);
   return {sets,label:rest,timed:tm?+tm[1]:0,side,fail:/fallo/.test(rest),target:isNaN(n)?12:n,top:rg?+rg[2]:(isNaN(n)?0:n)};
 }
-const isBW=e=>e.f.every(q=>q.db==null||(Array.isArray(q.db)&&q.db.every(x=>x==null)));
+const isBW=e=>e.ld?(e.ld==='bw'||e.ld==='band'):!!e.f&&e.f.every(q=>q.db==null||(Array.isArray(q.db)&&q.db.every(x=>x==null)));
 const info=n=>INFO[n]||{m:[],steps:[],err:'',hl:[]};
 const dayMuscles=d=>{const s=new Set();d.ex.forEach(e=>info(e.n).m.slice(0,2).forEach(x=>s.add(x.replace(/ (lateral|anterior|posterior|alto|bajo|alta)$/,''))));return [...s].slice(0,4);};
 

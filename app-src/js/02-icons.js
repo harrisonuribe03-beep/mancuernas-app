@@ -31,6 +31,17 @@ const IC={
   share:I('<path d="M12 3v12M7 8l5-5 5 5M5 14v5a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2v-5"/>'),
   swap:I('<path d="M7 4 3 8l4 4M3 8h14M17 20l4-4-4-4M21 16H7"/>'),
   bell:I('<path d="M6 16V11a6 6 0 0 1 12 0v5l2 2H4z"/><path d="M10 21h4"/>'),
+  gym:I('<rect x="6" y="3" width="12" height="18" rx="2"/><path d="M6 8h12M6 12h12M6 16h12M12 3v18"/>'),
+  barbell:I('<path d="M2 12h20M5 7v10M8 5v14M16 5v14M19 7v10"/>'),
+  band:I('<path d="M5 19c-2-6 2-14 7-14s9 8 7 14"/><path d="M5 19h3M16 19h3"/>'),
+  kb:I('<path d="M9 9a3 3 0 1 1 6 0"/><path d="M8 9h8l2 4a6 6 0 1 1-12 0z"/>'),
+  food:I('<path d="M7 3v8M5 3v5a2 2 0 0 0 4 0V3M7 11v10M17 3c-2 0-3 2.5-3 6h3v12"/>'),
+  scale:I('<rect x="4" y="4" width="16" height="16" rx="4"/><path d="M9 9a4 4 0 0 1 6 0l-3 3"/>'),
+  ruler:I('<path d="M7 2v20M7 6h4M7 10h3M7 14h4M7 18h3M17 4l-3 4h6zM17 8v8M17 20l-3-4h6z"/>'),
+  drop:I('<path d="M12 3s-6 6.5-6 11a6 6 0 0 0 12 0c0-4.5-6-11-6-11z"/>'),
+  cart:I('<path d="M3 4h2l2.4 11h11L21 7H6.3"/><circle cx="9" cy="19.5" r="1.3"/><circle cx="17" cy="19.5" r="1.3"/>'),
+  user:I('<circle cx="12" cy="8" r="4"/><path d="M4 21c1.5-4 4.5-6 8-6s6.5 2 8 6"/>'),
+  home:I('<path d="M3 11l9-7 9 7"/><path d="M5 10v10h14V10"/>'),
   dl:I('<path d="M12 3v12M7 10l5 5 5-5M5 21h14"/>')
 };
 

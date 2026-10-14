@@ -111,7 +111,7 @@ function hiitSheet(){
 function extrasSection(){
   const C=(act,v,ic,t,s)=>`<button class="card xcard" data-act="${act}" data-v="${v}"><span class="xic">${ic}</span><b>${t}</b><small>${s}</small></button>`;
   return `<h2 class="h2">Más entrenamientos</h2><div class="xgrid">${C('hiitcfg','',IC.bolt,'Intervalos HIIT','Tabata, EMOM o a tu medida')}${C('seq','abs',IC.flame.replace('<svg','<svg class="i"'),'Abdomen exprés','12 minutos')}${C('seq','stretch-full',IC.clock,'Estiramiento','10 minutos')}${C('seq','mob',IC.body,'Movilidad','8 minutos al despertar')}</div>
-  <h2 class="h2">Herramientas</h2><div class="xgrid">${C('calc1rm','',IC.trophy,'Calculadora 1RM','Tu fuerza máxima estimada')}${C('calcnut','',IC.star,'Calorías y proteína','Cuánto comer según tu meta')}</div>`;
+  <h2 class="h2">Herramientas</h2><div class="xgrid">${C('calc1rm','',IC.trophy,'Calculadora 1RM','Tu fuerza máxima estimada')}${C('ptabgo','food',IC.food,'Alimentación','Calorías, peso saludable y menú')}</div>`;
 }
 function rmSheet(kg,reps){
   const st=S.settings;kg=kg??st.rmkg??10;reps=reps??st.rmreps??8;
@@ -122,21 +122,6 @@ function rmSheet(kg,reps){
   <div class="bform"><label><span>Peso <small>kg por mancuerna</small></span><input inputmode="decimal" id="rm-kg" value="${kg}"></label><label><span>Repeticiones</span><input inputmode="numeric" id="rm-r" value="${reps}"></label></div>
   <div class="rmbig"><span>1RM estimado</span><b>${NF.format(one)} kg</b></div><div class="rmtbl"><div class="hd"><b>Reps</b><span>Peso</span></div>${tbl}</div>
   ${recs.length?`<h2 class="h2">Tus ejercicios</h2><ul class="glist">${recs.map(x=>`<li class="kvrow"><span>${x.n}</span><span class="v">${NF.format(x.v)} kg</span></li>`).join('')}</ul>`:''}
-  <div class="acts"><button class="btn" data-act="close">Cerrar</button></div>`);
-}
-function nutSheet(){
-  const p=Object.assign({sex:'h',age:20,h:170,w:(S.body.filter(b=>b.w).slice(-1)[0]||{}).w||70},S.settings.nut||{});
-  const g=(S.program.gen||{}).goal||'musculo',td=trainDays();
-  const bmr=10*p.w+6.25*p.h-5*p.age+(p.sex==='h'?5:-161),act=td<=3?1.375:td<=5?1.55:1.65,tdee=bmr*act;
-  const adj={musculo:250,fuerza:150,grasa:-450,salud:0}[g],kcal=Math.round((tdee+adj)/10)*10,prot=Math.round(p.w*({musculo:1.8,fuerza:1.8,grasa:2.0,salud:1.4}[g]));
-  const fat=Math.round(kcal*.27/9),carb=Math.max(0,Math.round((kcal-prot*4-fat*9)/4)),water=Math.round(p.w*35/100)/10;
-  sheet(`<h3>Calorías y proteína</h3><p class="sub">Estimación para ${GOALS[g].t.toLowerCase()} entrenando ${pl(td,'día','días')} por semana.</p>
-  <div class="seg" style="margin-top:12px">${[['h','Hombre'],['m','Mujer']].map(([k,l])=>`<button data-act="nsex" data-v="${k}" aria-pressed="${p.sex===k}">${l}</button>`).join('')}</div>
-  <div class="bform three"><label><span>Edad</span><input inputmode="numeric" id="n-age" value="${p.age}"></label><label><span>Estatura <small>cm</small></span><input inputmode="numeric" id="n-h" value="${p.h}"></label><label><span>Peso <small>kg</small></span><input inputmode="decimal" id="n-w" value="${p.w}"></label></div>
-  <button class="btn sm ghost block" style="margin-top:10px" data-act="ncalc">Recalcular</button>
-  <div class="nut"><div class="kc"><b>${NF.format(kcal)}</b><span>kcal al día</span></div>
-   <div class="mac"><div><b>${prot} g</b><span>Proteína</span></div><div><b>${carb} g</b><span>Carbohidratos</span></div><div><b>${fat} g</b><span>Grasa</span></div><div><b>${NF.format(water)} L</b><span>Agua</span></div></div></div>
-  <p class="sub" style="font-size:.78rem">Gasto estimado ${NF.format(Math.round(tdee))} kcal con la fórmula de Mifflin-St Jeor. Es un punto de partida: si en 2 o 3 semanas tu peso no va hacia tu meta, ajusta 150 a 200 kcal. Reparte la proteína en 3 o 4 comidas.</p>
   <div class="acts"><button class="btn" data-act="close">Cerrar</button></div>`);
 }
 function toolsAct(a,v){
@@ -154,10 +139,6 @@ function toolsAct(a,v){
     case 'hnames':HC.names=!HC.names;hiitSheet();return true;
     case 'hgo':{const c={work:HC.work,rest:HC.rest,rounds:HC.rounds,sets:HC.sets,setRest:HC.setRest,names:HC.names,p:HC.p};LS.set('mc-hiit',c);closeSheet(true);seqStart('hiit',Object.assign(c,{name:HC.P[HC.p]?HC.P[HC.p][0]:'Intervalos'}));return true;}
     case 'calc1rm':rmSheet();return true;
-    case 'calcnut':nutSheet();return true;
-    case 'ncalc':case 'nsex':{const n=Object.assign({},S.settings.nut||{});const g=id=>parseFloat(String(($(id)||{}).value||'').replace(',','.'));
-      const age=g('#n-age'),h=g('#n-h'),w=g('#n-w');if(age>=12&&age<=100)n.age=age;if(h>=120&&h<=230)n.h=h;if(w>=30&&w<=250)n.w=w;if(a==='nsex')n.sex=v;
-      S.settings.nut=n;saveSettings();nutSheet();return true;}
   }
   return false;
 }

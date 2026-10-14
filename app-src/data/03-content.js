@@ -43,4 +43,4 @@ const INFO={
  'Plancha lateral':{hl:['core'],m:['Oblicuos','Core'],steps:['Acuéstate de lado apoyado en el antebrazo, codo bajo el hombro.','Sube la cadera hasta alinear tobillos, cadera y hombros.','Sostén respirando normal y cambia de lado.'],err:'Dejar caer la cadera o girar el pecho hacia el piso.'},
  'Elevación de piernas con rodillas dobladas':{hl:['core'],m:['Abdomen bajo'],steps:['Boca arriba con las manos junto a la cadera y rodillas dobladas a 90°.','Lleva las rodillas al pecho despegando un poco la cadera.','Baja lento sin apoyar los pies.'],err:'Impulsarte con las piernas en lugar de usar el abdomen.'}
 };
-const GROUPS=[['Pecho',/Pecho/],['Espalda',/Espalda|Lumbar|Trapecio/],['Hombro',/Hombro/],['Brazos',/Bíceps|Tríceps|Antebrazo/],['Piernas',/Cuádriceps|Glúteo|Isquio|Pantorrilla|Aductores/],['Core',/Abdomen|Core|Oblicuos/]];
+const GROUPS=[['Pecho',/Pecho/],['Espalda',/Espalda|Lumbar|Trapecio/],['Hombro',/Hombro/],['Brazos',/Bíceps|Tríceps|Antebrazo/],['Piernas',/Cuádriceps|Glúteo|Isquio|Pantorrilla|Aductores|Abductores/],['Core',/Abdomen|Core|Oblicuos/]];

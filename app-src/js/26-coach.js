@@ -79,7 +79,11 @@ const VS={
   ex:n=>(VSAY[n]||n)+'.'
 };
 /* Cómo se pronuncian en voz alta algunos nombres en inglés */
-const VSAY={'Burpees':'Burpis','Bird dog':'Berd dog','Jumping jacks':'Saltos de tijera','Russian twist':'Giro ruso','Step-ups':'Subidas al escalón','Swing con mancuerna':'Suin con mancuerna'};
+const VSAY={'Burpees':'Burpis','Bird dog':'Berd dog','Jumping jacks':'Saltos de tijera','Russian twist':'Giro ruso','Step-ups':'Subidas al escalón','Swing con mancuerna':'Suin con mancuerna',
+  'Face pull con banda':'Feis pul con banda','Face pull en polea':'Feis pul en polea','Hollow hold':'Jólou jold','Pallof press con banda':'Pálof pres con banda','Pallof press en polea':'Pálof pres en polea',
+  'Hip thrust con barra':'Jip trast con barra','Hip thrust con mancuerna':'Jip trast con mancuerna','Sentadilla en Smith':'Sentadilla en Esmit','Press inclinado en Smith':'Press inclinado en Esmit',
+  'Swing con kettlebell':'Suin con kételbel','Aperturas en pec deck':'Aperturas en pec dec','Pájaros en pec deck':'Pájaros en pec dec','Y-T-W boca abajo':'Ye, te, doble ve, boca abajo',
+  'Crunch':'Cranch','Crunch en polea':'Cranch en polea','Sentadilla hack':'Sentadilla jak'};
 // Segmento con el nombre de la persona: solo si hay clip grabado para ese nombre (o si usa la voz del teléfono)
 function vname(i){const n=(S.settings.name||'').trim().split(/\s+/)[0];if(!n)return '';const t=VZ.name[i](n);return !useClips()||hasClip(t)?t:'';}
 function warmDose(s){const m=/^(\d+)\s*(min|s|reps|por (\w+))$/.exec(s.trim());if(!m)return '';const n=+m[1];
@@ -158,6 +162,7 @@ window.__voiceCatalog=function(names){
   for(let n=2;n<=5;n++)add(n+' minutos.');add('Un minuto.');
   ALLEX.forEach(e=>add(VS.ex(e.n)));
   Object.values(WARMUPS).forEach(l=>l.forEach(w=>{add(VS.ex(w[0]));add(warmDose(w[1]));}));
+  add(VS.ex('Caminadora, bici o elíptica suave'));CARDIO.forEach(q=>add(VS.ex('Cardio suave en '+EQ[q].t.toLowerCase())));
   Object.values(ST).forEach(x=>add(VS.ex(x[0])));MOB.forEach(x=>add(VS.ex(x[0])));HIITX.forEach(x=>add(VS.ex(x[0])));ABSX.forEach(x=>add(VS.ex(x[0])));
   return out;
 };

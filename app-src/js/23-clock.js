@@ -14,7 +14,7 @@ function tick(){
     if(cd)cd.textContent=mmss(Math.ceil(rem));if(rg){const C=2*Math.PI*88;rg.setAttribute('stroke-dashoffset',(C*(1-Math.max(0,rem)/WARM)).toFixed(1));}
     const rgf=$('#rgf');if(rgf)rgf.style.transform='scaleX('+Math.min(1,Math.max(0,1-rem/WARM)).toFixed(3)+')';
     const stp=Math.min(4,Math.floor((WARM-rem)/60));document.querySelectorAll('#wl li').forEach((li,i)=>li.classList.toggle('on',i===stp));
-    if(stp!==L.wstp&&rem>0){L.wstp=stp;const w=WARMUPS[kindOf(L)][stp];if(w){const wi=$('#wimg');if(wi)wi.src=IMG(warmImg(L,w));if(stp)sfx('half');V.warmStep(w,stp);}}
+    if(stp!==L.wstp&&rem>0){L.wstp=stp;const w=warmSteps(L)[stp];if(w){const wi=$('#wimg');if(wi)wi.src=IMG(warmImg(L,w));if(stp)sfx('half');V.warmStep(w,stp);}}
     if(rem<=0){sfx('go');buzz(400);L.phase='work';L.warmUntil=0;L.t0=Date.now();saveLive();renderPlayer();V.first(L.items[L.i]);}
     return;
   }

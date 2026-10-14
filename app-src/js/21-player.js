@@ -5,7 +5,7 @@ function rowsFor(e,count){
   const allTop=last.length>0&&ds.top&&!ds.fail&&last.every(s=>s[1]>=ds.top);
   const rows=Array.from({length:count},(_,k)=>{const ref=last[Math.min(k,last.length-1)];
     let reps=ds.timed?(ref?ref[1]:ds.timed):(ref?(allTop?ds.target:Math.min(ds.top||99,ref[1]+(ds.fail?0:1))):ds.target);
-    return {kg:bw||ds.timed?0:(ref?ref[0]:S.settings.kg),reps,done:false};});
+    return {kg:bw||ds.timed?0:(ref?ref[0]:startKg(e)),reps,done:false};});
   return {rows,up:allTop&&!bw&&!ds.timed};
 }
 function startSession(dayId){
@@ -29,8 +29,8 @@ function renderPlayer(keep){
   if(L.phase==='warm'){
     const run=L.warmUntil>0,rem=run?(L.warmUntil-Date.now())/1000:WARM;
     const stp=run?Math.min(4,Math.floor((WARM-rem)/60)):-1;
-    h+=`<div class="fade"><div class="over" style="text-align:center;margin-top:8px">Antes de empezar</div><h1 class="h1" style="text-align:center">Calentamiento</h1>${(()=>{const W=WARMUPS[kindOf(L)],k=warmImg(L,W[Math.max(0,stp)]);return `<div class="wart"><img id="wimg" src="${IMG(k)}" alt=""><span class="wtime"><b id="cd">${mmss(Math.ceil(rem))}</b><span class="sqbarmini"><i id="rgf" style="transform:scaleX(${(1-Math.max(0,rem)/WARM).toFixed(3)})"></i></span></span></div>`;})()}
-    <ul class="card wl" id="wl">${WARMUPS[kindOf(L)].map((t,i)=>`<li class="${i===stp?'on':''}"><span class="n">${i+1}</span><span>${t[0]}<div class="sub" style="font-size:.8rem">${t[1]}</div></span></li>`).join('')}</ul>
+    h+=`<div class="fade"><div class="over" style="text-align:center;margin-top:8px">Antes de empezar</div><h1 class="h1" style="text-align:center">Calentamiento</h1>${(()=>{const W=warmSteps(L),k=warmImg(L,W[Math.max(0,stp)]);return `<div class="wart"><img id="wimg" src="${IMG(k)}" alt=""><span class="wtime"><b id="cd">${mmss(Math.ceil(rem))}</b><span class="sqbarmini"><i id="rgf" style="transform:scaleX(${(1-Math.max(0,rem)/WARM).toFixed(3)})"></i></span></span></div>`;})()}
+    <ul class="card wl" id="wl">${warmSteps(L).map((t,i)=>`<li class="${i===stp?'on':''}"><span class="n">${i+1}</span><span>${t[0]}<div class="sub" style="font-size:.8rem">${t[1]}</div></span></li>`).join('')}</ul>
     <div style="display:flex;flex-direction:column;gap:4px;margin-top:16px;padding-bottom:20px"><button class="btn pri" data-act="${run?'warmskip':'warmgo'}">${run?'Listo, al primer ejercicio':IC.play+'Empezar calentamiento'}</button>${run?'':'<button class="tbtn" style="color:var(--tx2)" data-act="warmskip">Saltar calentamiento</button>'}</div></div></div></div>`;
     el.innerHTML=h;return;
   }
@@ -43,7 +43,7 @@ function renderPlayer(keep){
   else if(!it.sets.some(s=>s.done)&&it.prev.length){const fl=lastFeelFor(it.n);
     if(fl==='facil'&&!bw&&!ds.timed)h+=`<div class="tip">${IC.up}<div>La última vez el entreno se sintió <b>fácil</b>. Si la técnica estuvo bien, prueba con un poco más de peso hoy.</div></div>`;
     else if(fl==='duro')h+=`<div class="tip soft">${IC.info}<div>La última vez se sintió <b>duro</b>. Mantén el peso y busca completar el rango con buena técnica.</div></div>`;}
-  h+=`<div class="card sets ${bw||ds.timed?'bw':''}"><div class="hdr"><span>#</span><span>Anterior</span>${bw||ds.timed?'':'<span>Kg c/u</span>'}<span>${ds.timed?'Seg':ds.side?'Reps/'+ds.side:'Reps'}</span><span></span></div>`;
+  h+=`<div class="card sets ${bw||ds.timed?'bw':''}"><div class="hdr"><span>#</span><span>Anterior</span>${bw||ds.timed?'':`<span>${kgLabel(e)}</span>`}<span>${ds.timed?'Seg':ds.side?'Reps/'+ds.side:'Reps'}</span><span></span></div>`;
   it.sets.forEach((s,k)=>{
     const st=s.done?'done':k===cr?'cur':'',pv=s.ty==='c'?'Aprox.':it.prev[k]?fmtShort(it.n,it.prev[k]):ds.label.replace(/ por .*/,'');
     const tr=L.timed&&L.timed.row===k&&L.i===L.timed.i;

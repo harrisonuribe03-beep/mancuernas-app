@@ -1,6 +1,6 @@
 # Mancuernas
 
-App de Android para entrenar en casa con mancuernas: plan personalizado, guía paso a paso con ilustraciones animadas, temporizadores, coach de voz, progreso y logros. Uso personal.
+App de Android para entrenar en casa o en el gimnasio (mancuernas, barra, máquinas, poleas, bandas o solo el cuerpo): plan personalizado según equipo, objetivo y zona a priorizar, guía paso a paso con ilustraciones, coach de voz colombiana, nutrición con menú de comida colombiana, progreso y logros. Uso personal.
 
 ## Descargar
 
@@ -15,10 +15,11 @@ La app avisa sola cuando hay una versión nueva.
 app-src/                Código fuente de la app (HTML, CSS y JavaScript sin frameworks)
   index.html            Esqueleto de la página
   css/                  Estilos por pantalla (se concatenan en orden)
-  data/                 Ejercicios, plan base, textos de técnica y figuras de respaldo
+  data/                 Ejercicios originales, biblioteca ampliada por equipo (05), alimentos y comidas (06),
+                        textos de técnica y figuras de respaldo
   js/                   Módulos de la app (se concatenan en orden dentro de un mismo ámbito)
     00-errors.js          Registro de errores: nada que falle borra datos
-    01-04                 Plataforma, iconos, constantes y estado (almacenamiento local y nube)
+    01-04                 Plataforma, iconos, constantes, biblioteca y equipo, estado (local y nube)
     05-12                 Tema, ilustraciones, cálculos, niveles, recordatorios, respaldo, medidas
     13-program.js         Generador del plan personalizado (objetivo, nivel, días, tiempo, molestias)
     14-15                 Sonido básico, vibración, notificaciones y botón atrás
@@ -32,6 +33,7 @@ app-src/                Código fuente de la app (HTML, CSS y JavaScript sin fra
     29-goals.js           Misiones, logros, tipos de serie, notas y colores
     30-fx.js              Celebraciones
     31-native.js          Widget, accesos directos, notificación en curso y resumen semanal
+    32-nutrition.js       Peso saludable, calorías, macros, agua, menú diario y lista de mercado
     98-99                 Despachador de acciones, eventos e inicio
   audio/                Voz de la coach (clips), paquetes de sonidos y scripts para regenerarlos
   build.js              Une todo y escribe www/ (Android) y dist/ (versión web)

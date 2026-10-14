@@ -6,7 +6,9 @@ function weekdaysOf(id){const o=[];S.program.week.forEach((x,i)=>{if(x===id)o.pu
 const LETTERS3=['Lun','Mar','Mié','Jue','Vie','Sáb','Dom'];
 function touchProgram(){S.program.legacy=false;saveProgram();scheduleReminders();}
 function viewPlan(){
-  const P=S.program;let h=`<h1 class="h1" style="padding-top:6px">Tu plan</h1><div class="sub">${esc(P.name||'Plan personalizado')}</div>
+  const tabs=`<div class="subtabs ptop" role="tablist">${[['train','Entreno'],['food','Alimentación']].map(([k,l])=>`<button role="tab" data-act="ptabset" data-v="${k}" aria-selected="${(S.planTab||'train')===k}">${l}</button>`).join('')}</div>`;
+  if(S.planTab==='food')return `<h1 class="h1" style="padding-top:6px">Tu plan</h1>${tabs}`+viewFood();
+  const P=S.program;let h=`<h1 class="h1" style="padding-top:6px">Tu plan</h1>${tabs}<div class="sub">${esc(P.name||'Plan personalizado')} · ${esc(placeLabel())}</div>
   <div class="card planhd"><div class="ph1">${IC.star}<span>${esc(progSummary())}${P.gen&&P.gen.lim&&P.gen.lim.length?`<small>Cuidando: ${P.gen.lim.map(l=>LIMITS[l].t.toLowerCase()).join(', ')}</small>`:''}</span></div>
   <button class="btn sm ${P.legacy?'pri':'ghost'}" data-act="wizard">${P.legacy?'Personalizar mi plan':'Rehacer con el asistente'}</button></div>
   <h2 class="h2">Semana <small>toca un día para cambiarlo</small></h2><div class="wkplan">`;
@@ -46,8 +48,8 @@ function pickerSheet(mode,id,k){
 }
 function pickList(){
   const q=norm(PICK.q.trim()),g=PICK.g,d=S.program.days.find(x=>x.id===PICK.id),have=new Set(d?d.ex.map(x=>x.n):[]);
-  const list=ALLEX.filter(e=>(g==='Todos'||exGroup(e.n).includes(g))&&(!q||norm(e.n+' '+info(e.n).m.join(' ')).includes(q)));
-  return list.length?`<ul class="glist jump">${list.map(e=>`<li><button class="row" data-act="pickex" data-v="${esc(e.n)}" ${have.has(e.n)?'disabled':''}>${thumb(e)}<span class="nm">${e.n}<small style="display:block;color:var(--tx2);font-weight:500">${have.has(e.n)?'Ya está en la rutina':info(e.n).m.slice(0,2).join(', ')}</small></span><span class="st">${have.has(e.n)?IC.check:IC.plus}</span></button></li>`).join('')}</ul>`:'<div class="card empty"><b>Sin resultados</b></div>';
+  const list=ALLEX.filter(e=>(g==='Todos'||exGroup(e.n).includes(g))&&(!q||norm(e.n+' '+info(e.n).m.join(' ')).includes(q))).sort((a,b)=>canDo(b)-canDo(a));
+  return list.length?`<ul class="glist jump">${list.map(e=>`<li><button class="row" data-act="pickex" data-v="${esc(e.n)}" ${have.has(e.n)?'disabled':''}>${thumb(e)}<span class="nm">${e.n}<small style="display:block;color:var(--tx2);font-weight:500">${have.has(e.n)?'Ya está en la rutina':canDo(e)?info(e.n).m.slice(0,2).join(', '):'Necesita: '+eqNeed(e).join(', ')}</small></span><span class="st">${have.has(e.n)?IC.check:IC.plus}</span></button></li>`).join('')}</ul>`:'<div class="card empty"><b>Sin resultados</b></div>';
 }
 function renderPicker(){
   sheet(`<h3>${PICK.mode==='repl'?'Cambiar por':'Añadir ejercicio'}</h3><label class="search">${IC.search}<input id="pickq" type="search" placeholder="Buscar ejercicio o músculo" autocomplete="off"></label>

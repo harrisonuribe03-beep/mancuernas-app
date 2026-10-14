@@ -6,6 +6,8 @@ const S={tab:'hoy',sel:todayIdx,
   lib:{q:'',g:'Todos'},prog:{ex:null,mo:0,bar:null}};
 // v6: sonidos reales y voz de Salomé para todos (una sola vez)
 if(!S.settings.audioV){S.settings.pack='gym';S.settings.vvoice='salome';S.settings.audioV=2;LS.set('mc-set',S.settings);}
+// v6: los datos de la calculadora vieja pasan al perfil
+{const n=S.settings.nut;if(n&&!S.settings.age){if(n.sex)S.settings.sex=S.settings.sex||n.sex;if(n.age)S.settings.age=n.age;if(n.h)S.settings.ht=n.h;if(n.w)S.settings.wt=n.w;}}
 if(typeof S.settings.rest==='number'&&![60,90,120].includes(S.settings.rest))S.settings.rest='auto';
 S.history.sort((a,b)=>b.ts-a.ts);S.body.sort((a,b)=>a.ts-b.ts);
 const live0=LS.get('mc-live3',null);

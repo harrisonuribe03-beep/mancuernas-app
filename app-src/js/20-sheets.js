@@ -12,7 +12,7 @@ function exDetail(name,tab){
   <div class="subtabs sm" role="tablist">${T.map(([k,l])=>`<button role="tab" data-act="exdt" data-v="${k}|${esc(name)}" aria-selected="${tab===k}">${l}${k==='hist'&&sess.length?` <small>${sess.length}</small>`:''}</button>`).join('')}</div>`;
   if(tab==='tec'){
     const ds=S.program.days.filter(d=>d.ex.some(x=>x.n===name)),x0=ds.length?ds[0].ex.find(x=>x.n===name):null,nt=(S.settings.notes||{})[name];
-    h+=`<div class="kv">${x0?`<span>Series <b>${x0.sets} × ${esc(x0.reps)}</b></span><span>Descanso <b>${S.settings.rest==='auto'?x0.rest:S.settings.rest} s</b></span>`:''}<span>${ds.length?'En <b>'+ds.map(d=>esc(d.t)).join(', ')+'</b>':'No está en tu plan'}</span></div>
+    h+=`<div class="kv">${x0?`<span>Series <b>${x0.sets} × ${esc(x0.reps)}</b></span><span>Descanso <b>${S.settings.rest==='auto'?x0.rest:S.settings.rest} s</b></span>`:''}<span>${ds.length?'En <b>'+ds.map(d=>esc(d.t)).join(', ')+'</b>':'No está en tu plan'}</span><span>Equipo <b>${(e.eq||[]).length?esc(e.eq.map(q=>EQ[q].t).join(', ')):'ninguno'}</b>${canDo(e)?'':' · no lo tienes'}</span></div>
     ${muscleMap(name)}
     <h2 class="h2" style="margin-top:14px">Cómo hacerlo</h2><ol class="steps">${inf.steps.map(s=>`<li><span>${s}</span></li>`).join('')}</ol>
     ${inf.err?`<div class="callout warn">${IC.warn}<div><b>Error común.</b> ${inf.err}</div></div>`:''}
