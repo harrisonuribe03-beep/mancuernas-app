@@ -1,0 +1,38 @@
+/* v7 · nutrición según lo que vemos: progreso, meta de peso, días de entreno */
+.nprog{padding:16px}
+.nph{display:flex;justify-content:space-between;align-items:flex-start;gap:10px}
+.ngw{display:flex;align-items:center;gap:10px;margin-top:4px}
+.ngw b{font-size:1.7rem;font-weight:800;letter-spacing:-.02em;min-width:96px;text-align:center}
+.iconbtn.sm{width:36px;height:36px;border-radius:10px;background:var(--s2);font-size:1.2rem;font-weight:800}
+.nph small{display:block;font-size:.8rem;color:var(--tx2);margin-top:4px}
+.wgc{display:block;width:100%;height:auto;margin-top:12px}
+.wgc .ln{fill:none;stroke:var(--acc);stroke-width:2.5;stroke-linejoin:round;stroke-linecap:round}
+.wgc .pt{fill:var(--s1);stroke:var(--acc);stroke-width:2}
+.wgc .gwl{stroke:var(--ok);stroke-width:1.5;stroke-dasharray:5 4}
+.wgc .gwt{fill:var(--ok);font-weight:700}
+.wgc .ax{font-size:10px;fill:var(--tx3);font-weight:600}
+.ncheck{display:flex;gap:12px;margin-top:12px;padding:12px;border-radius:14px;background:var(--s2)}
+.ncheck .nic{width:36px;height:36px;border-radius:10px}
+.ncheck .nic svg{width:20px;height:20px}
+.ncheck b{display:block;font-size:.92rem}
+.ncheck span{display:block;font-size:.84rem;color:var(--tx2);margin-top:2px;line-height:1.4}
+.ncheck span b{display:inline;font-size:inherit;color:var(--tx)}
+.ncheck.ok{background:var(--ok-soft)}.ncheck.ok .nic{background:var(--ok);color:#fff}
+.ncheck.slow,.ncheck.fast,.ncheck.drift{background:var(--gold-soft)}.ncheck.slow .nic,.ncheck.fast .nic,.ncheck.drift .nic{background:var(--gold);color:#1a1300}
+.nca{margin-top:10px}
+.nadj{display:flex;align-items:center;gap:8px;margin-top:10px;font-size:.84rem;color:var(--tx2)}
+.nadj b{color:var(--tx)}.nadj .btn{margin-left:auto}
+.dayk{display:flex;align-items:center;gap:10px;margin-top:12px;padding:10px 12px;border-radius:12px;background:var(--s2);font-size:.86rem;color:var(--tx2)}
+.dayk svg{width:20px;height:20px;flex:none;color:var(--tx2)}
+.dayk b{color:var(--tx)}
+.dayk.tr{background:var(--acc-soft)}.dayk.tr svg{color:var(--acc)}
+.meal.wk{border-color:var(--acc)}
+.wtag{display:inline-block;margin-left:8px;padding:2px 8px;border-radius:999px;font-size:.66rem;font-weight:800;letter-spacing:.02em;text-transform:none;vertical-align:1px}
+.wtag.pre{background:var(--gold-soft);color:var(--gold)}
+.wtag.post{background:var(--acc-soft);color:var(--acc)}
+.wtip{margin-top:10px;padding:8px 10px;border-radius:10px;background:var(--s2);font-size:.8rem;color:var(--tx2);line-height:1.4}
+.nideal{margin-top:12px;font-size:.8rem;color:var(--tx2)}
+.nideal div{display:flex;flex-wrap:wrap;gap:6px;margin-top:6px}
+.nideal em{font-style:normal;padding:6px 10px;border-radius:10px;background:var(--s2)}
+.nideal b{color:var(--tx)}
+.bgrid{grid-template-columns:repeat(3,1fr)}

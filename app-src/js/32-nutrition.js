@@ -12,7 +12,7 @@ function myBody(){const st=S.settings,w=(typeof lastWeight==='function'&&lastWei
 const bodyReady=b=>!!(b.age&&b.wt&&b.ht);
 function healthy(ht){const m=(ht/100)**2;return {lo:Math.round(18.5*m*2)/2,hi:Math.round(24.9*m*2)/2,ref:Math.round(22*m*2)/2};}
 /* Cálculo completo para una persona */
-function nutri(b,goal,days){
+function nutri(b,goal,days,kadj){
   const bmi=b.wt/((b.ht/100)**2),cat=bmiCat(bmi),hw=healthy(b.ht);
   const s=b.sex==='m'?-161:b.sex==='h'?5:-78;
   const bmr=10*b.wt+6.25*b.ht-5*b.age+s;
@@ -24,13 +24,58 @@ function nutri(b,goal,days){
   let adj=GADJ[g][0];if((g==='musculo'||g==='fuerza')&&bmi>=30)adj=0;
   const floor=Math.max(b.sex==='m'?1200:b.sex==='h'?1500:1350,bmr);
   let kcal=Math.round(Math.max(floor,tdee*(1+adj))/10)*10;
+  if(kadj)kcal=Math.round(Math.max(floor,Math.min(tdee*1.25,Math.max(tdee*.75,kcal+kadj)))/10)*10;
   const base=bmi>27?hw.hi:b.wt; // con sobrepeso la proteína se calcula sobre el peso saludable
   const p=Math.round(PROT[g]*base/5)*5,fat=Math.round(Math.max(0.8*base,kcal*.27/9)/5)*5;
   const c=Math.max(50,Math.round((kcal-p*4-fat*9)/4/5)*5);
   const water=Math.round(b.wt*35/100)/10,waterT=Math.round((b.wt*35+500)/100)/10;
-  return {bmi,cat,hw,bmr:Math.round(bmr),tdee:Math.round(tdee/10)*10,kcal,p,f:fat,c,water,waterT,goal:g,adj,note};
+  return {bmi,cat,hw,bmr:Math.round(bmr),tdee:Math.round(tdee/10)*10,kcal,p,f:fat,c,water,waterT,goal:g,adj,note,days:days||0,kadj:kadj||0};
 }
-function myNutri(){const b=myBody();if(!bodyReady(b))return null;return nutri(b,(S.program.gen||{}).goal||'musculo',trainDays());}
+/* Entrenos por semana que de verdad hiciste (últimas 4 semanas). Si llevas menos de 2 semanas usando la app, el plan. */
+function obsDays(){const now=Date.now(),first=S.history.length?S.history[S.history.length-1].ts:now;
+  if(now-first<14*864e5)return null;const n=S.history.filter(h=>now-h.ts<28*864e5).length;return Math.round(n/Math.min(4,(now-first)/(7*864e5))*2)/2;}
+function myNutri(){const b=myBody();if(!bodyReady(b))return null;const od=obsDays();
+  return Object.assign(nutri(b,(S.program.gen||{}).goal||'musculo',od??trainDays(),S.settings.kadj||0),{obs:od!=null});}
+
+/* ---------- según lo que vemos: tendencia del peso, revisión semanal, meta y grasa corporal ---------- */
+// Ritmo sano por semana, como fracción del peso: [mínimo, máximo]
+const RATE={grasa:[-.01,-.004],musculo:[.001,.005],fuerza:[0,.004],salud:[-.0025,.0025]};
+const RMID={grasa:-.007,musculo:.003,fuerza:.002,salud:0};
+function weightTrend(days){
+  days=days||28;const now=Date.now(),P=S.body.filter(b=>b.w!=null&&now-b.ts<=days*864e5);
+  if(P.length<3)return null;const span=(P[P.length-1].ts-P[0].ts)/864e5;if(span<10)return null;
+  const xs=P.map(p=>(p.ts-P[0].ts)/864e5),ys=P.map(p=>p.w),n=P.length,mx=xs.reduce((a,x)=>a+x,0)/n,my=ys.reduce((a,y)=>a+y,0)/n;
+  const sl=xs.reduce((a,x,i)=>a+(x-mx)*(ys[i]-my),0)/(xs.reduce((a,x)=>a+(x-mx)**2,0)||1);
+  return {rate:sl*7,n,span:Math.round(span),now:my+sl*(xs[n-1]-mx)};
+}
+const kgw=x=>(x>0?'+':x<0?'−':'')+NF.format(Math.abs(Math.round(x*100)/100))+' kg';
+/* Revisión semanal: compara el ritmo real con el ideal para el objetivo y propone un ajuste de calorías */
+function checkin(N,b){
+  const t=weightTrend();if(!t)return {st:'data'};
+  const [lo,hi]=RATE[N.goal].map(r=>r*b.wt),mid=RMID[N.goal]*b.wt;
+  let st='ok';if(t.rate<lo)st=N.goal==='grasa'?'fast':'slow';else if(t.rate>hi)st=N.goal==='grasa'?'slow':'fast';
+  if(N.goal==='salud')st=t.rate<lo||t.rate>hi?'drift':'ok';
+  let d=Math.round(Math.max(-250,Math.min(250,(mid-t.rate)*7700/7))/50)*50;if(st==='ok')d=0;
+  return {st,t,lo,hi,d};
+}
+function bodyFat(b){
+  const B=S.body,last=k=>{for(let i=B.length-1;i>=0;i--)if(B[i][k]!=null)return B[i][k];return null;};
+  const w=last('waist'),n=last('neck'),h=last('hip');if(!b.sex||b.sex==='x')return null;if(!w||!n||!b.ht||(b.sex==='m'&&!h)){const m=[!w&&'cintura',!n&&'cuello',b.sex==='m'&&!h&&'cadera'].filter(Boolean);return {need:m.length>1?m.slice(0,-1).join(', ')+' y '+m[m.length-1]:m[0]};}
+  let bf;if(b.sex==='h'){if(w-n<=0)return null;bf=495/(1.0324-0.19077*Math.log10(w-n)+0.15456*Math.log10(b.ht))-450;}
+  else{if(w+h-n<=0)return null;bf=495/(1.29579-0.35004*Math.log10(w+h-n)+0.22100*Math.log10(b.ht))-450;}
+  bf=Math.round(Math.max(3,Math.min(60,bf))*10)/10;
+  const R=b.sex==='h'?[[6,'Atlético'],[14,'En forma'],[18,'Promedio'],[25,'Alto']]:[[14,'Atlético'],[21,'En forma'],[25,'Promedio'],[32,'Alto']];
+  let cat=R[0][1];R.forEach(([x,t])=>{if(bf>=x)cat=t;});
+  return {bf,cat,lean:Math.round(b.wt*(1-bf/100)*10)/10,ok:b.sex==='h'?bf<20:bf<28};
+}
+/* Peso meta: sugerido según objetivo y estatura; editable */
+function goalWeight(N,b){
+  const g=S.settings.goalWt;if(g)return g;
+  const r=x=>Math.round(x*2)/2;
+  if(N.goal==='grasa')return N.bmi>25?r(Math.max(N.hw.hi,b.wt*.9)):r(Math.max(N.hw.lo,b.wt*.95));
+  if(N.goal==='musculo'||N.goal==='fuerza')return N.bmi<25?r(Math.max(b.wt,Math.min(b.wt*1.05,N.hw.hi+5))):r(b.wt);
+  return N.bmi>25?r(N.hw.hi):N.bmi<18.5?r(N.hw.lo):r(b.wt);
+}
 
 /* ---------- menú ---------- */
 const FRAC={0.25:'¼',0.5:'½',0.75:'¾'};
@@ -67,7 +112,8 @@ function buildMeal(tpl,kcal,prot){
   cs.forEach(id=>{const per=mac(id,1).k||1;items.push([id,roundQ(id,left/cs.length/per)]);});
   // si la proteína se pasó (los carbohidratos también aportan), baja la porción proteica y repone con carbohidratos
   {const pi=items.findIndex(([id])=>id===pIds[0]);for(let g=0;g<4&&pi>=0&&sum().p>prot*1.12;g++){const F=FOODS[pIds[0]],nq=Math.round((items[pi][1]-F.st)*100)/100;if(nq<F.mn)break;items[pi][1]=nq;}
-   for(let g=0;g<4&&sum().k<kcal*.94;g++){const i=items.findIndex(([id,q])=>cs.includes(id)&&q+FOODS[id].st<=FOODS[id].mx*CAPS);if(i<0)break;items[i][1]=Math.round((items[i][1]+FOODS[items[i][0]].st)*100)/100;}}
+   for(let g=0;g<10&&sum().k<kcal*.955;g++){const ok=items.map(([id,q],j)=>cs.includes(id)&&q+FOODS[id].st<=FOODS[id].mx*CAPS?j:-1).filter(j=>j>=0);if(!ok.length)break;const i=ok[g%ok.length];
+     if(sum().k+mac(items[i][0],FOODS[items[i][0]].st).k>kcal*1.06)break;items[i][1]=Math.round((items[i][1]+FOODS[items[i][0]].st)*100)/100;}}
   // si se pasó mucho, baja los carbohidratos un paso
   for(let g=0;g<6&&sum().k>kcal*1.12;g++){const i=items.findIndex(([id,q])=>cs.includes(id)&&q-FOODS[id].st>=FOODS[id].mn);if(i<0)break;items[i][1]=Math.round((items[i][1]-FOODS[items[i][0]].st)*100)/100;}
   const merged=[];items.forEach(([id,q])=>{const m=merged.find(x=>x[0]===id);if(m)m[1]+=q;else merged.push([id,q]);});
@@ -75,11 +121,29 @@ function buildMeal(tpl,kcal,prot){
   merged.sort((a,b)=>order(a[0])-order(b[0]));
   return {t:veg&&tpl.tv?tpl.tv:tpl.t,items:merged,tot:merged.reduce((a,[id,q])=>{const m=mac(id,q);a.k+=m.k;a.p+=m.p;a.c+=m.c;a.f+=m.f;return a;},{k:0,p:0,c:0,f:0})};
 }
+/* Calorías del día: un poco más los días de entreno y un poco menos los de descanso (el promedio semanal no cambia) */
+function dayKcal(d,N){const t=trainDays(),r=7-t;if(!t||!r)return N.kcal;const b=Math.min(.08,.12*r/t);return Math.round(N.kcal*(S.program.week[d]?1+b:1-b*t/r)/10)*10;}
+const TRAINAT={man:['Mañana','des',null],med:['Mediodía','alm','med'],tar:['Tarde','cen','med'],noc:['Noche','cen','med']};
+function workoutMeals(d,menu){
+  if(!S.program.week[d])return {};const T=TRAINAT[S.settings.trainAt||'tar'],ks=menu.map(m=>m.k||m[0]);
+  let post=ks.lastIndexOf(T[1]);if(T[1]==='alm')post=ks.indexOf('alm');
+  let pre=-1;if(T[2]){for(let i=post-1;i>=0;i--)if(ks[i]===T[2]||ks[i]==='alm'||ks[i]==='des'){pre=i;break;}}
+  return {pre,post};
+}
 function dayMenu(d,N){
+  N=Object.assign({},N,{kcal:dayKcal(d,N)});
   const n=MEALPLAN[S.settings.meals||4],sw=S.settings.mswap||{},used={};CAPS=Math.max(1,N.kcal/2100);
-  return n.map(([k,label,share],i)=>{const L=MEALS[k],o=(sw[d+'-'+i]||0)+(used[k]=(used[k]||0)+1)*3;
-    const tpl=L[(d*2+i+o)%L.length];const share2=share;
-    return Object.assign(buildMeal(tpl,N.kcal*share2,N.p*share2*(k==='med'?.75:k==='des'?.95:1.12)),{label,slot:i});});
+  const WM=workoutMeals(d,n);
+  const tpls=n.map(([k],i)=>{let L=MEALS[k];const o=(sw[d+'-'+i]||0)+(used[k]=(used[k]||0)+1)*3;
+    if(i===WM.pre){const pl=L.filter(t=>t.pre);if(pl.length)L=pl;} // antes de entrenar: carbohidratos fáciles y poca grasa
+    return L[(d*2+i+o)%L.length];});
+  // Se arma comida por comida; si el día queda corto o largo, se reparte la diferencia y se arma otra vez
+  let f=1,M;
+  for(let pass=0;pass<3;pass++){
+    M=n.map(([k,label,share],i)=>Object.assign(buildMeal(tpls[i],N.kcal*share*f,N.p*share*(k==='med'?.75:k==='des'?.95:1.12)),{label,slot:i,k}));
+    const tot=M.reduce((a,m)=>a+m.tot.k,0),r=N.kcal/tot;if(Math.abs(1-r)<.035)break;f=Math.max(.8,Math.min(1.3,f*r));
+  }
+  return M;
 }
 function weekShop(N){
   const tot={};for(let d=0;d<7;d++)dayMenu(d,N).forEach(m=>m.items.forEach(([id,q])=>{tot[id]=(tot[id]||0)+q;}));
@@ -113,24 +177,63 @@ function healthCard(b,N){
   return `<div class="card nhealth"><div class="nh1"><span class="nic">${IC.ruler}</span><div><span class="over">Peso saludable para ${NF.format(b.ht/100)} m</span><b>${NF.format(N.hw.lo)} a ${NF.format(N.hw.hi)} kg</b><small>Referencia: ${NF.format(N.hw.ref)} kg · hoy pesas ${NF.format(b.wt)} kg</small></div></div>
   <div class="nbmi"><span>IMC <b>${NF.format(Math.round(N.bmi*10)/10)}</b></span><span class="tag ${N.cat.k}">${N.cat.t}</span></div>${bmiBar(N.bmi)}
   ${whtr?`<div class="nkv"><span>Cintura / estatura</span><b>${NF.format(Math.round(whtr*100)/100)}</b><em class="${whtr<.5?'ok':'hi'}">${whtr<.5?'Saludable':'Alto, mejor bajo 0,5'}</em></div>`:''}
-  <p class="nfine">El IMC no distingue músculo de grasa: si entrenas fuerte puedes salir alto estando en forma. Mira también tu cintura.</p></div>`;
+  ${(()=>{const F=bodyFat(b);if(!F)return '';if(F.need)return `<div class="nkv"><span>Grasa corporal</span><button class="btn sm ghost" data-act="bodyadd">Medir ${F.need}</button></div>`;
+    return `<div class="nkv"><span>Grasa corporal estimada</span><b>${NF.format(F.bf)} %</b><em class="${F.ok?'ok':'hi'}">${F.cat}</em></div><div class="nkv"><span>Masa magra</span><b>${NF.format(F.lean)} kg</b></div>`;})()}
+  <p class="nfine">El IMC no distingue músculo de grasa: si entrenas fuerte puedes salir alto estando en forma. La grasa se estima con la fórmula de la Marina de EE. UU. a partir de tus medidas.</p></div>`;
+}
+function progressCard(N,b){
+  const C=checkin(N,b),gw=goalWeight(N,b),diff=Math.round((gw-b.wt)*10)/10,rmid=Math.abs(RMID[N.goal]*b.wt)||Math.abs(.005*b.wt);
+  const wks=Math.abs(diff)<.3?0:Math.ceil(Math.abs(diff)/rmid),eta=new Date(Date.now()+wks*7*864e5).toLocaleDateString('es-CO',{month:'long',year:'numeric'});
+  const lastW=(()=>{for(let i=S.body.length-1;i>=0;i--)if(S.body[i].w!=null)return S.body[i];return null;})(),stale=!lastW||Date.now()-lastW.ts>7*864e5;
+  const recent=S.settings.kadjAt&&Date.now()-S.settings.kadjAt<6*864e5;
+  let msg='',act='';
+  if(C.st==='data')msg=`<b>Pésate una vez por semana</b><span>Con 3 registros en dos semanas veo tu ritmo real y ajusto tus calorías si hace falta.</span>`;
+  else{const r=`Vas a <b>${kgw(C.t.rate)} por semana</b> (últimas ${C.t.span} días). Lo ideal para tu objetivo es entre ${kgw(C.lo)} y ${kgw(C.hi)}.`;
+    if(C.st==='ok')msg=`<b>Vas al ritmo ideal</b><span>${r} Sigue igual.</span>`;
+    else{const why={slow:N.goal==='grasa'?'Estás bajando más lento de lo ideal.':'Estás subiendo más lento de lo ideal.',fast:N.goal==='grasa'?'Estás bajando muy rápido: puedes perder músculo.':'Estás subiendo muy rápido: puede ser grasa.',drift:'Tu peso se está moviendo y tu objetivo es mantenerlo.'}[C.st];
+      msg=`<b>${why}</b><span>${r}</span>`;
+      if(C.d&&!recent)act=`<button class="btn sm pri" data-act="kadj" data-v="${C.d}">${C.d>0?'Subir':'Bajar'} ${Math.abs(C.d)} kcal al día</button>`;
+      else if(recent)act=`<small class="nfine">Ya ajustamos hace poco. Dale una semana más antes de cambiar otra vez.</small>`;}}
+  return `<div class="card nprog"><div class="nph"><div><span class="over">Peso meta</span><div class="ngw"><button class="iconbtn sm" data-act="gwt" data-v="-0.5" aria-label="Bajar meta">−</button><b>${NF.format(gw)} kg</b><button class="iconbtn sm" data-act="gwt" data-v="0.5" aria-label="Subir meta">+</button></div>
+    <small>${wks?`${diff>0?'Te faltan':'Te sobran'} ${NF.format(Math.abs(diff))} kg · unas ${wks} semanas a ritmo seguro (${eta})`:'Ya estás en tu meta: ahora a mantener'}</small></div></div>
+  ${wgChart(gw)}
+  <div class="ncheck ${C.st}"><span class="nic">${C.st==='ok'?IC.check:C.st==='data'?IC.scale:IC.info}</span><div>${msg}${act?`<div class="nca">${act}</div>`:''}</div></div>
+  ${stale?`<button class="btn sm ghost block" style="margin-top:10px" data-act="bodyadd">${IC.scale}Registrar mi peso de hoy</button>`:''}
+  ${N.kadj?`<div class="nadj">Ajuste por tu progreso: <b>${N.kadj>0?'+':'−'}${Math.abs(N.kadj)} kcal</b><button class="btn sm ghost" data-act="kadj0">Quitar</button></div>`:''}</div>`;
+}
+/* Peso de las últimas 12 semanas con la línea de la meta */
+function wgChart(gw){
+  const P=S.body.filter(b=>b.w!=null&&Date.now()-b.ts<=84*864e5);if(P.length<2)return '';
+  const W=340,H=110,L=32,R=10,T=10,B=20,iw=W-L-R,ih=H-T-B,vs=P.map(p=>p.w).concat([gw]);
+  let lo=Math.min(...vs),hi=Math.max(...vs);const pad=Math.max(.5,(hi-lo)*.15);lo-=pad;hi+=pad;
+  const t0=P[0].ts,t1=Math.max(P[P.length-1].ts,t0+864e5),X=t=>L+iw*(t-t0)/(t1-t0),Y=v=>T+ih-ih*(v-lo)/(hi-lo);
+  const ln=P.map((p,i)=>(i?'L':'M')+X(p.ts).toFixed(1)+' '+Y(p.w).toFixed(1)).join('');
+  const fd=ts=>{const d=new Date(ts);return d.getDate()+'/'+(d.getMonth()+1);};
+  return `<svg class="wgc" viewBox="0 0 ${W} ${H}" role="img" aria-label="Peso de las últimas semanas y peso meta">
+    <line class="gwl" x1="${L}" x2="${W-R}" y1="${Y(gw)}" y2="${Y(gw)}"/><text class="ax gwt" x="${W-R}" y="${Y(gw)-4}" text-anchor="end">Meta ${NF.format(gw)}</text>
+    <path class="ln" d="${ln}"/>${P.map((p,i)=>`<circle class="pt" cx="${X(p.ts).toFixed(1)}" cy="${Y(p.w).toFixed(1)}" r="${i===P.length-1?4.5:3}"/>`).join('')}
+    <text class="ax" x="${L}" y="${H-5}">${fd(t0)}</text><text class="ax" x="${W-R}" y="${H-5}" text-anchor="end">${fd(P[P.length-1].ts)}</text>
+    <text class="ax" x="${L-5}" y="${Y(P[P.length-1].w)+3}" text-anchor="end">${NF.format(P[P.length-1].w)}</text></svg>`;
 }
 function targetCard(N){
   const mp=k=>Math.round(N[k]*(k==='f'?9:4)/N.kcal*100);
   return `<div class="card ntarget"><div class="over">Tu meta diaria</div><div class="nkcal"><b>${fk(N.kcal)}</b><span>kcal</span></div>
-  <div class="nsub">Gastas cerca de ${fk(N.tdee)} kcal al día · ${GADJ[N.goal][1]}</div>
+  <div class="nsub">Gastas cerca de ${fk(N.tdee)} kcal al día · ${GADJ[N.goal][1]}${N.kadj?` · ${N.kadj>0?'+':'−'}${Math.abs(N.kadj)} por tu progreso`:''}</div><div class="nsub" style="margin-top:2px">${N.obs?`Con tus ${NF.format(N.days)} entrenos por semana de las últimas 4 semanas`:`Con los ${N.days} días de entreno de tu plan`}</div>
   <div class="nmac">${[['p','Proteína'],['c','Carbos'],['f','Grasas']].map(([k,l])=>`<div class="m-${k}"><span>${l}</span><b>${N[k]} g</b><i><s style="width:${mp(k)}%"></s></i><small>${mp(k)} %</small></div>`).join('')}</div>
   <div class="nwater">${IC.drop}<span>Agua: <b>${NF.format(N.water)} L</b> al día, <b>${NF.format(N.waterT)} L</b> los días que entrenas</span></div>
   ${N.note?`<div class="tip soft" style="margin-top:12px">${IC.info}<div>${N.note}</div></div>`:''}</div>`;
 }
 function menuView(N){
-  const d=S.fday??todayIdx,M=dayMenu(d,N);
+  const d=S.fday??todayIdx,M=dayMenu(d,N),WM=workoutMeals(d,M),tr=!!S.program.week[d],kd=dayKcal(d,N);
   const tot=M.reduce((a,m)=>{a.k+=m.tot.k;a.p+=m.tot.p;return a;},{k:0,p:0});
+  const wtag=i=>i===WM.pre?`<span class="wtag pre">Antes de entrenar</span>`:i===WM.post?`<span class="wtag post">Después de entrenar</span>`:'';
+  const wtip=i=>i===WM.pre?`<div class="wtip">1 a 2 horas antes. Carbohidratos fáciles y poca grasa para llegar con energía.</div>`:i===WM.post?`<div class="wtip">Dentro de las 2 horas siguientes. Proteína y carbohidratos para recuperar.</div>`:'';
   return `<h2 class="h2">Menú <small>${pl(S.settings.meals||4,'comida','comidas')} al día</small></h2>
   <div class="wkplan fdays">${LETTERS3.map((l,i)=>`<button data-act="fday" data-v="${i}" class="${i===d?'on':''} ${i===todayIdx?'today':''}"><span class="l">${l}</span></button>`).join('')}</div>
-  ${M.map(m=>`<div class="card meal"><div class="mhd"><div><span class="over">${m.label}</span><b>${esc(m.t)}</b></div><button class="btn sm ghost" data-act="mswap" data-v="${d}-${m.slot}" aria-label="Cambiar ${esc(m.label.toLowerCase())}">${IC.swap}<span class="bl">Cambiar</span></button></div>
-    <ul>${m.items.map(([id,q])=>`<li>${esc(cap1(qtyText(id,q)))}</li>`).join('')}</ul><div class="mft"><span>${fk(m.tot.k)} kcal</span><span>${fk(m.tot.p)} g proteína</span><span>${fk(m.tot.c)} g carbos</span></div></div>`).join('')}
-  <div class="mtot"><span>Total del día</span><b>${fk(tot.k)} kcal · ${fk(tot.p)} g de proteína</b><small>Meta: ${fk(N.kcal)} kcal · ${N.p} g</small></div>
+  <div class="dayk ${tr?'tr':''}">${tr?IC.dumb:IC.moon}<span><b>${tr?'Día de entreno':'Día de descanso'}</b> · ${fk(kd)} kcal${tr&&WM.pre<0&&WM.post>=0&&(S.settings.trainAt||'tar')==='man'?' · antes de entrenar basta un banano o un café':''}</span></div>
+  ${M.map((m,i)=>`<div class="card meal ${i===WM.pre||i===WM.post?'wk':''}"><div class="mhd"><div><span class="over">${m.label}${wtag(i)}</span><b>${esc(m.t)}</b></div><button class="btn sm ghost" data-act="mswap" data-v="${d}-${m.slot}" aria-label="Cambiar ${esc(m.label.toLowerCase())}">${IC.swap}<span class="bl">Cambiar</span></button></div>
+    <ul>${m.items.map(([id,q])=>`<li>${esc(cap1(qtyText(id,q)))}</li>`).join('')}</ul>${wtip(i)}<div class="mft"><span>${fk(m.tot.k)} kcal</span><span>${fk(m.tot.p)} g proteína</span><span>${fk(m.tot.c)} g carbos</span></div></div>`).join('')}
+  <div class="mtot"><span>Total del día</span><b>${fk(tot.k)} kcal · ${fk(tot.p)} g de proteína</b><small>Meta del día: ${fk(kd)} kcal · ${N.p} g</small></div>
   <button class="btn ghost block" style="margin-top:10px" data-act="shop">${IC.cart}Lista de mercado</button>`;
 }
 function foodPrefs(){
@@ -138,6 +241,7 @@ function foodPrefs(){
   return `<h2 class="h2">Preferencias</h2><div class="card">
   <div class="set"><span class="lb">Comidas al día</span><div class="seg">${[3,4,5].map(n=>`<button data-act="fmeals" data-v="${n}" aria-pressed="${(st.meals||4)===n}">${n}</button>`).join('')}</div></div>
   <div class="set"><span class="lb">Actividad fuera del entreno<small>${ACT[st.act||'lig'].s}</small></span><div class="seg">${Object.keys(ACT).map(k=>`<button data-act="fact" data-v="${k}" aria-pressed="${(st.act||'lig')===k}">${ACT[k].t.replace('Poco activo','Poco').replace('Algo activo','Algo').replace('Muy activo','Mucho')}</button>`).join('')}</div></div>
+  <div class="set"><span class="lb">¿A qué hora entrenas?<small>Para ubicar la comida de antes y de después</small></span><div class="seg">${Object.keys(TRAINAT).map(k=>`<button data-act="ftime" data-v="${k}" aria-pressed="${(st.trainAt||'tar')===k}">${TRAINAT[k][0]}</button>`).join('')}</div></div>
   <div class="set inline"><span class="lb">Sin carne<small>Huevos, lácteos y granos como proteína</small></span><button class="sw" data-act="ftog" data-v="veg" aria-pressed="${!!st.veg}" aria-label="Sin carne"></button></div>
   <div class="set inline"><span class="lb">Incluir proteína en polvo<small>En los batidos y la avena</small></span><button class="sw" data-act="ftog" data-v="whey" aria-pressed="${!!st.whey}" aria-label="Proteína en polvo"></button></div></div>`;
 }
@@ -147,7 +251,7 @@ function viewFood(){
   if(!bodyReady(b)||!b.sex)return h+`<div class="card empty nempty">${IC.food}<b>Calcula tu alimentación</b>Con tu edad, peso, estatura y sexo te damos tu rango de peso saludable, tus calorías, la proteína y un menú con comida de aquí.<button class="btn pri sm" style="margin:12px auto 0" data-act="mydata">Poner mis datos</button></div>
     <button class="btn ghost block" style="margin-top:10px" data-act="calc">${IC.ruler}Calcular para otra persona</button>`;
   const N=myNutri();
-  h+=targetCard(N)+healthCard(b,N)+menuView(N)+foodPrefs();
+  h+=progressCard(N,b)+targetCard(N)+healthCard(b,N)+menuView(N)+foodPrefs();
   h+=`<button class="btn ghost block" style="margin-top:10px" data-act="calc">${IC.ruler}Calcular para otra persona</button>
   <p class="nfine" style="margin-top:14px">Guía general calculada con fórmulas estándar. Si tienes una condición médica, estás en embarazo o quieres un plan exacto, consulta a un nutricionista.</p>`;
   return h;
@@ -167,7 +271,9 @@ function renderCalc(){
   <div class="seg" style="margin-top:8px">${[['grasa','Bajar'],['salud','Mantener'],['musculo','Subir']].map(([k,l])=>`<button data-act="cgoal" data-v="${k}" aria-pressed="${C.goal===k}">${l}</button>`).join('')}</div>
   <div class="cres"><div><span>Peso saludable</span><b>${NF.format(N.hw.lo)}–${NF.format(N.hw.hi)} kg</b></div><div><span>IMC</span><b>${NF.format(Math.round(N.bmi*10)/10)}</b><small class="tag ${N.cat.k}">${N.cat.t}</small></div>
   <div><span>Gasto diario</span><b>${fk(N.tdee)} kcal</b></div><div><span>Meta</span><b>${fk(N.kcal)} kcal</b></div><div><span>Proteína</span><b>${N.p} g</b></div><div><span>Agua</span><b>${NF.format(N.water)} L</b></div></div>
-  ${bmiBar(N.bmi)}<div class="acts"><button class="btn" data-act="close">Cerrar</button></div>`);
+  ${bmiBar(N.bmi)}${(()=>{const inch=Math.max(0,C.ht/2.54-60),m=C.sex==='m';const f=[['Devine',(m?45.5:50)+2.3*inch],['Robinson',(m?49:52)+(m?1.7:1.9)*inch],['Miller',(m?53.1:56.2)+(m?1.36:1.41)*inch]];
+    return `<div class="nideal"><span>Peso ideal según fórmulas clásicas</span><div>${f.map(([n,v])=>`<em>${n} <b>${NF.format(Math.round(v*2)/2)} kg</b></em>`).join('')}</div></div>`;})()}
+  <div class="acts"><button class="btn" data-act="close">Cerrar</button></div>`);
 }
 function shopSheet(){
   const N=myNutri();if(!N)return;const L=weekShop(N),done=new Set(S.settings.shopDone||[]);
@@ -209,6 +315,10 @@ function foodAct(a,v){
     case 'mswap':{const sw=st.mswap||(st.mswap={});sw[v]=(sw[v]||0)+1;saveSettings();render();return true;}
     case 'fmeals':st.meals=+v;st.mswap={};saveSettings();render();return true;
     case 'fact':st.act=v;saveSettings();render();return true;
+    case 'ftime':st.trainAt=v;saveSettings();render();return true;
+    case 'kadj':st.kadj=(st.kadj||0)+(+v);st.kadjAt=Date.now();saveSettings();render();toast(IC.check+`<span>Meta ajustada: ${+v>0?'+':'−'}${Math.abs(+v)} kcal al día</span>`);return true;
+    case 'kadj0':st.kadj=0;st.kadjAt=0;saveSettings();render();return true;
+    case 'gwt':{const b=myBody(),N=myNutri();if(!N)return true;st.goalWt=Math.round((goalWeight(N,b)+(+v))*2)/2;saveSettings();render();return true;}
     case 'ftog':st[v]=!st[v];saveSettings();render();return true;
     case 'shop':shopSheet();return true;
     case 'shopck':{const s=new Set(st.shopDone||[]);s.has(v)?s.delete(v):s.add(v);st.shopDone=[...s];saveSettings();shopSheet();return true;}

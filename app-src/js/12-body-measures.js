@@ -1,6 +1,6 @@
 /* Peso y medidas corporales */
 /* ---------- cuerpo ---------- */
-const BODYF=[['w','Peso','kg'],['waist','Cintura','cm'],['chest','Pecho','cm'],['arm','Brazo','cm']];
+const BODYF=[['w','Peso','kg'],['waist','Cintura','cm'],['neck','Cuello','cm'],['hip','Cadera','cm'],['chest','Pecho','cm'],['arm','Brazo','cm']];
 function simpleLine(pts,unit,label){
   const W=340,H=120,L=34,R=12,T=12,B=22,iw=W-L-R,ih=H-T-B;
   let lo=Math.min(...pts.map(p=>p.v)),hi=Math.max(...pts.map(p=>p.v));

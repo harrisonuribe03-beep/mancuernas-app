@@ -45,18 +45,18 @@ const MEALS={
     {t:'Arepa con huevos y queso',p:['huevo'],c:['arepa'],x:[['queso',1],['cafe',1]]},
     {t:'Huevos pericos con arepa y fruta',p:['huevo'],c:['arepa'],x:[['hogao',2],['papaya',1]]},
     {t:'Calentado liviano con huevo',p:['huevo'],c:['arroz','frijol'],x:[['hogao',1],['cafe',1]]},
-    {t:'Avena con banano',p:['leche'],c:['avena','banano'],x:[],w:'whey'},
+    {t:'Avena con banano',pre:1,p:['leche'],c:['avena','banano'],x:[],w:'whey'},
     {t:'Pan integral con huevo y aguacate',p:['huevo'],c:['pan'],x:[['aguacate',1],['cafe',1]]},
-    {t:'Yogur griego con avena y fresas',p:['yogur'],c:['avena'],x:[['fresa',1]]}
+    {t:'Yogur griego con avena y fresas',pre:1,p:['yogur'],c:['avena'],x:[['fresa',1]]}
   ],
   alm:[
     {t:'Bandeja paisa liviana',tv:'Bandeja paisa vegetariana',p:['molida'],pv:['huevo'],c:['arroz','frijol'],x:[['platano',.25],['aguacate',1],['ensalada',1]]},
-    {t:'Pollo a la plancha con arroz, maduro y ensalada',tv:'Garbanzos con arroz, maduro y ensalada',p:['pollo'],pv:['garbanzo'],c:['arroz','platano'],x:[['ensalada',1],['aceite',1]]},
+    {t:'Pollo a la plancha con arroz, maduro y ensalada',pre:1,tv:'Garbanzos con arroz, maduro y ensalada',p:['pollo'],pv:['garbanzo'],c:['arroz','platano'],x:[['ensalada',1],['aceite',1]]},
     {t:'Tilapia con arroz, patacón al horno y ensalada',tv:'Huevos con arroz, maduro y ensalada',p:['pescado'],pv:['huevo'],c:['arroz','platano'],x:[['ensalada',1],['aguacate',1]]},
     {t:'Lentejas con arroz y carne',tv:'Lentejas con arroz y queso',p:['res'],pv:['queso'],c:['arroz','lenteja'],x:[['ensalada',1],['aceite',1]]},
-    {t:'Sudado de pollo con papa y yuca',tv:'Sudado de garbanzos con papa y yuca',p:['pollo'],pv:['garbanzo'],c:['papa','yuca','arroz'],x:[['hogao',2]]},
+    {t:'Sudado de pollo con papa y yuca',pre:1,tv:'Sudado de garbanzos con papa y yuca',p:['pollo'],pv:['garbanzo'],c:['papa','yuca','arroz'],x:[['hogao',2]]},
     {t:'Carne asada con papa y ensalada',tv:'Huevos con papa, arroz y ensalada',p:['res'],pv:['huevo'],c:['papa','arroz'],x:[['ensalada',1],['aguacate',1]]},
-    {t:'Pasta con pollo y verduras',tv:'Pasta con garbanzos y verduras',p:['pollo'],pv:['garbanzo'],c:['pasta'],x:[['verduras',1],['aceite',1]]}
+    {t:'Pasta con pollo y verduras',pre:1,tv:'Pasta con garbanzos y verduras',p:['pollo'],pv:['garbanzo'],c:['pasta'],x:[['verduras',1],['aceite',1]]}
   ],
   cen:[
     {t:'Pechuga con papa y verduras',tv:'Tortilla de huevo con papa y verduras',p:['pollo'],pv:['huevo'],c:['papa'],x:[['verduras',1],['aceite',1]]},
@@ -67,11 +67,11 @@ const MEALS={
     {t:'Lomo de cerdo con papa y ensalada',tv:'Lentejas con papa y ensalada',p:['cerdo'],pv:['lenteja'],c:['papa'],x:[['ensalada',1]]}
   ],
   med:[
-    {t:'Fruta con yogur griego',p:['yogur'],c:['mango'],x:[]},
-    {t:'Queso campesino con bocadillo',p:['queso'],c:['bocadillo'],x:[]},
+    {t:'Fruta con yogur griego',pre:1,p:['yogur'],c:['mango'],x:[]},
+    {t:'Queso campesino con bocadillo',pre:1,p:['queso'],c:['bocadillo'],x:[]},
     {t:'Maní y banano',p:['mani'],c:['banano'],x:[]},
-    {t:'Batido de leche, banano y avena',p:['leche'],c:['banano','avena'],x:[],w:'whey'},
-    {t:'Pan integral con queso',p:['queso'],c:['pan'],x:[]},
+    {t:'Batido de leche, banano y avena',pre:1,p:['leche'],c:['banano','avena'],x:[],w:'whey'},
+    {t:'Pan integral con queso',pre:1,p:['queso'],c:['pan'],x:[]},
     {t:'Huevos cocidos y manzana',p:['huevo'],c:['manzana'],x:[]}
   ]
 };
