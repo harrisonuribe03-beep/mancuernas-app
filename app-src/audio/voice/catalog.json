@@ -47,6 +47,10 @@
 "t": "180 segundos.",
 "s": "info"
 },
+"71600739": {
+"t": "Prensa de piernas.",
+"s": "info"
+},
 "75254495": {
 "t": "98 minutos,",
 "s": "info"
@@ -4927,6 +4931,294 @@
 "t": "Elevación de piernas con rodillas dobladas.",
 "s": "info"
 },
+"a7892f90": {
+"t": "Sentadilla libre.",
+"s": "info"
+},
+"43cff532": {
+"t": "Sentadilla en la pared.",
+"s": "info"
+},
+"2186df90": {
+"t": "Zancada reversa sin peso.",
+"s": "info"
+},
+"4fced92a": {
+"t": "Sentadilla búlgara sin peso.",
+"s": "info"
+},
+"b4481066": {
+"t": "Puente de glúteo a una pierna.",
+"s": "info"
+},
+"6bd969d1": {
+"t": "Peso muerto a una pierna sin peso.",
+"s": "info"
+},
+"2a4093ca": {
+"t": "Superman.",
+"s": "info"
+},
+"9283dc18": {
+"t": "Flexiones inclinadas.",
+"s": "info"
+},
+"ef3cd767": {
+"t": "Flexiones pica.",
+"s": "info"
+},
+"d6f932cc": {
+"t": "Fondos en silla.",
+"s": "info"
+},
+"043dcd43": {
+"t": "Remo invertido bajo la mesa.",
+"s": "info"
+},
+"b4ead545": {
+"t": "Ye, te, doble ve, boca abajo.",
+"s": "info"
+},
+"454b9136": {
+"t": "Elevación de talones a una pierna.",
+"s": "info"
+},
+"85e9fea6": {
+"t": "Cranch.",
+"s": "info"
+},
+"b8f23679": {
+"t": "Jólou jold.",
+"s": "info"
+},
+"b4dcec8f": {
+"t": "Escaladores.",
+"s": "info"
+},
+"9c1f7211": {
+"t": "Dominadas.",
+"s": "info"
+},
+"a9cfeb38": {
+"t": "Dominadas supinas.",
+"s": "info"
+},
+"012a0ce1": {
+"t": "Dominadas negativas.",
+"s": "info"
+},
+"d275d0bd": {
+"t": "Elevación de rodillas colgado.",
+"s": "info"
+},
+"a413f17c": {
+"t": "Fondos en paralelas.",
+"s": "info"
+},
+"2732f5b8": {
+"t": "Remo con banda.",
+"s": "info"
+},
+"4b75c007": {
+"t": "Jalón con banda.",
+"s": "info"
+},
+"f5bc5e4f": {
+"t": "Feis pul con banda.",
+"s": "info"
+},
+"e48ce713": {
+"t": "Separación de banda.",
+"s": "info"
+},
+"d0fc8a39": {
+"t": "Pálof pres con banda.",
+"s": "info"
+},
+"d244a9a0": {
+"t": "Suin con kételbel.",
+"s": "info"
+},
+"26cc1bad": {
+"t": "Press de banca con mancuernas.",
+"s": "info"
+},
+"5f4aee88": {
+"t": "Press inclinado con mancuernas.",
+"s": "info"
+},
+"1adf3a80": {
+"t": "Aperturas en banco.",
+"s": "info"
+},
+"55e9604a": {
+"t": "Remo apoyado en banco inclinado.",
+"s": "info"
+},
+"5e214b52": {
+"t": "Jip trast con mancuerna.",
+"s": "info"
+},
+"2877c12e": {
+"t": "Curl inclinado.",
+"s": "info"
+},
+"a7ce1072": {
+"t": "Sentadilla con barra.",
+"s": "info"
+},
+"61bc72a4": {
+"t": "Press de banca con barra.",
+"s": "info"
+},
+"c65cf522": {
+"t": "Peso muerto con barra.",
+"s": "info"
+},
+"03bc333e": {
+"t": "Peso muerto rumano con barra.",
+"s": "info"
+},
+"5c092cfe": {
+"t": "Press militar con barra.",
+"s": "info"
+},
+"f26fc232": {
+"t": "Remo con barra.",
+"s": "info"
+},
+"02d6b9d4": {
+"t": "Jip trast con barra.",
+"s": "info"
+},
+"df21b107": {
+"t": "Curl con barra.",
+"s": "info"
+},
+"09d31892": {
+"t": "Press francés con barra.",
+"s": "info"
+},
+"58d3bad9": {
+"t": "Sentadilla en Esmit.",
+"s": "info"
+},
+"87522a2a": {
+"t": "Press inclinado en Esmit.",
+"s": "info"
+},
+"465a7f4c": {
+"t": "Sentadilla jak.",
+"s": "info"
+},
+"46ecb0e8": {
+"t": "Extensión de cuádriceps.",
+"s": "info"
+},
+"a13bf8c9": {
+"t": "Curl femoral acostado.",
+"s": "info"
+},
+"a7429dc7": {
+"t": "Curl femoral sentado.",
+"s": "info"
+},
+"8fe4d969": {
+"t": "Abducción de cadera en máquina.",
+"s": "info"
+},
+"d3cc68eb": {
+"t": "Aducción de cadera en máquina.",
+"s": "info"
+},
+"dddb6887": {
+"t": "Patada de glúteo en máquina.",
+"s": "info"
+},
+"4500b5f7": {
+"t": "Elevación de talones en máquina.",
+"s": "info"
+},
+"577deaa3": {
+"t": "Press de pecho en máquina.",
+"s": "info"
+},
+"9a01da95": {
+"t": "Aperturas en pec dec.",
+"s": "info"
+},
+"2858d626": {
+"t": "Pájaros en pec dec.",
+"s": "info"
+},
+"df3e5d39": {
+"t": "Press de hombro en máquina.",
+"s": "info"
+},
+"526fa7bf": {
+"t": "Jalón al pecho.",
+"s": "info"
+},
+"f173c9d3": {
+"t": "Jalón agarre cerrado.",
+"s": "info"
+},
+"e70c844d": {
+"t": "Remo sentado en máquina.",
+"s": "info"
+},
+"636607e0": {
+"t": "Hiperextensiones.",
+"s": "info"
+},
+"d44e3956": {
+"t": "Curl en banco predicador.",
+"s": "info"
+},
+"4af15f5a": {
+"t": "Cruce de poleas.",
+"s": "info"
+},
+"04965729": {
+"t": "Extensión de tríceps en polea.",
+"s": "info"
+},
+"66dc9a51": {
+"t": "Extensión de tríceps sobre la cabeza en polea.",
+"s": "info"
+},
+"dbe1aec7": {
+"t": "Curl en polea.",
+"s": "info"
+},
+"ad8a98c5": {
+"t": "Feis pul en polea.",
+"s": "info"
+},
+"c5625344": {
+"t": "Remo en polea baja.",
+"s": "info"
+},
+"8326a4b4": {
+"t": "Elevación lateral en polea.",
+"s": "info"
+},
+"1e889608": {
+"t": "Cranch en polea.",
+"s": "info"
+},
+"557f0452": {
+"t": "Patada de glúteo en polea.",
+"s": "info"
+},
+"7c1f3707": {
+"t": "Pálof pres en polea.",
+"s": "info"
+},
+"34f56e40": {
+"t": "Pullover en polea.",
+"s": "info"
+},
 "ceb1bdb2": {
 "t": "Trote o saltos en el sitio.",
 "s": "info"
@@ -4963,8 +5255,24 @@
 "t": "Puente de glúteo sin peso.",
 "s": "info"
 },
-"2186df90": {
-"t": "Zancada reversa sin peso.",
+"b24fd833": {
+"t": "Caminadora, bici o elíptica suave.",
+"s": "info"
+},
+"5393c34b": {
+"t": "Cardio suave en caminadora.",
+"s": "info"
+},
+"85933f28": {
+"t": "Cardio suave en bicicleta estática.",
+"s": "info"
+},
+"633cb2db": {
+"t": "Cardio suave en elíptica.",
+"s": "info"
+},
+"ec191cbc": {
+"t": "Cardio suave en remo de cardio.",
 "s": "info"
 },
 "d3cb9ec2": {
@@ -5057,10 +5365,6 @@
 },
 "92d72425": {
 "t": "Sentadilla con salto.",
-"s": "info"
-},
-"b4dcec8f": {
-"t": "Escaladores.",
 "s": "info"
 },
 "bced04bf": {
