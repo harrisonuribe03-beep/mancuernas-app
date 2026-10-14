@@ -31,3 +31,8 @@ files = [f for f in os.listdir(RAW) if f.endswith('.mp3')]
 with ThreadPoolExecutor(8) as ex:
     done = list(ex.map(one, files))
 print(len(done), 'clips procesados en', OUT)
+# Borra los clips que ya no están en el catálogo
+cat = json.load(open(os.path.join(os.path.dirname(OUT), 'catalog.json')))
+old = [f for f in os.listdir(OUT) if f.endswith('.mp3') and f[:-4] not in cat]
+for f in old: os.remove(os.path.join(OUT, f))
+print(len(old), 'clips viejos borrados')
