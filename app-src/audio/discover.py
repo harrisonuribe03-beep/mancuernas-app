@@ -32,12 +32,15 @@ for key, q in FS_QUERIES.items():
         html = get(url)
     except Exception as e:
         print('FS fallo', key, e); continue
-    open(f'{OUT}/fs-{key}.html', 'w').write(html)
-    prev = re.findall(r'https://cdn\.freesound\.org/previews/\d+/(\d+)_(\d+)-hq\.mp3', html)
+    prev = re.findall(r'previews/\d+/(\d+)_(\d+)-(?:hq|lq)\.(?:mp3|ogg)', html)
+    if not prev:
+        snip = [html[m.start()-120:m.start()+160] for m in re.finditer(r'preview|\.mp3|sound-id|data-', html)][:4]
+        print('FS sin vistas previas', key, len(html), [x.replace('\n', ' ') for x in snip])
+    titles = dict(re.findall(r'/people/[^/"]+/sounds/(\d+)/"[^>]*>\s*([^<]{2,80})<', html))
     seen = []
     for sid, uid in prev:
         if (sid, uid) not in seen: seen.append((sid, uid))
-    index['freesound'][key] = [{'id': s, 'user': u} for s, u in seen]
+    index['freesound'][key] = [{'id': s, 'user': u, 't': titles.get(s, '').strip()} for s, u in seen]
     for s, u in seen[:8]:
         f = f'{OUT}/mp3/fs-{key}-{s}.mp3'
         if os.path.exists(f): continue
@@ -54,18 +57,24 @@ for cat in MIX:
         html = get(f'https://mixkit.co/free-sound-effects/{cat}/')
     except Exception as e:
         print('MIX fallo', cat, e); continue
-    open(f'{OUT}/mix-{cat}.html', 'w').write(html)
-    urls = sorted(set(re.findall(r'https://assets\.mixkit\.co/active_storage/sfx/\d+/\d+(?:-preview)?\.mp3', html)))
+    urls = []
+    for m in re.finditer(r'https://assets\.mixkit\.co/active_storage/sfx/(\d+)/\d+(?:-preview)?\.mp3', html):
+        sid = m.group(1)
+        if any(u['id'] == sid for u in urls): continue
+        after = html[m.end():m.end() + 4000]
+        t = re.search(r'item-grid-card__title[^>]*>\s*([^<]+)<', after) or re.search(r'<h\d[^>]*>\s*([^<]{3,80})<', after)
+        d = re.search(r'(\d+:\d\d)', after)
+        urls.append({'id': sid, 'url': m.group(0), 't': t.group(1).strip() if t else '', 'd': d.group(1) if d else ''})
     index['mixkit'][cat] = urls
     for u in urls[:40]:
-        sid = re.search(r'/sfx/(\d+)/', u).group(1)
-        f = f'{OUT}/mp3/mix-{cat}-{sid}.mp3'
+        sid = u['id']
+        f = f'{OUT}/mp3/mix-{sid}.mp3'
         if os.path.exists(f): continue
         try:
-            open(f, 'wb').write(get(u, True))
+            open(f, 'wb').write(get(u['url'], True))
         except Exception as e:
-            print('mp3 fallo', u, e)
+            print('mp3 fallo', u['url'], e)
         time.sleep(0.2)
-    print('MIX', cat, len(urls))
+    print('MIX', cat, len(urls), '|', '; '.join(u['t'] for u in urls[:6]))
 
 json.dump(index, open(f'{OUT}/index.json', 'w'), indent=1)
