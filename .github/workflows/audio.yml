@@ -33,15 +33,5 @@ jobs:
           which ffmpeg || (sudo apt-get update -qq && sudo apt-get install -y -qq ffmpeg)
           ffmpeg -version | head -1
 
-      - name: Generar
-        run: bash app-src/audio/gen.sh "${{ inputs.task }}"
-
-      - name: Publicar en la rama audio-${{ inputs.task }}
-        run: |
-          cd app-src/audio/out
-          git init -q -b audio-${{ inputs.task }}
-          git config user.name "github-actions[bot]"
-          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add -A
-          git commit -q -m "Audio generado (${{ inputs.task }})"
-          git push -q -f "https://x-access-token:${{ github.token }}@github.com/${{ github.repository }}.git" HEAD:audio-${{ inputs.task }}
+      - name: Generar y publicar en la rama audio-<tarea>
+        run: bash app-src/audio/ci.sh "${{ inputs.task }}" "${{ github.repository }}" "${{ github.token }}"
