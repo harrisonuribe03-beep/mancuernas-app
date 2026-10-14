@@ -32,6 +32,6 @@ if [ "$T" = "voz" ] || [ "$T" = "todo" ]; then
 fi
 
 if [ "$T" = "verificar" ]; then
-  pip install -q faster-whisper "av>=14"
+  pip install -q faster-whisper
   python3 verify.py
 fi

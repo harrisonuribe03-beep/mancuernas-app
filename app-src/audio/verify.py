@@ -1,5 +1,6 @@
 """Transcribe una muestra de clips con Whisper y la compara con el texto esperado."""
-import json, os, random, re, unicodedata
+import json, os, random, re, subprocess, unicodedata
+import numpy as np
 from faster_whisper import WhisperModel
 
 cat = json.load(open('voice/catalog.json'))
@@ -13,7 +14,10 @@ norm = lambda s: re.sub(r'[^a-z0-9ñ ]', '', unicodedata.normalize('NFKD', s.low
 os.makedirs('out/verificar', exist_ok=True)
 rows, bad = [], 0
 for h in sample:
-    segs, _ = m.transcribe(f'voice/salome/{h}.mp3', language='es', beam_size=5)
+    pcm = subprocess.run(['ffmpeg', '-v', 'error', '-i', f'voice/salome/{h}.mp3', '-ac', '1', '-ar', '16000', '-f', 'f32le', '-'], capture_output=True).stdout
+    audio = np.frombuffer(pcm, dtype=np.float32)
+    audio = np.concatenate([np.zeros(4000, np.float32), audio, np.zeros(8000, np.float32)])
+    segs, _ = m.transcribe(audio, language='es', beam_size=5)
     got = ' '.join(s.text.strip() for s in segs)
     exp = cat[h]['t']
     a, b = set(norm(exp)), set(norm(got))
