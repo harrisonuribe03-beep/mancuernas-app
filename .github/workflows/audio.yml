@@ -1,0 +1,46 @@
+name: Generar audio
+
+# Genera la voz del coach (voz neuronal colombiana) y descarga los sonidos reales.
+# Se corre a mano desde la pestaña Actions o con la API; deja los archivos en app-src/audio/out.
+on:
+  workflow_dispatch:
+    inputs:
+      task:
+        description: "Qué generar: prueba, voz, sonidos o todo"
+        default: todo
+
+permissions:
+  contents: write
+
+jobs:
+  gen:
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Herramientas
+        run: |
+          pip install edge-tts
+          which ffmpeg || (sudo apt-get update -qq && sudo apt-get install -y -qq ffmpeg)
+          ffmpeg -version | head -1
+
+      - name: Generar
+        run: bash app-src/audio/gen.sh "${{ inputs.task }}"
+
+      - name: Guardar en el repositorio
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -A app-src/audio/out
+          git diff --cached --quiet && echo "Sin cambios" && exit 0
+          git commit -q -m "Audio generado (${{ inputs.task }}) [skip ci]"
+          git push
