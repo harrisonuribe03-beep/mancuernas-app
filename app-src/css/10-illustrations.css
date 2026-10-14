@@ -1,0 +1,25 @@
+/* ilustraciones */
+.xa{position:relative;width:100%;height:100%;display:block}
+.xa img{position:absolute;inset:0;width:100%;height:100%;object-fit:contain;display:block;-webkit-user-drag:none;user-select:none}
+.xa.two img.b{animation:xf 3.4s cubic-bezier(.45,0,.25,1) infinite}
+.xa.two img.a{animation:xfa 3.4s cubic-bezier(.45,0,.25,1) infinite}
+@keyframes xf{0%,28%{opacity:0}46%,78%{opacity:1}96%,100%{opacity:0}}
+@keyframes xfa{0%,28%{opacity:1}46%,78%{opacity:0}96%,100%{opacity:1}}
+.xa.one img{animation:breathe 3.2s ease-in-out infinite;transform-origin:50% 80%}
+@keyframes breathe{0%,100%{transform:scale(1)}50%{transform:scale(1.015) translateY(-1px)}}
+.thumb .xa img{animation:none!important}
+.thumb{background:var(--art-bg)}
+.ph{display:flex;gap:6px;justify-content:center;margin-top:6px}
+.ph span{font-size:.66rem;font-weight:800;letter-spacing:.06em;text-transform:uppercase;padding:3px 8px;border-radius:10px;color:var(--tx3);background:var(--s3)}
+.ph.two span:first-child{animation:pha 3.4s cubic-bezier(.45,0,.25,1) infinite}
+.ph.two span:last-child{animation:phb 3.4s cubic-bezier(.45,0,.25,1) infinite}
+@keyframes pha{0%,28%,96%,100%{background:var(--acc);color:#fff}46%,78%{background:var(--s3);color:var(--tx3)}}
+@keyframes phb{0%,28%,96%,100%{background:var(--s3);color:var(--tx3)}46%,78%{background:var(--acc);color:#fff}}
+@media (prefers-reduced-motion:reduce){.xa.two img.b,.xa.two img.a,.xa.one img,.ph span{animation:none!important}.xa.two img.b{opacity:0}}
+.bn{stroke:var(--fig)}.bf{stroke:var(--fig2)}.mn{stroke:var(--mus)}.mf{stroke:var(--mus2)}
+.bnf{fill:var(--fig)}.bff{fill:var(--fig2)}.mnf{fill:var(--mus)}.mff{fill:var(--mus2)}
+.fig .bnp{fill:var(--fig);stroke:var(--fig);stroke-width:2.2}.fig .mnp{fill:var(--mus);stroke:var(--mus);stroke-width:2.2}
+.mt{fill:var(--metal)}.mtf{fill:var(--metal2)}.fig .mtl{stroke:var(--metal)}.fig .mtfl{stroke:var(--metal2)}.mth{fill:var(--s1)}
+.fl{fill:var(--shadow);opacity:.12}.pr{fill:var(--prop)}.pr2{fill:var(--prop2)}
+@media (prefers-reduced-motion:reduce){.fade,#sheet .pan,.sum .ok{animation:none}}
+

@@ -4,4 +4,11 @@
     <string name="title_activity_main">Mancuernas</string>
     <string name="package_name">com.harrison.mancuernas</string>
     <string name="custom_url_scheme">com.harrison.mancuernas</string>
+    <string name="widget_desc">Tu entreno de hoy, la racha y la semana</string>
+    <string name="sc_start">Entrenar hoy</string>
+    <string name="sc_start_long">Empezar el entreno de hoy</string>
+    <string name="sc_hiit">Intervalos</string>
+    <string name="sc_stretch">Estirar</string>
+    <string name="sc_body">Peso</string>
+    <string name="sc_body_long">Registrar peso</string>
 </resources>

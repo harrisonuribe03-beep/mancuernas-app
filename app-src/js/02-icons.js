@@ -1,0 +1,36 @@
+/* Iconos SVG */
+const I=d=>`<svg class="i" viewBox="0 0 24 24">${d}</svg>`;
+const IC={
+  flame:'<svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2c1 3.5-1.6 5.3-1.6 8.1 0 1.4 1 2.5 2.2 2.5 1.6 0 2.4-1.4 2-3.4 2.4 1.5 3.9 4 3.9 6.6A6.5 6.5 0 0 1 12 22a6.5 6.5 0 0 1-6.5-6.2C5.5 10.7 10.5 8 12 2z"/></svg>',
+  check:I('<path d="M4 12.5l5 5L20 6.5"/>'),
+  x:I('<path d="M6 6l12 12M18 6 6 18"/>'),
+  clock:I('<circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/>'),
+  list:I('<path d="M9 6h11M9 12h11M9 18h11M4 6h.01M4 12h.01M4 18h.01"/>'),
+  layers:I('<path d="M12 3 2 8l10 5 10-5z"/><path d="m2 13 10 5 10-5"/>'),
+  left:I('<path d="M15 18 9 12l6-6"/>'),
+  right:I('<path d="m9 18 6-6-6-6"/>'),
+  down:I('<path d="m6 9 6 6 6-6"/>'),
+  plus:I('<path d="M12 5v14M5 12h14"/>'),
+  play:'<svg class="i" viewBox="0 0 24 24" fill="currentColor" stroke="none"><path d="M8 5.5v13l10.5-6.5z"/></svg>',
+  info:I('<circle cx="12" cy="12" r="9"/><path d="M12 11v5M12 8h.01"/>'),
+  warn:I('<path d="M12 3 2 20h20z"/><path d="M12 10v4M12 17h.01"/>'),
+  search:I('<circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/>'),
+  trophy:I('<path d="M7 4h10v5a5 5 0 0 1-10 0zM7 6H4v1a3 3 0 0 0 3 3M17 6h3v1a3 3 0 0 1-3 3M12 14v4M8 21h8"/>'),
+  star:'<svg class="i" viewBox="0 0 24 24" fill="currentColor" stroke="none"><path d="M12 3l2.6 5.6 6.1.7-4.5 4.2 1.2 6L12 16.6 6.6 19.5l1.2-6L3.3 9.3l6.1-.7z"/></svg>',
+  bolt:'<svg class="i" viewBox="0 0 24 24" fill="currentColor" stroke="none"><path d="M13 2 4 14h7l-1 8 9-12h-7z"/></svg>',
+  cal:I('<rect x="3" y="5" width="18" height="16" rx="3"/><path d="M3 10h18M8 3v4M16 3v4"/>'),
+  dumb:I('<path d="M3 12h18M6.5 8v8M17.5 8v8M3.5 10v4M20.5 10v4"/>'),
+  up:I('<path d="M12 19V5M5 12l7-7 7 7"/>'),
+  pen:I('<path d="M4 20h4L19 9l-4-4L4 16z"/>'),
+  min:I('<path d="m6 9 6 6 6-6"/>'),
+  dots:'<svg class="i" viewBox="0 0 24 24" fill="currentColor" stroke="none"><circle cx="5" cy="12" r="2"/><circle cx="12" cy="12" r="2"/><circle cx="19" cy="12" r="2"/></svg>',
+  moon:I('<path d="M20 14.5A8 8 0 0 1 9.5 4a8 8 0 1 0 10.5 10.5z"/>'),
+  vol:I('<path d="M4 9v6h4l5 4V5L8 9z"/><path d="M16.5 8.5a5 5 0 0 1 0 7M19 6a8.5 8.5 0 0 1 0 12"/>'),
+  cam:I('<path d="M4 8h3l2-3h6l2 3h3v11H4z"/><circle cx="12" cy="13" r="3.5"/>'),
+  body:I('<circle cx="12" cy="4.5" r="2"/><path d="M6 8.5h12M12 8.5v6M12 14.5l-3 7M12 14.5l3 7"/>'),
+  share:I('<path d="M12 3v12M7 8l5-5 5 5M5 14v5a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2v-5"/>'),
+  swap:I('<path d="M7 4 3 8l4 4M3 8h14M17 20l4-4-4-4M21 16H7"/>'),
+  bell:I('<path d="M6 16V11a6 6 0 0 1 12 0v5l2 2H4z"/><path d="M10 21h4"/>'),
+  dl:I('<path d="M12 3v12M7 10l5 5 5-5M5 21h14"/>')
+};
+

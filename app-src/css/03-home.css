@@ -1,0 +1,33 @@
+/* inicio */
+.top{display:flex;align-items:center;justify-content:space-between;gap:12px;padding-top:6px}
+.streak{display:flex;align-items:center;gap:6px;height:36px;padding:0 12px;border-radius:18px;background:var(--s1);border:1px solid var(--line);font-weight:800;flex:none}
+.streak svg{width:17px;height:17px;color:#ff7a2f}
+.week{display:grid;grid-template-columns:repeat(7,1fr);gap:4px;margin:16px 0 0}
+.week button{display:flex;flex-direction:column;align-items:center;gap:5px;padding:4px 0 2px}
+.week .l{font-size:.7rem;font-weight:700;color:var(--tx3)}
+.week .c{width:40px;height:40px;border-radius:50%;display:grid;place-items:center;font-weight:700;font-size:.92rem;color:var(--tx2)}
+.week .c.on{background:var(--acc);color:#fff}
+.week .c.rest{color:var(--tx3)}
+.week button.today .c:not(.on){box-shadow:inset 0 0 0 2px var(--acc);color:var(--acc)}
+.week button.today .l{color:var(--acc)}
+.week .sel{width:5px;height:5px;border-radius:50%;background:transparent}
+.week button[aria-pressed="true"] .sel{background:var(--tx)}
+.wkcap{font-size:.8rem;color:var(--tx2);text-align:center;margin-top:6px}
+.hero{margin-top:14px;border-radius:20px;padding:20px 18px 14px;color:#fff;background:linear-gradient(140deg,#4a63ff 0%,#2d43d9 62%,#2236b8 100%)}
+.hero .over{color:rgba(255,255,255,.78);display:flex;align-items:center;gap:8px}
+.hero h2{margin:6px 0 2px;font-size:2rem;font-weight:800;letter-spacing:-.02em;line-height:1.1}
+.hero .mus{color:rgba(255,255,255,.88);font-size:.92rem}
+.hero .meta{display:flex;gap:16px;margin:14px 0 16px;flex-wrap:wrap}
+.hero .meta span{display:flex;align-items:center;gap:6px;font-weight:600;font-size:.88rem}
+.hero .meta svg{width:16px;height:16px}
+.hero .done{display:inline-flex;align-items:center;gap:4px;background:rgba(255,255,255,.2);padding:3px 9px;border-radius:20px;font-size:.72rem;letter-spacing:.02em;color:#fff}
+.hero .alt{display:block;width:100%;text-align:center;color:rgba(255,255,255,.9);font-weight:600;font-size:.86rem;padding:12px 0 2px;min-height:44px}
+.banner{display:flex;align-items:center;gap:12px;justify-content:space-between;padding:12px 14px;margin-top:14px;border-color:var(--acc)}
+.banner b{display:block;font-size:.95rem}
+.minis{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}
+.minis div{padding:12px}
+.minis b{display:block;font-size:1.25rem;font-weight:800}
+.minis span{font-size:.75rem;color:var(--tx2)}
+.restday{margin-top:14px;padding:20px 18px}
+.restday h2{margin:4px 0 6px;font-size:1.5rem;font-weight:800}
+

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<shortcuts xmlns:android="http://schemas.android.com/apk/res/android">
+    <shortcut android:shortcutId="start" android:enabled="true" android:icon="@drawable/sc_start"
+        android:shortcutShortLabel="@string/sc_start" android:shortcutLongLabel="@string/sc_start_long">
+        <intent android:action="android.intent.action.VIEW" android:targetPackage="com.harrison.mancuernas"
+            android:targetClass="com.harrison.mancuernas.MainActivity" android:data="mancuernas://start" />
+    </shortcut>
+    <shortcut android:shortcutId="hiit" android:enabled="true" android:icon="@drawable/sc_hiit"
+        android:shortcutShortLabel="@string/sc_hiit" android:shortcutLongLabel="@string/sc_hiit">
+        <intent android:action="android.intent.action.VIEW" android:targetPackage="com.harrison.mancuernas"
+            android:targetClass="com.harrison.mancuernas.MainActivity" android:data="mancuernas://hiit" />
+    </shortcut>
+    <shortcut android:shortcutId="stretch" android:enabled="true" android:icon="@drawable/sc_stretch"
+        android:shortcutShortLabel="@string/sc_stretch" android:shortcutLongLabel="@string/sc_stretch">
+        <intent android:action="android.intent.action.VIEW" android:targetPackage="com.harrison.mancuernas"
+            android:targetClass="com.harrison.mancuernas.MainActivity" android:data="mancuernas://stretch" />
+    </shortcut>
+    <shortcut android:shortcutId="body" android:enabled="true" android:icon="@drawable/sc_body"
+        android:shortcutShortLabel="@string/sc_body" android:shortcutLongLabel="@string/sc_body_long">
+        <intent android:action="android.intent.action.VIEW" android:targetPackage="com.harrison.mancuernas"
+            android:targetClass="com.harrison.mancuernas.MainActivity" android:data="mancuernas://body" />
+    </shortcut>
+</shortcuts>

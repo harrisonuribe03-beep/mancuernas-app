@@ -1,6 +1,12 @@
 package com.harrison.mancuernas;
 
+import android.app.Notification;
+import android.app.NotificationChannel;
+import android.app.NotificationManager;
+import android.app.PendingIntent;
 import android.content.Context;
+import android.content.Intent;
+import android.content.SharedPreferences;
 import android.content.res.AssetFileDescriptor;
 import android.media.AudioAttributes;
 import android.media.AudioFocusRequest;
@@ -210,6 +216,91 @@ public class NativePlugin extends Plugin {
         if (tts != null) tts.stop();
         duck(false);
         call.resolve();
+    }
+
+
+    // ---------- notificación en curso: cronómetro del entreno o cuenta regresiva del descanso ----------
+    private static final int ONGOING_ID = 900;
+    private static final String CH = "mc_live";
+
+    private void ensureChannel() {
+        if (Build.VERSION.SDK_INT >= 26) {
+            NotificationManager nm = (NotificationManager) getContext().getSystemService(Context.NOTIFICATION_SERVICE);
+            if (nm != null && nm.getNotificationChannel(CH) == null) {
+                NotificationChannel c = new NotificationChannel(CH, "Entrenamiento en curso", NotificationManager.IMPORTANCE_LOW);
+                c.setDescription("Muestra el temporizador del descanso y el tiempo del entreno");
+                c.setShowBadge(false);
+                c.setSound(null, null);
+                c.enableVibration(false);
+                nm.createNotificationChannel(c);
+            }
+        }
+    }
+
+    @PluginMethod
+    public void ongoing(PluginCall call) {
+        try {
+            Context ctx = getContext();
+            ensureChannel();
+            String title = call.getString("title", "Mancuernas");
+            String body = call.getString("body", "");
+            long when = (long) (double) call.getDouble("when", (double) System.currentTimeMillis());
+            boolean down = Boolean.TRUE.equals(call.getBoolean("countdown", false));
+            Intent open = new Intent(ctx, MainActivity.class);
+            open.setFlags(Intent.FLAG_ACTIVITY_SINGLE_TOP | Intent.FLAG_ACTIVITY_CLEAR_TOP);
+            PendingIntent pi = PendingIntent.getActivity(ctx, 3, open, PendingIntent.FLAG_UPDATE_CURRENT | PendingIntent.FLAG_IMMUTABLE);
+            Notification.Builder b = Build.VERSION.SDK_INT >= 26 ? new Notification.Builder(ctx, CH) : new Notification.Builder(ctx);
+            int icon = ctx.getResources().getIdentifier("ic_stat_mancuernas", "drawable", ctx.getPackageName());
+            b.setSmallIcon(icon != 0 ? icon : android.R.drawable.ic_media_play)
+                .setContentTitle(title).setContentText(body).setContentIntent(pi)
+                .setOngoing(true).setOnlyAlertOnce(true).setShowWhen(true).setWhen(when)
+                .setUsesChronometer(true).setColor(Color.parseColor(call.getString("color", "#3D5AFE")))
+                .setCategory(Notification.CATEGORY_PROGRESS);
+            if (Build.VERSION.SDK_INT >= 24) b.setChronometerCountDown(down);
+            if (Build.VERSION.SDK_INT >= 26 && down) b.setTimeoutAfter(Math.max(1000, when - System.currentTimeMillis() + 1500));
+            if (Build.VERSION.SDK_INT < 26) b.setPriority(Notification.PRIORITY_LOW);
+            NotificationManager nm = (NotificationManager) ctx.getSystemService(Context.NOTIFICATION_SERVICE);
+            if (nm != null) nm.notify(ONGOING_ID, b.build());
+        } catch (Exception ignored) {}
+        call.resolve();
+    }
+
+    @PluginMethod
+    public void ongoingCancel(PluginCall call) {
+        try {
+            NotificationManager nm = (NotificationManager) getContext().getSystemService(Context.NOTIFICATION_SERVICE);
+            if (nm != null) nm.cancel(ONGOING_ID);
+        } catch (Exception ignored) {}
+        call.resolve();
+    }
+
+    // ---------- widget de pantalla de inicio ----------
+    @PluginMethod
+    public void setWidget(PluginCall call) {
+        try {
+            String data = call.getString("data", "{}");
+            SharedPreferences p = getContext().getSharedPreferences("mc_widget", Context.MODE_PRIVATE);
+            p.edit().putString("data", data).apply();
+            TodayWidget.updateAll(getContext());
+        } catch (Exception ignored) {}
+        call.resolve();
+    }
+
+    // ---------- acciones al abrir desde el widget o los accesos directos ----------
+    static String pending = null;
+
+    @PluginMethod
+    public void getLaunchAction(PluginCall call) {
+        JSObject r = new JSObject();
+        r.put("action", pending);
+        pending = null;
+        call.resolve(r);
+    }
+
+    void fireLaunch(String action) {
+        JSObject r = new JSObject();
+        r.put("action", action);
+        notifyListeners("launch", r, false);
     }
 
     @Override
