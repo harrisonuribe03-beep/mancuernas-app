@@ -6,8 +6,11 @@ on:
   workflow_dispatch:
     inputs:
       task:
-        description: "Qué generar: prueba, voz, sonidos o todo"
+        description: "Qué generar: prueba, voz, sonidos, verificar, bajar o todo"
         default: todo
+      data:
+        description: "Datos extra (para bajar: líneas nombre|url)"
+        default: ""
 
 permissions:
   contents: write
@@ -35,3 +38,5 @@ jobs:
 
       - name: Generar y publicar en la rama audio-<tarea>
         run: bash app-src/audio/ci.sh "${{ inputs.task }}" "${{ github.repository }}" "${{ github.token }}"
+        env:
+          DATA: ${{ inputs.data }}

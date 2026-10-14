@@ -35,3 +35,11 @@ if [ "$T" = "verificar" ]; then
   pip install -q faster-whisper
   python3 verify.py
 fi
+
+if [ "$T" = "bajar" ]; then
+  mkdir -p out/bajar
+  printf '%s\n' "$DATA" | tr ' ' '\n' | while IFS='|' read -r name url; do
+    [ -z "$name" ] && continue
+    curl -sSL --retry 3 -o "out/bajar/$name" "$url" && echo "$name $(stat -c %s out/bajar/$name) $(file -b out/bajar/$name | cut -c1-60)" || echo "$name FALLO"
+  done
+fi
