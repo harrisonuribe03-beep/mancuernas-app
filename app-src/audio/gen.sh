@@ -25,3 +25,8 @@ if [ "$T" = "sonidos" ] || [ "$T" = "descubrir" ]; then
   python3 discover.py
   du -sh out/descubrir; ls out/descubrir/mp3 | wc -l
 fi
+
+if [ "$T" = "voz" ] || [ "$T" = "todo" ]; then
+  python3 synth_voice.py
+  ls out/voz | wc -l; du -sh out/voz
+fi
