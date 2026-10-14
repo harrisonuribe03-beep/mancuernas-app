@@ -1,9 +1,11 @@
 /* Estado global, sincronización con la nube y persistencia */
 let todayIdx=(new Date().getDay()+6)%7;
 const S={tab:'hoy',sel:todayIdx,
-  settings:Object.assign({name:'',kg:5,rest:'auto',warm:true,sound:true,vib:true,wake:true,notif:true,mode:'full',theme:'system',remind:false,remindTime:'18:00',core:false,pack:'anime',voice:'basic',vrate:1,vol:.9,accent:'azul',weekly:true},LS.get('mc-set',{})),
+  settings:Object.assign({name:'',kg:5,rest:'auto',warm:true,sound:true,vib:true,wake:true,notif:true,mode:'full',theme:'system',remind:false,remindTime:'18:00',core:false,pack:'gym',voice:'basic',vvoice:'salome',vrate:1,vol:.9,accent:'azul',weekly:true},LS.get('mc-set',{})),
   history:LS.get('mc-hist',[]),body:LS.get('mc-body',[]),store:'local',live:null,summary:null,
   lib:{q:'',g:'Todos'},prog:{ex:null,mo:0,bar:null}};
+// v6: sonidos reales y voz de Salomé para todos (una sola vez)
+if(!S.settings.audioV){S.settings.pack='gym';S.settings.vvoice='salome';S.settings.audioV=2;LS.set('mc-set',S.settings);}
 if(typeof S.settings.rest==='number'&&![60,90,120].includes(S.settings.rest))S.settings.rest='auto';
 S.history.sort((a,b)=>b.ts-a.ts);S.body.sort((a,b)=>a.ts-b.ts);
 const live0=LS.get('mc-live3',null);

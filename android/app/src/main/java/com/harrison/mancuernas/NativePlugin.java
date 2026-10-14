@@ -11,6 +11,11 @@ import android.content.res.AssetFileDescriptor;
 import android.media.AudioAttributes;
 import android.media.AudioFocusRequest;
 import android.media.AudioManager;
+import android.media.MediaPlayer;
+import android.media.PlaybackParams;
+import android.os.Handler;
+import android.os.Looper;
+import java.util.ArrayDeque;
 import android.media.SoundPool;
 import android.os.Bundle;
 import android.speech.tts.TextToSpeech;
@@ -201,6 +206,7 @@ public class NativePlugin extends Plugin {
         float pitch = call.getFloat("pitch", 1f);
         boolean queue = Boolean.TRUE.equals(call.getBoolean("queue", false));
         if (tts != null && ttsReady && text.length() > 0) {
+            if (!queue) main.post(() -> { vq.clear(); vRelease(); });
             tts.setSpeechRate(rate);
             tts.setPitch(pitch);
             duck(true);
@@ -218,6 +224,83 @@ public class NativePlugin extends Plugin {
         call.resolve();
     }
 
+
+    // ---------- voz pregrabada: cola de clips, baja la música mientras habla ----------
+    private final Handler main = new Handler(Looper.getMainLooper());
+    private final ArrayDeque<String> vq = new ArrayDeque<>();
+    private MediaPlayer vp;
+    private float vRate = 1f;
+    private String vDir = "public/voice/salome";
+
+    private void vRelease() {
+        if (vp != null) {
+            try { vp.stop(); } catch (Exception ignored) {}
+            try { vp.release(); } catch (Exception ignored) {}
+            vp = null;
+        }
+    }
+
+    private void vNext() {
+        vRelease();
+        String f = vq.poll();
+        if (f == null) { duck(false); return; }
+        try {
+            MediaPlayer m = new MediaPlayer();
+            m.setAudioAttributes(new AudioAttributes.Builder()
+                .setUsage(AudioAttributes.USAGE_ASSISTANCE_NAVIGATION_GUIDANCE)
+                .setContentType(AudioAttributes.CONTENT_TYPE_SPEECH).build());
+            String key = vDir + "/" + f;
+            try {
+                AssetFileDescriptor fd = getContext().getAssets().openFd(key);
+                m.setDataSource(fd.getFileDescriptor(), fd.getStartOffset(), fd.getLength());
+                fd.close();
+            } catch (Exception e) {
+                File out = new File(getContext().getCacheDir(), key.replace('/', '_'));
+                if (!out.exists()) {
+                    InputStream in = getContext().getAssets().open(key);
+                    OutputStream os = new FileOutputStream(out);
+                    byte[] buf = new byte[8192]; int r;
+                    while ((r = in.read(buf)) > 0) os.write(buf, 0, r);
+                    os.close(); in.close();
+                }
+                m.setDataSource(out.getAbsolutePath());
+            }
+            m.setOnCompletionListener(mp -> main.postDelayed(this::vNext, 70));
+            m.setOnErrorListener((mp, w, x) -> { main.post(this::vNext); return true; });
+            m.prepare();
+            vp = m;
+            if (Build.VERSION.SDK_INT >= 23 && Math.abs(vRate - 1f) > 0.01f) {
+                try { m.setPlaybackParams(new PlaybackParams().setSpeed(vRate).setPitch(1f)); } catch (Exception ignored) {}
+            }
+            m.start();
+        } catch (Exception e) {
+            main.post(this::vNext);
+        }
+    }
+
+    @PluginMethod
+    public void voicePlay(PluginCall call) {
+        final JSArray files = call.getArray("files");
+        final String dir = call.getString("dir", "public/voice/salome");
+        final float rate = call.getFloat("rate", 1f);
+        final boolean queue = Boolean.TRUE.equals(call.getBoolean("queue", false));
+        main.post(() -> {
+            try {
+                if (!queue) { vq.clear(); vRelease(); }
+                vDir = dir; vRate = rate;
+                for (int i = 0; i < files.length(); i++) vq.add(files.getString(i));
+                if (tts != null) tts.stop();
+                if (vp == null) { duck(true); vNext(); }
+            } catch (Exception ignored) {}
+        });
+        call.resolve();
+    }
+
+    @PluginMethod
+    public void voiceStop(PluginCall call) {
+        main.post(() -> { vq.clear(); vRelease(); duck(false); });
+        call.resolve();
+    }
 
     // ---------- notificación en curso: cronómetro del entreno o cuenta regresiva del descanso ----------
     private static final int ONGOING_ID = 900;
@@ -307,6 +390,7 @@ public class NativePlugin extends Plugin {
     protected void handleOnDestroy() {
         if (tts != null) { tts.shutdown(); tts = null; }
         if (pool != null) { pool.release(); pool = null; }
+        vq.clear(); vRelease();
         super.handleOnDestroy();
     }
 }

@@ -9,7 +9,10 @@ const read=(d,f)=>fs.readFileSync(path.join(SRC,d,f),'utf8');
 const data=list('data').map(f=>read('data',f).replace(/if\(typeof module[\s\S]*$/,'')).join('\n');
 const app=list('js').map(f=>read('js',f)).join('\n');
 const css=list('css').map(f=>read('css',f)).join('\n');
-const js=data+'\n(function(){\n"use strict";\n'+app+'\n})();';
+// Clips de voz disponibles (nombres = hash del texto); la app los consulta antes de hablar
+const VDIR=path.join(SRC,'audio/voice/salome');
+const vclips=fs.existsSync(VDIR)?fs.readdirSync(VDIR).filter(f=>f.endsWith('.mp3')).map(f=>f.slice(0,-4)).sort():[];
+const js=data+'\n(function(){\n"use strict";\nconst VCLIPS='+JSON.stringify(vclips.join(' '))+';\n'+app+'\n})();';
 const tpl=fs.readFileSync(path.join(SRC,'index.html'),'utf8').replace('/*CSS*/',()=>css).replace('/*JS*/',()=>js);
 const google=`<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap">`;
@@ -28,5 +31,6 @@ const doc=`<!doctype html><html lang="es"><head><meta charset="utf-8"><meta name
 fs.writeFileSync(A+'/www/index.html',doc);
 const cp=(from,to,filter)=>{fs.mkdirSync(to,{recursive:true});for(const f of fs.readdirSync(from))if(!filter||filter(f))fs.copyFileSync(path.join(from,f),path.join(to,f));};
 for(const dst of [A+'/www/img','/home/claude/img'])cp(ART+'/out',dst,f=>f.endsWith('.webp'));
-for(const dst of [A+'/www/sounds','/home/claude/sounds']){fs.rmSync(dst,{recursive:true,force:true});fs.cpSync(ART+'/sounds',dst,{recursive:true});}
-console.log('ok',(js.length/1024|0)+' KB js',(css.length/1024|0)+' KB css');
+for(const dst of [A+'/www/sounds','/home/claude/sounds']){fs.rmSync(dst,{recursive:true,force:true});fs.cpSync(path.join(SRC,'audio/sounds'),dst,{recursive:true,filter:f=>!/\.(py|md|json)$/.test(f)});}
+for(const dst of [A+'/www/voice/salome','/home/claude/voice/salome']){fs.rmSync(dst,{recursive:true,force:true});if(vclips.length)fs.cpSync(VDIR,dst,{recursive:true});}
+console.log('ok',(js.length/1024|0)+' KB js',(css.length/1024|0)+' KB css',vclips.length+' clips de voz');

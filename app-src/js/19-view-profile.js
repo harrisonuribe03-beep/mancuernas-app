@@ -27,7 +27,7 @@ function viewMe(){
       <h3>Semana suave</h3><p>Cada 6 a 8 semanas, o cuando te sientas agotado, usa el modo Suave: menos series y un poco menos de peso.</p>
       <h3>Tipos de serie</h3><p><b>C</b> calentamiento (no cuenta para récords), <b>D</b> drop set (bajas el peso y sigues), <b>F</b> al fallo.</p>
       <h3>Superseries</h3><p>Dos ejercicios alternados sin descanso entre ellos. Ahorran tiempo; funcionan mejor con músculos opuestos, como pecho y espalda.</p></div>`;
-    if(S.mePage==='about'){const el=LS.get(ERRLOG,[]);h+=`<div class="card about">${emblem(L.ri,56)}<div><b>Mancuernas 5.0</b><span>${BUILD?'Versión '+BUILD+' · ':''}Hecha para entrenar en casa</span></div></div>
+    if(S.mePage==='about'){const el=LS.get(ERRLOG,[]);h+=`<div class="card about">${emblem(L.ri,56)}<div><b>Mancuernas 5.1</b><span>${BUILD?'Versión '+BUILD+' · ':''}Hecha para entrenar en casa</span></div></div>
       <div class="card" style="margin-top:10px"><div class="set inline"><span class="lb">Registro de errores<small>${el.length?pl(el.length,'error guardado','errores guardados'):'Sin errores registrados'}</small></span>${el.length?`<button class="btn sm ghost" data-act="errcopy">Copiar</button>`:''}</div>
       <div class="set inline"><span class="lb">Ver la presentación otra vez</span><button class="btn sm ghost" data-act="wizard">Abrir</button></div></div>`;}
     return h;
@@ -44,5 +44,5 @@ function viewMe(){
   ${row('look',IC.star,'Apariencia',`Color ${st.accent||'azul'} · tema ${({system:'del sistema',light:'claro',dark:'oscuro'})[st.theme]}`)}
   ${row('data',IC.layers,'Datos y respaldo',S.store==='db'?'Guardado en tu cuenta':'Guardado en este teléfono')}
   ${row('guide',IC.info,'Cómo progresar','Guía rápida de entrenamiento')}
-  ${row('about',IC.trophy,'Acerca de','Mancuernas 5.0')}</ul>`;
+  ${row('about',IC.trophy,'Acerca de','Mancuernas 5.1')}</ul>`;
 }

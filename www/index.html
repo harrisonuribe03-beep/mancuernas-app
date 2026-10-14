@@ -807,6 +807,15 @@ button.kvrow{width:100%;text-align:left}
 }
 #toast{width:max-content}
 
+/* v6 · voz del coach */
+.packs button:first-child:nth-last-child(odd){grid-column:1/-1}
+.vpick{display:grid;grid-template-columns:1fr 1fr;gap:6px;margin-top:10px}
+.vpick button{display:flex;align-items:center;gap:10px;text-align:left;padding:10px;border-radius:12px;border:1.5px solid var(--line);background:var(--s1);min-width:0}
+.vpick button[aria-pressed="true"]{border-color:var(--acc);background:var(--acc-soft)}
+.vpick b{display:block;font-size:.9rem}.vpick small{display:block;font-size:.72rem;color:var(--tx2);margin-top:1px;line-height:1.25}
+.vav{width:34px;height:34px;border-radius:50%;flex:none;display:grid;place-items:center;font-weight:800;color:#fff;background:linear-gradient(135deg,#f0a500,#e5484d)}
+.vav.tel{background:var(--s3);color:var(--tx2)}.vav svg{width:18px;height:18px}
+
 </style>
 
 <main id="view" class="col"></main>
@@ -1302,6 +1311,7 @@ function animStart(){
 
 (function(){
 "use strict";
+const VCLIPS="0015ce03 007b4dfb 00b950c7 0114c9af 011d0276 0195422f 01c6cb4b 02151f9e 02357954 024ae961 029e3762 03663d85 0366421d 0398b02e 03a57c21 04258ce3 049b271d 051fe9dd 053de4a9 0563c26e 056d65d2 05d827ca 05e298e4 05feea59 060f38fc 06aa78a3 06ac38d4 06c000f5 06f1b991 078d5404 07c40be5 07f826f5 07f99b96 08057600 084017c7 084252ce 08b9fda1 08bfd212 08de7344 0920ffea 0954d299 09a6b528 09a7e72a 0a468d61 0a52c6f2 0a9055da 0a9a93f7 0b4961da 0ba065b7 0bb3eecd 0bdfc19e 0bff2948 0c0bf53b 0c705bf0 0cc4c9c6 0ce1033e 0e6d4218 0ec8708e 0ed055d3 0edd28e5 0f310d09 0f355c07 0fbe6574 10040ad8 101fda0b 10337b4c 10588f09 106662a8 10a3239e 10a94a4b 10bf0b0f 10c29104 10c3d0a8 10cd7f62 1139c884 114631b5 119e9ad6 11c707f7 11c7ceb9 11e283e2 1212663d 12469b8e 124f61b3 12a611aa 12aa8ed8 12c8a3ec 130905ab 13f96fc0 140a6dbb 141d4af4 14409aa7 144f72e8 14674d18 14d4844e 15638ef7 1566a40b 1573b072 162cc548 1665cbba 16a39d08 16bd3228 16dc88dd 173caac9 175fedb4 1765c0b9 17b6d66b 1810854d 18c86a9f 1900837d 19159381 1924f643 193400cd 19765ed6 199dd4f7 19a70072 19d33899 19ddcdac 1a1707b0 1a227327 1a450569 1a459318 1a7bf9ac 1aa32fdf 1aaee8b5 1ace84a7 1ae0a245 1ae1b8f7 1af9474a 1b1290e4 1b5045a8 1b5e06cc 1b6d1fd5 1bc11044 1bf31ed0 1c91f953 1cde0513 1ce21140 1dbbc705 1de0bc9d 1e05b30c 1e6cd4de 1eba8486 1f148a1a 1f1cb2e3 1f2438d9 1f44e3ec 1f5d0908 20019117 2051600e 211638b1 21515cb1 217f8c7a 2186df90 219153ec 219d35c8 21a61479 21a644ea 21f59940 22635d1f 226f4887 22c4c09e 22d22438 22f86eca 23413adb 2361d405 23937f2d 23e305f6 23fc44d9 24aa6bb9 24ad2dff 24c8cb88 24c96ef7 24ee8055 25024709 253eae20 2541f806 25c55cc0 2607f3e8 2610cfd2 264fa938 2650b46f 2694ab99 26a80ec7 26c6e602 26e7a228 2771afe7 27bd7d4d 27d156cf 27dddde1 283f8e78 28ca4c0f 28e6c404 29024f2e 297a9be3 297d919d 2980b17d 299374ae 299d8a69 29d281cb 29e5759e 2a05af0e 2a163c74 2a2e5ddb 2a428ab4 2a571325 2adcc7f5 2af0e6db 2b65ff84 2b79f9f7 2baf6b3c 2c36bf36 2c3dd48e 2c633b66 2cc58759 2cd9ae0c 2cda5f83 2d7198f3 2e030aee 2e3d2f50 2e5cf1f6 2e94ff6e 2eebb7d4 2eedc736 2f229a53 2f49f0aa 2f87a072 30608779 309fdcb7 30bcec28 31bb3b51 322fc635 323865d2 3243931a 3254394a 32554481 3262ac86 32dfa028 32ec6fbe 330297fc 332dffd1 334db126 33519510 336cf97d 338ac2b8 3393132e 33a74844 33d45de2 341078aa 342924d8 34a885c7 34ad02f5 34cb1809 34f1a507 35241adf 35574769 3561a2da 3570c0c3 3573ad70 35978b17 36251d55 363182cf 368ff621 36cdcaf3 36e723fe 37525b21 37a4a71c 37ecff22 3842b04f 3850feb3 3875a4ca 389a2b77 38d2b31a 393bdfe5 3947e88d 395400b1 39588b42 39adc9d7 39f7bdfb 39ffd47e 3a648875 3a6c1a03 3aa84fd5 3b500980 3c5c2048 3c698d87 3c97d8b3 3cad3151 3d092e4b 3d0f1554 3d2352fb 3d2efbea 3d38a4de 3d4a9cdc 3d54822a 3d549665 3d6883f3 3d8eb9f8 3d9b077c 3dd09df3 3de61185 3dfa716a 3e04fdd7 3e5304ce 3e5fe6d3 3e74088b 3e7a91bf 3e9b2729 3ec3270c 3ed7a725 3ee4303a 3ee5651c 3f01c4f0 3f4b32dd 3f4c5210 3f7dbc84 3f99d728 3f9f3cae 3fa0843d 3fa5016b 403585b1 407342c8 410f0c9b 410f2bab 4179fb00 41b661ba 41dba2a8 41f7fbbc 422d9e06 423496de 427ec210 42aa768d 42b0755a 42c90a79 42e6baeb 430ff9be 433d8508 434cdc33 436fc3e7 43b1e39d 43e92597 44539a50 44560d50 4481b2c2 44933cc6 452fca06 4538e4cf 45c2f015 4622af9a 464f967d 466473cf 467a95c4 46855e44 469fa3b0 46c849c5 46fe58b8 47346667 4746518c 476cc7a5 477448f0 4779bdab 477a58c6 47a95f7b 4817b625 48400f4f 485b2b9a 48c0b0c9 48f84819 4922fc61 4947cc04 49b455be 49e02800 4a194f23 4a76279c 4a78989d 4b20b096 4b359194 4b57094b 4b5e4f87 4b9fd854 4c08426f 4cbcd456 4cbcfd25 4ce3553d 4cf4153d 4d1b6ec4 4d32e051 4d9907e5 4db863b6 4dd53325 4ddbd4f2 4e1e6021 4e5226c7 4ea712d8 4eb3d4ad 4f92b72a 4f9da500 4fb91b30 50212815 50290bde 5053ebe4 50bed034 510a402a 51229a9e 51305ab5 513be60d 515ab417 5166f1a1 51e78320 520c02e4 521eef4e 52215ee0 525167b8 527355ed 527c2162 528b18fb 528cddb6 52a18419 52a76581 532e50a4 5353091e 535e55ef 540e93b7 541cbf91 54342259 54369f54 545fdf1f 54aba38b 54b4087d 553086d2 555fd78b 55d5f88b 563abd10 565e99b2 567c6939 56973566 56a8add0 56cc55e4 56db31df 56fcb2f9 57115c55 571bd814 5723be05 57392f5e 578d324f 57949d0e 57ac6d17 57dd2e9e 581cfe96 5823a06e 58a29bb2 58acb184 58b48569 58dfd614 58e562e5 599f3d25 59a79794 59d9c337 5a0249af 5a34d0eb 5a5c5aab 5aa5d142 5aadaf5f 5b0cbb74 5b5adb32 5b5d1a47 5b5e243a 5b61844d 5bbde8e0 5bdb0ecf 5bde86dc 5be01ec0 5c2d9bf0 5c46e2ec 5ce2a0b0 5d09828a 5d25d8c0 5d29dcee 5d2ae016 5d380925 5d84dcfa 5d88a71d 5d92de42 5da2f20e 5da76f3c 5dc77d0d 5e23d7b3 5e51c942 5ebdab23 5ec819b9 5efe938e 5f3ea7d9 5f4ea3e6 5f750fdc 5fa099e7 5fa94ecb 5fdd3081 6006c586 609d82db 61069836 6181c37e 61fc8e5f 620e7fea 621d0461 6248dc74 625ba04a 62767fce 627f4b98 62868dab 62936ce1 629f9ca9 62d33f56 632cf719 6331d9c4 63713af5 638ed47b 63f05980 6407c858 640abcbf 64157a1f 64283cb0 645d3104 6461ae32 64a4e121 64c63a68 64ca2020 653b2eff 655ddbf0 6575010f 6589a5e7 658ed7a1 65d1498a 65de157d 6635a61e 666bad13 6674e0e7 6676e31a 671108a3 6717642c 681cc283 6858a1a0 6882d596 68a2f0ec 695f6f90 69757d6a 6983e7e3 69c7077f 6a15b768 6a3f5bad 6aa734eb 6ad8d751 6ae619ce 6b187116 6b22c871 6b33b79e 6b623571 6b703466 6b907d27 6b9b927d 6baefc83 6bcdb903 6beaa400 6bece098 6c1a2d68 6c1d0957 6c4d8a93 6cd4f72d 6d3cea00 6d3e8905 6de87130 6e4002ec 6ed59b76 6ee923c7 6f60f60f 6f7073b6 6f9f4ec1 707902e4 708bfd39 70b49d4f 712e1b02 716f1b58 71b21baf 71d7aa68 71e2a58f 7224b24d 722ca8d1 7249be1d 727913fe 72a58639 72b3c3a8 72cbfb83 72d3954e 732a0f3e 7376a4b9 739f054b 73b4b2f8 740c4235 741034c7 7415fc0b 74820b53 749d1b12 749e905d 74ae9044 74d395c9 75254495 75262bd6 757b271a 75809bee 75c9b924 766072da 76632278 767dcde0 7690f8cc 76b5ed03 76c96221 76d15591 772031a7 7732faef 776819d6 77a0228f 77b108f1 782b896d 783263ec 7840a65b 791adb63 79632e51 79f6497e 7a25b641 7a30244d 7a36f48c 7a4274e0 7a5ac650 7a6a6e34 7a6d0c7a 7b1ade89 7ba22045 7bbd6075 7c03984c 7c136150 7c22476f 7c255afc 7c7958c6 7ca3894b 7cd085f6 7d374640 7d474bb1 7d4909f6 7d53a4be 7d68fb13 7d7151f2 7ddc3a7a 7de60c43 7e377a2e 7e731a27 7e9215a4 7eaee690 7ed15ec1 7ef2ecfd 7f7c6dbe 7fe5fe4d 800a793b 805fd37a 806d275d 8088a42f 80d97875 811de7f3 8142a3fa 8167d977 817b5dc2 8182c1bf 818765dd 81aef419 81cf3707 81d498e2 81fe12f3 823b2a67 8275a540 82ac2f5f 82d18001 82d7cf53 83174922 836b0fb2 838eb339 83ab8009 83abdb77 83cb67dd 841b5b74 8427473b 8448e077 846985dd 8549666b 855f2878 858aaffa 85cfb78c 85da9bd3 85f4803d 86570007 86641df0 8694bfad 86d80bbd 86f9b8ff 872f711b 879bb728 87c966ea 87ce5601 87f9ca2d 8813b98c 8817f162 8819b501 881a356b 882332b7 88bb84e3 88fb3c60 8917784c 8923e666 892d31b5 8950bfea 898f9c1b 89bc9d7a 89ca3b4a 89e257ad 89e93865 8a44628c 8ae9250c 8af5f0ff 8b748bea 8bde925c 8c8557fe 8c9d1717 8ca1b4aa 8cdb0371 8cfc67fb 8d275552 8d3cee52 8d578168 8daeef8e 8e2f7320 8e39fed8 8e46cacb 8e6a7b44 8e8b3e3f 8ed31c2c 8f53c0a4 8f67c643 8f76802d 8f790254 8f84199b 8f8bbe77 90049717 906b7017 906fbc8f 90d31f52 915e7646 918a56c0 9191e15f 919579c0 91d0d8dc 91e7bf8a 92099650 92258350 924180b1 92428e08 92824605 92ba9b7f 92d72425 935db6b1 9373fbaf 937b755d 93ebd461 94ca38e7 94d6488e 94f36c9b 95976fe0 95cb3404 95ea0ba9 95f6ae4b 96381cdc 963ceb7c 96582084 969005ea 9721c7b2 9763fe88 97791bfc 977d60f0 97b03165 980e1dd1 98875728 9940a652 9957b42c 9970b13c 99780ac4 99eb09c7 99fd4181 9a27b9d5 9a4a4fa6 9a571b99 9a5f8e39 9a8ed5a7 9ae76074 9b183e64 9b1ea95e 9bf3d0c9 9bf40f1b 9c0aeb3d 9c0da644 9c15e3a8 9c1dc258 9c684d89 9c6d7c8e 9c7a47f3 9c8f4689 9cc4f302 9cd3710c 9d286e9c 9d614e9b 9d63b9f6 9d74e422 9d8b3f74 9e188186 9e676b92 9efd30c9 9f0c831b 9fdf04fb 9ff8c2ad a02848f1 a0b141ee a0d820d0 a1004341 a19fc620 a1a1ed63 a2237dc4 a22f2815 a25c506d a2bca5b5 a2bde471 a2c8ce1d a304e512 a34620b6 a34fb82c a354f3a2 a37a1d81 a38a7801 a3bd1c22 a3c78442 a3fd79f1 a4887209 a498ad3d a4b9936e a5011071 a53cb1e7 a578d9a1 a591b625 a5a7969d a5b9478d a65babab a690be7a a6d29857 a6d7df8d a6da4696 a6e71289 a71c6ef4 a79cc078 a85cc086 a87df701 a8b4c8ff a8ce01b9 a96ccbed a973bb31 a9c74445 aa2e8b8a aa37ec55 aa445b7a aa5aa73b aa6e5cae aae22bf0 aaeb63bc aafb379d ab09d79b ab0edee0 ab6f59ae abb21fb5 ac425638 acd404bf ada4e374 adbcf8a3 ae7a477e ae7b74a0 ae83534e aeaf7efc aef86842 af27c5c9 af5297c7 af7ab0b9 afbcc003 b02967e2 b045fcbf b07d5b38 b0e6d125 b14c4c85 b1da779d b2085d17 b2452999 b249420e b28079dc b295dab1 b2aa7cd6 b3477a25 b36eb98f b42e84b2 b446950f b4dcec8f b60431a0 b612cfc5 b6364e53 b6483d23 b6eee212 b70985f5 b70a2478 b749aeac b7612deb b76b0f09 b7b34e1c b7c09d40 b7cd4c97 b7d95882 b7fa503b b82c27d9 b8385a3f b848560d b8a7c06a b8d30638 b8f951f7 b961e9ab b988ea9a b9d77ca4 b9ee3a18 b9fabfca ba3a39a5 ba40b2d2 ba5fe3c4 ba72b473 ba8004b2 bab274f3 bac339ba bad89510 bb2c55db bb8127e9 bbf515e5 bc01856a bc341db4 bca13952 bce4b93c bced04bf bced1fb1 bd9d7900 be10782a be153f1b be17b259 be5992dc be90dfed bf1e4ad2 bf23261e bf592d13 bf87b5d7 bfaa4819 bfe0544f c0262b86 c043adf9 c06df134 c1293be5 c15d7912 c1880f41 c1b1f88b c1cfd993 c1eb37c5 c1fb9270 c24ccd35 c26c969c c2aace96 c33f9855 c37d063d c39a54e2 c3a64d73 c3e2077a c40288cf c4208ad7 c4307e3f c48552ae c5b04ccd c5bcb799 c62aae3a c67bc236 c6db11e9 c6e1182b c7dc3014 c7e703e0 c88f4a69 c895ca93 c8d711f9 c8dcf2a5 c8e5ace8 c958c41d c9613fe2 c9833533 c9e12f4c ca5e22ee ca5f805e cabbf582 cb899e29 cbc925b8 cbdbeef7 cc265089 cc2c96b6 cc547806 cc6ad696 cca6ffea ccd7dcc0 cd1fdd89 cd234fd2 cd24e9d3 cd4297f5 cd67a390 cddf3476 ce1e6211 ce5fd083 ce7ce231 ce950fd7 ceb1bdb2 cf148461 cf3c9b6a cf416487 cf4df2da cf520e78 cf60e304 cfce1fcc d000df8b d00579b7 d0202b70 d0350e51 d04b8aba d0548d69 d0d45cc6 d0e910a8 d1128aac d1371666 d166119f d16a8003 d19ea03e d1b66dc4 d1de8fa0 d2025827 d2202e96 d25cca22 d2636f0e d271396b d2a6a392 d2c5ae49 d33a38e6 d384dce6 d3cb9ec2 d3ecdf83 d400d172 d4040daa d52b4024 d5752f31 d5e58192 d5f28b51 d6057d42 d630570d d63d37ae d65b9113 d67df22f d6d0033d d6da598d d721a8b4 d72904b3 d7980122 d7add5fd d8c936e5 d906e3c5 d9789f1c d9c6f875 d9d41cd2 d9d8bbeb d9ebe182 da49ee83 da9b1209 db00d973 db5e36cb db8c3845 dba2fe92 dbf68613 dbf7a71d dc125ba4 dcadb242 dcdc6528 dce90564 dd4c64a9 dd55042a ddeca936 de2cf281 de802487 deff7f22 df44cbb0 df753542 df9638eb dfb573ff dfe0f53a dfe2ef3b dfe738ff e0e2dffd e0f60253 e12122e7 e15d25fb e1638041 e1c1e739 e1ea11a4 e2397f7b e26e42af e2828241 e2c9691f e2d6cd5f e2d6f5d8 e34dd7aa e3b6be67 e3c78a51 e3f98e83 e4083330 e4586a2c e45c903e e4b9348f e4dbf752 e4df08ce e524dd23 e5377996 e5632e59 e5cd3b2d e5d250d6 e5df1cc9 e5ea2725 e5ef96ad e60ae7a1 e648424f e6612909 e6924874 e6b1bcae e70edb64 e76e6a39 e79734ec e7a78ea4 e7dacbe8 e7fcb205 e832f582 e842dfca e84ca291 e8668254 e86ae5f9 e8733522 e8fa99c0 e9276ccd e986b2f9 e9997bb4 e9bcf68d e9c5e039 e9db8a79 e9fec251 ea1efeb5 ea338a40 ea78120a ea977a7b eaa415c5 eb413f55 eb91c454 ec262fdb ec626ea1 ec665506 ec82bd00 ecc9d797 ecdc37b6 ed0b5262 ed541b49 ee755e47 ee7d5570 ee82c026 eedf4f78 ef07959c ef1cf2cb ef3b1515 ef82ca63 ef88f80f efbfdaca eff60302 f00e07be f01ad3b1 f042fbc1 f046c71f f0998921 f09fcdfc f0be2e11 f0cb9143 f0f4f8b5 f131b45c f161361b f1f9b095 f21c60a3 f2238cbc f225ccca f226aca7 f2626bba f2b685ac f34da214 f3594a6a f36aa246 f3712040 f37e86e6 f3ca43e4 f40eb044 f42f733f f4378594 f476987e f47c9f02 f4887fa7 f4d3ecb4 f5482f95 f57f6736 f58967bb f5c4698e f5e57e10 f61cecb8 f64d14aa f6716e2b f69b1322 f6a41379 f7228226 f72db441 f7dee06e f803d5c0 f8132c01 f81fff0a f83671a9 f842914c f855a31b f88a65b8 f88dbe8a f8a5b166 f8cc84fb f92ae15e f94987b8 f981f097 f98dbef0 f9905198 f9a1d69a f9de4d4d f9f50294 fb89e7a8 fbd93a15 fbf752a3 fc013618 fc047667 fc1360c4 fcbdcd2b fd61fe5f fd745ae8 fd803283 fd91edc7 fda86d5d fdc82716 fddb332e fddc0e03 fde7ff21 fe6659a1 fe7a787b feb3a0f2 ff422025 ff476570 ff63fe8e ff6f3258 ff732646";
 /* Registro de errores: nada que falle debe perder datos ni dejar la pantalla en blanco */
 const ERRLOG='mc-errlog';
 let errShown=false;
@@ -1395,9 +1405,11 @@ const dayMuscles=d=>{const s=new Set();d.ex.forEach(e=>info(e.n).m.slice(0,2).fo
 /* Estado global, sincronización con la nube y persistencia */
 let todayIdx=(new Date().getDay()+6)%7;
 const S={tab:'hoy',sel:todayIdx,
-  settings:Object.assign({name:'',kg:5,rest:'auto',warm:true,sound:true,vib:true,wake:true,notif:true,mode:'full',theme:'system',remind:false,remindTime:'18:00',core:false,pack:'anime',voice:'basic',vrate:1,vol:.9,accent:'azul',weekly:true},LS.get('mc-set',{})),
+  settings:Object.assign({name:'',kg:5,rest:'auto',warm:true,sound:true,vib:true,wake:true,notif:true,mode:'full',theme:'system',remind:false,remindTime:'18:00',core:false,pack:'gym',voice:'basic',vvoice:'salome',vrate:1,vol:.9,accent:'azul',weekly:true},LS.get('mc-set',{})),
   history:LS.get('mc-hist',[]),body:LS.get('mc-body',[]),store:'local',live:null,summary:null,
   lib:{q:'',g:'Todos'},prog:{ex:null,mo:0,bar:null}};
+// v6: sonidos reales y voz de Salomé para todos (una sola vez)
+if(!S.settings.audioV){S.settings.pack='gym';S.settings.vvoice='salome';S.settings.audioV=2;LS.set('mc-set',S.settings);}
 if(typeof S.settings.rest==='number'&&![60,90,120].includes(S.settings.rest))S.settings.rest='auto';
 S.history.sort((a,b)=>b.ts-a.ts);S.body.sort((a,b)=>a.ts-b.ts);
 const live0=LS.get('mc-live3',null);
@@ -2095,7 +2107,7 @@ function viewMe(){
       <h3>Semana suave</h3><p>Cada 6 a 8 semanas, o cuando te sientas agotado, usa el modo Suave: menos series y un poco menos de peso.</p>
       <h3>Tipos de serie</h3><p><b>C</b> calentamiento (no cuenta para récords), <b>D</b> drop set (bajas el peso y sigues), <b>F</b> al fallo.</p>
       <h3>Superseries</h3><p>Dos ejercicios alternados sin descanso entre ellos. Ahorran tiempo; funcionan mejor con músculos opuestos, como pecho y espalda.</p></div>`;
-    if(S.mePage==='about'){const el=LS.get(ERRLOG,[]);h+=`<div class="card about">${emblem(L.ri,56)}<div><b>Mancuernas 5.0</b><span>${BUILD?'Versión '+BUILD+' · ':''}Hecha para entrenar en casa</span></div></div>
+    if(S.mePage==='about'){const el=LS.get(ERRLOG,[]);h+=`<div class="card about">${emblem(L.ri,56)}<div><b>Mancuernas 5.1</b><span>${BUILD?'Versión '+BUILD+' · ':''}Hecha para entrenar en casa</span></div></div>
       <div class="card" style="margin-top:10px"><div class="set inline"><span class="lb">Registro de errores<small>${el.length?pl(el.length,'error guardado','errores guardados'):'Sin errores registrados'}</small></span>${el.length?`<button class="btn sm ghost" data-act="errcopy">Copiar</button>`:''}</div>
       <div class="set inline"><span class="lb">Ver la presentación otra vez</span><button class="btn sm ghost" data-act="wizard">Abrir</button></div></div>`;}
     return h;
@@ -2112,7 +2124,7 @@ function viewMe(){
   ${row('look',IC.star,'Apariencia',`Color ${st.accent||'azul'} · tema ${({system:'del sistema',light:'claro',dark:'oscuro'})[st.theme]}`)}
   ${row('data',IC.layers,'Datos y respaldo',S.store==='db'?'Guardado en tu cuenta':'Guardado en este teléfono')}
   ${row('guide',IC.info,'Cómo progresar','Guía rápida de entrenamiento')}
-  ${row('about',IC.trophy,'Acerca de','Mancuernas 5.0')}</ul>`;
+  ${row('about',IC.trophy,'Acerca de','Mancuernas 5.1')}</ul>`;
 }
 
 /* Hojas inferiores */
@@ -2261,7 +2273,7 @@ function completeRow(k,val){
   if(L.best0[it.n]&&better(it.n,set,before)){if(!L.prs.includes(it.n))L.prs.push(it.n);toast(IC.trophy+'<span>Récord · '+fmtSet(it.n,set)+'</span>',true);setTimeout(()=>sfx('pr'),150);V.pr(it.n);}else V.setDone();
   if(nextOpen(0)<0){L.rest=null;saveLive();renderPlayer(true);setTimeout(()=>{if(S.live&&S.live.phase!=='summary')finish();},450);return;}
   const pi=ssPartner(L.i),pOpen=pi>=0&&L.items[pi].sets.some(x=>!x.done);
-  if(pi>L.i&&pOpen&&s.ty!=='c'){L.rest=null;L.i=pi;saveLive();renderPlayer();toast(IC.swap+'<span>Superserie: '+esc(L.items[pi].n)+'</span>');say('Ahora '+L.items[pi].n+'.');return;}
+  if(pi>L.i&&pOpen&&s.ty!=='c'){L.rest=null;L.i=pi;saveLive();renderPlayer();toast(IC.swap+'<span>Superserie: '+esc(L.items[pi].n)+'</span>');V.ss(L.items[pi]);return;}
   startRest(e);
   if(pi>=0&&pi<L.i&&pOpen){L.i=pi;saveLive();renderPlayer();return;}
   if(it.sets.every(s=>s.done)){const n=nextOpen(L.i+1),m=n<0?nextOpen(0):n;if(m>=0){L.i=m;saveLive();renderPlayer();toast('Siguiente: '+esc(L.items[m].n));V.nextEx(L.items[m]);return;}}
@@ -2352,7 +2364,7 @@ function tick(){
     if(cd)cd.textContent=mmss(Math.ceil(rem));if(rg){const C=2*Math.PI*88;rg.setAttribute('stroke-dashoffset',(C*(1-Math.max(0,rem)/WARM)).toFixed(1));}
     const rgf=$('#rgf');if(rgf)rgf.style.transform='scaleX('+Math.min(1,Math.max(0,1-rem/WARM)).toFixed(3)+')';
     const stp=Math.min(4,Math.floor((WARM-rem)/60));document.querySelectorAll('#wl li').forEach((li,i)=>li.classList.toggle('on',i===stp));
-    if(stp!==L.wstp&&rem>0){L.wstp=stp;const w=WARMUPS[kindOf(L)][stp];if(w){const wi=$('#wimg');if(wi)wi.src=IMG(warmImg(L,w));if(stp)sfx('half');V.warmStep(w[0]+', '+w[1].replace('reps','repeticiones').replace(' s',' segundos').replace('min','minuto'));}}
+    if(stp!==L.wstp&&rem>0){L.wstp=stp;const w=WARMUPS[kindOf(L)][stp];if(w){const wi=$('#wimg');if(wi)wi.src=IMG(warmImg(L,w));if(stp)sfx('half');V.warmStep(w,stp);}}
     if(rem<=0){sfx('go');buzz(400);L.phase='work';L.warmUntil=0;L.t0=Date.now();saveLive();renderPlayer();V.first(L.items[L.i]);}
     return;
   }
@@ -2368,7 +2380,7 @@ function tick(){
     if(cd)cd.textContent=mmss(Math.ceil(rem));
     const sec=Math.ceil(rem);if(sec<=3&&sec>0&&L.lastBeepT!==sec){L.lastBeepT=sec;sfx('tick');}
     if(!L.timed.half&&rem<=L.timed.secs/2&&L.timed.secs>=20){L.timed.half=true;sfx('half');V.timedHalf();}
-    if(rem<=0){const k=L.timed.row,i=L.timed.i,secs=L.timed.secs;L.timed=null;sfx('go');buzz(400);say('Tiempo.',{full:true});if(L.i===i)completeRow(k,secs);else{L.items[i].sets[k].reps=secs;L.items[i].sets[k].done=true;saveLive();renderPlayer(true);}}
+    if(rem<=0){const k=L.timed.row,i=L.timed.i,secs=L.timed.secs;L.timed=null;sfx('go');buzz(400);V.timedEnd();if(L.i===i)completeRow(k,secs);else{L.items[i].sets[k].reps=secs;L.items[i].sets[k].done=true;saveLive();renderPlayer(true);}}
   }
 }
 
@@ -2528,13 +2540,26 @@ function planAct(a,v){
   return obAct(a,v);
 }
 
+/* Sonidos y voz del coach.
+   - Sonidos: paquetes de 9 efectos (SoundPool en Android, Web Audio en el navegador). Se mezclan con la música.
+   - Voz: clips pregrabados con voz neuronal colombiana (Salomé). Cada frase se arma con segmentos y cada
+     segmento es un clip voice/salome/<hash>.mp3. Mientras habla, la música del teléfono baja de volumen.
+     Si a una frase le falta algún clip, se dice completa con la voz del teléfono (TextToSpeech). */
 
-/* ===================== v4 · sonidos y coach de voz ===================== */
 const SND=['tick','go','set','half','work','rest','pr','lvl','done'];
-const PACKS={anime:['Anime','Aura, impacto y destellos'],arcade:['Arcade','8 bits, como consola vieja'],clasico:['Clásico','Pitidos limpios de cronómetro'],suave:['Suave','Marimba y campanas']};
-const VOICES={off:['Apagada','Solo sonidos'],basic:['Lo esencial','Siguiente serie, cambios y récords'],full:['Coach completo','Además cuenta, motiva y te acompaña']};
+const PACKS={
+  gym:['Gimnasio','Largada de carrera, pito, pesas y público'],
+  anime:['Anime','Aura, impacto y destellos'],
+  arcade:['Arcade','8 bits, como consola vieja'],
+  clasico:['Clásico','Pitidos limpios de cronómetro'],
+  suave:['Suave','Marimba y campanas']
+};
+const VOICES={off:['Apagado','Solo sonidos'],basic:['Lo esencial','Cada serie, los cambios y los récords'],full:['Coach completo','Además motiva, cuenta el descanso y te acompaña']};
+const VVOICES={salome:['Salomé','Colombiana, con sabor paisa'],tel:['Voz del teléfono','La que trae tu Android']};
 const WAB={};let loadedPack=null,TTS=null;
-const packOf=()=>PACKS[S.settings.pack]?S.settings.pack:'anime';
+const packOf=()=>PACKS[S.settings.pack]?S.settings.pack:'gym';
+
+/* ---------- efectos ---------- */
 async function loadPack(){
   const p=packOf();if(loadedPack===p)return;loadedPack=p;
   if(NAT&&typeof NAT.loadSounds==='function'){call(NAT,'loadSounds',{names:SND.map(n=>n+'.wav'),dir:'public/sounds/'+p});return;}
@@ -2546,64 +2571,242 @@ function sfx(n){
   if(NAT&&typeof NAT.play==='function'){call(NAT,'play',{name:n+'.wav',dir:'public/sounds/'+p,vol});return;}
   try{ensureAudio();const b=WAB[p+'/'+n];if(!AC||!b){beep(n==='tick'?880:1320,.15);return;}const s=AC.createBufferSource(),g=AC.createGain();g.gain.value=vol;s.buffer=b;s.connect(g);g.connect(AC.destination);s.start();}catch(e){}
 }
+
+/* ---------- voz del teléfono (respaldo) ---------- */
 async function ttsInit(){
   if(TTS)return;
   if(NAT&&typeof NAT.ttsInit==='function'){try{const r=await NAT.ttsInit({});TTS=r&&r.ok?'nat':'none';}catch(e){TTS='none';}return;}
   TTS=window.speechSynthesis?'web':'none';
 }
-let lastSay=0;
+function voiceOn(o){const m=S.settings.voice||'basic';return !(m==='off'||(o&&o.full&&m!=='full'));}
 function say(text,o){
-  o=o||{};const m=S.settings.voice||'basic';if(m==='off'||(o.full&&m!=='full'))return;
+  o=o||{};if(!voiceOn(o)||!text)return;
   if(!TTS){ttsInit().then(()=>say(text,o));return;}if(TTS==='none')return;
-  const rate=S.settings.vrate||1;lastSay=Date.now();
+  const rate=S.settings.vrate||1;
   if(TTS==='nat'){call(NAT,'speak',{text,rate,queue:!!o.queue});return;}
-  try{const u=new SpeechSynthesisUtterance(text);u.lang='es-ES';u.rate=rate;const vs=speechSynthesis.getVoices().filter(v=>/^es/i.test(v.lang));if(vs.length)u.voice=vs.find(v=>/CO|419|MX|US/.test(v.lang))||vs[0];if(!o.queue)speechSynthesis.cancel();speechSynthesis.speak(u);}catch(e){}
+  try{const u=new SpeechSynthesisUtterance(text);u.lang='es-CO';u.rate=rate;const vs=speechSynthesis.getVoices().filter(v=>/^es/i.test(v.lang));if(vs.length)u.voice=vs.find(v=>/CO/.test(v.lang))||vs.find(v=>/419|MX|US/.test(v.lang))||vs[0];if(!o.queue)speechSynthesis.cancel();speechSynthesis.speak(u);}catch(e){}
 }
-const MOTIV=['Vamos, una más que la última vez.','Respira y controla la bajada.','Cada serie cuenta.','Tu yo del futuro te lo agradece.','Despierta tu poder.','Rompe tus límites, con buena técnica.','Concéntrate en el músculo.','Eso es. Sigue así.','La constancia te hace fuerte.','No pares ahora.'];
-const pick=a=>a[Math.floor(Math.random()*a.length)];
-const nfs=x=>NF.format(x);
-function setPhrase(it,k){
-  const e=exOf(it),ds=dose(e),s=it.sets[k];if(!s)return '';
-  const tot=it.sets.length,head=`Serie ${k+1} de ${tot}`;
-  if(ds.timed)return `${head}. ${s.reps} segundos${ds.side?' por '+ds.side:''}.`;
-  if(isBW(e))return `${head}. ${ds.fail?'Hasta que la técnica aguante':s.reps+' repeticiones'}.`;
-  return `${head}. ${nfs(s.kg)} kilos, ${s.reps} repeticiones${ds.side?' por '+ds.side:''}.`;
+
+/* ---------- voz pregrabada ---------- */
+const VDIR='voice/salome';
+const VSET=new Set((typeof VCLIPS==='string'?VCLIPS:'').split(' ').filter(Boolean));
+function vhash(t){let h=0x811c9dc5;for(let i=0;i<t.length;i++){h^=t.charCodeAt(i);h=Math.imul(h,0x01000193);}return (h>>>0).toString(16).padStart(8,'0');}
+const hasClip=t=>VSET.has(vhash(t));
+const useClips=()=>(S.settings.vvoice||'salome')==='salome'&&VSET.size>0;
+const VMISS=window.__vmiss=[];
+// Velocidad de reproducción de los clips (conserva el tono)
+const clipRate=()=>({0.9:.92,1:1,1.2:1.12})[S.settings.vrate||1]||1;
+let WQ=[],WA=null,WQT=null;
+function webStop(){WQ=[];clearTimeout(WQT);if(WA){try{WA.pause();}catch(e){}WA=null;}}
+function webNext(){
+  const f=WQ.shift();if(!f){WA=null;return;}
+  const a=new Audio(VDIR+'/'+f);WA=a;a.playbackRate=clipRate();a.preservesPitch=true;a.volume=1;
+  const go=()=>{if(WA===a){WQT=setTimeout(webNext,70);}};a.onended=go;a.onerror=go;
+  a.play().catch(go);
 }
-function exPhrase(it){const e=exOf(it),ds=dose(e);return `${it.n}. ${it.sets.length} series de ${ds.label.replace('–',' a ').replace(' s',' segundos')}.`;}
-const V={
-  restStart(e,secs){if(Math.random()<.5)say(`Descansa ${secs>=60&&secs%60===0?secs/60+(secs===60?' minuto':' minutos'):secs+' segundos'}. ${pick(MOTIV)}`,{full:true});else say(`Descansa ${secs} segundos.`,{full:true});},
-  restTen(){say('Diez segundos.',{full:true});},
-  restEnd(){const L=S.live;if(!L)return;const it=L.items[L.i],k=curRow(it);if(k<0)return;say((k===0?exPhrase(it)+' ':'')+setPhrase(it,k));},
-  nextEx(it){say('Siguiente ejercicio: '+exPhrase(it));},
-  pr(n){say('¡Nuevo récord personal en '+n+'!');},
-  setDone(){if(Math.random()<.35)say(pick(['Buena serie.','Muy bien.','Eso es.','Excelente.','Así se hace.']),{full:true});},
-  timedGo(){say('¡Ya!',{full:true});},
-  timedHalf(){say('Mitad. Aguanta.',{full:true});},
-  warmStep(t){say(t);},
-  first(it){say('Empezamos. '+exPhrase(it)+' '+setPhrase(it,0));},
-  finish(r,lv0,lv1){const m=Math.max(1,Math.round(r.dur/60));let t=`Entrenamiento completado. ${m} ${m===1?'minuto':'minutos'} y ${r.sets} series.`;
-    if(r.pr.length)t+=` Lograste ${r.pr.length===1?'un récord':r.pr.length+' récords'}.`;
-    if(lv1.lv>lv0.lv)t+=lv1.ri>lv0.ri?` ¡Nuevo rango: ${lv1.rank}!`:` ¡Subiste a nivel ${lv1.lv}!`;say(t);}
-};
+function playClips(files,o){
+  if(NAT&&typeof NAT.voicePlay==='function'){call(NAT,'voicePlay',{files,dir:'public/'+VDIR,rate:clipRate(),queue:!!o.queue});return;}
+  if(!o.queue)webStop();WQ.push(...files);if(!WA)webNext();
+}
+/* Dice una frase armada por segmentos. o.full: solo en modo "Coach completo". o.queue: no corta lo que suena. */
+function speakSegs(segs,o){
+  o=o||{};if(!voiceOn(o))return;
+  segs=segs.filter(Boolean);if(!segs.length)return;
+  if(useClips()){
+    const miss=segs.filter(t=>!hasClip(t));
+    if(!miss.length){playClips(segs.map(t=>vhash(t)+'.mp3'),o);return;}
+    miss.forEach(t=>{if(!VMISS.includes(t))VMISS.push(t);});
+  }
+  say(segs.join(' '),o);
+}
+function hush(){webStop();try{if(window.speechSynthesis)speechSynthesis.cancel();}catch(e){}call(NAT,'voiceStop',{});call(NAT,'stopSpeak',{});}
+
+/* ---------- ajustes ---------- */
 function soundSettings(){
-  const st=S.settings;
+  const st=S.settings,vm=st.voice||'basic',vv=st.vvoice||'salome';
   return `<h2 class="h2">Sonido y voz</h2><div class="card">
   <div class="set inline"><span class="lb">Sonidos<small>Cuenta regresiva, series y récords</small></span><button class="sw" data-act="tog" data-v="sound" aria-pressed="${!!st.sound}" aria-label="Sonidos"></button></div>
-  ${st.sound?`<div class="set"><span class="lb">Paquete de sonidos<small>Toca para escucharlo</small></span><div class="packs">${Object.keys(PACKS).map(k=>`<button data-act="pack" data-v="${k}" aria-pressed="${packOf()===k}"><b>${PACKS[k][0]}</b><small>${PACKS[k][1]}</small></button>`).join('')}</div>
+  ${st.sound?`<div class="set"><span class="lb">Paquete de sonidos<small>Toca uno para escucharlo</small></span><div class="packs">${Object.keys(PACKS).map(k=>`<button data-act="pack" data-v="${k}" aria-pressed="${packOf()===k}"><b>${PACKS[k][0]}</b><small>${PACKS[k][1]}</small></button>`).join('')}</div>
    <div class="volrow">${IC.vol}<input type="range" id="in-vol" min="0.2" max="1" step="0.1" value="${st.vol??.9}" aria-label="Volumen de los sonidos"></div></div>`:''}
-  <div class="set"><span class="lb">Coach de voz<small>Te habla en español mientras entrenas. Baja el volumen de tu música solo mientras habla.</small></span><div class="opts sm">${Object.keys(VOICES).map(k=>`<button class="opt" data-act="voice" data-v="${k}" aria-pressed="${(st.voice||'basic')===k}"><span><b>${VOICES[k][0]}</b><small>${VOICES[k][1]}</small></span><span class="ock">${IC.check}</span></button>`).join('')}</div>
-   ${(st.voice||'basic')!=='off'?`<div class="seg" style="margin-top:10px">${[[0.9,'Pausada'],[1,'Normal'],[1.2,'Rápida']].map(([v,l])=>`<button data-act="vrate" data-v="${v}" aria-pressed="${(st.vrate||1)==v}">${l}</button>`).join('')}</div><button class="btn sm ghost block" style="margin-top:10px" data-act="vtest">${IC.play}Probar la voz</button>`:''}</div>
+  <div class="set"><span class="lb">Coach de voz<small>Te habla mientras entrenas y baja el volumen de tu música solo mientras habla.</small></span><div class="opts sm">${Object.keys(VOICES).map(k=>`<button class="opt" data-act="voice" data-v="${k}" aria-pressed="${vm===k}"><span><b>${VOICES[k][0]}</b><small>${VOICES[k][1]}</small></span><span class="ock">${IC.check}</span></button>`).join('')}</div>
+   ${vm!=='off'?`${VSET.size?`<div class="vpick">${Object.keys(VVOICES).map(k=>`<button data-act="vvoice" data-v="${k}" aria-pressed="${vv===k}">${k==='salome'?'<span class="vav" aria-hidden="true">S</span>':`<span class="vav tel" aria-hidden="true">${IC.vol}</span>`}<span><b>${VVOICES[k][0]}</b><small>${VVOICES[k][1]}</small></span></button>`).join('')}</div>`:''}
+   <div class="seg" style="margin-top:10px">${[[0.9,'Pausada'],[1,'Normal'],[1.2,'Rápida']].map(([v,l])=>`<button data-act="vrate" data-v="${v}" aria-pressed="${(st.vrate||1)==v}">${l}</button>`).join('')}</div><button class="btn sm ghost block" style="margin-top:10px" data-act="vtest">${IC.play}Escuchar al coach</button>`:''}</div>
   </div>`;
 }
 function audioAct(a,v){
   switch(a){
     case 'pack':S.settings.pack=v;saveSettings();loadPack().then(()=>setTimeout(()=>sfx('go'),NAT?250:400));render();return true;
-    case 'voice':S.settings.voice=v;saveSettings();render();if(v!=='off')setTimeout(()=>say(v==='full'?'Coach completo activado. '+pick(MOTIV):'Te aviso cada serie y cada cambio.'),200);return true;
-    case 'vrate':S.settings.vrate=+v;saveSettings();render();say('Así hablo a esta velocidad.');return true;
-    case 'vtest':{const n=S.settings.name;say(`Hola${n?' '+n:''}. Serie 2 de 4. 8 kilos, 10 repeticiones. ${pick(MOTIV)}`);return true;}
+    case 'voice':S.settings.voice=v;saveSettings();render();if(v!=='off')setTimeout(()=>V.mode(v),200);return true;
+    case 'vvoice':S.settings.vvoice=v;saveSettings();render();setTimeout(()=>V.sample(),150);return true;
+    case 'vrate':S.settings.vrate=+v;saveSettings();render();V.rate();return true;
+    case 'vtest':V.sample();return true;
   }
   return false;
 }
+
+/* Coach de voz: qué dice y cuándo.
+   Las frases usan el habla paisa (voseo, "pues", "berraquera") y se arman con segmentos cortos.
+   __voiceCatalog() enumera todos los segmentos posibles: con esa lista se graban los clips (app-src/audio). */
+
+const VZ={
+  go:['¡Hágale pues!','¡A darle!','¡Vamos pues!','¡De una, arrancá!','¡Con toda!','¡Dale, que vos podés!','¡Arriba, que sí se puede!','¡Vamos pues, mij{o|a}!'],
+  setOk:['¡Eso es!','¡Qué berraquera!','¡Bien pueda!','¡Así se hace!','¡Muy bien, parce!','¡Severo!','¡Uy, qué serie tan buena!','¡Esa estuvo limpiecita!','¡Ave María, qué fuerza!','¡Me encanta esa técnica!','¡Vas volando!','¡Qué nivel!','¡Eso es, mij{o|a}!','¡Bien hecho, mij{o|a}!','¡Sos una máquina!'],
+  rest:['Respirá hondo.','Tomate un traguito de agua.','Soltá los brazos y relajá.','Vas muy bien, no aflojés.','Buenísima esa serie.','Respirá por la nariz y soltá despacio.','Pensá en la técnica de la próxima.','Tranquil{o|a}, que vamos bien.'],
+  restTen:['Diez segunditos.','Alistate, diez segundos.','Diez segundos, preparate.'],
+  timedGo:['¡Ya!','¡Arrancá!','¡Dale!'],
+  timedHalf:['¡Mitad! Aguantá.','Ya vas por la mitad, ¡no aflojés!','¡Mitad! Respirá y seguí.'],
+  timedEnd:['¡Tiempo!','¡Listo, tiempo!','¡Y tiempo!'],
+  prIntro:['¡Ave María, nuevo récord!','¡Uy, récord personal!','¡Récord nuevo, qué berraquera!','¡Nuevo récord! Así es que es.','¡Ave María, mij{o|a}, nuevo récord!'],
+  first:['Arrancamos con','Empecemos con','Primero:'],
+  next:['Sigue','Ahora vamos con','Lo que sigue:','Pasamos a'],
+  ss:['Sin descanso, ahora','De una, sigue'],
+  warmIntro:['Calentemos primero, sin afanes.','Primero calentamos. Movete suave.'],
+  fin:['¡Entreno completado!','¡Terminamos, qué berraquera!','¡Listo el entreno de hoy!','¡Coronamos!'],
+  finEnd:['Estoy muy orgullosa de vos.','Estoy muy orgullosa de vos, mij{o|a}.','Te lo ganaste, ahora a descansar.','Así es que se construye, de a poquito.','Mañana el cuerpo te lo agradece.','Nos vemos en el próximo, ¡no me fallés!'],
+  seqPrep:['Preparate.','Alistate.'],
+  seqRest:['Descansá.','Respirá.'],
+  seqHalf:['¡Mitad!','¡Mitad, no aflojés!','¡Mitad, aguantá!'],
+  seqWork:['¡Dale!','¡Vamos!','¡Con toda!'],
+  seqFin:{hiit:'¡Intervalos completados!',abs:'¡Abdomen listo!',stretch:'¡Estiramiento completo!',mob:'¡Movilidad lista!'},
+  seqFinEnd:['¡Buen trabajo!','¡Qué berraquera!','¡Así me gusta!'],
+  single:{seqFirst:'Primero:',seqNext:'Lo que sigue:',seqLong:'Descanso largo.',sideR:'Lado derecho.',sideL:'Ahora el lado izquierdo.',fail:'Hasta que la técnica aguante.',
+    modeFull:'¡Coach completo activado! Te acompaño toda la sesión.',modeBasic:'Listo, te aviso cada serie y cada cambio.',rate:'Así hablo a esta velocidad.',
+    hi:'¡Hola! Soy Salomé, tu coach.',hi2:'¿List{o|a} para entrenar?',hiTel:'Hola, esta es la voz de tu teléfono.'},
+  name:[n=>`¡Vamos, ${n}!`,n=>`¡Eso es, ${n}!`,n=>`${n}, vos podés.`,n=>`¡Hola, ${n}!`,n=>`Muy bien, ${n}.`]
+};
+/* Indicaciones habladas de estiramientos y movilidad (más cortas que las escritas) */
+const VCUE={
+  'Pecho en el marco de una puerta':'Antebrazo en el marco y girá el cuerpo hacia afuera.',
+  'Hombro cruzado':'Brazo recto al otro lado y empujá suave por encima del codo.',
+  'Tríceps sobre la cabeza':'Codo arriba y empujalo suave con la otra mano.',
+  'Postura del niño':'Glúteos a los talones, brazos al frente. Respirá lento.',
+  'Gato-camello':'Redondeá y arqueá la espalda, despacito.',
+  'Dorsal de lado':'Brazo arriba y inclinate hacia el otro lado.',
+  'Bíceps en la pared':'Palma en la pared y girá el cuerpo hacia afuera.',
+  'Rotación torácica en el piso':'Abrí el brazo como un libro y seguilo con la mirada.',
+  'Cuádriceps de pie':'Talón al glúteo, rodillas juntas.',
+  'Isquiotibiales sentado':'Espalda recta e inclinate desde la cadera.',
+  'Glúteo en figura 4':'Tobillo sobre la rodilla y jalá la pierna hacia el pecho.',
+  'Pantorrilla en la pared':'Talón de atrás en el piso y rodilla estirada.',
+  'Flexor de cadera en zancada':'Rodilla atrás en el piso y empujá la cadera adelante.',
+  'Mariposa':'Plantas juntas y dejá caer las rodillas.',
+  'Cuello lateral':'Oreja hacia el hombro, sin subir el otro.',
+  'Respiración profunda':'Inhalá en cuatro tiempos y soltá en seis.',
+  'Círculos de brazos':'Grandes y lentos, adelante y atrás.',
+  'El mejor estiramiento del mundo':'Zancada, mano al piso y abrí el brazo al techo.',
+  'Círculos de cadera':'Manos en la cintura, círculos amplios.',
+  'Rotación torácica':'Mano en la nuca y abrí el codo al techo.',
+  'Sentadilla profunda sostenida':'Talones en el piso y codos empujando las rodillas.',
+  'Balanceo de piernas':'Apoyate en la pared y balanceá la pierna, sin forzar.',
+  'Tobillo a la pared':'Rodilla hacia la pared sin despegar el talón.'
+};
+
+/* ---------- segmentos con números ---------- */
+/* Variantes por sexo: "mij{o|a}" → "mijo" o "mija". Sin sexo elegido se omiten esas frases. */
+const GZ=/\{([^|{}]*)\|([^|{}]*)\}/g;
+const vsex=()=>S.settings.sex==='m'?'m':S.settings.sex==='h'?'h':'';
+const gz=t=>t.replace(GZ,(_,a,b)=>vsex()==='m'?b:a);
+const VLAST={};
+function vpick(key,list){if(!vsex())list=list.filter(t=>!t.includes('{'));let i=Math.floor(Math.random()*list.length);if(list.length>1&&i===VLAST[key])i=(i+1)%list.length;VLAST[key]=i;return gz(list[i]);}
+const VS={
+  serie:(k,n)=>n===1?'Una sola serie.':k===n?'¡Última serie!':`Serie ${k} de ${n}.`,
+  nSeries:n=>n===1?'Una serie.':`${n} series.`,
+  kg:x=>{x=Math.round(x*2)/2;const e=Math.floor(x),h=x-e>0;if(!e)return 'Medio kilo,';return (e===1?'Un kilo':e+' kilos')+(h?' y medio':'')+',';},
+  reps:(r,side)=>side?`${r} por ${side}.`:r===1?'Una repetición.':`${r} repeticiones.`,
+  secs:(s,side)=>`${s} segundos${side?' por '+side:''}.`,
+  dur:s=>{if(s<60)return `${s} segundos`;const m=Math.floor(s/60),r=s%60,mm=m===1?'un minuto':m+' minutos';return r===0?mm:r===30?mm+' y medio':`${mm} y ${r} segundos`;},
+  rest:s=>`Descansá ${VS.dur(Math.max(5,Math.round(s/5)*5))}.`,
+  minutes:m=>m===1?'Un minuto,':`${m} minutos,`,
+  setsDone:s=>s===1?'y una serie.':`y ${s} series.`,
+  prs:n=>n===1?'Lograste un récord.':`Lograste ${n} récords.`,
+  level:n=>`¡Subiste a nivel ${n}!`,
+  rank:r=>`¡Nuevo rango: ${r}!`,
+  block:n=>`Bloque ${n} a continuación.`,
+  ex:n=>(VSAY[n]||n)+'.'
+};
+/* Cómo se pronuncian en voz alta algunos nombres en inglés */
+const VSAY={'Burpees':'Burpis','Bird dog':'Berd dog','Jumping jacks':'Saltos de tijera','Russian twist':'Giro ruso','Step-ups':'Subidas al escalón','Swing con mancuerna':'Suin con mancuerna'};
+// Segmento con el nombre de la persona: solo si hay clip grabado para ese nombre (o si usa la voz del teléfono)
+function vname(i){const n=(S.settings.name||'').trim().split(/\s+/)[0];if(!n)return '';const t=VZ.name[i](n);return !useClips()||hasClip(t)?t:'';}
+function warmDose(s){const m=/^(\d+)\s*(min|s|reps|por (\w+))$/.exec(s.trim());if(!m)return '';const n=+m[1];
+  if(m[2]==='min')return n===1?'Un minuto.':`${n} minutos.`;if(m[2]==='s')return VS.secs(n);if(m[2]==='reps')return VS.reps(n);return VS.reps(n,m[3]);}
+function targetSegs(it,k){
+  const e=exOf(it),ds=dose(e),s=it.sets[k];if(!s)return [];
+  if(ds.timed)return [VS.secs(Math.round((+s.reps||ds.timed)/5)*5||ds.timed,ds.side)];
+  if(isBW(e))return [ds.fail?VZ.single.fail:VS.reps(+s.reps||ds.target,ds.side)];
+  return [s.kg?VS.kg(+s.kg):'',VS.reps(+s.reps||ds.target,ds.side)];
+}
+const setSegs=(it,k)=>[VS.serie(k+1,it.sets.length),...targetSegs(it,k)];
+const exSegs=it=>[VS.ex(it.n),VS.nSeries(it.sets.length)];
+
+/* ---------- eventos del entrenamiento ---------- */
+const V={
+  restStart(e,secs){speakSegs([VS.rest(secs),Math.random()<.55?vpick('rest',VZ.rest):''],{full:true});},
+  restTen(){speakSegs([vpick('ten',VZ.restTen)],{full:true});},
+  restEnd(){const L=S.live;if(!L)return;const it=L.items[L.i],k=curRow(it);if(k<0)return;
+    const full=(S.settings.voice||'basic')==='full';
+    speakSegs([full?vpick('go',VZ.go):'',...(k===0?exSegs(it):[]),...setSegs(it,k)]);},
+  nextEx(it){speakSegs([vpick('next',VZ.next),...exSegs(it),...targetSegs(it,0)]);},
+  ss(it){const k=curRow(it);speakSegs([vpick('ss',VZ.ss),VS.ex(it.n),...(k>=0?targetSegs(it,k):[])]);},
+  pr(n){speakSegs([vpick('pr',VZ.prIntro),VS.ex(n),Math.random()<.5?vname(1):'']);},
+  setDone(){if(Math.random()<.4)speakSegs([vpick('ok',VZ.setOk)],{full:true});},
+  timedGo(){speakSegs([vpick('tgo',VZ.timedGo)],{full:true});},
+  timedHalf(){speakSegs([vpick('thalf',VZ.timedHalf)],{full:true});},
+  timedEnd(){speakSegs([vpick('tend',VZ.timedEnd)],{full:true});},
+  warmStep(w,i){speakSegs([i===0&&(S.settings.voice||'basic')==='full'?vpick('wi',VZ.warmIntro):'',VS.ex(w[0]),warmDose(w[1])]);},
+  first(it){speakSegs([vname(0),vpick('first',VZ.first),...exSegs(it),...setSegs(it,0).slice(1)]);},
+  finish(r,lv0,lv1){const m=Math.max(1,Math.round(r.dur/60));
+    speakSegs([vpick('fin',VZ.fin),VS.minutes(m),VS.setsDone(r.sets),r.pr.length?VS.prs(r.pr.length):'',
+      lv1.lv>lv0.lv?(lv1.ri>lv0.ri?VS.rank(lv1.rank):VS.level(lv1.lv)):'',vname(4)||'',vpick('fe',VZ.finEnd)]);},
+  // Rutinas guiadas (intervalos, abdomen, estiramientos, movilidad)
+  seqStep(q,st,i){
+    const base=st.t.replace(/ · (derecha|izquierda)$/,''),side=(/ · (derecha|izquierda)$/.exec(st.t)||[])[1];
+    if(st.k==='work'){
+      if(q.kind==='stretch'||q.kind==='mob'){
+        if(side==='izquierda')return speakSegs([VZ.single.sideL]);
+        return speakSegs([VS.ex(base),side?VZ.single.sideR:'',VCUE[base]||'']);}
+      return speakSegs(st.t==='¡Trabajo!'?[vpick('sw',VZ.seqWork)]:[Math.random()<.5?vpick('sw',VZ.seqWork):'',VS.ex(st.t)]);}
+    if(st.k==='rest'){if(st.d<10)return;const nx=q.steps[i+1];
+      if(st.t==='Descanso largo'){const b=/Bloque (\d+)/.exec(st.sub);return speakSegs([VZ.single.seqLong,b?VS.block(+b[1]):''],{full:true});}
+      return speakSegs([vpick('sr',VZ.seqRest),nx&&nx.t!=='¡Trabajo!'?VZ.single.seqNext:'',nx&&nx.t!=='¡Trabajo!'?VS.ex(nx.t.replace(/ · (derecha|izquierda)$/,'')):''],{full:true});}
+    const nx=q.steps[i+1];speakSegs([vpick('sp',VZ.seqPrep),nx&&nx.t!=='¡Trabajo!'?VZ.single.seqFirst:'',nx&&nx.t!=='¡Trabajo!'?VS.ex(nx.t.replace(/ · (derecha|izquierda)$/,'')):'']);
+  },
+  seqHalf(){speakSegs([vpick('sh',VZ.seqHalf)],{full:true});},
+  seqFinish(kind){speakSegs([VZ.seqFin[kind]||VZ.seqFin.hiit,vpick('sfe',VZ.seqFinEnd)]);},
+  // Ajustes
+  mode(m){speakSegs([m==='full'?VZ.single.modeFull:VZ.single.modeBasic]);},
+  rate(){speakSegs([VZ.single.rate]);},
+  sample(){if(!useClips()){say(VZ.single.hiTel+' Serie 2 de 4. 8 kilos, 10 repeticiones.');return;}
+    speakSegs([vname(3)||VZ.single.hi,vname(3)?VZ.single.hi:'',vsex()?gz(VZ.single.hi2):'',VS.serie(2,4),VS.kg(8),VS.reps(10),vpick('go',VZ.go)]);}
+};
+
+/* ---------- catálogo para grabar los clips ---------- */
+window.__voiceCatalog=function(names){
+  const out={},add=(t,style)=>{if(!t)return;if(t.includes('{')){add(t.replace(GZ,'$1'),style);add(t.replace(GZ,'$2'),style);return;}out[vhash(t)]={t,s:style||'info'};};
+  const hype=['go','setOk','timedGo','timedHalf','timedEnd','prIntro','fin','seqHalf','seqWork','seqFinEnd'];
+  for(const k in VZ){const v=VZ[k];if(Array.isArray(v)&&typeof v[0]==='string')v.forEach(t=>add(t,hype.includes(k)?'hype':k==='rest'||k==='finEnd'||k==='warmIntro'?'calm':'info'));}
+  Object.values(VZ.seqFin).forEach(t=>add(t,'hype'));
+  Object.entries(VZ.single).forEach(([k,t])=>add(t,k==='modeFull'||k==='hi'?'hype':'info'));
+  Object.values(VCUE).forEach(t=>add(t,'calm'));
+  (names||[]).forEach(n=>VZ.name.forEach((f,i)=>add(f(n),i===2||i===4?'info':'hype')));
+  for(let n=1;n<=10;n++){add(VS.nSeries(n));for(let k=1;k<=n;k++)add(VS.serie(k,n),k===n&&n>1?'hype':'info');}
+  for(let x=0.5;x<=80;x+=0.5)add(VS.kg(x));
+  const sides=[null,'lado','pierna','brazo'];
+  for(let r=1;r<=50;r++)sides.forEach(sd=>add(VS.reps(r,sd)));
+  for(let s=5;s<=180;s+=5)sides.forEach(sd=>add(VS.secs(s,sd)));
+  for(let s=5;s<=300;s+=5)add(VS.rest(s));
+  for(let m=1;m<=180;m++)add(VS.minutes(m));
+  for(let s=1;s<=120;s++)add(VS.setsDone(s));
+  for(let n=1;n<=30;n++)add(VS.prs(n),'hype');
+  for(let n=2;n<=99;n++)add(VS.level(n),'hype');
+  RANKS.forEach(r=>add(VS.rank(r[1]),'hype'));
+  for(let n=2;n<=10;n++)add(VS.block(n));
+  for(let n=2;n<=5;n++)add(n+' minutos.');add('Un minuto.');
+  ALLEX.forEach(e=>add(VS.ex(e.n)));
+  Object.values(WARMUPS).forEach(l=>l.forEach(w=>{add(VS.ex(w[0]));add(warmDose(w[1]));}));
+  Object.values(ST).forEach(x=>add(VS.ex(x[0])));MOB.forEach(x=>add(VS.ex(x[0])));HIITX.forEach(x=>add(VS.ex(x[0])));ABSX.forEach(x=>add(VS.ex(x[0])));
+  return out;
+};
 
 
 /* ===================== v4 · mapa muscular, series por músculo y fotos ===================== */
@@ -2813,22 +3016,22 @@ function seqRender(){
   ${nx&&st.k==='work'?`<div class="sqnext">Después: <b>${esc(nx.k==='rest'?(SQ.steps[SQ.i+2]||nx).t:nx.t)}</b></div>`:!nx?'<div class="sqnext">Último</div>':''}</div>
   <div class="sqctl"><button class="iconbtn" data-act="seqprev" aria-label="Anterior" ${SQ.i===0?'disabled':''}>${IC.left}</button><button class="btn pri" data-act="seqpause">${SQ.paused?IC.play+'Seguir':'Pausa'}</button><button class="iconbtn" data-act="seqnext" aria-label="Siguiente">${IC.right}</button></div>`;
 }
-function seqAnnounce(){const st=SQ.steps[SQ.i];if(st.k==='work'){sfx('work');say(st.t+(SQ.kind==='stretch'||SQ.kind==='mob'?'. '+st.sub:''));}else if(st.k==='rest'){sfx('rest');if(st.d>=10)say(st.t+'. '+(st.sub||''),{full:true});}else say(st.sub?'Prepárate. '+st.sub:'Prepárate.');}
+function seqAnnounce(){const st=SQ.steps[SQ.i];if(st.k==='work')sfx('work');else if(st.k==='rest')sfx('rest');V.seqStep(SQ,st,SQ.i);}
 function seqGo(i){if(i>=SQ.steps.length){seqFinish();return;}SQ.i=i;SQ.until=Date.now()+SQ.steps[i].d*1000;SQ.paused=0;SQ.lastBeep=null;SQ.half=false;seqRender();seqAnnounce();}
 function seqTick(){
   if(!SQ||SQ.paused||$('#seq').hidden)return;const st=SQ.steps[SQ.i],rem=(SQ.until-Date.now())/1000,sec=Math.ceil(rem);
   const cd=$('#sqcd'),fl=$('#sqfill');if(cd)cd.textContent=mmss(sec);if(fl)fl.style.transform='scaleX('+Math.min(1,Math.max(0,1-rem/st.d)).toFixed(3)+')';
   const done=SQ.steps.slice(0,SQ.i).reduce((a,s)=>a+s.d,0)+(st.d-Math.max(0,rem));const pb=document.querySelector('.sqprog i');if(pb)pb.style.width=(done/seqTotal()*100).toFixed(1)+'%';
   if(sec<=3&&sec>0&&SQ.lastBeep!==sec){SQ.lastBeep=sec;sfx('tick');}
-  if(!SQ.half&&st.k==='work'&&st.d>=30&&rem<=st.d/2){SQ.half=true;sfx('half');if(SQ.kind==='hiit'||SQ.kind==='abs')say('Mitad.',{full:true});}
+  if(!SQ.half&&st.k==='work'&&st.d>=30&&rem<=st.d/2){SQ.half=true;sfx('half');if(SQ.kind==='hiit'||SQ.kind==='abs')V.seqHalf();}
   if(rem<=0){buzz(200);seqGo(SQ.i+1);}
 }
 function seqFinish(){
-  clearInterval(SQT);const d=Math.round((Date.now()-SQ.t0)/1000);sfx('done');say(SQ.t+' completado. Buen trabajo.');buzz(300);
+  clearInterval(SQT);const d=Math.round((Date.now()-SQ.t0)/1000);sfx('done');V.seqFinish(SQ.kind);buzz(300);
   if(d>=60&&typeof addAct==='function')addAct({kind:SQ.kind,key:SQ.key,t:SQ.t,dur:d});
   const t=SQ.t;SQ=null;$('#seq').hidden=true;$('#seq').innerHTML='';wake(false);syncGuard();render();toast(IC.check+'<span>'+esc(t)+' · '+Math.max(1,Math.round(d/60))+' min</span>');confetti('small');
 }
-function seqClose(){clearInterval(SQT);SQ=null;$('#seq').hidden=true;$('#seq').innerHTML='';wake(false);call(NAT,'stopSpeak',{});}
+function seqClose(){clearInterval(SQT);SQ=null;$('#seq').hidden=true;$('#seq').innerHTML='';wake(false);hush();}
 let HC=null;
 function hiitSheet(){
   HC=HC||Object.assign({p:'tabata',work:20,rest:10,rounds:8,sets:1,setRest:60,names:true},LS.get('mc-hiit',{}));

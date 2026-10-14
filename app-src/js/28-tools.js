@@ -79,22 +79,22 @@ function seqRender(){
   ${nx&&st.k==='work'?`<div class="sqnext">Después: <b>${esc(nx.k==='rest'?(SQ.steps[SQ.i+2]||nx).t:nx.t)}</b></div>`:!nx?'<div class="sqnext">Último</div>':''}</div>
   <div class="sqctl"><button class="iconbtn" data-act="seqprev" aria-label="Anterior" ${SQ.i===0?'disabled':''}>${IC.left}</button><button class="btn pri" data-act="seqpause">${SQ.paused?IC.play+'Seguir':'Pausa'}</button><button class="iconbtn" data-act="seqnext" aria-label="Siguiente">${IC.right}</button></div>`;
 }
-function seqAnnounce(){const st=SQ.steps[SQ.i];if(st.k==='work'){sfx('work');say(st.t+(SQ.kind==='stretch'||SQ.kind==='mob'?'. '+st.sub:''));}else if(st.k==='rest'){sfx('rest');if(st.d>=10)say(st.t+'. '+(st.sub||''),{full:true});}else say(st.sub?'Prepárate. '+st.sub:'Prepárate.');}
+function seqAnnounce(){const st=SQ.steps[SQ.i];if(st.k==='work')sfx('work');else if(st.k==='rest')sfx('rest');V.seqStep(SQ,st,SQ.i);}
 function seqGo(i){if(i>=SQ.steps.length){seqFinish();return;}SQ.i=i;SQ.until=Date.now()+SQ.steps[i].d*1000;SQ.paused=0;SQ.lastBeep=null;SQ.half=false;seqRender();seqAnnounce();}
 function seqTick(){
   if(!SQ||SQ.paused||$('#seq').hidden)return;const st=SQ.steps[SQ.i],rem=(SQ.until-Date.now())/1000,sec=Math.ceil(rem);
   const cd=$('#sqcd'),fl=$('#sqfill');if(cd)cd.textContent=mmss(sec);if(fl)fl.style.transform='scaleX('+Math.min(1,Math.max(0,1-rem/st.d)).toFixed(3)+')';
   const done=SQ.steps.slice(0,SQ.i).reduce((a,s)=>a+s.d,0)+(st.d-Math.max(0,rem));const pb=document.querySelector('.sqprog i');if(pb)pb.style.width=(done/seqTotal()*100).toFixed(1)+'%';
   if(sec<=3&&sec>0&&SQ.lastBeep!==sec){SQ.lastBeep=sec;sfx('tick');}
-  if(!SQ.half&&st.k==='work'&&st.d>=30&&rem<=st.d/2){SQ.half=true;sfx('half');if(SQ.kind==='hiit'||SQ.kind==='abs')say('Mitad.',{full:true});}
+  if(!SQ.half&&st.k==='work'&&st.d>=30&&rem<=st.d/2){SQ.half=true;sfx('half');if(SQ.kind==='hiit'||SQ.kind==='abs')V.seqHalf();}
   if(rem<=0){buzz(200);seqGo(SQ.i+1);}
 }
 function seqFinish(){
-  clearInterval(SQT);const d=Math.round((Date.now()-SQ.t0)/1000);sfx('done');say(SQ.t+' completado. Buen trabajo.');buzz(300);
+  clearInterval(SQT);const d=Math.round((Date.now()-SQ.t0)/1000);sfx('done');V.seqFinish(SQ.kind);buzz(300);
   if(d>=60&&typeof addAct==='function')addAct({kind:SQ.kind,key:SQ.key,t:SQ.t,dur:d});
   const t=SQ.t;SQ=null;$('#seq').hidden=true;$('#seq').innerHTML='';wake(false);syncGuard();render();toast(IC.check+'<span>'+esc(t)+' · '+Math.max(1,Math.round(d/60))+' min</span>');confetti('small');
 }
-function seqClose(){clearInterval(SQT);SQ=null;$('#seq').hidden=true;$('#seq').innerHTML='';wake(false);call(NAT,'stopSpeak',{});}
+function seqClose(){clearInterval(SQT);SQ=null;$('#seq').hidden=true;$('#seq').innerHTML='';wake(false);hush();}
 let HC=null;
 function hiitSheet(){
   HC=HC||Object.assign({p:'tabata',work:20,rest:10,rounds:8,sets:1,setRest:60,names:true},LS.get('mc-hiit',{}));

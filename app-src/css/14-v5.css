@@ -171,3 +171,12 @@ button.kvrow{width:100%;text-align:left}
   #onb p{margin-bottom:12px}
 }
 #toast{width:max-content}
+
+/* v6 · voz del coach */
+.packs button:first-child:nth-last-child(odd){grid-column:1/-1}
+.vpick{display:grid;grid-template-columns:1fr 1fr;gap:6px;margin-top:10px}
+.vpick button{display:flex;align-items:center;gap:10px;text-align:left;padding:10px;border-radius:12px;border:1.5px solid var(--line);background:var(--s1);min-width:0}
+.vpick button[aria-pressed="true"]{border-color:var(--acc);background:var(--acc-soft)}
+.vpick b{display:block;font-size:.9rem}.vpick small{display:block;font-size:.72rem;color:var(--tx2);margin-top:1px;line-height:1.25}
+.vav{width:34px;height:34px;border-radius:50%;flex:none;display:grid;place-items:center;font-weight:800;color:#fff;background:linear-gradient(135deg,#f0a500,#e5484d)}
+.vav.tel{background:var(--s3);color:var(--tx2)}.vav svg{width:18px;height:18px}

@@ -100,7 +100,7 @@ function completeRow(k,val){
   if(L.best0[it.n]&&better(it.n,set,before)){if(!L.prs.includes(it.n))L.prs.push(it.n);toast(IC.trophy+'<span>Récord · '+fmtSet(it.n,set)+'</span>',true);setTimeout(()=>sfx('pr'),150);V.pr(it.n);}else V.setDone();
   if(nextOpen(0)<0){L.rest=null;saveLive();renderPlayer(true);setTimeout(()=>{if(S.live&&S.live.phase!=='summary')finish();},450);return;}
   const pi=ssPartner(L.i),pOpen=pi>=0&&L.items[pi].sets.some(x=>!x.done);
-  if(pi>L.i&&pOpen&&s.ty!=='c'){L.rest=null;L.i=pi;saveLive();renderPlayer();toast(IC.swap+'<span>Superserie: '+esc(L.items[pi].n)+'</span>');say('Ahora '+L.items[pi].n+'.');return;}
+  if(pi>L.i&&pOpen&&s.ty!=='c'){L.rest=null;L.i=pi;saveLive();renderPlayer();toast(IC.swap+'<span>Superserie: '+esc(L.items[pi].n)+'</span>');V.ss(L.items[pi]);return;}
   startRest(e);
   if(pi>=0&&pi<L.i&&pOpen){L.i=pi;saveLive();renderPlayer();return;}
   if(it.sets.every(s=>s.done)){const n=nextOpen(L.i+1),m=n<0?nextOpen(0):n;if(m>=0){L.i=m;saveLive();renderPlayer();toast('Siguiente: '+esc(L.items[m].n));V.nextEx(L.items[m]);return;}}

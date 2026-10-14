@@ -25,18 +25,21 @@ app-src/                Código fuente de la app (HTML, CSS y JavaScript sin fra
     16-19                 Pantallas: Inicio, Ejercicios, Progreso y Perfil
     20-23                 Hojas, reproductor de entrenamiento, resumen y reloj
     24-25                 Pantalla Plan (editor de rutinas) y asistente
-    26-audio.js           Paquetes de sonido y coach de voz
+    26-audio.js           Sonidos y motor de voz (clips pregrabados, respaldo con la voz del teléfono)
+    26-coach.js           Qué dice la coach y cuándo; catálogo de frases para grabarlas
     27-muscles-photos.js  Mapa muscular, series por músculo y fotos de progreso
     28-tools.js           Intervalos, estiramientos, movilidad y calculadoras
     29-goals.js           Misiones, logros, tipos de serie, notas y colores
     30-fx.js              Celebraciones
     31-native.js          Widget, accesos directos, notificación en curso y resumen semanal
     98-99                 Despachador de acciones, eventos e inicio
+  audio/                Voz de la coach (clips), paquetes de sonidos y scripts para regenerarlos
   build.js              Une todo y escribe www/ (Android) y dist/ (versión web)
 www/                    App compilada que empaqueta Capacitor (no editar a mano)
 android/                Proyecto nativo (Capacitor 6)
-  .../NativePlugin.java   Vibración, pantalla, barras, sonidos (SoundPool), voz (TextToSpeech
-                          con atenuación de música), notificación en curso, widget y accesos
+  .../NativePlugin.java   Vibración, pantalla, barras, sonidos (SoundPool), clips de voz en cola y
+                          TextToSpeech (ambos bajan la música mientras hablan), notificación en curso,
+                          widget y accesos
   .../TodayWidget.java    Widget "Hoy" de la pantalla de inicio
   .../MainActivity.java   Botón atrás y acciones desde widget y accesos directos
 ```
