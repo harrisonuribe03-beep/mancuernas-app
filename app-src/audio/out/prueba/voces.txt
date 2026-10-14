@@ -1,0 +1,7 @@
+Name                               Gender    ContentCategories      VoicePersonalities
+es-CO-GonzaloNeural                Male      General                Friendly, Positive
+es-CO-SalomeNeural                 Female    General                Friendly, Positive
+es-MX-DaliaNeural                  Female    General                Friendly, Positive
+es-MX-JorgeNeural                  Male      General                Friendly, Positive
+es-US-AlonsoNeural                 Male      General                Friendly, Positive
+es-US-PalomaNeural                 Female    General                Friendly, Positive
