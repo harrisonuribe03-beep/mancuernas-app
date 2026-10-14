@@ -1,0 +1,3498 @@
+{
+ "freesound": {
+  "boxing-bell": [
+   {
+    "id": "184438",
+    "user": "850742",
+    "t": "Cash Register Fake.wav"
+   },
+   {
+    "id": "204646",
+    "user": "2211283",
+    "t": "XYLOPHONE C4.wav"
+   },
+   {
+    "id": "204633",
+    "user": "2211283",
+    "t": "Xylophone D3.wav"
+   },
+   {
+    "id": "204648",
+    "user": "2211283",
+    "t": "XYLOPHONE G4.wav"
+   },
+   {
+    "id": "204647",
+    "user": "2211283",
+    "t": "Xylophone A3.wav"
+   },
+   {
+    "id": "204636",
+    "user": "2211283",
+    "t": "Xylophone C3.wav"
+   },
+   {
+    "id": "157277",
+    "user": "2461172",
+    "t": "spieluhr6.wav"
+   },
+   {
+    "id": "486210",
+    "user": "2524442",
+    "t": "R07-13-Crowd and Boxing Bell.wav"
+   },
+   {
+    "id": "204644",
+    "user": "2211283",
+    "t": "XYLOPHONE E4.wav"
+   },
+   {
+    "id": "204639",
+    "user": "2211283",
+    "t": "XYLOPHONE A4.wav"
+   },
+   {
+    "id": "204643",
+    "user": "2211283",
+    "t": "XYLOPHONE F4.wav"
+   },
+   {
+    "id": "204630",
+    "user": "2211283",
+    "t": "Low Intesity C4.wav"
+   },
+   {
+    "id": "204635",
+    "user": "2211283",
+    "t": "Xylophone B3.wav"
+   },
+   {
+    "id": "157270",
+    "user": "2461172",
+    "t": "spieluhr17.wav"
+   },
+   {
+    "id": "204645",
+    "user": "2211283",
+    "t": "XYLOPHONE D4.wav"
+   }
+  ],
+  "ring-bell": [
+   {
+    "id": "368821",
+    "user": "179538",
+    "t": "Japan_Kyoto_Temple_Donating_Bell2.wav"
+   },
+   {
+    "id": "560021",
+    "user": "12494237",
+    "t": "box bells.wav"
+   }
+  ],
+  "fight-bell": [
+   {
+    "id": "504598",
+    "user": "10943185",
+    "t": "Effect1.wav"
+   }
+  ],
+  "whistle-ref": [
+   {
+    "id": "218318",
+    "user": "1480854",
+    "t": "Referee whistle blow, gymnasium.wav"
+   },
+   {
+    "id": "538422",
+    "user": "11966684",
+    "t": "Referee whistle sound.wav"
+   },
+   {
+    "id": "316746",
+    "user": "3995641",
+    "t": "Large Creature or Machinery Sound.wav"
+   },
+   {
+    "id": "548549",
+    "user": "1442200",
+    "t": "Perc_WhistleRef_lo"
+   },
+   {
+    "id": "548548",
+    "user": "1442200",
+    "t": "Perc_WhistleRef_hi"
+   }
+  ],
+  "whistle-sport": [
+   {
+    "id": "538422",
+    "user": "11966684",
+    "t": "Referee whistle sound.wav"
+   },
+   {
+    "id": "418564",
+    "user": "8333239",
+    "t": "Whistle.WAV"
+   },
+   {
+    "id": "499386",
+    "user": "10822577",
+    "t": "01_Whistle-01.wav"
+   },
+   {
+    "id": "817398",
+    "user": "14398276",
+    "t": "Coach whistle"
+   },
+   {
+    "id": "499385",
+    "user": "10822577",
+    "t": "01_Whistle-02.wav"
+   },
+   {
+    "id": "498564",
+    "user": "10817171",
+    "t": "9-1 Whistle.wav"
+   }
+  ],
+  "coach-whistle": [
+   {
+    "id": "218318",
+    "user": "1480854",
+    "t": "Referee whistle blow, gymnasium.wav"
+   },
+   {
+    "id": "161662",
+    "user": "2219481",
+    "t": "&quot;Coach&quot; Whistle.aiff"
+   },
+   {
+    "id": "184726",
+    "user": "62484",
+    "t": "Coach Whistle - Cleaned up"
+   },
+   {
+    "id": "817398",
+    "user": "14398276",
+    "t": "Coach whistle"
+   },
+   {
+    "id": "649767",
+    "user": "10403690",
+    "t": "Whistle FX.wav"
+   },
+   {
+    "id": "404736",
+    "user": "140737",
+    "t": "Retro video game sfx - Whistle"
+   }
+  ],
+  "dumbbell": [
+   {
+    "id": "655899",
+    "user": "13727631",
+    "t": "Dumbbell OWI .wav"
+   },
+   {
+    "id": "418551",
+    "user": "8333239",
+    "t": "Laying of weights.WAV"
+   },
+   {
+    "id": "867257",
+    "user": "15176424",
+    "t": "Rolling Metal Loop"
+   }
+  ],
+  "weights": [
+   {
+    "id": "197899",
+    "user": "3186536",
+    "t": "weights dropped.WAV"
+   },
+   {
+    "id": "210388",
+    "user": "3844637",
+    "t": "More weights on the barbell_Studio21M\u00e4vers.wav"
+   },
+   {
+    "id": "347680",
+    "user": "6336524",
+    "t": "lifting.mp3"
+   },
+   {
+    "id": "197902",
+    "user": "3186536",
+    "t": "weights machine.WAV"
+   },
+   {
+    "id": "655899",
+    "user": "13727631",
+    "t": "Dumbbell OWI .wav"
+   },
+   {
+    "id": "377969",
+    "user": "6988448",
+    "t": "paisaje-sonoro-uem-Pesas.wav"
+   },
+   {
+    "id": "418551",
+    "user": "8333239",
+    "t": "Laying of weights.WAV"
+   },
+   {
+    "id": "610741",
+    "user": "13502566",
+    "t": "BarbellDrop.wav"
+   },
+   {
+    "id": "766862",
+    "user": "15681094",
+    "t": "OBJGym-Int_GymPlatesDrop_Zus_OwSfx_Hard"
+   },
+   {
+    "id": "766863",
+    "user": "15681094",
+    "t": "OBJGym-Int_WeightRerack_Zus_OwSfx_Hard"
+   },
+   {
+    "id": "788233",
+    "user": "16382061",
+    "t": "Gym Exercise Equip Adjust Weight"
+   },
+   {
+    "id": "816837",
+    "user": "17552599",
+    "t": "weights 2 edit"
+   },
+   {
+    "id": "813417",
+    "user": "17552599",
+    "t": "Weights"
+   },
+   {
+    "id": "871492",
+    "user": "19287889",
+    "t": "Gym moan"
+   }
+  ],
+  "kettlebell": [],
+  "plates": [],
+  "cheer": [
+   {
+    "id": "333404",
+    "user": "5884138",
+    "t": "Cheer 2.wav"
+   },
+   {
+    "id": "277021",
+    "user": "1402315",
+    "t": "Applause 2.WAV"
+   },
+   {
+    "id": "277020",
+    "user": "1402315",
+    "t": "Applause 3.WAV"
+   },
+   {
+    "id": "277022",
+    "user": "1402315",
+    "t": "Applause 1.WAV"
+   },
+   {
+    "id": "277019",
+    "user": "1402315",
+    "t": "Applause 4.WAV"
+   },
+   {
+    "id": "32260",
+    "user": "43834",
+    "t": "smallcrowd.wav"
+   },
+   {
+    "id": "221567",
+    "user": "1282865",
+    "t": "cheering and clapping crowd 2"
+   },
+   {
+    "id": "184833",
+    "user": "3259763",
+    "t": "Crowd"
+   },
+   {
+    "id": "139972",
+    "user": "968325",
+    "t": "Crowd.Yay.Applause.25ppl.Short.wav"
+   },
+   {
+    "id": "182571",
+    "user": "71257",
+    "t": "Short Crowd Cheer.flac"
+   },
+   {
+    "id": "353923",
+    "user": "4161250",
+    "t": "yay.wav"
+   },
+   {
+    "id": "182825",
+    "user": "71257",
+    "t": "Pleased Crowd.flac"
+   },
+   {
+    "id": "429422",
+    "user": "7347459",
+    "t": "Audience Clapping.wav"
+   },
+   {
+    "id": "400590",
+    "user": "3372256",
+    "t": "Small crowd cheering"
+   },
+   {
+    "id": "400587",
+    "user": "3372256",
+    "t": "Medium crowd cheering 01"
+   }
+  ],
+  "stadium": [],
+  "applause": [
+   {
+    "id": "139972",
+    "user": "968325",
+    "t": "Crowd.Yay.Applause.25ppl.Short.wav"
+   },
+   {
+    "id": "182571",
+    "user": "71257",
+    "t": "Short Crowd Cheer.flac"
+   },
+   {
+    "id": "333405",
+    "user": "5884138",
+    "t": "Cheer 1 short.wav"
+   },
+   {
+    "id": "117592",
+    "user": "1160789",
+    "t": "Aplause - short burst.wav"
+   },
+   {
+    "id": "182572",
+    "user": "71257",
+    "t": "Short Crowd Cheer 2.flac"
+   },
+   {
+    "id": "149465",
+    "user": "236062",
+    "t": "Clapping"
+   },
+   {
+    "id": "455580",
+    "user": "8644110",
+    "t": "lightapplause.mp3"
+   },
+   {
+    "id": "243012",
+    "user": "1026880",
+    "t": "Short crowd applause - jazz koncert.wav"
+   },
+   {
+    "id": "241985",
+    "user": "2413649",
+    "t": "small Applause"
+   },
+   {
+    "id": "561020",
+    "user": "9160390",
+    "t": "Light, slow uncomfortable clapping"
+   },
+   {
+    "id": "196097",
+    "user": "2737063",
+    "t": "Applause, polite, short, echoey space"
+   },
+   {
+    "id": "347033",
+    "user": "2364707",
+    "t": "01 small group clapping - theatre XY mics.wav"
+   },
+   {
+    "id": "347034",
+    "user": "2364707",
+    "t": "01 small group clapping - theatre OMNI mics.wav"
+   },
+   {
+    "id": "529455",
+    "user": "11653850",
+    "t": "Short applause.wav"
+   },
+   {
+    "id": "480686",
+    "user": "2524442",
+    "t": "R02-13-Group Applause.wav"
+   }
+  ],
+  "wooo": [
+   {
+    "id": "333421",
+    "user": "5884138",
+    "t": "Woo 2.wav"
+   },
+   {
+    "id": "333420",
+    "user": "5884138",
+    "t": "Woo 3.wav"
+   },
+   {
+    "id": "333418",
+    "user": "5884138",
+    "t": "Woo 1 just guys.wav"
+   }
+  ],
+  "airhorn": [
+   {
+    "id": "414208",
+    "user": "6938106",
+    "t": "Airhorn"
+   },
+   {
+    "id": "68999",
+    "user": "533680",
+    "t": "airhorn-short.wav"
+   },
+   {
+    "id": "131930",
+    "user": "1542102",
+    "t": "Industrial Air Horn"
+   },
+   {
+    "id": "135117",
+    "user": "2448533",
+    "t": "regea syren.wav"
+   },
+   {
+    "id": "174819",
+    "user": "2994289",
+    "t": "air horn close and loud.WAV"
+   },
+   {
+    "id": "581334",
+    "user": "11304525",
+    "t": "Air Horn Hype.wav"
+   },
+   {
+    "id": "342014",
+    "user": "333243",
+    "t": "Horn-Big.mp3"
+   },
+   {
+    "id": "324275",
+    "user": "1134415",
+    "t": "horn 02"
+   },
+   {
+    "id": "541432",
+    "user": "2465261",
+    "t": "BAIXERAS_Benjamin_2020_2021_BikeAccident.wav"
+   },
+   {
+    "id": "519177",
+    "user": "4753243",
+    "t": "Siren Alarm.mp3"
+   },
+   {
+    "id": "78251",
+    "user": "1156272",
+    "t": "Ecoblast.wav"
+   },
+   {
+    "id": "705658",
+    "user": "2305630",
+    "t": "blow yo adam f king horns!.wav"
+   },
+   {
+    "id": "539144",
+    "user": "6205597",
+    "t": "Bicycle air horn 001 (2).wav"
+   },
+   {
+    "id": "539145",
+    "user": "6205597",
+    "t": "Bicycle air horn 001 (1).wav"
+   },
+   {
+    "id": "774253",
+    "user": "16682330",
+    "t": "horn_bike"
+   }
+  ],
+  "gong": [
+   {
+    "id": "121800",
+    "user": "1525789",
+    "t": "gong.WAV"
+   },
+   {
+    "id": "18654",
+    "user": "4494",
+    "t": "gong.aiff"
+   },
+   {
+    "id": "204912",
+    "user": "3048844",
+    "t": "Didgeridoo Monster Roar"
+   },
+   {
+    "id": "127265",
+    "user": "1779874",
+    "t": "Gong.wav"
+   },
+   {
+    "id": "207168",
+    "user": "3797507",
+    "t": "warm gong.wav"
+   },
+   {
+    "id": "207167",
+    "user": "3797507",
+    "t": "spooky gong.wav"
+   },
+   {
+    "id": "159382",
+    "user": "2874984",
+    "t": "horror1.wav"
+   },
+   {
+    "id": "119545",
+    "user": "1492767",
+    "t": "Instrument_gong_soft.aif"
+   },
+   {
+    "id": "108248",
+    "user": "327532",
+    "t": "Chinese Fanfare.wav"
+   },
+   {
+    "id": "63643",
+    "user": "672406",
+    "t": "Bong.mp3"
+   },
+   {
+    "id": "94024",
+    "user": "469745",
+    "t": "BurmaBell.aif"
+   },
+   {
+    "id": "361496",
+    "user": "1431924",
+    "t": "Bell Echo.wav"
+   },
+   {
+    "id": "82523",
+    "user": "377011",
+    "t": "BULGARIAN GONG.wav"
+   },
+   {
+    "id": "71507",
+    "user": "978136",
+    "t": "Gong1.wav"
+   },
+   {
+    "id": "155459",
+    "user": "1138047",
+    "t": "metal bowls gong scrape"
+   }
+  ],
+  "countdown": [
+   {
+    "id": "182110",
+    "user": "71257",
+    "t": "Film Countdown.flac"
+   },
+   {
+    "id": "138108",
+    "user": "1572282",
+    "t": "Bomb Countdown Beeps"
+   },
+   {
+    "id": "368779",
+    "user": "6605122",
+    "t": "Short beep countdown"
+   },
+   {
+    "id": "385928",
+    "user": "7097737",
+    "t": "S001_Countdown_Signal.wav"
+   },
+   {
+    "id": "398238",
+    "user": "2339776",
+    "t": "Countdown Beeps Remixed Fast.wav"
+   },
+   {
+    "id": "398237",
+    "user": "2339776",
+    "t": "Countdown Beeps Remixed.wav"
+   },
+   {
+    "id": "391650",
+    "user": "7368738",
+    "t": "beep.wav"
+   },
+   {
+    "id": "696048",
+    "user": "13817463",
+    "t": "Up to the top of the hour Beep"
+   },
+   {
+    "id": "237716",
+    "user": "4270050",
+    "t": "beepH.mp3"
+   },
+   {
+    "id": "268711",
+    "user": "5097424",
+    "t": "CountDown Beep"
+   },
+   {
+    "id": "237715",
+    "user": "4270050",
+    "t": "beepF.mp3"
+   },
+   {
+    "id": "653956",
+    "user": "3431081",
+    "t": "Countdown Beeper"
+   },
+   {
+    "id": "680825",
+    "user": "177850",
+    "t": "Countdown Start"
+   },
+   {
+    "id": "264897",
+    "user": "570845",
+    "t": "2 pop.wav"
+   },
+   {
+    "id": "347218",
+    "user": "6004208",
+    "t": "Logarithm-out square-wave beep"
+   }
+  ],
+  "stopwatch": [
+   {
+    "id": "680825",
+    "user": "177850",
+    "t": "Countdown Start"
+   },
+   {
+    "id": "668985",
+    "user": "14100561",
+    "t": "stopwatch beep.wav"
+   },
+   {
+    "id": "447761",
+    "user": "2886479",
+    "t": "Synthetic Shot Timer"
+   }
+  ],
+  "timer-beep": [
+   {
+    "id": "619838",
+    "user": "7614679",
+    "t": "Achievement Happy Beeps Jingle"
+   },
+   {
+    "id": "242006",
+    "user": "4363393",
+    "t": "microwave beep.wav"
+   },
+   {
+    "id": "619835",
+    "user": "7614679",
+    "t": "Button UI App"
+   },
+   {
+    "id": "619832",
+    "user": "7614679",
+    "t": "Puzzle Game Victory Melody"
+   },
+   {
+    "id": "619840",
+    "user": "7614679",
+    "t": "Achievement Accomplish Jingle App UI"
+   },
+   {
+    "id": "619833",
+    "user": "7614679",
+    "t": "Game Menu Achievement"
+   },
+   {
+    "id": "619839",
+    "user": "7614679",
+    "t": "Sine Beep Sytlized App UI"
+   },
+   {
+    "id": "696048",
+    "user": "13817463",
+    "t": "Up to the top of the hour Beep"
+   },
+   {
+    "id": "536421",
+    "user": "4921277",
+    "t": "Setting Electronic Timer Multiple Beeps"
+   },
+   {
+    "id": "536422",
+    "user": "4921277",
+    "t": "Setting Electronic Timer 1 Beep"
+   },
+   {
+    "id": "536420",
+    "user": "4921277",
+    "t": "Electronic Timer Beeping 4X"
+   },
+   {
+    "id": "619834",
+    "user": "7614679",
+    "t": "Correct Menu Game Android"
+   },
+   {
+    "id": "619837",
+    "user": "7614679",
+    "t": "Soft Short App Melody"
+   },
+   {
+    "id": "680825",
+    "user": "177850",
+    "t": "Countdown Start"
+   },
+   {
+    "id": "619836",
+    "user": "7614679",
+    "t": "Weird Buttons App Game UI"
+   }
+  ],
+  "buzzer": [
+   {
+    "id": "447761",
+    "user": "2886479",
+    "t": "Synthetic Shot Timer"
+   }
+  ],
+  "levelup": [
+   {
+    "id": "475889",
+    "user": "10132460",
+    "t": "ESE - WHOOSH - EPIC - Level Up.wav"
+   },
+   {
+    "id": "253177",
+    "user": "4404552",
+    "t": "Retro &quot;Accomplished&quot; SFX"
+   },
+   {
+    "id": "368651",
+    "user": "6512973",
+    "t": "Game Powerup"
+   },
+   {
+    "id": "442943",
+    "user": "71257",
+    "t": "Level Up"
+   },
+   {
+    "id": "609335",
+    "user": "2770604",
+    "t": "LevelUp.wav"
+   },
+   {
+    "id": "266100",
+    "user": "4997689",
+    "t": "level up.wav"
+   },
+   {
+    "id": "402295",
+    "user": "7662885",
+    "t": "Power Up"
+   },
+   {
+    "id": "161654",
+    "user": "71257",
+    "t": "War Game Battle Level Up"
+   },
+   {
+    "id": "459349",
+    "user": "6142149",
+    "t": "Elevator Ping 01"
+   },
+   {
+    "id": "464908",
+    "user": "4284968",
+    "t": "8bit Powerup"
+   },
+   {
+    "id": "528958",
+    "user": "10334845",
+    "t": "Level Up / Mission Complete"
+   },
+   {
+    "id": "682633",
+    "user": "8342190",
+    "t": "Level up"
+   },
+   {
+    "id": "514865",
+    "user": "6142149",
+    "t": "Elevator Ping 02"
+   },
+   {
+    "id": "443288",
+    "user": "5701973",
+    "t": "BrokenBone.wav"
+   },
+   {
+    "id": "523754",
+    "user": "6142149",
+    "t": "New Skill 02.wav"
+   }
+  ],
+  "success": [
+   {
+    "id": "456966",
+    "user": "6456158",
+    "t": "Success Fanfare Trumpets.mp3"
+   },
+   {
+    "id": "397355",
+    "user": "4284968",
+    "t": "Tada Fanfare A"
+   },
+   {
+    "id": "397353",
+    "user": "4284968",
+    "t": "Tada Fanfare G"
+   },
+   {
+    "id": "397354",
+    "user": "4284968",
+    "t": "Tada Fanfare F"
+   },
+   {
+    "id": "521645",
+    "user": "7724198",
+    "t": "WinFantasia.wav"
+   },
+   {
+    "id": "161654",
+    "user": "71257",
+    "t": "War Game Battle Level Up"
+   },
+   {
+    "id": "527650",
+    "user": "7724198",
+    "t": "WinSquare.wav"
+   },
+   {
+    "id": "528958",
+    "user": "10334845",
+    "t": "Level Up / Mission Complete"
+   },
+   {
+    "id": "538149",
+    "user": "7724198",
+    "t": "Notification"
+   },
+   {
+    "id": "521638",
+    "user": "7724198",
+    "t": "WinDoot.wav"
+   },
+   {
+    "id": "521640",
+    "user": "7724198",
+    "t": "WinBanjo.wav"
+   },
+   {
+    "id": "521646",
+    "user": "7724198",
+    "t": "WinMutedGuitar.wav"
+   },
+   {
+    "id": "521642",
+    "user": "7724198",
+    "t": "WinHarpsichord.wav"
+   },
+   {
+    "id": "242207",
+    "user": "3271346",
+    "t": "fanfare.mp3"
+   },
+   {
+    "id": "521643",
+    "user": "7724198",
+    "t": "WinGrandPiano.wav"
+   }
+  ],
+  "achievement": [
+   {
+    "id": "162476",
+    "user": "311243",
+    "t": "gotItem.mp3"
+   },
+   {
+    "id": "244356",
+    "user": "2127539",
+    "t": "digital life 1"
+   },
+   {
+    "id": "162458",
+    "user": "311243",
+    "t": "Gewonnen2.mp3"
+   },
+   {
+    "id": "531510",
+    "user": "7614679",
+    "t": "Correct Blips"
+   },
+   {
+    "id": "495005",
+    "user": "6299573",
+    "t": "&quot;Win&quot; Video Game Sound"
+   },
+   {
+    "id": "531512",
+    "user": "7614679",
+    "t": "Positive Blip Effect"
+   },
+   {
+    "id": "242855",
+    "user": "4284968",
+    "t": "Friend Request"
+   },
+   {
+    "id": "113989",
+    "user": "311243",
+    "t": "gewonnen.mp3"
+   },
+   {
+    "id": "162482",
+    "user": "311243",
+    "t": "achievement.mp3"
+   },
+   {
+    "id": "162467",
+    "user": "311243",
+    "t": "GotItem.mp3"
+   },
+   {
+    "id": "715067",
+    "user": "7155498",
+    "t": "achievement-sparkle"
+   },
+   {
+    "id": "330293",
+    "user": "4361321",
+    "t": "Sci-fi gun shot x6"
+   },
+   {
+    "id": "531511",
+    "user": "7614679",
+    "t": "Menu Beep"
+   },
+   {
+    "id": "545692",
+    "user": "10119156",
+    "t": "crash"
+   },
+   {
+    "id": "619838",
+    "user": "7614679",
+    "t": "Achievement Happy Beeps Jingle"
+   }
+  ],
+  "punch": [
+   {
+    "id": "348244",
+    "user": "4067257",
+    "t": "PUNCH-BOXING-01.wav"
+   },
+   {
+    "id": "348241",
+    "user": "4067257",
+    "t": "PUNCH-BOXING-04.wav"
+   },
+   {
+    "id": "348242",
+    "user": "4067257",
+    "t": "PUNCH-BOXING-03.wav"
+   },
+   {
+    "id": "259544",
+    "user": "2316086",
+    "t": "punch with splats.wav"
+   },
+   {
+    "id": "94778",
+    "user": "1533925",
+    "t": "Punch_1-2.wav"
+   },
+   {
+    "id": "458867",
+    "user": "6436863",
+    "t": "Damage sound effect"
+   },
+   {
+    "id": "209765",
+    "user": "2737063",
+    "t": "Punch 1"
+   },
+   {
+    "id": "244983",
+    "user": "3008343",
+    "t": "ANI Big Pipe Hit"
+   },
+   {
+    "id": "244513",
+    "user": "2756077",
+    "t": "Realistic Punch"
+   },
+   {
+    "id": "321810",
+    "user": "5501856",
+    "t": "Blocking Arm With Hand"
+   },
+   {
+    "id": "564230",
+    "user": "10435241",
+    "t": "Huge Slap in the Face"
+   },
+   {
+    "id": "276600",
+    "user": "464940",
+    "t": "body_hit.wav"
+   },
+   {
+    "id": "503277",
+    "user": "2247456",
+    "t": "Face Punch, Body Impact, 4x"
+   },
+   {
+    "id": "332056",
+    "user": "71257",
+    "t": "Fast Collision"
+   },
+   {
+    "id": "362782",
+    "user": "2940947",
+    "t": "Pistol_Whip.wav"
+   }
+  ],
+  "bell-ding": [
+   {
+    "id": "148873",
+    "user": "2378499",
+    "t": "Voice elephant.mp3"
+   },
+   {
+    "id": "361564",
+    "user": "6638557",
+    "t": "Ding Dong"
+   },
+   {
+    "id": "116779",
+    "user": "1550701",
+    "t": "Ringing bell - happy.wav"
+   },
+   {
+    "id": "243701",
+    "user": "3752922",
+    "t": "correct"
+   },
+   {
+    "id": "442280",
+    "user": "3813650",
+    "t": "DoorBell Shortened"
+   },
+   {
+    "id": "611113",
+    "user": "1629501",
+    "t": "bell ding 1.wav"
+   },
+   {
+    "id": "265012",
+    "user": "4101863",
+    "t": "toaster oven ding.wav"
+   },
+   {
+    "id": "611111",
+    "user": "1629501",
+    "t": "bell ding 3.wav"
+   },
+   {
+    "id": "611112",
+    "user": "1629501",
+    "t": "bell ding 2.wav"
+   },
+   {
+    "id": "221515",
+    "user": "1282865",
+    "t": "service bell ring"
+   },
+   {
+    "id": "212541",
+    "user": "3365063",
+    "t": "indian bell chime.wav"
+   },
+   {
+    "id": "149506",
+    "user": "274531",
+    "t": "Kitchen Timer\u00a0\u2014 Done!"
+   },
+   {
+    "id": "99625",
+    "user": "1431924",
+    "t": "bell003mono.wav"
+   },
+   {
+    "id": "376807",
+    "user": "5939647",
+    "t": "Ding.wav"
+   },
+   {
+    "id": "127149",
+    "user": "667113",
+    "t": "ding.wav"
+   }
+  ],
+  "start-race": []
+ },
+ "mixkit": {
+  "cheer": [
+   {
+    "id": "478",
+    "url": "https://assets.mixkit.co/active_storage/sfx/478/478-preview.mp3",
+    "t": "Ending show audience clapping",
+    "d": "0:24"
+   },
+   {
+    "id": "476",
+    "url": "https://assets.mixkit.co/active_storage/sfx/476/476-preview.mp3",
+    "t": "Conference audience clapping strongly",
+    "d": "0:08"
+   },
+   {
+    "id": "362",
+    "url": "https://assets.mixkit.co/active_storage/sfx/362/362-preview.mp3",
+    "t": "Stadium crowd light applause",
+    "d": "0:11"
+   },
+   {
+    "id": "485",
+    "url": "https://assets.mixkit.co/active_storage/sfx/485/485-preview.mp3",
+    "t": "Medium size crowd applause",
+    "d": "0:11"
+   },
+   {
+    "id": "512",
+    "url": "https://assets.mixkit.co/active_storage/sfx/512/512-preview.mp3",
+    "t": "Light applause with laughter audience",
+    "d": "0:10"
+   },
+   {
+    "id": "482",
+    "url": "https://assets.mixkit.co/active_storage/sfx/482/482-preview.mp3",
+    "t": "One man clapping",
+    "d": "0:02"
+   },
+   {
+    "id": "477",
+    "url": "https://assets.mixkit.co/active_storage/sfx/477/477-preview.mp3",
+    "t": "End of show clapping crowd",
+    "d": "0:08"
+   },
+   {
+    "id": "510",
+    "url": "https://assets.mixkit.co/active_storage/sfx/510/510-preview.mp3",
+    "t": "Girls audience applause",
+    "d": "0:06"
+   },
+   {
+    "id": "517",
+    "url": "https://assets.mixkit.co/active_storage/sfx/517/517-preview.mp3",
+    "t": "Small group light applause",
+    "d": "0:05"
+   },
+   {
+    "id": "479",
+    "url": "https://assets.mixkit.co/active_storage/sfx/479/479-preview.mp3",
+    "t": "Clapping slowly",
+    "d": "0:02"
+   },
+   {
+    "id": "513",
+    "url": "https://assets.mixkit.co/active_storage/sfx/513/513-preview.mp3",
+    "t": "Applause ambience loop",
+    "d": "0:13"
+   },
+   {
+    "id": "519",
+    "url": "https://assets.mixkit.co/active_storage/sfx/519/519-preview.mp3",
+    "t": "Theatre audience light applause",
+    "d": "0:08"
+   },
+   {
+    "id": "521",
+    "url": "https://assets.mixkit.co/active_storage/sfx/521/521-preview.mp3",
+    "t": "Small audience weak applause",
+    "d": "0:07"
+   },
+   {
+    "id": "475",
+    "url": "https://assets.mixkit.co/active_storage/sfx/475/475-preview.mp3",
+    "t": "Small group clapping",
+    "d": "0:06"
+   }
+  ],
+  "whistle": [
+   {
+    "id": "616",
+    "url": "https://assets.mixkit.co/active_storage/sfx/616/616-preview.mp3",
+    "t": "Cartoon toy whistle",
+    "d": "0:01"
+   },
+   {
+    "id": "610",
+    "url": "https://assets.mixkit.co/active_storage/sfx/610/610-preview.mp3",
+    "t": "Cheering crowd loud whistle",
+    "d": "0:14"
+   },
+   {
+    "id": "738",
+    "url": "https://assets.mixkit.co/active_storage/sfx/738/738-preview.mp3",
+    "t": "Cartoon whistling",
+    "d": "0:01"
+   },
+   {
+    "id": "615",
+    "url": "https://assets.mixkit.co/active_storage/sfx/615/615-preview.mp3",
+    "t": "Police short whistle",
+    "d": "0:01"
+   },
+   {
+    "id": "3103",
+    "url": "https://assets.mixkit.co/active_storage/sfx/3103/3103-preview.mp3",
+    "t": "Fast whistle firework",
+    "d": "0:03"
+   },
+   {
+    "id": "606",
+    "url": "https://assets.mixkit.co/active_storage/sfx/606/606-preview.mp3",
+    "t": "Cartoon whistle game over",
+    "d": "0:03"
+   },
+   {
+    "id": "614",
+    "url": "https://assets.mixkit.co/active_storage/sfx/614/614-preview.mp3",
+    "t": "Police whistle",
+    "d": "0:01"
+   },
+   {
+    "id": "406",
+    "url": "https://assets.mixkit.co/active_storage/sfx/406/406-preview.mp3",
+    "t": "Short whistle fall",
+    "d": "0:01"
+   },
+   {
+    "id": "605",
+    "url": "https://assets.mixkit.co/active_storage/sfx/605/605-preview.mp3",
+    "t": "Human whistle",
+    "d": "0:01"
+   },
+   {
+    "id": "506",
+    "url": "https://assets.mixkit.co/active_storage/sfx/506/506-preview.mp3",
+    "t": "Classroom long applause and whistle",
+    "d": "0:19"
+   },
+   {
+    "id": "611",
+    "url": "https://assets.mixkit.co/active_storage/sfx/611/611-preview.mp3",
+    "t": "Swoosh whistle",
+    "d": "0:01"
+   },
+   {
+    "id": "607",
+    "url": "https://assets.mixkit.co/active_storage/sfx/607/607-preview.mp3",
+    "t": "Air whoosh and whistle",
+    "d": "0:01"
+   },
+   {
+    "id": "612",
+    "url": "https://assets.mixkit.co/active_storage/sfx/612/612-preview.mp3",
+    "t": "Male gentle whistle",
+    "d": "0:01"
+   },
+   {
+    "id": "613",
+    "url": "https://assets.mixkit.co/active_storage/sfx/613/613-preview.mp3",
+    "t": "Human long whistle",
+    "d": "0:02"
+   },
+   {
+    "id": "608",
+    "url": "https://assets.mixkit.co/active_storage/sfx/608/608-preview.mp3",
+    "t": "Toy flute whistle",
+    "d": "0:01"
+   },
+   {
+    "id": "609",
+    "url": "https://assets.mixkit.co/active_storage/sfx/609/609-preview.mp3",
+    "t": "Sci Fi whistle",
+    "d": "0:02"
+   }
+  ],
+  "bell": [
+   {
+    "id": "933",
+    "url": "https://assets.mixkit.co/active_storage/sfx/933/933-preview.mp3",
+    "t": "Bell notification",
+    "d": "0:03"
+   },
+   {
+    "id": "937",
+    "url": "https://assets.mixkit.co/active_storage/sfx/937/937-preview.mp3",
+    "t": "Happy bells notification",
+    "d": "0:03"
+   },
+   {
+    "id": "600",
+    "url": "https://assets.mixkit.co/active_storage/sfx/600/600-preview.mp3",
+    "t": "Achievement bell",
+    "d": "0:02"
+   },
+   {
+    "id": "110",
+    "url": "https://assets.mixkit.co/active_storage/sfx/110/110-preview.mp3",
+    "t": "Cartoon door melodic bell",
+    "d": "0:02"
+   },
+   {
+    "id": "603",
+    "url": "https://assets.mixkit.co/active_storage/sfx/603/603-preview.mp3",
+    "t": "Church bell calling",
+    "d": "0:27"
+   },
+   {
+    "id": "601",
+    "url": "https://assets.mixkit.co/active_storage/sfx/601/601-preview.mp3",
+    "t": "Happy bell alert",
+    "d": "0:02"
+   },
+   {
+    "id": "2256",
+    "url": "https://assets.mixkit.co/active_storage/sfx/2256/2256-preview.mp3",
+    "t": "Kids cartoon close bells",
+    "d": "0:02"
+   },
+   {
+    "id": "3109",
+    "url": "https://assets.mixkit.co/active_storage/sfx/3109/3109-preview.mp3",
+    "t": "Relaxing bell chime",
+    "d": "0:01"
+   },
+   {
+    "id": "938",
+    "url": "https://assets.mixkit.co/active_storage/sfx/938/938-preview.mp3",
+    "t": "Uplifting bells notification",
+    "d": "0:02"
+   },
+   {
+    "id": "111",
+    "url": "https://assets.mixkit.co/active_storage/sfx/111/111-preview.mp3",
+    "t": "Melodic classic door bell",
+    "d": "0:04"
+   },
+   {
+    "id": "1791",
+    "url": "https://assets.mixkit.co/active_storage/sfx/1791/1791-preview.mp3",
+    "t": "Cooking bell ding",
+    "d": "0:01"
+   },
+   {
+    "id": "1569",
+    "url": "https://assets.mixkit.co/active_storage/sfx/1569/1569-preview.mp3",
+    "t": "Airport announcement ding",
+    "d": "0:04"
+   },
+   {
+    "id": "621",
+    "url": "https://assets.mixkit.co/active_storage/sfx/621/621-preview.mp3",
+    "t": "Church bell loop",
+    "d": "0:12"
+   },
+   {
+    "id": "931",
+    "url": "https://assets.mixkit.co/active_storage/sfx/931/931-preview.mp3",
+    "t": "Service bell",
+    "d": "0:01"
+   },
+   {
+    "id": "2352",
+    "url": "https://assets.mixkit.co/active_storage/sfx/2352/2352-preview.mp3",
+    "t": "Magic glitter or particles",
+    "d": "0:06"
+   },
+   {
+    "id": "598",
+    "url": "https://assets.mixkit.co/active_storage/sfx/598/598-preview.mp3",
+    "t": "Horror bell cartoon transition",
+    "d": "0:05"
+   },
+   {
+    "id": "109",
+    "url": "https://assets.mixkit.co/active_storage/sfx/109/109-preview.mp3",
+    "t": "Home standard ding dong",
+    "d": "0:04"
+   },
+   {
+    "id": "1046",
+    "url": "https://assets.mixkit.co/active_storage/sfx/1046/1046-preview.mp3",
+    "t": "Bell tick tock timer",
+    "d": "0:48"
+   },
+   {
+    "id": "591",
+    "url": "https://assets.mixkit.co/active_storage/sfx/591/591-preview.mp3",
+    "t": "Bike magical bell",
+    "d": "0:02"
+   },
+   {
+    "id": "1743",
+    "url": "https://assets.mixkit.co/active_storage/sfx/1743/1743-preview.mp3",
+    "t": "Cowbell sharp hit",
+    "d": "0:01"
+   },
+   {
+    "id": "587",
+    "url": "https://assets.mixkit.co/active_storage/sfx/587/587-preview.mp3",
+    "t": "Clock tower or cathedral bell",
+    "d": "0:28"
+   },
+   {
+    "id": "619",
+    "url": "https://assets.mixkit.co/active_storage/sfx/619/619-preview.mp3",
+    "t": "Cinematic church bell hit",
+    "d": "0:07"
+   },
+   {
+    "id": "595",
+    "url": "https://assets.mixkit.co/active_storage/sfx/595/595-preview.mp3",
+    "t": "Bike bell ring",
+    "d": "0:02"
+   },
+   {
+    "id": "113",
+    "url": "https://assets.mixkit.co/active_storage/sfx/113/113-preview.mp3",
+    "t": "Modern classic door bell sound",
+    "d": "0:02"
+   },
+   {
+    "id": "586",
+    "url": "https://assets.mixkit.co/active_storage/sfx/586/586-preview.mp3",
+    "t": "Attention bell ding",
+    "d": "0:01"
+   },
+   {
+    "id": "765",
+    "url": "https://assets.mixkit.co/active_storage/sfx/765/765-preview.mp3",
+    "t": "Alert bells echo",
+    "d": "0:04"
+   },
+   {
+    "id": "592",
+    "url": "https://assets.mixkit.co/active_storage/sfx/592/592-preview.mp3",
+    "t": "Notification bell",
+    "d": "0:05"
+   },
+   {
+    "id": "623",
+    "url": "https://assets.mixkit.co/active_storage/sfx/623/623-preview.mp3",
+    "t": "Low church bell calling",
+    "d": "1:41"
+   },
+   {
+    "id": "1368",
+    "url": "https://assets.mixkit.co/active_storage/sfx/1368/1368-preview.mp3",
+    "t": "Typewriter return bell",
+    "d": "0:01"
+   },
+   {
+    "id": "939",
+    "url": "https://assets.mixkit.co/active_storage/sfx/939/939-preview.mp3",
+    "t": "Christmas magic bell hit",
+    "d": "0:04"
+   },
+   {
+    "id": "217",
+    "url": "https://assets.mixkit.co/active_storage/sfx/217/217-preview.mp3",
+    "t": "Arcade score interface",
+    "d": "0:01"
+   },
+   {
+    "id": "930",
+    "url": "https://assets.mixkit.co/active_storage/sfx/930/930-preview.mp3",
+    "t": "Bell of promise",
+    "d": "0:08"
+   },
+   {
+    "id": "112",
+    "url": "https://assets.mixkit.co/active_storage/sfx/112/112-preview.mp3",
+    "t": "Elevator announcement bells",
+    "d": "0:05"
+   },
+   {
+    "id": "2609",
+    "url": "https://assets.mixkit.co/active_storage/sfx/2609/2609-preview.mp3",
+    "t": "Whoosh resonating metallic hit",
+    "d": "0:03"
+   },
+   {
+    "id": "224",
+    "url": "https://assets.mixkit.co/active_storage/sfx/224/224-preview.mp3",
+    "t": "Elegant door announcement",
+    "d": "0:05"
+   },
+   {
+    "id": "626",
+    "url": "https://assets.mixkit.co/active_storage/sfx/626/626-preview.mp3",
+    "t": "Dramatic church bells",
+    "d": "0:47"
+   }
+  ],
+  "applause": [
+   {
+    "id": "518",
+    "url": "https://assets.mixkit.co/active_storage/sfx/518/518-preview.mp3",
+    "t": "Small group cheer and applause",
+    "d": "0:10"
+   },
+   {
+    "id": "478",
+    "url": "https://assets.mixkit.co/active_storage/sfx/478/478-preview.mp3",
+    "t": "Ending show audience clapping",
+    "d": "0:24"
+   },
+   {
+    "id": "422",
+    "url": "https://assets.mixkit.co/active_storage/sfx/422/422-preview.mp3",
+    "t": "Small crowd laugh and applause",
+    "d": "0:05"
+   },
+   {
+    "id": "476",
+    "url": "https://assets.mixkit.co/active_storage/sfx/476/476-preview.mp3",
+    "t": "Conference audience clapping strongly",
+    "d": "0:08"
+   },
+   {
+    "id": "362",
+    "url": "https://assets.mixkit.co/active_storage/sfx/362/362-preview.mp3",
+    "t": "Stadium crowd light applause",
+    "d": "0:11"
+   },
+   {
+    "id": "610",
+    "url": "https://assets.mixkit.co/active_storage/sfx/610/610-preview.mp3",
+    "t": "Cheering crowd loud whistle",
+    "d": "0:14"
+   },
+   {
+    "id": "3035",
+    "url": "https://assets.mixkit.co/active_storage/sfx/3035/3035-preview.mp3",
+    "t": "Small crowd clapping",
+    "d": "0:15"
+   },
+   {
+    "id": "502",
+    "url": "https://assets.mixkit.co/active_storage/sfx/502/502-preview.mp3",
+    "t": "Auditorium moderate applause and cheering",
+    "d": "0:17"
+   },
+   {
+    "id": "485",
+    "url": "https://assets.mixkit.co/active_storage/sfx/485/485-preview.mp3",
+    "t": "Medium size crowd applause",
+    "d": "0:11"
+   },
+   {
+    "id": "512",
+    "url": "https://assets.mixkit.co/active_storage/sfx/512/512-preview.mp3",
+    "t": "Light applause with laughter audience",
+    "d": "0:10"
+   },
+   {
+    "id": "482",
+    "url": "https://assets.mixkit.co/active_storage/sfx/482/482-preview.mp3",
+    "t": "One man clapping",
+    "d": "0:02"
+   },
+   {
+    "id": "477",
+    "url": "https://assets.mixkit.co/active_storage/sfx/477/477-preview.mp3",
+    "t": "End of show clapping crowd",
+    "d": "0:08"
+   },
+   {
+    "id": "510",
+    "url": "https://assets.mixkit.co/active_storage/sfx/510/510-preview.mp3",
+    "t": "Girls audience applause",
+    "d": "0:06"
+   },
+   {
+    "id": "437",
+    "url": "https://assets.mixkit.co/active_storage/sfx/437/437-preview.mp3",
+    "t": "Small crowd ovation",
+    "d": "0:06"
+   },
+   {
+    "id": "523",
+    "url": "https://assets.mixkit.co/active_storage/sfx/523/523-preview.mp3",
+    "t": "Animated small group applause",
+    "d": "0:04"
+   },
+   {
+    "id": "484",
+    "url": "https://assets.mixkit.co/active_storage/sfx/484/484-preview.mp3",
+    "t": "Crowd in church applauding",
+    "d": "0:18"
+   },
+   {
+    "id": "522",
+    "url": "https://assets.mixkit.co/active_storage/sfx/522/522-preview.mp3",
+    "t": "Rhythmic audience clapping loop",
+    "d": "0:05"
+   },
+   {
+    "id": "103",
+    "url": "https://assets.mixkit.co/active_storage/sfx/103/103-preview.mp3",
+    "t": "Cartoon monkey applause",
+    "d": "0:04"
+   },
+   {
+    "id": "354",
+    "url": "https://assets.mixkit.co/active_storage/sfx/354/354-preview.mp3",
+    "t": "Audience light applause",
+    "d": "0:05"
+   },
+   {
+    "id": "3039",
+    "url": "https://assets.mixkit.co/active_storage/sfx/3039/3039-preview.mp3",
+    "t": "Clapping indoors",
+    "d": "0:22"
+   },
+   {
+    "id": "506",
+    "url": "https://assets.mixkit.co/active_storage/sfx/506/506-preview.mp3",
+    "t": "Classroom long applause and whistle",
+    "d": "0:19"
+   },
+   {
+    "id": "504",
+    "url": "https://assets.mixkit.co/active_storage/sfx/504/504-preview.mp3",
+    "t": "Rhythmic applause and cheering",
+    "d": "0:14"
+   },
+   {
+    "id": "442",
+    "url": "https://assets.mixkit.co/active_storage/sfx/442/442-preview.mp3",
+    "t": "Crowd clapping",
+    "d": "0:10"
+   },
+   {
+    "id": "517",
+    "url": "https://assets.mixkit.co/active_storage/sfx/517/517-preview.mp3",
+    "t": "Small group light applause",
+    "d": "0:05"
+   },
+   {
+    "id": "509",
+    "url": "https://assets.mixkit.co/active_storage/sfx/509/509-preview.mp3",
+    "t": "Football team applause",
+    "d": "0:04"
+   },
+   {
+    "id": "3036",
+    "url": "https://assets.mixkit.co/active_storage/sfx/3036/3036-preview.mp3",
+    "t": "Small young crowd clapping",
+    "d": "0:16"
+   },
+   {
+    "id": "513",
+    "url": "https://assets.mixkit.co/active_storage/sfx/513/513-preview.mp3",
+    "t": "Applause ambience loop",
+    "d": "0:13"
+   },
+   {
+    "id": "515",
+    "url": "https://assets.mixkit.co/active_storage/sfx/515/515-preview.mp3",
+    "t": "Girls crowd cheer, scream, and applause",
+    "d": "0:06"
+   },
+   {
+    "id": "500",
+    "url": "https://assets.mixkit.co/active_storage/sfx/500/500-preview.mp3",
+    "t": "Classroom spontaneous applause",
+    "d": "0:06"
+   },
+   {
+    "id": "519",
+    "url": "https://assets.mixkit.co/active_storage/sfx/519/519-preview.mp3",
+    "t": "Theatre audience light applause",
+    "d": "0:08"
+   },
+   {
+    "id": "516",
+    "url": "https://assets.mixkit.co/active_storage/sfx/516/516-preview.mp3",
+    "t": "Medium size group applause and laugh",
+    "d": "0:08"
+   },
+   {
+    "id": "439",
+    "url": "https://assets.mixkit.co/active_storage/sfx/439/439-preview.mp3",
+    "t": "Clapping male crowd",
+    "d": "0:06"
+   },
+   {
+    "id": "507",
+    "url": "https://assets.mixkit.co/active_storage/sfx/507/507-preview.mp3",
+    "t": "Concert hall stomping applause",
+    "d": "0:16"
+   },
+   {
+    "id": "505",
+    "url": "https://assets.mixkit.co/active_storage/sfx/505/505-preview.mp3",
+    "t": "Small group moderate applause",
+    "d": "0:06"
+   },
+   {
+    "id": "521",
+    "url": "https://assets.mixkit.co/active_storage/sfx/521/521-preview.mp3",
+    "t": "Small audience weak applause",
+    "d": "0:07"
+   },
+   {
+    "id": "508",
+    "url": "https://assets.mixkit.co/active_storage/sfx/508/508-preview.mp3",
+    "t": "Stand up club audience applause",
+    "d": "0:20"
+   }
+  ],
+  "sport": [
+   {
+    "id": "2047",
+    "url": "https://assets.mixkit.co/active_storage/sfx/2047/2047-preview.mp3",
+    "t": "Martial arts fast punch",
+    "d": "0:01"
+   },
+   {
+    "id": "1232",
+    "url": "https://assets.mixkit.co/active_storage/sfx/1232/1232-preview.mp3",
+    "t": "Running through the forest",
+    "d": "0:14"
+   },
+   {
+    "id": "362",
+    "url": "https://assets.mixkit.co/active_storage/sfx/362/362-preview.mp3",
+    "t": "Stadium crowd light applause",
+    "d": "0:11"
+   },
+   {
+    "id": "462",
+    "url": "https://assets.mixkit.co/active_storage/sfx/462/462-preview.mp3",
+    "t": "Huge crowd cheering victory",
+    "d": "0:10"
+   },
+   {
+    "id": "2108",
+    "url": "https://assets.mixkit.co/active_storage/sfx/2108/2108-preview.mp3",
+    "t": "Soccer ball quick kick",
+    "d": "0:01"
+   },
+   {
+    "id": "1647",
+    "url": "https://assets.mixkit.co/active_storage/sfx/1647/1647-preview.mp3",
+    "t": "Basketball buzzer",
+    "d": "0:04"
+   },
+   {
+    "id": "459",
+    "url": "https://assets.mixkit.co/active_storage/sfx/459/459-preview.mp3",
+    "t": "Male crowd cheering short",
+    "d": "0:04"
+   },
+   {
+    "id": "615",
+    "url": "https://assets.mixkit.co/active_storage/sfx/615/615-preview.mp3",
+    "t": "Police short whistle",
+    "d": "0:01"
+   },
+   {
+    "id": "363",
+    "url": "https://assets.mixkit.co/active_storage/sfx/363/363-preview.mp3",
+    "t": "Stadium chaotic loud applause, drums and chants",
+    "d": "0:17"
+   },
+   {
+    "id": "2084",
+    "url": "https://assets.mixkit.co/active_storage/sfx/2084/2084-preview.mp3",
+    "t": "Basketball ball hitting the net",
+    "d": "0:01"
+   },
+   {
+    "id": "2089",
+    "url": "https://assets.mixkit.co/active_storage/sfx/2089/2089-preview.mp3",
+    "t": "Ball bouncing to a stop",
+    "d": "0:04"
+   },
+   {
+    "id": "470",
+    "url": "https://assets.mixkit.co/active_storage/sfx/470/470-preview.mp3",
+    "t": "Retro arcade game over",
+    "d": "0:03"
+   },
+   {
+    "id": "2097",
+    "url": "https://assets.mixkit.co/active_storage/sfx/2097/2097-preview.mp3",
+    "t": "Ambient sports crowd sound",
+    "d": "1:16"
+   },
+   {
+    "id": "2099",
+    "url": "https://assets.mixkit.co/active_storage/sfx/2099/2099-preview.mp3",
+    "t": "Soccer ball kick",
+    "d": "0:01"
+   },
+   {
+    "id": "2111",
+    "url": "https://assets.mixkit.co/active_storage/sfx/2111/2111-preview.mp3",
+    "t": "Crowd at the stadium",
+    "d": "0:05"
+   },
+   {
+    "id": "2162",
+    "url": "https://assets.mixkit.co/active_storage/sfx/2162/2162-preview.mp3",
+    "t": "Kung fu strike with effort",
+    "d": "0:02"
+   },
+   {
+    "id": "438",
+    "url": "https://assets.mixkit.co/active_storage/sfx/438/438-preview.mp3",
+    "t": "Crowd chanting at stadium",
+    "d": "0:11"
+   },
+   {
+    "id": "522",
+    "url": "https://assets.mixkit.co/active_storage/sfx/522/522-preview.mp3",
+    "t": "Rhythmic audience clapping loop",
+    "d": "0:05"
+   },
+   {
+    "id": "2163",
+    "url": "https://assets.mixkit.co/active_storage/sfx/2163/2163-preview.mp3",
+    "t": "Martial arts kick",
+    "d": "0:01"
+   },
+   {
+    "id": "2113",
+    "url": "https://assets.mixkit.co/active_storage/sfx/2113/2113-preview.mp3",
+    "t": "Training with punching bag",
+    "d": "0:23"
+   },
+   {
+    "id": "3066",
+    "url": "https://assets.mixkit.co/active_storage/sfx/3066/3066-preview.mp3",
+    "t": "Arcade glitch touch",
+    "d": "0:03"
+   },
+   {
+    "id": "504",
+    "url": "https://assets.mixkit.co/active_storage/sfx/504/504-preview.mp3",
+    "t": "Rhythmic applause and cheering",
+    "d": "0:14"
+   },
+   {
+    "id": "2124",
+    "url": "https://assets.mixkit.co/active_storage/sfx/2124/2124-preview.mp3",
+    "t": "Golf shot breaking the air",
+    "d": "0:01"
+   },
+   {
+    "id": "2093",
+    "url": "https://assets.mixkit.co/active_storage/sfx/2093/2093-preview.mp3",
+    "t": "Basketball ball, hard hit",
+    "d": "0:01"
+   }
+  ],
+  "win": [
+   {
+    "id": "212",
+    "url": "https://assets.mixkit.co/active_storage/sfx/212/212-preview.mp3",
+    "t": "Retro game notification",
+    "d": "0:01"
+   },
+   {
+    "id": "600",
+    "url": "https://assets.mixkit.co/active_storage/sfx/600/600-preview.mp3",
+    "t": "Achievement bell",
+    "d": "0:02"
+   },
+   {
+    "id": "269",
+    "url": "https://assets.mixkit.co/active_storage/sfx/269/269-preview.mp3",
+    "t": "Quick win video game notification",
+    "d": "0:01"
+   },
+   {
+    "id": "253",
+    "url": "https://assets.mixkit.co/active_storage/sfx/253/253-preview.mp3",
+    "t": "Unlock game notification",
+    "d": "0:01"
+   },
+   {
+    "id": "610",
+    "url": "https://assets.mixkit.co/active_storage/sfx/610/610-preview.mp3",
+    "t": "Cheering crowd loud whistle",
+    "d": "0:14"
+   },
+   {
+    "id": "462",
+    "url": "https://assets.mixkit.co/active_storage/sfx/462/462-preview.mp3",
+    "t": "Huge crowd cheering victory",
+    "d": "0:10"
+   },
+   {
+    "id": "216",
+    "url": "https://assets.mixkit.co/active_storage/sfx/216/216-preview.mp3",
+    "t": "Arcade game jump coin",
+    "d": "0:01"
+   },
+   {
+    "id": "270",
+    "url": "https://assets.mixkit.co/active_storage/sfx/270/270-preview.mp3",
+    "t": "Fantasy game success notification",
+    "d": "0:03"
+   },
+   {
+    "id": "1996",
+    "url": "https://assets.mixkit.co/active_storage/sfx/1996/1996-preview.mp3",
+    "t": "Slot machine payout alarm",
+    "d": "0:10"
+   },
+   {
+    "id": "265",
+    "url": "https://assets.mixkit.co/active_storage/sfx/265/265-preview.mp3",
+    "t": "Quick positive video game notification interface",
+    "d": "0:04"
+   },
+   {
+    "id": "226",
+    "url": "https://assets.mixkit.co/active_storage/sfx/226/226-preview.mp3",
+    "t": "Medieval show fanfare announcement",
+    "d": "0:08"
+   },
+   {
+    "id": "767",
+    "url": "https://assets.mixkit.co/active_storage/sfx/767/767-preview.mp3",
+    "t": "Arcade bonus alert",
+    "d": "0:02"
+   },
+   {
+    "id": "502",
+    "url": "https://assets.mixkit.co/active_storage/sfx/502/502-preview.mp3",
+    "t": "Auditorium moderate applause and cheering",
+    "d": "0:17"
+   },
+   {
+    "id": "1995",
+    "url": "https://assets.mixkit.co/active_storage/sfx/1995/1995-preview.mp3",
+    "t": "Slot machine win alarm",
+    "d": "0:06"
+   },
+   {
+    "id": "254",
+    "url": "https://assets.mixkit.co/active_storage/sfx/254/254-preview.mp3",
+    "t": "Unlock new item game notification",
+    "d": "0:02"
+   },
+   {
+    "id": "2019",
+    "url": "https://assets.mixkit.co/active_storage/sfx/2019/2019-preview.mp3",
+    "t": "Ethereal fairy win sound",
+    "d": "0:02"
+   },
+   {
+    "id": "344",
+    "url": "https://assets.mixkit.co/active_storage/sfx/344/344-preview.mp3",
+    "t": "Fairy cartoon success voice",
+    "d": "0:02"
+   },
+   {
+    "id": "2018",
+    "url": "https://assets.mixkit.co/active_storage/sfx/2018/2018-preview.mp3",
+    "t": "Winning notification",
+    "d": "0:01"
+   },
+   {
+    "id": "257",
+    "url": "https://assets.mixkit.co/active_storage/sfx/257/257-preview.mp3",
+    "t": "Magic sweep game trophy",
+    "d": "0:03"
+   },
+   {
+    "id": "2012",
+    "url": "https://assets.mixkit.co/active_storage/sfx/2012/2012-preview.mp3",
+    "t": "Males yes victory",
+    "d": "0:01"
+   },
+   {
+    "id": "523",
+    "url": "https://assets.mixkit.co/active_storage/sfx/523/523-preview.mp3",
+    "t": "Animated small group applause",
+    "d": "0:04"
+   },
+   {
+    "id": "2016",
+    "url": "https://assets.mixkit.co/active_storage/sfx/2016/2016-preview.mp3",
+    "t": "Video game win",
+    "d": "0:02"
+   },
+   {
+    "id": "217",
+    "url": "https://assets.mixkit.co/active_storage/sfx/217/217-preview.mp3",
+    "t": "Arcade score interface",
+    "d": "0:01"
+   },
+   {
+    "id": "2015",
+    "url": "https://assets.mixkit.co/active_storage/sfx/2015/2015-preview.mp3",
+    "t": "Winning chimes",
+    "d": "0:02"
+   },
+   {
+    "id": "1938",
+    "url": "https://assets.mixkit.co/active_storage/sfx/1938/1938-preview.mp3",
+    "t": "Melodic bonus collect",
+    "d": "0:02"
+   },
+   {
+    "id": "1934",
+    "url": "https://assets.mixkit.co/active_storage/sfx/1934/1934-preview.mp3",
+    "t": "Payout award",
+    "d": "0:04"
+   },
+   {
+    "id": "235",
+    "url": "https://assets.mixkit.co/active_storage/sfx/235/235-preview.mp3",
+    "t": "Explainer video game reveal",
+    "d": "0:02"
+   },
+   {
+    "id": "271",
+    "url": "https://assets.mixkit.co/active_storage/sfx/271/271-preview.mp3",
+    "t": "Space coin win notification",
+    "d": "0:01"
+   },
+   {
+    "id": "2021",
+    "url": "https://assets.mixkit.co/active_storage/sfx/2021/2021-preview.mp3",
+    "t": "Instant win",
+    "d": "0:01"
+   },
+   {
+    "id": "2017",
+    "url": "https://assets.mixkit.co/active_storage/sfx/2017/2017-preview.mp3",
+    "t": "Winning swoosh",
+    "d": "0:01"
+   },
+   {
+    "id": "2020",
+    "url": "https://assets.mixkit.co/active_storage/sfx/2020/2020-preview.mp3",
+    "t": "Small win",
+    "d": "0:01"
+   },
+   {
+    "id": "1928",
+    "url": "https://assets.mixkit.co/active_storage/sfx/1928/1928-preview.mp3",
+    "t": "Slot machine win",
+    "d": "0:05"
+   },
+   {
+    "id": "2014",
+    "url": "https://assets.mixkit.co/active_storage/sfx/2014/2014-preview.mp3",
+    "t": "Wind chimes",
+    "d": "0:02"
+   },
+   {
+    "id": "2010",
+    "url": "https://assets.mixkit.co/active_storage/sfx/2010/2010-preview.mp3",
+    "t": "Male voice cheer",
+    "d": "0:01"
+   },
+   {
+    "id": "2011",
+    "url": "https://assets.mixkit.co/active_storage/sfx/2011/2011-preview.mp3",
+    "t": "Male voice cheer victory",
+    "d": "0:01"
+   },
+   {
+    "id": "1980",
+    "url": "https://assets.mixkit.co/active_storage/sfx/1980/1980-preview.mp3",
+    "t": "Casino reward",
+    "d": "0:04"
+   }
+  ],
+  "game": [
+   {
+    "id": "2047",
+    "url": "https://assets.mixkit.co/active_storage/sfx/2047/2047-preview.mp3",
+    "t": "Martial arts fast punch",
+    "d": "0:01"
+   },
+   {
+    "id": "2059",
+    "url": "https://assets.mixkit.co/active_storage/sfx/2059/2059-preview.mp3",
+    "t": "Game level completed",
+    "d": "0:03"
+   },
+   {
+    "id": "2069",
+    "url": "https://assets.mixkit.co/active_storage/sfx/2069/2069-preview.mp3",
+    "t": "Winning a coin, video game",
+    "d": "0:01"
+   },
+   {
+    "id": "211",
+    "url": "https://assets.mixkit.co/active_storage/sfx/211/211-preview.mp3",
+    "t": "Retro arcade casino notification",
+    "d": "0:04"
+   },
+   {
+    "id": "2060",
+    "url": "https://assets.mixkit.co/active_storage/sfx/2060/2060-preview.mp3",
+    "t": "Winning an extra bonus",
+    "d": "0:01"
+   },
+   {
+    "id": "253",
+    "url": "https://assets.mixkit.co/active_storage/sfx/253/253-preview.mp3",
+    "t": "Unlock game notification",
+    "d": "0:01"
+   },
+   {
+    "id": "2042",
+    "url": "https://assets.mixkit.co/active_storage/sfx/2042/2042-preview.mp3",
+    "t": "Player losing or failing",
+    "d": "0:03"
+   },
+   {
+    "id": "2353",
+    "url": "https://assets.mixkit.co/active_storage/sfx/2353/2353-preview.mp3",
+    "t": "Magic glitter shot",
+    "d": "0:04"
+   },
+   {
+    "id": "2363",
+    "url": "https://assets.mixkit.co/active_storage/sfx/2363/2363-preview.mp3",
+    "t": "Game blood pop slide",
+    "d": "0:02"
+   },
+   {
+    "id": "2073",
+    "url": "https://assets.mixkit.co/active_storage/sfx/2073/2073-preview.mp3",
+    "t": "Game ball tap",
+    "d": "0:01"
+   },
+   {
+    "id": "2066",
+    "url": "https://assets.mixkit.co/active_storage/sfx/2066/2066-preview.mp3",
+    "t": "Video game treasure",
+    "d": "0:02"
+   },
+   {
+    "id": "2043",
+    "url": "https://assets.mixkit.co/active_storage/sfx/2043/2043-preview.mp3",
+    "t": "Player jumping in a video game",
+    "d": "0:01"
+   },
+   {
+    "id": "689",
+    "url": "https://assets.mixkit.co/active_storage/sfx/689/689-preview.mp3",
+    "t": "Game level music",
+    "d": "0:30"
+   },
+   {
+    "id": "2063",
+    "url": "https://assets.mixkit.co/active_storage/sfx/2063/2063-preview.mp3",
+    "t": "Completion of a level",
+    "d": "0:02"
+   },
+   {
+    "id": "265",
+    "url": "https://assets.mixkit.co/active_storage/sfx/265/265-preview.mp3",
+    "t": "Quick positive video game notification interface",
+    "d": "0:04"
+   },
+   {
+    "id": "2361",
+    "url": "https://assets.mixkit.co/active_storage/sfx/2361/2361-preview.mp3",
+    "t": "Video game blood pop",
+    "d": "0:01"
+   },
+   {
+    "id": "2072",
+    "url": "https://assets.mixkit.co/active_storage/sfx/2072/2072-preview.mp3",
+    "t": "Small hit in a game",
+    "d": "0:01"
+   },
+   {
+    "id": "226",
+    "url": "https://assets.mixkit.co/active_storage/sfx/226/226-preview.mp3",
+    "t": "Medieval show fanfare announcement",
+    "d": "0:08"
+   },
+   {
+    "id": "2067",
+    "url": "https://assets.mixkit.co/active_storage/sfx/2067/2067-preview.mp3",
+    "t": "Casino bling achievement",
+    "d": "0:04"
+   },
+   {
+    "id": "2055",
+    "url": "https://assets.mixkit.co/active_storage/sfx/2055/2055-preview.mp3",
+    "t": "Boxer getting hit",
+    "d": "0:02"
+   },
+   {
+    "id": "2058",
+    "url": "https://assets.mixkit.co/active_storage/sfx/2058/2058-preview.mp3",
+    "t": "Bonus earned in video game",
+    "d": "0:01"
+   },
+   {
+    "id": "237",
+    "url": "https://assets.mixkit.co/active_storage/sfx/237/237-preview.mp3",
+    "t": "Video game retro click",
+    "d": "0:01"
+   },
+   {
+    "id": "254",
+    "url": "https://assets.mixkit.co/active_storage/sfx/254/254-preview.mp3",
+    "t": "Unlock new item game notification",
+    "d": "0:02"
+   },
+   {
+    "id": "266",
+    "url": "https://assets.mixkit.co/active_storage/sfx/266/266-preview.mp3",
+    "t": "Sci Fi positive notification",
+    "d": "0:04"
+   },
+   {
+    "id": "277",
+    "url": "https://assets.mixkit.co/active_storage/sfx/277/277-preview.mp3",
+    "t": "Retro video game bubble laser",
+    "d": "0:04"
+   },
+   {
+    "id": "2065",
+    "url": "https://assets.mixkit.co/active_storage/sfx/2065/2065-preview.mp3",
+    "t": "Game bonus reached",
+    "d": "0:02"
+   },
+   {
+    "id": "2062",
+    "url": "https://assets.mixkit.co/active_storage/sfx/2062/2062-preview.mp3",
+    "t": "Game experience level increased",
+    "d": "0:03"
+   },
+   {
+    "id": "276",
+    "url": "https://assets.mixkit.co/active_storage/sfx/276/276-preview.mp3",
+    "t": "Long game over notification",
+    "d": "0:05"
+   },
+   {
+    "id": "227",
+    "url": "https://assets.mixkit.co/active_storage/sfx/227/227-preview.mp3",
+    "t": "Ominous drums",
+    "d": "0:04"
+   },
+   {
+    "id": "257",
+    "url": "https://assets.mixkit.co/active_storage/sfx/257/257-preview.mp3",
+    "t": "Magic sweep game trophy",
+    "d": "0:03"
+   },
+   {
+    "id": "3175",
+    "url": "https://assets.mixkit.co/active_storage/sfx/3175/3175-preview.mp3",
+    "t": "Thin metal card deck shuffle",
+    "d": "0:02"
+   },
+   {
+    "id": "210",
+    "url": "https://assets.mixkit.co/active_storage/sfx/210/210-preview.mp3",
+    "t": "Arcade mechanical bling",
+    "d": "0:02"
+   },
+   {
+    "id": "2045",
+    "url": "https://assets.mixkit.co/active_storage/sfx/2045/2045-preview.mp3",
+    "t": "Extra bonus in a video game",
+    "d": "0:01"
+   },
+   {
+    "id": "2313",
+    "url": "https://assets.mixkit.co/active_storage/sfx/2313/2313-preview.mp3",
+    "t": "Game flute bonus",
+    "d": "0:03"
+   },
+   {
+    "id": "2837",
+    "url": "https://assets.mixkit.co/active_storage/sfx/2837/2837-preview.mp3",
+    "t": "Video game health recharge",
+    "d": "0:01"
+   },
+   {
+    "id": "2324",
+    "url": "https://assets.mixkit.co/active_storage/sfx/2324/2324-preview.mp3",
+    "t": "Negative guitar tone",
+    "d": "0:01"
+   }
+  ],
+  "crowd": [
+   {
+    "id": "424",
+    "url": "https://assets.mixkit.co/active_storage/sfx/424/424-preview.mp3",
+    "t": "Crowd laugh",
+    "d": "0:04"
+   },
+   {
+    "id": "478",
+    "url": "https://assets.mixkit.co/active_storage/sfx/478/478-preview.mp3",
+    "t": "Ending show audience clapping",
+    "d": "0:24"
+   },
+   {
+    "id": "429",
+    "url": "https://assets.mixkit.co/active_storage/sfx/429/429-preview.mp3",
+    "t": "Laughing teenagers",
+    "d": "0:11"
+   },
+   {
+    "id": "476",
+    "url": "https://assets.mixkit.co/active_storage/sfx/476/476-preview.mp3",
+    "t": "Conference audience clapping strongly",
+    "d": "0:08"
+   },
+   {
+    "id": "444",
+    "url": "https://assets.mixkit.co/active_storage/sfx/444/444-preview.mp3",
+    "t": "Restaurant crowd talking ambience",
+    "d": "2:00"
+   },
+   {
+    "id": "610",
+    "url": "https://assets.mixkit.co/active_storage/sfx/610/610-preview.mp3",
+    "t": "Cheering crowd loud whistle",
+    "d": "0:14"
+   },
+   {
+    "id": "462",
+    "url": "https://assets.mixkit.co/active_storage/sfx/462/462-preview.mp3",
+    "t": "Huge crowd cheering victory",
+    "d": "0:10"
+   },
+   {
+    "id": "368",
+    "url": "https://assets.mixkit.co/active_storage/sfx/368/368-preview.mp3",
+    "t": "People in fair ambience and laughter",
+    "d": "0:15"
+   },
+   {
+    "id": "460",
+    "url": "https://assets.mixkit.co/active_storage/sfx/460/460-preview.mp3",
+    "t": "Big crowd laughing",
+    "d": "0:07"
+   },
+   {
+    "id": "3022",
+    "url": "https://assets.mixkit.co/active_storage/sfx/3022/3022-preview.mp3",
+    "t": "Stadium joy shouting crowd",
+    "d": "0:15"
+   },
+   {
+    "id": "360",
+    "url": "https://assets.mixkit.co/active_storage/sfx/360/360-preview.mp3",
+    "t": "Very crowded pub or party loop",
+    "d": "0:36"
+   },
+   {
+    "id": "364",
+    "url": "https://assets.mixkit.co/active_storage/sfx/364/364-preview.mp3",
+    "t": "Big crowd talking loop",
+    "d": "0:59"
+   },
+   {
+    "id": "461",
+    "url": "https://assets.mixkit.co/active_storage/sfx/461/461-preview.mp3",
+    "t": "Big army crowd marching",
+    "d": "0:08"
+   },
+   {
+    "id": "502",
+    "url": "https://assets.mixkit.co/active_storage/sfx/502/502-preview.mp3",
+    "t": "Auditorium moderate applause and cheering",
+    "d": "0:17"
+   },
+   {
+    "id": "485",
+    "url": "https://assets.mixkit.co/active_storage/sfx/485/485-preview.mp3",
+    "t": "Medium size crowd applause",
+    "d": "0:11"
+   },
+   {
+    "id": "432",
+    "url": "https://assets.mixkit.co/active_storage/sfx/432/432-preview.mp3",
+    "t": "Reporters crowd and camera flashes",
+    "d": "0:16"
+   },
+   {
+    "id": "459",
+    "url": "https://assets.mixkit.co/active_storage/sfx/459/459-preview.mp3",
+    "t": "Male crowd cheering short",
+    "d": "0:04"
+   },
+   {
+    "id": "531",
+    "url": "https://assets.mixkit.co/active_storage/sfx/531/531-preview.mp3",
+    "t": "Birthday crowd party cheer",
+    "d": "0:05"
+   },
+   {
+    "id": "363",
+    "url": "https://assets.mixkit.co/active_storage/sfx/363/363-preview.mp3",
+    "t": "Stadium chaotic loud applause, drums and chants",
+    "d": "0:17"
+   },
+   {
+    "id": "458",
+    "url": "https://assets.mixkit.co/active_storage/sfx/458/458-preview.mp3",
+    "t": "Angry male crowd ambience",
+    "d": "0:31"
+   },
+   {
+    "id": "477",
+    "url": "https://assets.mixkit.co/active_storage/sfx/477/477-preview.mp3",
+    "t": "End of show clapping crowd",
+    "d": "0:08"
+   },
+   {
+    "id": "423",
+    "url": "https://assets.mixkit.co/active_storage/sfx/423/423-preview.mp3",
+    "t": "Small man crowd laughing",
+    "d": "0:08"
+   },
+   {
+    "id": "377",
+    "url": "https://assets.mixkit.co/active_storage/sfx/377/377-preview.mp3",
+    "t": "Shopping center crowd",
+    "d": "0:28"
+   },
+   {
+    "id": "361",
+    "url": "https://assets.mixkit.co/active_storage/sfx/361/361-preview.mp3",
+    "t": "City downtown crowd ambience",
+    "d": "2:00"
+   },
+   {
+    "id": "437",
+    "url": "https://assets.mixkit.co/active_storage/sfx/437/437-preview.mp3",
+    "t": "Small crowd ovation",
+    "d": "0:06"
+   },
+   {
+    "id": "2111",
+    "url": "https://assets.mixkit.co/active_storage/sfx/2111/2111-preview.mp3",
+    "t": "Crowd at the stadium",
+    "d": "0:05"
+   },
+   {
+    "id": "438",
+    "url": "https://assets.mixkit.co/active_storage/sfx/438/438-preview.mp3",
+    "t": "Crowd chanting at stadium",
+    "d": "0:11"
+   },
+   {
+    "id": "376",
+    "url": "https://assets.mixkit.co/active_storage/sfx/376/376-preview.mp3",
+    "t": "Rioting Crowd",
+    "d": "0:43"
+   },
+   {
+    "id": "354",
+    "url": "https://assets.mixkit.co/active_storage/sfx/354/354-preview.mp3",
+    "t": "Audience light applause",
+    "d": "0:05"
+   },
+   {
+    "id": "1958",
+    "url": "https://assets.mixkit.co/active_storage/sfx/1958/1958-preview.mp3",
+    "t": "Monsters scream",
+    "d": "0:12"
+   },
+   {
+    "id": "469",
+    "url": "https://assets.mixkit.co/active_storage/sfx/469/469-preview.mp3",
+    "t": "People moaning sadly",
+    "d": "0:43"
+   },
+   {
+    "id": "506",
+    "url": "https://assets.mixkit.co/active_storage/sfx/506/506-preview.mp3",
+    "t": "Classroom long applause and whistle",
+    "d": "0:19"
+   },
+   {
+    "id": "1573",
+    "url": "https://assets.mixkit.co/active_storage/sfx/1573/1573-preview.mp3",
+    "t": "Busy crowd at airport terminal estation",
+    "d": "1:06"
+   },
+   {
+    "id": "504",
+    "url": "https://assets.mixkit.co/active_storage/sfx/504/504-preview.mp3",
+    "t": "Rhythmic applause and cheering",
+    "d": "0:14"
+   },
+   {
+    "id": "445",
+    "url": "https://assets.mixkit.co/active_storage/sfx/445/445-preview.mp3",
+    "t": "Rioting crowd breaking windows and police siren",
+    "d": "0:38"
+   },
+   {
+    "id": "442",
+    "url": "https://assets.mixkit.co/active_storage/sfx/442/442-preview.mp3",
+    "t": "Crowd clapping",
+    "d": "0:10"
+   }
+  ],
+  "boxing": [
+   {
+    "id": "2055",
+    "url": "https://assets.mixkit.co/active_storage/sfx/2055/2055-preview.mp3",
+    "t": "Boxer getting hit",
+    "d": "0:02"
+   },
+   {
+    "id": "2113",
+    "url": "https://assets.mixkit.co/active_storage/sfx/2113/2113-preview.mp3",
+    "t": "Training with punching bag",
+    "d": "0:23"
+   },
+   {
+    "id": "2051",
+    "url": "https://assets.mixkit.co/active_storage/sfx/2051/2051-preview.mp3",
+    "t": "Boxing punch",
+    "d": "0:01"
+   },
+   {
+    "id": "2053",
+    "url": "https://assets.mixkit.co/active_storage/sfx/2053/2053-preview.mp3",
+    "t": "Punch with boxing gloves",
+    "d": "0:02"
+   },
+   {
+    "id": "2164",
+    "url": "https://assets.mixkit.co/active_storage/sfx/2164/2164-preview.mp3",
+    "t": "Short boxing punch",
+    "d": "0:01"
+   },
+   {
+    "id": "2057",
+    "url": "https://assets.mixkit.co/active_storage/sfx/2057/2057-preview.mp3",
+    "t": "Blow breaking the air",
+    "d": "0:01"
+   },
+   {
+    "id": "2165",
+    "url": "https://assets.mixkit.co/active_storage/sfx/2165/2165-preview.mp3",
+    "t": "Short punch in the face",
+    "d": "0:01"
+   },
+   {
+    "id": "2049",
+    "url": "https://assets.mixkit.co/active_storage/sfx/2049/2049-preview.mp3",
+    "t": "Punch with short whistle",
+    "d": "0:01"
+   },
+   {
+    "id": "2103",
+    "url": "https://assets.mixkit.co/active_storage/sfx/2103/2103-preview.mp3",
+    "t": "Punching boxing gloves hit",
+    "d": "0:01"
+   },
+   {
+    "id": "2054",
+    "url": "https://assets.mixkit.co/active_storage/sfx/2054/2054-preview.mp3",
+    "t": "Boxer punch exhaling",
+    "d": "0:04"
+   },
+   {
+    "id": "2114",
+    "url": "https://assets.mixkit.co/active_storage/sfx/2114/2114-preview.mp3",
+    "t": "Box to bag punches",
+    "d": "0:01"
+   },
+   {
+    "id": "2056",
+    "url": "https://assets.mixkit.co/active_storage/sfx/2056/2056-preview.mp3",
+    "t": "Effort of a hit given",
+    "d": "0:03"
+   }
+  ],
+  "gym": [
+   {
+    "id": "2102",
+    "url": "https://assets.mixkit.co/active_storage/sfx/2102/2102-preview.mp3",
+    "t": "Dumbbell pins at the gym",
+    "d": "0:01"
+   },
+   {
+    "id": "2115",
+    "url": "https://assets.mixkit.co/active_storage/sfx/2115/2115-preview.mp3",
+    "t": "Pull and drop gym machine",
+    "d": "0:02"
+   },
+   {
+    "id": "2116",
+    "url": "https://assets.mixkit.co/active_storage/sfx/2116/2116-preview.mp3",
+    "t": "Metal gym plate",
+    "d": "0:01"
+   },
+   {
+    "id": "2079",
+    "url": "https://assets.mixkit.co/active_storage/sfx/2079/2079-preview.mp3",
+    "t": "Gym ball hitting the ground",
+    "d": "0:01"
+   }
+  ],
+  "beep": [
+   {
+    "id": "1083",
+    "url": "https://assets.mixkit.co/active_storage/sfx/1083/1083-preview.mp3",
+    "t": "Censorship beep long",
+    "d": "0:06"
+   },
+   {
+    "id": "1082",
+    "url": "https://assets.mixkit.co/active_storage/sfx/1082/1082-preview.mp3",
+    "t": "Censorship beep",
+    "d": "0:01"
+   },
+   {
+    "id": "988",
+    "url": "https://assets.mixkit.co/active_storage/sfx/988/988-preview.mp3",
+    "t": "Alarm clock beep",
+    "d": "0:08"
+   },
+   {
+    "id": "221",
+    "url": "https://assets.mixkit.co/active_storage/sfx/221/221-preview.mp3",
+    "t": "Positive interface beep",
+    "d": "0:01"
+   },
+   {
+    "id": "918",
+    "url": "https://assets.mixkit.co/active_storage/sfx/918/918-preview.mp3",
+    "t": "Sport start bleeps",
+    "d": "0:03"
+   },
+   {
+    "id": "2964",
+    "url": "https://assets.mixkit.co/active_storage/sfx/2964/2964-preview.mp3",
+    "t": "System beep buzzer fail",
+    "d": "0:01"
+   },
+   {
+    "id": "1084",
+    "url": "https://assets.mixkit.co/active_storage/sfx/1084/1084-preview.mp3",
+    "t": "Repeating arcade beep",
+    "d": "0:02"
+   },
+   {
+    "id": "1073",
+    "url": "https://assets.mixkit.co/active_storage/sfx/1073/1073-preview.mp3",
+    "t": "Shop scanner beeps",
+    "d": "0:06"
+   },
+   {
+    "id": "989",
+    "url": "https://assets.mixkit.co/active_storage/sfx/989/989-preview.mp3",
+    "t": "Alarm digital clock beep",
+    "d": "0:08"
+   },
+   {
+    "id": "1076",
+    "url": "https://assets.mixkit.co/active_storage/sfx/1076/1076-preview.mp3",
+    "t": "Appliance ready beep",
+    "d": "0:01"
+   },
+   {
+    "id": "1077",
+    "url": "https://assets.mixkit.co/active_storage/sfx/1077/1077-preview.mp3",
+    "t": "Truck reversing beeps loop",
+    "d": "0:01"
+   }
+  ],
+  "alarm": [
+   {
+    "id": "995",
+    "url": "https://assets.mixkit.co/active_storage/sfx/995/995-preview.mp3",
+    "t": "Classic alarm",
+    "d": "0:05"
+   },
+   {
+    "id": "999",
+    "url": "https://assets.mixkit.co/active_storage/sfx/999/999-preview.mp3",
+    "t": "Facility alarm sound",
+    "d": "0:17"
+   },
+   {
+    "id": "2462",
+    "url": "https://assets.mixkit.co/active_storage/sfx/2462/2462-preview.mp3",
+    "t": "Rooster crowing in the morning",
+    "d": "0:04"
+   },
+   {
+    "id": "1000",
+    "url": "https://assets.mixkit.co/active_storage/sfx/1000/1000-preview.mp3",
+    "t": "Retro game emergency alarm",
+    "d": "0:25"
+   },
+   {
+    "id": "992",
+    "url": "https://assets.mixkit.co/active_storage/sfx/992/992-preview.mp3",
+    "t": "Digital clock digital alarm buzzer",
+    "d": "0:08"
+   },
+   {
+    "id": "1005",
+    "url": "https://assets.mixkit.co/active_storage/sfx/1005/1005-preview.mp3",
+    "t": "Alert alarm",
+    "d": "0:06"
+   },
+   {
+    "id": "911",
+    "url": "https://assets.mixkit.co/active_storage/sfx/911/911-preview.mp3",
+    "t": "Interface hint notification",
+    "d": "0:01"
+   },
+   {
+    "id": "1006",
+    "url": "https://assets.mixkit.co/active_storage/sfx/1006/1006-preview.mp3",
+    "t": "Sound alert in hall",
+    "d": "0:13"
+   },
+   {
+    "id": "987",
+    "url": "https://assets.mixkit.co/active_storage/sfx/987/987-preview.mp3",
+    "t": "Game notification wave alarm",
+    "d": "0:01"
+   },
+   {
+    "id": "990",
+    "url": "https://assets.mixkit.co/active_storage/sfx/990/990-preview.mp3",
+    "t": "Vintage warning alarm",
+    "d": "0:08"
+   },
+   {
+    "id": "1003",
+    "url": "https://assets.mixkit.co/active_storage/sfx/1003/1003-preview.mp3",
+    "t": "Morning clock alarm",
+    "d": "0:09"
+   },
+   {
+    "id": "988",
+    "url": "https://assets.mixkit.co/active_storage/sfx/988/988-preview.mp3",
+    "t": "Alarm clock beep",
+    "d": "0:08"
+   },
+   {
+    "id": "1996",
+    "url": "https://assets.mixkit.co/active_storage/sfx/1996/1996-preview.mp3",
+    "t": "Slot machine payout alarm",
+    "d": "0:10"
+   },
+   {
+    "id": "2470",
+    "url": "https://assets.mixkit.co/active_storage/sfx/2470/2470-preview.mp3",
+    "t": "Short rooster crowing",
+    "d": "0:02"
+   },
+   {
+    "id": "1007",
+    "url": "https://assets.mixkit.co/active_storage/sfx/1007/1007-preview.mp3",
+    "t": "Emergency alert alarm",
+    "d": "0:04"
+   },
+   {
+    "id": "991",
+    "url": "https://assets.mixkit.co/active_storage/sfx/991/991-preview.mp3",
+    "t": "Warning alarm buzzer",
+    "d": "0:08"
+   },
+   {
+    "id": "1008",
+    "url": "https://assets.mixkit.co/active_storage/sfx/1008/1008-preview.mp3",
+    "t": "City alert siren loop",
+    "d": "0:22"
+   },
+   {
+    "id": "1995",
+    "url": "https://assets.mixkit.co/active_storage/sfx/1995/1995-preview.mp3",
+    "t": "Slot machine win alarm",
+    "d": "0:06"
+   },
+   {
+    "id": "905",
+    "url": "https://assets.mixkit.co/active_storage/sfx/905/905-preview.mp3",
+    "t": "Scanning sci fi alarm",
+    "d": "0:10"
+   },
+   {
+    "id": "989",
+    "url": "https://assets.mixkit.co/active_storage/sfx/989/989-preview.mp3",
+    "t": "Alarm digital clock beep",
+    "d": "0:08"
+   },
+   {
+    "id": "994",
+    "url": "https://assets.mixkit.co/active_storage/sfx/994/994-preview.mp3",
+    "t": "Security facility breach alarm",
+    "d": "0:04"
+   },
+   {
+    "id": "996",
+    "url": "https://assets.mixkit.co/active_storage/sfx/996/996-preview.mp3",
+    "t": "Alarm tone",
+    "d": "0:01"
+   },
+   {
+    "id": "997",
+    "url": "https://assets.mixkit.co/active_storage/sfx/997/997-preview.mp3",
+    "t": "Street public alarm",
+    "d": "0:03"
+   },
+   {
+    "id": "1997",
+    "url": "https://assets.mixkit.co/active_storage/sfx/1997/1997-preview.mp3",
+    "t": "Classic winner alarm",
+    "d": "0:10"
+   },
+   {
+    "id": "1001",
+    "url": "https://assets.mixkit.co/active_storage/sfx/1001/1001-preview.mp3",
+    "t": "Battleship alarm",
+    "d": "0:26"
+   },
+   {
+    "id": "1991",
+    "url": "https://assets.mixkit.co/active_storage/sfx/1991/1991-preview.mp3",
+    "t": "Casino jackpot alarm and coins",
+    "d": "0:17"
+   },
+   {
+    "id": "2847",
+    "url": "https://assets.mixkit.co/active_storage/sfx/2847/2847-preview.mp3",
+    "t": "Data scaner",
+    "d": "0:02"
+   },
+   {
+    "id": "993",
+    "url": "https://assets.mixkit.co/active_storage/sfx/993/993-preview.mp3",
+    "t": "Classic short alarm",
+    "d": "0:01"
+   },
+   {
+    "id": "1002",
+    "url": "https://assets.mixkit.co/active_storage/sfx/1002/1002-preview.mp3",
+    "t": "Space shooter alarm",
+    "d": "0:07"
+   },
+   {
+    "id": "908",
+    "url": "https://assets.mixkit.co/active_storage/sfx/908/908-preview.mp3",
+    "t": "Facility alarm",
+    "d": "0:02"
+   },
+   {
+    "id": "1004",
+    "url": "https://assets.mixkit.co/active_storage/sfx/1004/1004-preview.mp3",
+    "t": "Critical alarm",
+    "d": "0:03"
+   },
+   {
+    "id": "998",
+    "url": "https://assets.mixkit.co/active_storage/sfx/998/998-preview.mp3",
+    "t": "Spaceship alarm",
+    "d": "0:25"
+   },
+   {
+    "id": "1990",
+    "url": "https://assets.mixkit.co/active_storage/sfx/1990/1990-preview.mp3",
+    "t": "Casino win alarm and coins",
+    "d": "0:16"
+   }
+  ],
+  "clock": [
+   {
+    "id": "1059",
+    "url": "https://assets.mixkit.co/active_storage/sfx/1059/1059-preview.mp3",
+    "t": "Tick tock clock close up",
+    "d": "0:11"
+   },
+   {
+    "id": "1045",
+    "url": "https://assets.mixkit.co/active_storage/sfx/1045/1045-preview.mp3",
+    "t": "Tick tock clock timer",
+    "d": "0:16"
+   },
+   {
+    "id": "988",
+    "url": "https://assets.mixkit.co/active_storage/sfx/988/988-preview.mp3",
+    "t": "Alarm clock beep",
+    "d": "0:08"
+   },
+   {
+    "id": "1060",
+    "url": "https://assets.mixkit.co/active_storage/sfx/1060/1060-preview.mp3",
+    "t": "Wall clock tick tock",
+    "d": "0:23"
+   },
+   {
+    "id": "1063",
+    "url": "https://assets.mixkit.co/active_storage/sfx/1063/1063-preview.mp3",
+    "t": "Fast wall clock ticking",
+    "d": "0:02"
+   },
+   {
+    "id": "1061",
+    "url": "https://assets.mixkit.co/active_storage/sfx/1061/1061-preview.mp3",
+    "t": "Clock ticker single",
+    "d": "0:01"
+   },
+   {
+    "id": "1046",
+    "url": "https://assets.mixkit.co/active_storage/sfx/1046/1046-preview.mp3",
+    "t": "Bell tick tock timer",
+    "d": "0:48"
+   },
+   {
+    "id": "1056",
+    "url": "https://assets.mixkit.co/active_storage/sfx/1056/1056-preview.mp3",
+    "t": "Ticking timer",
+    "d": "0:10"
+   },
+   {
+    "id": "1047",
+    "url": "https://assets.mixkit.co/active_storage/sfx/1047/1047-preview.mp3",
+    "t": "Percussion tick-tock timer",
+    "d": "0:24"
+   },
+   {
+    "id": "1058",
+    "url": "https://assets.mixkit.co/active_storage/sfx/1058/1058-preview.mp3",
+    "t": "Classic melodic clock strike",
+    "d": "0:09"
+   },
+   {
+    "id": "1064",
+    "url": "https://assets.mixkit.co/active_storage/sfx/1064/1064-preview.mp3",
+    "t": "Watch clock knob spin",
+    "d": "0:01"
+   },
+   {
+    "id": "1048",
+    "url": "https://assets.mixkit.co/active_storage/sfx/1048/1048-preview.mp3",
+    "t": "Tick-tock clock timer",
+    "d": "0:32"
+   },
+   {
+    "id": "1050",
+    "url": "https://assets.mixkit.co/active_storage/sfx/1050/1050-preview.mp3",
+    "t": "Slow tick-tock clock timer",
+    "d": "0:30"
+   },
+   {
+    "id": "1071",
+    "url": "https://assets.mixkit.co/active_storage/sfx/1071/1071-preview.mp3",
+    "t": "Old big clock hour",
+    "d": "0:26"
+   },
+   {
+    "id": "1072",
+    "url": "https://assets.mixkit.co/active_storage/sfx/1072/1072-preview.mp3",
+    "t": "Old clock pendulum ticking",
+    "d": "1:00"
+   },
+   {
+    "id": "1062",
+    "url": "https://assets.mixkit.co/active_storage/sfx/1062/1062-preview.mp3",
+    "t": "Clock knob spin",
+    "d": "0:01"
+   },
+   {
+    "id": "1053",
+    "url": "https://assets.mixkit.co/active_storage/sfx/1053/1053-preview.mp3",
+    "t": "Ticking counter",
+    "d": "0:06"
+   },
+   {
+    "id": "1069",
+    "url": "https://assets.mixkit.co/active_storage/sfx/1069/1069-preview.mp3",
+    "t": "Clock bells hour signal",
+    "d": "0:06"
+   },
+   {
+    "id": "1049",
+    "url": "https://assets.mixkit.co/active_storage/sfx/1049/1049-preview.mp3",
+    "t": "Retract clock mechanism",
+    "d": "0:01"
+   },
+   {
+    "id": "1054",
+    "url": "https://assets.mixkit.co/active_storage/sfx/1054/1054-preview.mp3",
+    "t": "Electric ticking counter",
+    "d": "0:09"
+   },
+   {
+    "id": "1065",
+    "url": "https://assets.mixkit.co/active_storage/sfx/1065/1065-preview.mp3",
+    "t": "Antique wood chime bell ring",
+    "d": "0:24"
+   },
+   {
+    "id": "1055",
+    "url": "https://assets.mixkit.co/active_storage/sfx/1055/1055-preview.mp3",
+    "t": "Slow racing countdown",
+    "d": "0:06"
+   },
+   {
+    "id": "1081",
+    "url": "https://assets.mixkit.co/active_storage/sfx/1081/1081-preview.mp3",
+    "t": "Clock alarm beep",
+    "d": "0:08"
+   },
+   {
+    "id": "1070",
+    "url": "https://assets.mixkit.co/active_storage/sfx/1070/1070-preview.mp3",
+    "t": "Big old clock ticking",
+    "d": "0:35"
+   },
+   {
+    "id": "1066",
+    "url": "https://assets.mixkit.co/active_storage/sfx/1066/1066-preview.mp3",
+    "t": "Classic clock gong",
+    "d": "0:07"
+   },
+   {
+    "id": "1052",
+    "url": "https://assets.mixkit.co/active_storage/sfx/1052/1052-preview.mp3",
+    "t": "Retro arcade tick-tock clock timer",
+    "d": "0:08"
+   },
+   {
+    "id": "1068",
+    "url": "https://assets.mixkit.co/active_storage/sfx/1068/1068-preview.mp3",
+    "t": "Old clock gong melody",
+    "d": "0:44"
+   },
+   {
+    "id": "1051",
+    "url": "https://assets.mixkit.co/active_storage/sfx/1051/1051-preview.mp3",
+    "t": "Racing countdown timer",
+    "d": "0:03"
+   },
+   {
+    "id": "1067",
+    "url": "https://assets.mixkit.co/active_storage/sfx/1067/1067-preview.mp3",
+    "t": "Long clock gong",
+    "d": "0:09"
+   },
+   {
+    "id": "1057",
+    "url": "https://assets.mixkit.co/active_storage/sfx/1057/1057-preview.mp3",
+    "t": "Melodic clock strike",
+    "d": "0:15"
+   }
+  ],
+  "horn": [
+   {
+    "id": "715",
+    "url": "https://assets.mixkit.co/active_storage/sfx/715/715-preview.mp3",
+    "t": "Clown horn at circus",
+    "d": "0:02"
+   },
+   {
+    "id": "1565",
+    "url": "https://assets.mixkit.co/active_storage/sfx/1565/1565-preview.mp3",
+    "t": "Classic car horn",
+    "d": "0:01"
+   },
+   {
+    "id": "2886",
+    "url": "https://assets.mixkit.co/active_storage/sfx/2886/2886-preview.mp3",
+    "t": "Funny clown horn sounds",
+    "d": "0:02"
+   },
+   {
+    "id": "2289",
+    "url": "https://assets.mixkit.co/active_storage/sfx/2289/2289-preview.mp3",
+    "t": "Warfare horn",
+    "d": "0:04"
+   },
+   {
+    "id": "1654",
+    "url": "https://assets.mixkit.co/active_storage/sfx/1654/1654-preview.mp3",
+    "t": "Distant train horn",
+    "d": "0:05"
+   },
+   {
+    "id": "719",
+    "url": "https://assets.mixkit.co/active_storage/sfx/719/719-preview.mp3",
+    "t": "Car double horn",
+    "d": "0:01"
+   },
+   {
+    "id": "718",
+    "url": "https://assets.mixkit.co/active_storage/sfx/718/718-preview.mp3",
+    "t": "Car horn",
+    "d": "0:01"
+   },
+   {
+    "id": "724",
+    "url": "https://assets.mixkit.co/active_storage/sfx/724/724-preview.mp3",
+    "t": "Cinematic trailer apocalypse horn",
+    "d": "0:17"
+   },
+   {
+    "id": "717",
+    "url": "https://assets.mixkit.co/active_storage/sfx/717/717-preview.mp3",
+    "t": "Small car horn",
+    "d": "0:01"
+   },
+   {
+    "id": "720",
+    "url": "https://assets.mixkit.co/active_storage/sfx/720/720-preview.mp3",
+    "t": "Truck horn",
+    "d": "0:01"
+   },
+   {
+    "id": "722",
+    "url": "https://assets.mixkit.co/active_storage/sfx/722/722-preview.mp3",
+    "t": "Successful horns fanfare",
+    "d": "0:03"
+   },
+   {
+    "id": "1632",
+    "url": "https://assets.mixkit.co/active_storage/sfx/1632/1632-preview.mp3",
+    "t": "Train passing by with horn",
+    "d": "0:19"
+   },
+   {
+    "id": "714",
+    "url": "https://assets.mixkit.co/active_storage/sfx/714/714-preview.mp3",
+    "t": "Suspense alien horns",
+    "d": "0:07"
+   },
+   {
+    "id": "727",
+    "url": "https://assets.mixkit.co/active_storage/sfx/727/727-preview.mp3",
+    "t": "Clown longhorn",
+    "d": "0:01"
+   },
+   {
+    "id": "716",
+    "url": "https://assets.mixkit.co/active_storage/sfx/716/716-preview.mp3",
+    "t": "Vintage bicycle horn",
+    "d": "0:02"
+   },
+   {
+    "id": "713",
+    "url": "https://assets.mixkit.co/active_storage/sfx/713/713-preview.mp3",
+    "t": "Horns of vengeance",
+    "d": "0:10"
+   },
+   {
+    "id": "973",
+    "url": "https://assets.mixkit.co/active_storage/sfx/973/973-preview.mp3",
+    "t": "Party sad horn",
+    "d": "0:01"
+   }
+  ],
+  "notification": [
+   {
+    "id": "2870",
+    "url": "https://assets.mixkit.co/active_storage/sfx/2870/2870-preview.mp3",
+    "t": "Correct answer tone",
+    "d": "0:01"
+   },
+   {
+    "id": "2358",
+    "url": "https://assets.mixkit.co/active_storage/sfx/2358/2358-preview.mp3",
+    "t": "Long pop",
+    "d": "0:01"
+   },
+   {
+    "id": "2354",
+    "url": "https://assets.mixkit.co/active_storage/sfx/2354/2354-preview.mp3",
+    "t": "Message pop alert",
+    "d": "0:01"
+   },
+   {
+    "id": "933",
+    "url": "https://assets.mixkit.co/active_storage/sfx/933/933-preview.mp3",
+    "t": "Bell notification",
+    "d": "0:03"
+   },
+   {
+    "id": "900",
+    "url": "https://assets.mixkit.co/active_storage/sfx/900/900-preview.mp3",
+    "t": "Sci fi click",
+    "d": "0:01"
+   },
+   {
+    "id": "2574",
+    "url": "https://assets.mixkit.co/active_storage/sfx/2574/2574-preview.mp3",
+    "t": "Software interface start",
+    "d": "0:02"
+   },
+   {
+    "id": "2575",
+    "url": "https://assets.mixkit.co/active_storage/sfx/2575/2575-preview.mp3",
+    "t": "Software interface back",
+    "d": "0:01"
+   },
+   {
+    "id": "937",
+    "url": "https://assets.mixkit.co/active_storage/sfx/937/937-preview.mp3",
+    "t": "Happy bells notification",
+    "d": "0:03"
+   },
+   {
+    "id": "951",
+    "url": "https://assets.mixkit.co/active_storage/sfx/951/951-preview.mp3",
+    "t": "Positive notification",
+    "d": "0:02"
+   },
+   {
+    "id": "2357",
+    "url": "https://assets.mixkit.co/active_storage/sfx/2357/2357-preview.mp3",
+    "t": "Bubble pop up alert notification",
+    "d": "0:01"
+   },
+   {
+    "id": "2867",
+    "url": "https://assets.mixkit.co/active_storage/sfx/2867/2867-preview.mp3",
+    "t": "Confirmation tone",
+    "d": "0:01"
+   },
+   {
+    "id": "914",
+    "url": "https://assets.mixkit.co/active_storage/sfx/914/914-preview.mp3",
+    "t": "Sci Fi confirmation",
+    "d": "0:01"
+   },
+   {
+    "id": "2356",
+    "url": "https://assets.mixkit.co/active_storage/sfx/2356/2356-preview.mp3",
+    "t": "Dry pop up notification alert",
+    "d": "0:01"
+   },
+   {
+    "id": "2310",
+    "url": "https://assets.mixkit.co/active_storage/sfx/2310/2310-preview.mp3",
+    "t": "Melodical flute music notification",
+    "d": "0:07"
+   },
+   {
+    "id": "2848",
+    "url": "https://assets.mixkit.co/active_storage/sfx/2848/2848-preview.mp3",
+    "t": "Gaming lock",
+    "d": "0:01"
+   },
+   {
+    "id": "946",
+    "url": "https://assets.mixkit.co/active_storage/sfx/946/946-preview.mp3",
+    "t": "Wrong answer fail notification",
+    "d": "0:01"
+   },
+   {
+    "id": "2573",
+    "url": "https://assets.mixkit.co/active_storage/sfx/2573/2573-preview.mp3",
+    "t": "Interface option select",
+    "d": "0:01"
+   },
+   {
+    "id": "2576",
+    "url": "https://assets.mixkit.co/active_storage/sfx/2576/2576-preview.mp3",
+    "t": "Software interface remove",
+    "d": "0:02"
+   },
+   {
+    "id": "2344",
+    "url": "https://assets.mixkit.co/active_storage/sfx/2344/2344-preview.mp3",
+    "t": "Magic notification ring",
+    "d": "0:03"
+   },
+   {
+    "id": "2861",
+    "url": "https://assets.mixkit.co/active_storage/sfx/2861/2861-preview.mp3",
+    "t": "Clear announce tones",
+    "d": "0:03"
+   },
+   {
+    "id": "2976",
+    "url": "https://assets.mixkit.co/active_storage/sfx/2976/2976-preview.mp3",
+    "t": "Urgent simple tone loop",
+    "d": "0:09"
+   },
+   {
+    "id": "911",
+    "url": "https://assets.mixkit.co/active_storage/sfx/911/911-preview.mp3",
+    "t": "Interface hint notification",
+    "d": "0:01"
+   },
+   {
+    "id": "987",
+    "url": "https://assets.mixkit.co/active_storage/sfx/987/987-preview.mp3",
+    "t": "Game notification wave alarm",
+    "d": "0:01"
+   },
+   {
+    "id": "2489",
+    "url": "https://assets.mixkit.co/active_storage/sfx/2489/2489-preview.mp3",
+    "t": "Arabian mystery harp notification",
+    "d": "0:03"
+   },
+   {
+    "id": "952",
+    "url": "https://assets.mixkit.co/active_storage/sfx/952/952-preview.mp3",
+    "t": "Correct answer reward",
+    "d": "0:02"
+   },
+   {
+    "id": "2863",
+    "url": "https://assets.mixkit.co/active_storage/sfx/2863/2863-preview.mp3",
+    "t": "Elevator tone",
+    "d": "0:01"
+   },
+   {
+    "id": "2580",
+    "url": "https://assets.mixkit.co/active_storage/sfx/2580/2580-preview.mp3",
+    "t": "Light button",
+    "d": "0:01"
+   },
+   {
+    "id": "2864",
+    "url": "https://assets.mixkit.co/active_storage/sfx/2864/2864-preview.mp3",
+    "t": "Doorbell tone",
+    "d": "0:04"
+   },
+   {
+    "id": "896",
+    "url": "https://assets.mixkit.co/active_storage/sfx/896/896-preview.mp3",
+    "t": "Sci-Fi reject notification",
+    "d": "0:03"
+   },
+   {
+    "id": "2866",
+    "url": "https://assets.mixkit.co/active_storage/sfx/2866/2866-preview.mp3",
+    "t": "Digital quick tone",
+    "d": "0:01"
+   },
+   {
+    "id": "2320",
+    "url": "https://assets.mixkit.co/active_storage/sfx/2320/2320-preview.mp3",
+    "t": "Guitar notification alert",
+    "d": "0:01"
+   },
+   {
+    "id": "2820",
+    "url": "https://assets.mixkit.co/active_storage/sfx/2820/2820-preview.mp3",
+    "t": "Magic marimba",
+    "d": "0:03"
+   },
+   {
+    "id": "960",
+    "url": "https://assets.mixkit.co/active_storage/sfx/960/960-preview.mp3",
+    "t": "Tile game reveal",
+    "d": "0:02"
+   },
+   {
+    "id": "2841",
+    "url": "https://assets.mixkit.co/active_storage/sfx/2841/2841-preview.mp3",
+    "t": "Atm cash machine key press",
+    "d": "0:01"
+   },
+   {
+    "id": "2317",
+    "url": "https://assets.mixkit.co/active_storage/sfx/2317/2317-preview.mp3",
+    "t": "Uplifting flute notification",
+    "d": "0:03"
+   },
+   {
+    "id": "333",
+    "url": "https://assets.mixkit.co/active_storage/sfx/333/333-preview.mp3",
+    "t": "Doorbell single press",
+    "d": "0:01"
+   }
+  ],
+  "achievement": [
+   {
+    "id": "600",
+    "url": "https://assets.mixkit.co/active_storage/sfx/600/600-preview.mp3",
+    "t": "Achievement bell",
+    "d": "0:02"
+   },
+   {
+    "id": "2067",
+    "url": "https://assets.mixkit.co/active_storage/sfx/2067/2067-preview.mp3",
+    "t": "Casino bling achievement",
+    "d": "0:04"
+   },
+   {
+    "id": "2068",
+    "url": "https://assets.mixkit.co/active_storage/sfx/2068/2068-preview.mp3",
+    "t": "Achievement completed",
+    "d": "0:03"
+   },
+   {
+    "id": "555",
+    "url": "https://assets.mixkit.co/active_storage/sfx/555/555-preview.mp3",
+    "t": "Achievement win drums",
+    "d": "0:05"
+   },
+   {
+    "id": "3193",
+    "url": "https://assets.mixkit.co/active_storage/sfx/3193/3193-preview.mp3",
+    "t": "Bubbly achievement tone",
+    "d": "0:04"
+   }
+  ]
+ }
+}
