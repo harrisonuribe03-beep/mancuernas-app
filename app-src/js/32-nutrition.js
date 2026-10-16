@@ -246,7 +246,8 @@ function foodPrefs(){
   <div class="set"><span class="lb">Actividad fuera del entreno<small>${ACT[st.act||'lig'].s}</small></span><div class="seg">${Object.keys(ACT).map(k=>`<button data-act="fact" data-v="${k}" aria-pressed="${(st.act||'lig')===k}">${ACT[k].t.replace('Poco activo','Poco').replace('Algo activo','Algo').replace('Muy activo','Mucho')}</button>`).join('')}</div></div>
   <div class="set"><span class="lb">¿A qué hora entrenas?<small>Para ubicar la comida de antes y de después</small></span><div class="seg">${Object.keys(TRAINAT).map(k=>`<button data-act="ftime" data-v="${k}" aria-pressed="${(st.trainAt||'tar')===k}">${TRAINAT[k][0]}</button>`).join('')}</div></div>
   <div class="set inline"><span class="lb">Sin carne<small>Huevos, lácteos y granos como proteína</small></span><button class="sw" data-act="ftog" data-v="veg" aria-pressed="${!!st.veg}" aria-label="Sin carne"></button></div>
-  <div class="set inline"><span class="lb">Incluir proteína en polvo<small>En los batidos y la avena</small></span><button class="sw" data-act="ftog" data-v="whey" aria-pressed="${!!st.whey}" aria-label="Proteína en polvo"></button></div></div>`;
+  <div class="set inline"><span class="lb">Incluir proteína en polvo<small>En los batidos y la avena</small></span><button class="sw" data-act="ftog" data-v="whey" aria-pressed="${!!st.whey}" aria-label="Proteína en polvo"></button></div>
+  ${typeof fremPrefs==='function'?fremPrefs():''}</div>`;
 }
 function viewFood(){
   const b=myBody();
@@ -257,7 +258,8 @@ function viewFood(){
   h+=`<div class="utabs fseg" role="tablist">${[['diario','Diario'],['menu','Menú sugerido'],['metas','Progreso']].map(([k,l])=>`<button role="tab" data-act="ftabset" data-v="${k}" aria-pressed="${t===k}">${l}</button>`).join('')}</div>`;
   if(t==='menu')h+=menuView(N);
   else if(t==='metas'){h+=progressCard(N,b)+fweekCard(N)+ftdeeCard(N,b)+targetCard(N)+healthCard(b,N)+foodPrefs();
-    h+=`<button class="btn ghost block" style="margin-top:10px" data-act="calc">${IC.ruler}Calcular para otra persona</button>`;}
+    h+=`<button class="btn ghost block" style="margin-top:10px" data-act="fcsv">${IC.dl}Exportar mi registro de comidas (Excel)</button>
+    <button class="btn ghost block" style="margin-top:10px" data-act="calc">${IC.ruler}Calcular para otra persona</button>`;}
   else h+=diaryView(N);
   h+=`<p class="nfine" style="margin-top:14px">Guía general calculada con fórmulas estándar y tablas de composición de alimentos (ICBF y USDA). Si tienes una condición médica, estás en embarazo o quieres un plan exacto, consulta a un nutricionista.</p>`;
   return h;
@@ -319,7 +321,7 @@ function foodAct(a,v){
     case 'fday':S.fday=+v;render();return true;
     case 'libeq':S.lib.eq=v;render();return true;
     case 'mswap':{const sw=st.mswap||(st.mswap={});sw[v]=(sw[v]||0)+1;saveSettings();render();return true;}
-    case 'fmeals':st.meals=+v;st.mswap={};saveSettings();render();return true;
+    case 'fmeals':st.meals=+v;st.mswap={};saveSettings();render();if(typeof fremDirty==='function')fremDirty();return true;
     case 'fact':st.act=v;saveSettings();render();return true;
     case 'ftime':st.trainAt=v;saveSettings();render();return true;
     case 'kadj':st.kadj=(st.kadj||0)+(+v);st.kadjAt=Date.now();saveSettings();render();toast(IC.check+`<span>Meta ajustada: ${+v>0?'+':'−'}${Math.abs(+v)} kcal al día</span>`);return true;

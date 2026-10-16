@@ -21,7 +21,8 @@ function syncWidget(now){
       const w=weekStats(),td=trainDays(),last=S.history[0],today=dayKey(Date.now());
       let next='';for(let k=1;k<=7;k++){const j=(todayIdx+k)%7,d=dayAt(j);if(d){next=`${k===1?'Mañana':DAYNAMES[j]}: ${d.t}`;break;}}
       const o={days,streak:String(streak()),week:`${Math.min(w.days,td)} de ${td} esta semana`,next,
-        doneDay:last&&dayKey(last.ts)===today?today:'',doneSub:last?`${titleOf(last)} · ${Math.max(1,Math.round(last.dur/60))} min · ${NF.format(last.vol)} kg`:''};
+        doneDay:last&&dayKey(last.ts)===today?today:'',food:(()=>{try{const N=typeof myNutri==='function'&&myNutri();if(!N||typeof fday!=='function')return null;const k=fToday(),T=ftarget(k,N),t=ftot(fday(k).items);
+          return {day:today,txt:`Comida: ${fk(t.k)} de ${fk(T.kcal)} kcal`,empty:'Toca para registrar tus comidas'};}catch(e){return null;}})(),doneSub:last?`${titleOf(last)} · ${Math.max(1,Math.round(last.dur/60))} min · ${NF.format(last.vol)} kg`:''};
       const j=JSON.stringify(o);if(j!==WJ){WJ=j;call(NAT,'setWidget',{data:j});}}catch(e){logError('widget',e);}
   },now?50:1200);
 }
@@ -33,7 +34,8 @@ async function scheduleWeekly(){
   const d=new Date();d.setHours(19,0,0,0);const add=(7-d.getDay())%7;d.setDate(d.getDate()+add);if(d.getTime()<Date.now()+60e3)d.setDate(d.getDate()+7);
   const ws=weekStart(d.getTime()-864e5),H=S.history.filter(h=>h.ts>=ws),td=trainDays(),vol=H.reduce((a,h)=>a+(h.vol||0),0),prs=H.reduce((a,h)=>a+(h.pr||[]).length,0),L=myLevel();
   const body=H.length?`${Math.min(H.length,td)} de ${td} entrenos · ${NF.format(vol)} kg${prs?` · ${pl(prs,'récord','récords')}`:''}. Vas en nivel ${L.lv}, ${L.rank.toLowerCase()}.`:'Esta semana no entrenaste. Mañana es buen día para volver: empieza con la versión exprés.';
-  call(LN,'schedule',{notifications:[{id:120,title:H.length>=td?'Semana completa':'Tu semana en Mancuernas',body,schedule:{at:d,allowWhileIdle:true}}]});
+  let fb='';try{const N=typeof myNutri==='function'&&myNutri(),A=N&&typeof fadherence==='function'?fadherence(N,7):null;if(A&&A.n>=3)fb=` Comida: ${fk(A.avg)} kcal al día en promedio (meta ${fk(A.tgt)}) y ${fk(A.p)} g de proteína.`;}catch(e){}
+  call(LN,'schedule',{notifications:[{id:120,title:H.length>=td?'Semana completa':'Tu semana en Mancuernas',body:body+fb,schedule:{at:d,allowWhileIdle:true}}]});
 }
 
 /* abrir la app desde el widget o desde los accesos directos del ícono */

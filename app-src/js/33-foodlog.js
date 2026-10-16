@@ -19,7 +19,8 @@ function fday(k){const d=S.food[k];return d?{items:(d.items||[]).slice(),water:d
 // tg: la meta de ese día cuando se registró (las estadísticas comparan contra la meta que tenías, no la de hoy)
 function fsave(k,day){day.at=Date.now();let tg=0;try{const T=ftarget(k);tg=T?T.kcal:0;}catch(e){}
   S.food[k]={items:day.items,water:day.water||0,at:day.at,tg};LS.set('mc-food',S.food);
-  if(COL)COL.doc('mcf-'+k).set(S.food[k]).catch(()=>{});}
+  if(COL)COL.doc('mcf-'+k).set(S.food[k]).catch(()=>{});
+  if(typeof fremDirty==='function')fremDirty();}
 function flibSave(){S.flib.at=Date.now();LS.set('mc-foodlib',S.flib);if(COL)COL.doc('mc-foodlib').set(JSON.parse(JSON.stringify(S.flib))).catch(()=>{});}
 // Une lo del teléfono con lo de la nube: en cada día gana el último cambio
 async function mergeFood(rdays,rlib){
@@ -151,7 +152,7 @@ function diaryView(N){
     h+=`<div class="card fmeal"><div class="fmh"><div><b>${FSLOT[s]}</b><small>${its.length?`${fk(t.k)} kcal · P ${fk(t.p)} · C ${fk(t.c)} · G ${fk(t.fat)}`:'Sin registrar'}</small></div>
       <button class="fplus" data-act="fadd" data-v="${s}" aria-label="Agregar a ${FSLOT[s].toLowerCase()}">${IC.plus}</button></div>`;
     if(its.length)h+=`<ul class="fitems">${its.map(it=>`<li><button data-act="fedit" data-v="${it.id}"><span><b>${esc(it.n)}</b><small>${esc(it.qt||'')}</small></span><em>${fk(it.k)}</em></button></li>`).join('')}</ul>
-      ${its.length>1?`<div class="fmf"><button class="flink" data-act="fsavemeal" data-v="${s}">${IC.star}Guardar como comida</button></div>`:''}`;
+      ${its.length>1||k!==today?`<div class="fmf">${k!==today?`<button class="flink" data-act="fcopyto" data-v="${s}">${IC.swap}Copiar a hoy</button>`:''}${its.length>1?`<button class="flink" data-act="fsavemeal" data-v="${s}">${IC.star}Guardar como comida</button>`:''}</div>`:''}`;
     else{const m=MN&&PL.indexOf(s)>=0?MN[PL.indexOf(s)]:null,py=prev.items.filter(x=>x.s===s);
       if(m||py.length)h+=`<div class="fsug">${m?`<button class="fsg" data-act="fsug" data-v="${s}"><span><small>Sugerido</small><b>${esc(m.t)}</b><em>${fk(m.tot.k)} kcal · ${fk(m.tot.p)} g de proteína</em></span><span class="fsgb">${IC.plus}Registrar</span></button>`:''}
         ${py.length?`<button class="flink" data-act="fcopy" data-v="${s}">${IC.swap}Copiar de ${k===today?'ayer':'el día anterior'} · ${fk(ftot(py).k)} kcal</button>`:''}</div>`;}
@@ -208,8 +209,9 @@ function frow(F,q,u,extra){const m=fcalc(F,q,u);
 function addList(){
   const A=FADD,q=A.q.trim();
   if(q){const M=S.flib.meals.filter(m=>fnorm(m.n).includes(fnorm(q))),R=fsearch(q);
-    if(!M.length&&!R.length)return `<div class="fempty"><b>No encontramos «${esc(q)}»</b><span>Créalo con los datos de la etiqueta o de una porción que conozcas.</span><button class="btn sm pri" data-act="fnew" data-v="${esc(q)}">${IC.plus}Crear «${esc(q)}»</button></div>`;
-    return `<ul class="flist">${M.map(fmealRow).join('')}${R.map(F=>{const d=fdefault(F);return frow(F,d.q,d.u,F.id.indexOf('my-')===0?'mío':'');}).join('')}</ul>`;}
+    const on=typeof fonlineBlock==='function'?fonlineBlock(q):'';
+    if(!M.length&&!R.length)return `<div class="fempty"><b>No encontramos «${esc(q)}»</b><span>Búscalo en productos de marca o créalo con los datos de la etiqueta.</span><button class="btn sm ghost" data-act="fnew" data-v="${esc(q)}">${IC.plus}Crear «${esc(q)}»</button></div>${on}`;
+    return `<ul class="flist">${M.map(fmealRow).join('')}${R.map(F=>{const d=fdefault(F);return frow(F,d.q,d.u,F.id.indexOf('my-')===0?'mío':'');}).join('')}</ul>${on}`;}
   if(A.tab==='rec'||A.tab==='freq'){const H=Object.values(fhist()).sort((a,b)=>A.tab==='rec'?b.t-a.t:b.n-a.n||b.t-a.t).filter(x=>A.tab==='rec'||x.n>1).slice(0,25);
     if(!H.length)return `<div class="fempty"><b>${A.tab==='rec'?'Aún no hay recientes':'Aún no hay frecuentes'}</b><span>${A.tab==='rec'?'Lo que registres aparece aquí con la última cantidad que usaste.':'Lo que registres dos o más veces aparece aquí.'}</span></div>`;
     return `<ul class="flist">${H.map(x=>frow(food(x.id),x.q,x.u,A.tab==='freq'?pl(x.n,'vez','veces'):'')).join('')}</ul>`;}
@@ -226,7 +228,8 @@ function fmealRow(m){const t=ftot(m.items);
 function renderAdd(){
   const A=FADD,diff=A.k!==fToday();
   sheet(`<h3>Agregar a ${FSLOT[A.s].toLowerCase()}</h3><p class="sub">${diff?fdateLabel(A.k)+', '+fdDate(A.k).toLocaleDateString('es-CO',{day:'numeric',month:'long'}):'Hoy'} · busca, elige y ajusta la porción.</p>
-  <label class="search fsearch">${IC.search}<input id="fsq" type="search" placeholder="Buscar: arepa, pollo, gaseosa…" autocomplete="off" enterkeyhint="search" value="${esc(A.q)}" aria-label="Buscar alimento"></label>
+  <div class="fsrow"><label class="search fsearch">${IC.search}<input id="fsq" type="search" placeholder="Buscar: arepa, pollo, gaseosa…" autocomplete="off" enterkeyhint="search" value="${esc(A.q)}" aria-label="Buscar alimento"></label>
+  <button class="iconbtn fscan" data-act="fscan" aria-label="Escanear código de barras">${IC.scan}</button></div>
   <div class="utabs ftabs" id="ftabs" ${A.q?'hidden':''}>${FTABS.map(([k,l])=>`<button data-act="ftab" data-v="${k}" aria-pressed="${A.tab===k}">${l}</button>`).join('')}</div>
   <div id="faddlist">${addList()}</div>
   <div class="fbtns"><button class="btn sm ghost" data-act="fnew">${IC.plus}Crear alimento</button><button class="btn sm ghost" data-act="fquick">${IC.flame}Solo calorías</button></div>
@@ -334,17 +337,18 @@ function flogAct(a,v){
       if([A.k,A.p,A.c,A.f,A.fb,A.pg].some(x=>Number.isNaN(x))||A.k===''||!(A.k>=0)){toast(A.k===''?'Pon las calorías':'Revisa los números');return true;}
       const per=A.per==='100'?100:(A.pg>0?A.pg:100),sc=100/per,pn=(A.pn||'porción').toLowerCase();
       const F={id:A.id||'my-'+Date.now().toString(36),n:cap1(A.n),cat:'my',k:r1(A.k*sc),p:r1((A.p||0)*sc),c:r1((A.c||0)*sc),f:r1((A.f||0)*sc),fb:r1((A.fb||0)*sc),liq:!!A.liq,
-        por:A.per==='100'?[]:[[pn,fplural(pn),per]],nog:A.per==='por'&&!(A.pg>0),src:{per:A.per,pn,pg:A.pg,k:A.k,p:A.p,c:A.c,f:A.f,fb:A.fb}};
+        por:A.per==='100'?[]:[[pn,fplural(pn),per]],nog:A.per==='por'&&!(A.pg>0),bc:A.bc||undefined,src:{per:A.per,pn,pg:A.pg,k:A.k,p:A.p,c:A.c,f:A.f,fb:A.fb}};
       const i=S.flib.foods.findIndex(x=>x.id===F.id);if(i>=0)S.flib.foods[i]=F;else S.flib.foods.push(F);flibSave();FDB=null;
       if(A.id&&FP){FP.u=Math.min(FP.u,funits(F).length-1);renderPortion();toast(IC.check+'<span>Alimento actualizado</span>');return true;}
       const d=fdefault(F);portionSheet({k:FADD?FADD.k:fToday(),s:FADD?FADD.s:fslotNow(),f:F.id,u:d.u,q:d.q});return true;}
-    case 'fmyedit':{const F=food(v);if(!F)return true;const s=F.src||{per:'100',k:F.k,p:F.p,c:F.c,f:F.f,fb:F.fb};newFoodSheet({id:F.id,n:F.n,liq:F.liq,per:s.per,pn:s.pn||'porción',pg:s.pg||'',k:s.k,p:s.p,c:s.c,f:s.f,fb:s.fb});return true;}
+    case 'fmyedit':{const F=food(v);if(!F)return true;const s=F.src||{per:'100',k:F.k,p:F.p,c:F.c,f:F.f,fb:F.fb};newFoodSheet({id:F.id,bc:F.bc,n:F.n,liq:F.liq,per:s.per,pn:s.pn||'porción',pg:s.pg||'',k:s.k,p:s.p,c:s.c,f:s.f,fb:s.fb});return true;}
     case 'fnwdel':{const id=FNEW.id;S.flib.foods=S.flib.foods.filter(x=>x.id!==id);flibSave();FP=null;if(FADD)renderAdd();else closeSheet();toast('Alimento borrado. Lo que ya registraste no cambia.');return true;}
     case 'fsug':{const k=S.fdate||fToday(),m=fsugMeal(k,v,N());if(!m)return true;faddItems(k,fsugItems(m,v),esc(m.t));return true;}
     case 'fsugday':{const n=N();if(!n)return true;const k=fToday(),wd=(fdDate(k).getDay()+6)%7,P=fslotsPlan(),M=dayMenu(wd,n),D=fday(k);
       const items=[].concat(...M.map((m,i)=>D.items.some(x=>x.s===P[i])?[]:fsugItems(m,P[i])));if(!items.length){toast('Ya tienes registradas todas las comidas de hoy');return true;}
       S.ftab='diario';S.fdate=k;faddItems(k,items,'Menú de hoy');return true;}
     case 'fcopy':{const k=S.fdate||fToday(),py=fday(fdShift(k,-1)).items.filter(x=>x.s===v);if(py.length)faddItems(k,fcloneItems(py),FSLOT[v]+' de ayer');return true;}
+    case 'fcopyto':{const k=S.fdate||fToday(),its=fday(k).items.filter(x=>x.s===v);if(!its.length)return true;const t=fToday();faddItems(t,fcloneItems(its),FSLOT[v]+' copiado a hoy');return true;}
     case 'fcopyday':{const k=S.fdate||fToday(),py=fday(fdShift(k,-1)).items;if(py.length)faddItems(k,fcloneItems(py),'Todo lo de ayer');return true;}
     case 'fsavemeal':{const k=S.fdate||fToday(),its=fday(k).items.filter(x=>x.s===v);if(!its.length)return true;
       sheet(`<h3>Guardar como comida</h3><p class="sub">${pl(its.length,'alimento','alimentos')} · ${fk(ftot(its).k)} kcal. La encuentras en «Mis comidas» para registrarla con un toque.</p>

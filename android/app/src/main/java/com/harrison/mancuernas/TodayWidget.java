@@ -7,6 +7,7 @@ import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.view.View;
 import android.widget.RemoteViews;
 import java.util.Calendar;
 import org.json.JSONArray;
@@ -35,6 +36,7 @@ public class TodayWidget extends AppWidgetProvider {
 
     static void update(Context c, AppWidgetManager m, int id) {
         String title = "Mancuernas", sub = "Abre la app para armar tu plan", streak = "0", week = "", btn = "Abrir";
+        String food = "";
         boolean train = false;
         try {
             SharedPreferences p = c.getSharedPreferences("mc_widget", Context.MODE_PRIVATE);
@@ -46,6 +48,8 @@ public class TodayWidget extends AppWidgetProvider {
             JSONObject d = days != null ? days.optJSONObject(dow) : null;
             streak = o.optString("streak", "0");
             week = o.optString("week", "");
+            JSONObject f = o.optJSONObject("food");
+            if (f != null) food = today.equals(f.optString("day", "")) ? f.optString("txt", "") : f.optString("empty", "");
             if (today.equals(o.optString("doneDay", ""))) {
                 title = "Listo por hoy";
                 sub = o.optString("doneSub", "Buen trabajo. A recuperar.");
@@ -67,6 +71,9 @@ public class TodayWidget extends AppWidgetProvider {
         v.setTextViewText(R.id.w_streak, streak);
         v.setTextViewText(R.id.w_week, week);
         v.setTextViewText(R.id.w_btn, btn);
+        v.setTextViewText(R.id.w_food, food);
+        v.setViewVisibility(R.id.w_food, food.isEmpty() ? View.GONE : View.VISIBLE);
+        v.setOnClickPendingIntent(R.id.w_food, action(c, "food", 12));
         v.setOnClickPendingIntent(R.id.w_root, action(c, "home", 10));
         v.setOnClickPendingIntent(R.id.w_btn, action(c, train ? "start" : "Estirar".equals(btn) ? "stretch" : "home", 11));
         m.updateAppWidget(id, v);

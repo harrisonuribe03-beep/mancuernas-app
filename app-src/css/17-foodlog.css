@@ -125,6 +125,25 @@
 .fhome .btn{flex:none;padding:0 12px}
 
 /* hojas */
+.fsrow{display:flex;gap:8px;align-items:center;margin-top:12px}
+.fsrow .fsearch{flex:1;margin-top:0}
+.fscan{width:48px;height:48px;border-radius:12px;background:var(--acc-soft);color:var(--acc)}
+.fscan svg{width:24px;height:24px}
+.fonline{display:flex;align-items:center;gap:12px;width:100%;text-align:left;margin-top:10px;padding:12px;border-radius:14px;border:1.5px dashed var(--line)}
+.fonline svg{width:20px;height:20px;color:var(--acc);flex:none}
+.fonline span{display:flex;flex-direction:column;gap:2px}
+.fonline b{font-size:.9rem;font-weight:700}
+.fonline small{font-size:.76rem;color:var(--tx2)}
+.fonh{margin-top:16px}
+.floading{display:flex;flex-direction:column;align-items:center;gap:8px;padding:36px 10px;text-align:center}
+.floading.sm{flex-direction:row;justify-content:center;padding:18px 10px}
+.floading b{font-size:1rem}.floading small{color:var(--tx2)}
+.spin{width:28px;height:28px;border-radius:50%;border:3px solid var(--s3);border-top-color:var(--acc);animation:fspin .8s linear infinite;flex:none}
+.floading.sm .spin{width:20px;height:20px;border-width:2.5px}
+@keyframes fspin{to{transform:rotate(360deg)}}
+.fremt{display:grid;grid-template-columns:1fr 1fr;gap:8px;padding:0 14px 14px}
+.fremt label{display:flex;flex-direction:column;gap:4px;font-size:.8rem;font-weight:700;color:var(--tx2)}
+.fremt .tinput{height:44px;font-size:.95rem}
 .fsearch{margin-top:12px}
 .fsearch input::-webkit-search-cancel-button{display:none}
 #sheet .chips.fcats{margin:12px -16px 4px}
@@ -145,6 +164,7 @@
 .fempty .btn{margin-top:6px}
 .fbtns{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:14px}
 .fbtns .btn{padding:0 8px}
+.fbtns .btn svg{width:18px;height:18px;flex:none}
 #sheet .chips.wrap{margin:10px 0 0;padding:0;flex-wrap:wrap}
 .funits .chip small{font-weight:600;opacity:.75}
 .fqty{display:flex;align-items:center;gap:10px;margin-top:14px}

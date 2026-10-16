@@ -19,5 +19,5 @@ const THUMBF={'Pullover acostado':0,'Extensión de tríceps sobre la cabeza':0,'
 function artAnim(e,label){const a=ART[e.n];if(!a)return e.f?figAnimated(e):eqArt(e,true);
   if(a.length<2)return `<span class="xa one" role="img" aria-label="${esc(e.n)}"><img src="${IMG(a[0])}" alt="" decoding="async"></span>`;
   return `<span class="xa two" role="img" aria-label="${esc(e.n)}"><img class="a" src="${IMG(a[0])}" alt="" decoding="async"><img class="b" src="${IMG(a[1])}" alt="" decoding="async"></span>`;}
-const phases=e=>{const a=ART[e.n];if(!a&&!e.f)return '';return a&&a.length>1?'<div class="ph two"><span>Inicio</span><span>Final</span></div>':'<div class="ph"><span>Mantén la posición</span></div>';};
+const phases=e=>{const a=ART[e.n];if(!a&&!e.f)return '';return a&&a.length>1?'<div class="ph two"><span>Inicio</span><span>Final</span></div>':`<div class="ph"><span>${!a||/\d\s*s(\s|$)/.test(e.r||'')?'Mantén la posición':'Posición inicial'}</span></div>`;};
 const thumb=e=>{const a=ART[e.n];if(!a)return `<span class="thumb">${e.f?figStatic(e,1):eqArt(e)}</span>`;const k=a[Math.min(THUMBF[e.n]??1,a.length-1)];return `<span class="thumb"><span class="xa"><img src="${IMG(k)}" alt="" loading="lazy" decoding="async"></span></span>`;};
