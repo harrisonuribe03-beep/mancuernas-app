@@ -247,7 +247,7 @@ function foodPrefs(){
   <div class="set"><span class="lb">¿A qué hora entrenas?<small>Para ubicar la comida de antes y de después</small></span><div class="seg">${Object.keys(TRAINAT).map(k=>`<button data-act="ftime" data-v="${k}" aria-pressed="${(st.trainAt||'tar')===k}">${TRAINAT[k][0]}</button>`).join('')}</div></div>
   <div class="set inline"><span class="lb">Sin carne<small>Huevos, lácteos y granos como proteína</small></span><button class="sw" data-act="ftog" data-v="veg" aria-pressed="${!!st.veg}" aria-label="Sin carne"></button></div>
   <div class="set inline"><span class="lb">Incluir proteína en polvo<small>En los batidos y la avena</small></span><button class="sw" data-act="ftog" data-v="whey" aria-pressed="${!!st.whey}" aria-label="Proteína en polvo"></button></div>
-  ${typeof fremPrefs==='function'?fremPrefs():''}</div>`;
+  ${typeof fremPrefs==='function'?fremPrefs():''}${typeof fphPrefs==='function'?fphPrefs():''}</div>`;
 }
 function viewFood(){
   const b=myBody();

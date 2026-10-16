@@ -228,8 +228,8 @@ function fmealRow(m){const t=ftot(m.items);
 function renderAdd(){
   const A=FADD,diff=A.k!==fToday();
   sheet(`<h3>Agregar a ${FSLOT[A.s].toLowerCase()}</h3><p class="sub">${diff?fdateLabel(A.k)+', '+fdDate(A.k).toLocaleDateString('es-CO',{day:'numeric',month:'long'}):'Hoy'} · busca, elige y ajusta la porción.</p>
-  <div class="fsrow"><label class="search fsearch">${IC.search}<input id="fsq" type="search" placeholder="Buscar: arepa, pollo, gaseosa…" autocomplete="off" enterkeyhint="search" value="${esc(A.q)}" aria-label="Buscar alimento"></label>
-  <button class="iconbtn fscan" data-act="fscan" aria-label="Escanear código de barras">${IC.scan}</button></div>
+  <div class="fsrow"><label class="search fsearch">${IC.search}<input id="fsq" type="search" placeholder="Buscar alimento" autocomplete="off" enterkeyhint="search" value="${esc(A.q)}" aria-label="Buscar alimento"></label>
+  <button class="iconbtn fscan" data-act="fphoto" aria-label="Registrar con una foto">${IC.cam}</button><button class="iconbtn fscan" data-act="fscan" aria-label="Escanear código de barras">${IC.scan}</button></div>
   <div class="utabs ftabs" id="ftabs" ${A.q?'hidden':''}>${FTABS.map(([k,l])=>`<button data-act="ftab" data-v="${k}" aria-pressed="${A.tab===k}">${l}</button>`).join('')}</div>
   <div id="faddlist">${addList()}</div>
   <div class="fbtns"><button class="btn sm ghost" data-act="fnew">${IC.plus}Crear alimento</button><button class="btn sm ghost" data-act="fquick">${IC.flame}Solo calorías</button></div>
@@ -325,7 +325,7 @@ function flogAct(a,v){
     case 'fqksave':{fqkRead();const Q=FQK;if([Q.k,Q.p,Q.c,Q.fat].some(x=>Number.isNaN(x))){toast('Revisa los números');return true;}
       let kc=Q.k;if(kc==null&&(Q.p||Q.c||Q.fat))kc=(Q.p||0)*4+(Q.c||0)*4+(Q.fat||0)*9;if(!(kc>0)){toast('Pon las calorías');return true;}
       const it={id:Q.id||fid(),s:Q.s,f:null,n:Q.n||'Calorías rápidas',q:1,u:0,qt:'Registro rápido',w:0,k:Math.round(kc),p:r1(Q.p||0),c:r1(Q.c||0),fat:r1(Q.fat||0),fib:0,t:Date.now()};
-      if(Q.id){const D=fday(Q.dk),i=D.items.findIndex(x=>x.id===Q.id);if(i>=0){it.t=D.items[i].t;D.items[i]=it;}fsave(Q.dk,D);closeSheet();render();toast(IC.check+'<span>Cambios guardados</span>');}
+      if(Q.id){const D=fday(Q.dk),i=D.items.findIndex(x=>x.id===Q.id);if(i>=0){const o=D.items[i];it.t=o.t;if(o.ai){it.qt=o.qt;it.w=o.w;it.fib=o.fib;it.ai=1;}D.items[i]=it;}fsave(Q.dk,D);closeSheet();render();toast(IC.check+'<span>Cambios guardados</span>');}
       else{closeSheet();faddItems(Q.dk,[it]);}return true;}
     case 'fqkdel':{const k=FQK.dk,D=fday(k),it=D.items.find(x=>x.id===FQK.id);D.items=D.items.filter(x=>x.id!==FQK.id);fsave(k,D);closeSheet();render();
       if(it)undoable(esc(it.n)+' quitado',()=>{const E=fday(k);E.items.push(it);fsave(k,E);render();});return true;}
