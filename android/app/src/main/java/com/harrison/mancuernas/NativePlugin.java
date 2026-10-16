@@ -40,6 +40,10 @@ import com.getcapacitor.Plugin;
 import com.getcapacitor.PluginCall;
 import com.getcapacitor.PluginMethod;
 import com.getcapacitor.annotation.CapacitorPlugin;
+import com.google.mlkit.vision.barcode.common.Barcode;
+import com.google.mlkit.vision.codescanner.GmsBarcodeScanner;
+import com.google.mlkit.vision.codescanner.GmsBarcodeScannerOptions;
+import com.google.mlkit.vision.codescanner.GmsBarcodeScanning;
 
 @CapacitorPlugin(name = "Native")
 public class NativePlugin extends Plugin {
@@ -367,6 +371,24 @@ public class NativePlugin extends Plugin {
             TodayWidget.updateAll(getContext());
         } catch (Exception ignored) {}
         call.resolve();
+    }
+
+    // ---------- código de barras (escáner de Google: no pide permiso de cámara) ----------
+    @PluginMethod
+    public void scanBarcode(PluginCall call) {
+        try {
+            GmsBarcodeScannerOptions opts = new GmsBarcodeScannerOptions.Builder()
+                .setBarcodeFormats(Barcode.FORMAT_EAN_13, Barcode.FORMAT_EAN_8, Barcode.FORMAT_UPC_A, Barcode.FORMAT_UPC_E, Barcode.FORMAT_CODE_128)
+                .enableAutoZoom()
+                .build();
+            GmsBarcodeScanner scanner = GmsBarcodeScanning.getClient(getActivity(), opts);
+            scanner.startScan()
+                .addOnSuccessListener(b -> { JSObject r = new JSObject(); r.put("code", b.getRawValue()); call.resolve(r); })
+                .addOnCanceledListener(() -> { JSObject r = new JSObject(); r.put("cancel", true); call.resolve(r); })
+                .addOnFailureListener(e -> { JSObject r = new JSObject(); r.put("error", String.valueOf(e.getMessage())); call.resolve(r); });
+        } catch (Exception e) {
+            JSObject r = new JSObject(); r.put("error", String.valueOf(e.getMessage())); call.resolve(r);
+        }
     }
 
     // ---------- acciones al abrir desde el widget o los accesos directos ----------

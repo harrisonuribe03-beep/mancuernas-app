@@ -9,6 +9,8 @@
     <string name="sc_start_long">Empezar el entreno de hoy</string>
     <string name="sc_hiit">Intervalos</string>
     <string name="sc_stretch">Estirar</string>
+    <string name="sc_food">Comida</string>
+    <string name="sc_food_long">Registrar comida</string>
     <string name="sc_body">Peso</string>
     <string name="sc_body_long">Registrar peso</string>
 </resources>

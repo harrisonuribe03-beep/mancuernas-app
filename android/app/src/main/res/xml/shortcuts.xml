@@ -5,6 +5,11 @@
         <intent android:action="android.intent.action.VIEW" android:targetPackage="com.harrison.mancuernas"
             android:targetClass="com.harrison.mancuernas.MainActivity" android:data="mancuernas://start" />
     </shortcut>
+    <shortcut android:shortcutId="food" android:enabled="true" android:icon="@drawable/sc_food"
+        android:shortcutShortLabel="@string/sc_food" android:shortcutLongLabel="@string/sc_food_long">
+        <intent android:action="android.intent.action.VIEW" android:targetPackage="com.harrison.mancuernas"
+            android:targetClass="com.harrison.mancuernas.MainActivity" android:data="mancuernas://food" />
+    </shortcut>
     <shortcut android:shortcutId="hiit" android:enabled="true" android:icon="@drawable/sc_hiit"
         android:shortcutShortLabel="@string/sc_hiit" android:shortcutLongLabel="@string/sc_hiit">
         <intent android:action="android.intent.action.VIEW" android:targetPackage="com.harrison.mancuernas"

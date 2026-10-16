@@ -46,6 +46,7 @@ function launchAction(a){
   else if(a==='hiit'){if(!S.live)hiitSheet();}
   else if(a==='stretch'){if(!S.live)seqPreview('stretch-full');}
   else if(a==='body'){S.tab='prog';S.ptab='cuerpo';render();bodySheet();}
+  else if(a==='food'&&typeof flogAct==='function'){S.tab='plan';S.planTab='food';S.ftab='diario';S.fdate=fToday();render();if(!S.live)flogAct('fadd',fslotNow());}
   syncGuard();
 }
 function initNative(){
