@@ -35,7 +35,7 @@ function missionsCard(){
   return `<h2 class="h2">Misiones de la semana <small>${M.filter(m=>m.ok).length}/3 · quedan ${pl(left,'día','días')}</small></h2><div class="card missions">${M.map(m=>{const pc=Math.min(100,m.cur/m.goal*100),f=m.fmt||(x=>x);
     return `<div class="ms ${m.ok?'ok':''}"><span class="mic">${m.ok?IC.check:m.ic}</span><div><b>${m.t}</b><span class="xpbar"><i style="width:${pc}%"></i></span><small>${f(Math.min(m.cur,m.goal))} / ${f(m.goal)}</small></div><em>+${m.xp}</em></div>`;}).join('')}</div>`;
 }
-function homeExtras(){return missionsCard()+`<h2 class="h2">Recuperación muscular</h2>`+recoveryCard(false);}
+function homeExtras(){return (typeof foodHomeCard==='function'?foodHomeCard():'')+missionsCard()+`<h2 class="h2">Recuperación muscular</h2>`+recoveryCard(false);}
 function deloadTip(){
   if(S.settings.mode==='suave')return '';const td=trainDays(),ws=weekStart(Date.now());if(S.settings.deloadDis===ws)return '';
   let run=0;for(let k=1;k<=12;k++){const a=ws-k*7*864e5,n=S.history.filter(h=>h.ts>=a&&h.ts<a+7*864e5).length;if(n>=Math.max(2,td-1))run++;else break;}

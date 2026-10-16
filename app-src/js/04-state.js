@@ -24,9 +24,9 @@ async function initDb(){
     const id=await user.id(); if(!id) return;
     COL=db.collection('data/users/'+id);
     const snap=await COL.get();
-    const remote=[],rbody=[],racts=[];let rs=null,rp=null;
+    const remote=[],rbody=[],racts=[],rfood={};let rs=null,rp=null,rflib=null;
     snap.docs.forEach(d=>{if(!d.exists)return;const v=d.data();
-      if(d.id==='mc-settings') rs=v; else if(d.id==='mc-program') rp=v; else if(d.id.indexOf('mca-')===0) racts.push(Object.assign({},v,{id:d.id})); else if(d.id.indexOf('mcb-')===0) rbody.push(Object.assign({},v,{id:d.id})); else if(d.id.indexOf('mc-')===0) remote.push(Object.assign({},v,{id:d.id}));});
+      if(d.id==='mc-settings') rs=v; else if(d.id==='mc-program') rp=v; else if(d.id==='mc-foodlib') rflib=v; else if(d.id.indexOf('mcf-')===0) rfood[d.id.slice(4)]=v; else if(d.id.indexOf('mca-')===0) racts.push(Object.assign({},v,{id:d.id})); else if(d.id.indexOf('mcb-')===0) rbody.push(Object.assign({},v,{id:d.id})); else if(d.id.indexOf('mc-')===0) remote.push(Object.assign({},v,{id:d.id}));});
     const bids=new Set(rbody.map(x=>x.id)),bLocal=S.body.filter(b=>!bids.has(b.id));
     for(const b of bLocal){try{await COL.doc(b.id).set(stripId(b));}catch(e){}}
     S.body=rbody.concat(bLocal).sort((a,b)=>a.ts-b.ts);LS.set('mc-body',S.body);
@@ -38,6 +38,7 @@ async function initDb(){
     if(rp&&rp.v===4&&(!S.program||(rp.at||0)>(S.program.at||0)||S.program.legacy&&!rp.legacy)){S.program=rp;LS.set('mc-prog',rp);rebuildProgram();}
     else if(!S.program.legacy||LS.get('mc-prog',null)){try{await COL.doc('mc-program').set(JSON.parse(JSON.stringify(S.program)));}catch(e){}}
     if(typeof mergeActs==='function')await mergeActs(racts);
+    if(typeof mergeFood==='function')await mergeFood(rfood,rflib);
     S.store='db';LS.set('mc-hist',S.history);LS.set('mc-set',S.settings);
     applyTheme();if($('#player').hidden&&$('#onb').hidden) render();
   }catch(e){COL=null;}

@@ -49,7 +49,7 @@ async function shareRec(rec){
 }
 async function exportData(){
   const d=new Date(),name=`mancuernas-respaldo-${d.getFullYear()}-${String(d.getMonth()+1).padStart(2,'0')}-${String(d.getDate()).padStart(2,'0')}.json`;
-  const json=JSON.stringify({app:'mancuernas',v:4,at:Date.now(),history:S.history,body:S.body,settings:S.settings,program:S.program,acts:S.acts});
+  const json=JSON.stringify({app:'mancuernas',v:4,at:Date.now(),history:S.history,body:S.body,settings:S.settings,program:S.program,acts:S.acts,food:S.food,flib:S.flib});
   try{
     if(FSP&&SHP){const r=await FSP.writeFile({path:name,data:json,directory:'CACHE',encoding:'utf8'});await SHP.share({title:'Respaldo de Mancuernas',files:[r.uri],dialogTitle:'Guardar respaldo'});return;}
     const r=await webSave(name,new Blob([json],{type:'application/json'}));if(r==='saved')toast('Respaldo guardado');
@@ -65,6 +65,8 @@ function importData(text){
   if(j.settings&&!S.settings.name&&j.settings.name){S.settings.name=j.settings.name;saveSettings();}
   if(j.program&&j.program.v===4&&Array.isArray(j.program.days)&&S.program.legacy){S.program=j.program;saveProgram();scheduleReminders();}
   if(Array.isArray(j.acts)){const ai=new Set(S.acts.map(a=>a.id));j.acts.forEach(a=>{if(a&&a.id&&!ai.has(a.id)){S.acts.push(a);if(COL)COL.doc(a.id).set(stripId(a)).catch(()=>{});}});S.acts.sort((a,b)=>a.ts-b.ts);LS.set('mc-acts',S.acts);}
-  render();toast(n?`Se importaron ${pl(n,'entrenamiento','entrenamientos')}`:'No había entrenamientos nuevos en el respaldo');
+  const nf=typeof importFood==='function'?importFood(j.food,j.flib):0;
+  const parts=[n?pl(n,'entrenamiento','entrenamientos'):'',nf?pl(nf,'día de comidas','días de comidas'):''].filter(Boolean);
+  render();toast(parts.length?'Se importaron '+parts.join(' y '):'No había datos nuevos en el respaldo');
 }
 

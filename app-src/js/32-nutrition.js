@@ -192,7 +192,9 @@ function progressCard(N,b){
     if(C.st==='ok')msg=`<b>Vas al ritmo ideal</b><span>${r} Sigue igual.</span>`;
     else{const why={slow:N.goal==='grasa'?'Estás bajando más lento de lo ideal.':'Estás subiendo más lento de lo ideal.',fast:N.goal==='grasa'?'Estás bajando muy rápido: puedes perder músculo.':'Estás subiendo muy rápido: puede ser grasa.',drift:'Tu peso se está moviendo y tu objetivo es mantenerlo.'}[C.st];
       msg=`<b>${why}</b><span>${r}</span>`;
-      if(C.d&&!recent)act=`<button class="btn sm pri" data-act="kadj" data-v="${C.d}">${C.d>0?'Subir':'Bajar'} ${Math.abs(C.d)} kcal al día</button>`;
+      const A=typeof fadherence==='function'?fadherence(N,14):null,off=A&&A.n>=5&&Math.abs(A.avg-A.tgt)>A.tgt*.1;
+      if(off)msg+=`<span class="fadh">Según tu registro, en las últimas dos semanas comiste en promedio <b>${fk(A.avg)} kcal</b> y tu meta era ${fk(A.tgt)}. Antes de cambiar la meta, intenta cumplirla una semana.</span>`;
+      if(C.d&&!recent)act=`<button class="btn sm ${off?'ghost':'pri'}" data-act="kadj" data-v="${C.d}">${C.d>0?'Subir':'Bajar'} ${Math.abs(C.d)} kcal al día${off?' de todas formas':''}</button>`;
       else if(recent)act=`<small class="nfine">Ya ajustamos hace poco. Dale una semana más antes de cambiar otra vez.</small>`;}}
   return `<div class="card nprog"><div class="nph"><div><span class="over">Peso meta</span><div class="ngw"><button class="iconbtn sm" data-act="gwt" data-v="-0.5" aria-label="Bajar meta">−</button><b>${NF.format(gw)} kg</b><button class="iconbtn sm" data-act="gwt" data-v="0.5" aria-label="Subir meta">+</button></div>
     <small>${wks?`${diff>0?'Te faltan':'Te sobran'} ${NF.format(Math.abs(diff))} kg · unas ${wks} semanas a ritmo seguro (${eta})`:'Ya estás en tu meta: ahora a mantener'}</small></div></div>
@@ -234,6 +236,7 @@ function menuView(N){
   ${M.map((m,i)=>`<div class="card meal ${i===WM.pre||i===WM.post?'wk':''}"><div class="mhd"><div><span class="over">${m.label}${wtag(i)}</span><b>${esc(m.t)}</b></div><button class="btn sm ghost" data-act="mswap" data-v="${d}-${m.slot}" aria-label="Cambiar ${esc(m.label.toLowerCase())}">${IC.swap}<span class="bl">Cambiar</span></button></div>
     <ul>${m.items.map(([id,q])=>`<li>${esc(cap1(qtyText(id,q)))}</li>`).join('')}</ul>${wtip(i)}<div class="mft"><span>${fk(m.tot.k)} kcal</span><span>${fk(m.tot.p)} g proteína</span><span>${fk(m.tot.c)} g carbos</span></div></div>`).join('')}
   <div class="mtot"><span>Total del día</span><b>${fk(tot.k)} kcal · ${fk(tot.p)} g de proteína</b><small>Meta del día: ${fk(kd)} kcal · ${N.p} g</small></div>
+  ${d===todayIdx?`<button class="btn pri block" style="margin-top:10px" data-act="fsugday">${IC.check}Registrar el menú de hoy en mi diario</button>`:''}
   <button class="btn ghost block" style="margin-top:10px" data-act="shop">${IC.cart}Lista de mercado</button>`;
 }
 function foodPrefs(){
@@ -250,10 +253,13 @@ function viewFood(){
   let h='';
   if(!bodyReady(b)||!b.sex)return h+`<div class="card empty nempty">${IC.food}<b>Calcula tu alimentación</b>Con tu edad, peso, estatura y sexo te damos tu rango de peso saludable, tus calorías, la proteína y un menú con comida de aquí.<button class="btn pri sm" style="margin:12px auto 0" data-act="mydata">Poner mis datos</button></div>
     <button class="btn ghost block" style="margin-top:10px" data-act="calc">${IC.ruler}Calcular para otra persona</button>`;
-  const N=myNutri();
-  h+=progressCard(N,b)+targetCard(N)+healthCard(b,N)+menuView(N)+foodPrefs();
-  h+=`<button class="btn ghost block" style="margin-top:10px" data-act="calc">${IC.ruler}Calcular para otra persona</button>
-  <p class="nfine" style="margin-top:14px">Guía general calculada con fórmulas estándar. Si tienes una condición médica, estás en embarazo o quieres un plan exacto, consulta a un nutricionista.</p>`;
+  const N=myNutri(),t=S.ftab||'diario';
+  h+=`<div class="utabs fseg" role="tablist">${[['diario','Diario'],['menu','Menú sugerido'],['metas','Progreso']].map(([k,l])=>`<button role="tab" data-act="ftabset" data-v="${k}" aria-pressed="${t===k}">${l}</button>`).join('')}</div>`;
+  if(t==='menu')h+=menuView(N);
+  else if(t==='metas'){h+=progressCard(N,b)+fweekCard(N)+ftdeeCard(N,b)+targetCard(N)+healthCard(b,N)+foodPrefs();
+    h+=`<button class="btn ghost block" style="margin-top:10px" data-act="calc">${IC.ruler}Calcular para otra persona</button>`;}
+  else h+=diaryView(N);
+  h+=`<p class="nfine" style="margin-top:14px">Guía general calculada con fórmulas estándar y tablas de composición de alimentos (ICBF y USDA). Si tienes una condición médica, estás en embarazo o quieres un plan exacto, consulta a un nutricionista.</p>`;
   return h;
 }
 /* Calculadora para cualquier persona */

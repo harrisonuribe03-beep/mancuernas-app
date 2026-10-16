@@ -951,6 +951,180 @@ button.kvrow{width:100%;text-align:left}
 .nideal b{color:var(--tx)}
 .bgrid{grid-template-columns:repeat(3,1fr)}
 
+/* v8 · registro de comidas */
+.utabs{display:flex;gap:2px;border-bottom:1px solid var(--line);overflow-x:auto;scrollbar-width:none}
+.utabs::-webkit-scrollbar{display:none}
+.utabs button{flex:none;padding:11px 10px 10px;font-weight:700;font-size:.88rem;color:var(--tx2);border-bottom:2.5px solid transparent;margin-bottom:-1px;white-space:nowrap}
+.utabs button[aria-pressed="true"]{color:var(--acc);border-bottom-color:var(--acc)}
+.fseg{margin:12px 0 2px}
+.fseg button{flex:1}
+#sheet .utabs.ftabs{margin:12px -16px 0;padding:0 10px}
+
+/* fecha */
+.fdate{display:flex;align-items:center;gap:8px;margin:12px 0 10px}
+.fdate .iconbtn{width:42px;height:42px}
+.fdate .iconbtn:disabled{opacity:.35}
+.fdl{flex:1;display:flex;flex-direction:column;align-items:center;gap:1px;min-height:44px;justify-content:center;border-radius:12px}
+.fdl b{font-size:1.05rem;font-weight:800}
+.fdl small{font-size:.78rem;color:var(--tx2);font-weight:600}
+
+/* resumen del día */
+.fsum{padding:16px}
+.fsum1{display:flex;align-items:center;gap:16px}
+.fringw{position:relative;width:112px;height:112px;flex:none;display:grid;place-items:center}
+.fringw svg{position:absolute;inset:0}
+.fring circle{fill:none;stroke-width:10;stroke-linecap:round}
+.fring .bg{stroke:var(--s2)}
+.fring .fg{stroke:var(--acc);transition:stroke-dasharray .4s ease}
+.fring.over .fg{stroke:var(--warn)}
+.frc{position:relative;display:flex;flex-direction:column;align-items:center;text-align:center;line-height:1.1}
+.frc b{font-size:1.45rem;font-weight:800;letter-spacing:-.02em}
+.frc span{font-size:.68rem;font-weight:700;color:var(--tx2);max-width:72px}
+.fkv{flex:1;min-width:0;display:grid;grid-template-columns:1fr 1fr;gap:8px 10px}
+.fkv>div:not(.fdt){display:flex;flex-direction:column;gap:2px}
+.fkv span{font-size:.72rem;color:var(--tx2);font-weight:700;text-transform:uppercase;letter-spacing:.05em}
+.fkv b{font-size:1.2rem;font-weight:800}
+.fdt{grid-column:1/-1;display:flex;align-items:center;gap:6px;font-size:.8rem;font-weight:700;color:var(--tx2);background:var(--s2);border-radius:10px;padding:7px 10px}
+.fdt svg{width:16px;height:16px;flex:none}
+.fdt.tr{color:var(--acc);background:var(--acc-soft)}
+.fmacs{display:grid;grid-template-columns:1fr 1fr;gap:12px 14px;margin-top:16px}
+.fmac .fmt{display:flex;justify-content:space-between;align-items:baseline;gap:6px;margin-bottom:5px}
+.fmac span{font-size:.78rem;font-weight:700;color:var(--tx2);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.fmac b{font-size:.86rem;font-weight:800;white-space:nowrap}
+.fmac b small{font-weight:600;color:var(--tx3);font-size:.74rem}
+.fmac i{display:block;height:7px;border-radius:4px;background:var(--s2);overflow:hidden}
+.fmac s{display:block;height:100%;border-radius:4px;text-decoration:none;transition:width .4s ease}
+.fmac.m-p s{background:var(--acc)}.fmac.m-c s{background:var(--gold)}.fmac.m-f s{background:var(--ok)}.fmac.m-fb s{background:#8b5cf6}
+.fmac s.over{background:var(--warn)!important}
+
+/* agua */
+.fwat{display:flex;align-items:center;gap:10px;padding:12px;margin-top:10px}
+.fwat .nic{background:rgba(59,155,255,.14);color:#3b9bff}
+.fwat .nic svg{width:22px;height:22px}
+.fwt{flex:1;min-width:0}
+.fwt b{font-size:1.05rem;font-weight:800}
+.fwt small{font-size:.8rem;color:var(--tx2);font-weight:600}
+.fwt i{display:block;height:6px;border-radius:3px;background:var(--s2);overflow:hidden;margin-top:6px}
+.fwt s{display:block;height:100%;background:#3b9bff;border-radius:3px;text-decoration:none}
+.iconbtn.sm{width:38px;height:38px;border-radius:10px;font-size:1.2rem;font-weight:700}
+.iconbtn:disabled{opacity:.4}
+.fwat .btn{flex:none;padding:0 12px}
+
+/* consejos */
+.ftips{display:flex;flex-direction:column;gap:6px;margin-top:10px}
+.ftip{display:flex;gap:10px;align-items:flex-start;padding:11px 12px;border-radius:14px;background:var(--acc-soft);font-size:.86rem;line-height:1.45}
+.ftip svg{width:18px;height:18px;flex:none;color:var(--acc);margin-top:1px}
+.ftip b{font-weight:800}
+
+/* comidas */
+.fmeal{margin-top:10px;padding:4px 0 2px;overflow:hidden}
+.fmh{display:flex;align-items:center;justify-content:space-between;gap:10px;padding:10px 12px 10px 14px}
+.fmh b{display:block;font-size:1rem;font-weight:800}
+.fmh small{display:block;font-size:.78rem;color:var(--tx2);font-weight:600;margin-top:2px}
+.fplus{width:40px;height:40px;border-radius:12px;background:var(--acc-soft);color:var(--acc);display:grid;place-items:center;flex:none}
+.fplus svg{width:20px;height:20px;stroke-width:2.6}
+.fitems{list-style:none;margin:0;padding:0;border-top:1px solid var(--line)}
+.fitems li+li{border-top:1px solid var(--line)}
+.fitems button{display:flex;align-items:center;gap:10px;width:100%;text-align:left;padding:10px 14px;min-height:52px}
+.fitems span{flex:1;min-width:0;display:flex;flex-direction:column;gap:2px}
+.fitems b{font-size:.92rem;font-weight:700;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.fitems small{font-size:.76rem;color:var(--tx2);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.fitems em{font-style:normal;font-weight:800;font-size:.9rem;color:var(--tx2);flex:none}
+.fmf{border-top:1px solid var(--line);padding:4px 8px}
+.flink{display:inline-flex;align-items:center;gap:6px;min-height:40px;padding:0 8px;font-size:.82rem;font-weight:700;color:var(--acc);border-radius:10px}
+.flink svg{width:16px;height:16px}
+.fsug{border-top:1px dashed var(--line);padding:8px;display:flex;flex-direction:column;gap:2px}
+.fsg{display:flex;align-items:center;gap:10px;width:100%;text-align:left;padding:8px 6px;border-radius:12px}
+.fsg>span:first-child{flex:1;min-width:0;display:flex;flex-direction:column;gap:1px}
+.fsg small{font-size:.68rem;font-weight:800;letter-spacing:.06em;text-transform:uppercase;color:var(--tx3)}
+.fsg b{font-size:.88rem;font-weight:700;line-height:1.25}
+.fsg em{font-style:normal;font-size:.76rem;color:var(--tx2);font-weight:600}
+.fsgb{flex:none;display:inline-flex;align-items:center;gap:4px;font-size:.8rem;font-weight:800;color:var(--acc);background:var(--acc-soft);border-radius:10px;padding:8px 10px}
+.fsgb svg{width:14px;height:14px;stroke-width:2.6}
+
+/* semana y gasto real */
+.fwk{padding:14px}
+.fwc{width:100%;height:auto;display:block}
+.fwc .fb.ok{fill:var(--ok)}.fwc .fb.lo{fill:var(--gold)}.fwc .fb.hi{fill:var(--warn)}.fwc .fb.now{fill:var(--acc);opacity:.55}.fwc .fb.none{fill:var(--s3)}
+.fwc .ft{stroke:var(--tx);stroke-width:2;stroke-linecap:round;opacity:.55}
+.fwc .ax{fill:var(--tx3);font-size:10px;font-weight:600;font-family:inherit}
+.fwc .ax.b{fill:var(--tx);font-weight:800}
+.flg{display:flex;flex-wrap:wrap;gap:6px 12px;margin-top:6px;font-size:.72rem;color:var(--tx2);font-weight:600}
+.flg span{display:inline-flex;align-items:center;gap:5px}
+.flg i{display:inline-block;width:10px;height:10px;border-radius:3px}
+.flg i.ok{background:var(--ok)}.flg i.lo{background:var(--gold)}.flg i.hi{background:var(--warn)}.flg i.tl{height:2px;width:12px;background:var(--tx);opacity:.6}
+.fst{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:12px}
+.fst>div{background:var(--s2);border-radius:12px;padding:10px;display:flex;flex-direction:column;gap:1px;min-width:0}
+.fst span{font-size:.72rem;color:var(--tx2);font-weight:700}
+.fst b{font-size:1.1rem;font-weight:800}
+.fst small{font-size:.72rem;color:var(--tx3);font-weight:600}
+.fnote{font-size:.82rem;color:var(--tx2);margin:12px 0 0;line-height:1.45}
+.ftdee{padding:16px;margin-top:10px}
+.ftdee .nic{background:var(--warn-soft);color:var(--warn)}
+.ftdee .nic svg{width:22px;height:22px}
+.ftdee .nh1{align-items:flex-start}
+.ftdee small{line-height:1.45;margin-top:3px}
+.fadh{display:block;margin-top:8px;font-size:.84rem;line-height:1.45}
+
+/* inicio */
+.fhome{display:flex;align-items:center;gap:10px;padding:10px 12px}
+.fhl{flex:1;min-width:0;display:flex;align-items:center;gap:12px;text-align:left}
+.fringw.sm{width:58px;height:58px}
+.fringw.sm .fring circle{stroke-width:7}
+.fringw.sm b{position:relative;font-size:.78rem;font-weight:800}
+.fht{flex:1;min-width:0;display:flex;flex-direction:column;gap:2px}
+.fht b{font-size:.98rem;font-weight:800}
+.fht small{font-size:.78rem;color:var(--tx2);font-weight:600}
+.fhome .btn{flex:none;padding:0 12px}
+
+/* hojas */
+.fsearch{margin-top:12px}
+.fsearch input::-webkit-search-cancel-button{display:none}
+#sheet .chips.fcats{margin:12px -16px 4px}
+#sheet .chips .chip{height:34px;padding:0 12px;font-size:.82rem}
+.flist{list-style:none;margin:6px 0 0;padding:0}
+.flist li{border-bottom:1px solid var(--line)}
+.frow{display:flex;align-items:center;gap:10px;width:100%;text-align:left;padding:11px 2px;min-height:56px}
+.frow>span{flex:1;min-width:0;display:flex;flex-direction:column;gap:2px}
+.frow b{font-size:.94rem;font-weight:700;display:flex;align-items:center;gap:6px}
+.frow b svg{width:14px;height:14px;color:var(--gold);flex:none}
+.frow small{font-size:.76rem;color:var(--tx2);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.frow em{font-style:normal;font-weight:800;font-size:.95rem;flex:none}
+.frow em small{font-weight:600;color:var(--tx3)}
+.fmr{display:flex;align-items:center;gap:6px}
+.fmr .frow{flex:1;min-width:0}
+.fempty{display:flex;flex-direction:column;align-items:center;text-align:center;gap:6px;padding:22px 10px;color:var(--tx2);font-size:.88rem}
+.fempty b{color:var(--tx);font-size:1rem}
+.fempty .btn{margin-top:6px}
+.fbtns{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:14px}
+.fbtns .btn{padding:0 8px}
+#sheet .chips.wrap{margin:10px 0 0;padding:0;flex-wrap:wrap}
+.funits .chip small{font-weight:600;opacity:.75}
+.fqty{display:flex;align-items:center;gap:10px;margin-top:14px}
+.fqty .iconbtn{width:52px;height:52px;font-size:1.5rem;font-weight:700}
+.fqty label{flex:1;min-width:0;display:flex;align-items:center;gap:8px;height:52px;border-radius:12px;border:1.5px solid var(--line);background:var(--s2);padding:0 12px}
+.fqty input{width:0;flex:1;min-width:0;border:0;background:transparent;font:inherit;font-weight:800;font-size:1.3rem;color:var(--tx);text-align:right;outline:none}
+.fqty label:focus-within{border-color:var(--acc)}
+.fqty span{font-weight:700;color:var(--tx2);font-size:.92rem;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:55%}
+.fqk{display:flex;flex-wrap:wrap;gap:6px;margin-top:10px}
+.fqk .chip{height:34px;padding:0 12px;font-size:.84rem}
+.fprev{display:flex;align-items:center;gap:14px;margin-top:14px;padding:14px;border-radius:14px;background:var(--acc-soft)}
+.fpk{display:flex;flex-direction:column;align-items:center;flex:none;min-width:72px}
+.fpk b{font-size:1.8rem;font-weight:800;letter-spacing:-.02em;color:var(--acc);line-height:1}
+.fpk span{font-size:.74rem;font-weight:700;color:var(--acc)}
+.fpm{flex:1;display:grid;grid-template-columns:1fr 1fr;gap:6px 10px}
+.fpm span{display:flex;flex-direction:column;font-size:.72rem;color:var(--tx2);font-weight:600}
+.fpm b{font-size:.95rem;font-weight:800;color:var(--tx)}
+.bform label.wide{grid-column:1/-1}
+.bform input:not([inputmode]){font-weight:600;font-size:1rem}
+@media (max-width:359px){
+  .fringw{width:96px;height:96px}.frc b{font-size:1.2rem}.fsum1{gap:12px}
+  .fmacs{gap:10px}.fmac span{font-size:.72rem}
+  .utabs button{font-size:.82rem;padding:11px 8px 10px}
+  .fpm{grid-template-columns:1fr}.fprev{gap:10px}
+  .fwat .btn .bl{display:none}
+}
+
 </style>
 
 <main id="view" class="col"></main>
@@ -1704,6 +1878,190 @@ const MEALPLAN={3:[['des','Desayuno',.3],['alm','Almuerzo',.4],['cen','Cena',.3]
   4:[['des','Desayuno',.25],['alm','Almuerzo',.35],['med','Onces',.15],['cen','Cena',.25]],
   5:[['des','Desayuno',.22],['med','Media mañana',.1],['alm','Almuerzo',.33],['med','Onces',.12],['cen','Cena',.23]]};
 
+/* Base de alimentos para el registro de comidas.
+   Valores por 100 g (o 100 ml en bebidas), aproximados de la Tabla de Composición de Alimentos Colombianos (ICBF)
+   y de USDA FoodData Central. Porciones: [singular, plural, gramos o ml].
+   Formato: [id, nombre, categoría, kcal, proteína, carbohidratos, grasa, fibra, porciones, palabras de búsqueda, líquido] */
+const FCAT={prot:'Carnes, pollo, pescado y huevo',lact:'Lácteos',gran:'Cereales, panes y granos',tub:'Papa, yuca y plátano',fru:'Frutas',ver:'Verduras y salsas',
+  gras:'Grasas y frutos secos',beb:'Bebidas',tip:'Platos típicos',rap:'Comida rápida y paquetes',pan:'Panadería y dulces',sup:'Suplementos'};
+const FDB_X=[
+  // carnes, pollo, pescado y huevo
+  ['pollo_muslo','Muslo de pollo con piel','prot',229,25,0,14,0,[['muslo','muslos',100]]],
+  ['pollo_asado','Pollo asado con piel','prot',215,27,0,12,0,[['presa','presas',130],['cuarto de pollo','cuartos de pollo',250]],'asadero'],
+  ['pollo_apanado','Pollo apanado o broaster','prot',270,20,12,16,.5,[['presa','presas',150]],'frito'],
+  ['pollo_desm','Pollo desmechado','prot',160,29,1,4,0,[['cucharada','cucharadas',20],['taza','tazas',120]]],
+  ['res_asada','Carne asada (corte común)','prot',230,28,0,13,0,[['porción','porciones',120]],'sobrebarriga punta de anca churrasco'],
+  ['bistec','Carne en bistec con salsa','prot',180,20,4,9,.5,[['porción','porciones',150]],'bisteck'],
+  ['costilla','Costilla de cerdo','prot',290,24,0,21,0,[['porción','porciones',150]]],
+  ['chicharron','Chicharrón','prot',500,30,0,42,0,[['trozo','trozos',60]]],
+  ['chorizo','Chorizo','prot',330,18,2,28,0,[['chorizo','chorizos',60]],'longaniza'],
+  ['salchicha','Salchicha','prot',290,11,3,26,0,[['salchicha','salchichas',45]],'salchichón'],
+  ['jamon','Jamón','prot',145,18,2,7,0,[['tajada','tajadas',20]]],
+  ['pavo','Pechuga de pavo en tajadas','prot',105,17,3,3,0,[['tajada','tajadas',20]]],
+  ['tocineta','Tocineta','prot',540,37,1.4,42,0,[['tira','tiras',8]],'tocino bacon'],
+  ['morcilla','Morcilla','prot',260,9,20,16,1,[['trozo','trozos',80]],'rellena'],
+  ['higado','Hígado de res','prot',175,27,5,5,0,[['porción','porciones',120]]],
+  ['salmon','Salmón','prot',208,20,0,13,0,[['filete','filetes',150]]],
+  ['atun_aceite','Atún en aceite escurrido','prot',198,29,0,8,0,[['lata','latas',100]]],
+  ['sardinas','Sardinas en salsa de tomate','prot',170,17,2,10,0,[['lata','latas',155]]],
+  ['camaron','Camarones cocidos','prot',99,24,.2,.3,0,[['porción','porciones',100]],'langostinos'],
+  ['pescado_frito','Pescado frito','prot',210,23,4,11,0,[['porción','porciones',200]],'mojarra frita'],
+  ['clara','Clara de huevo','prot',52,10.9,.7,.2,0,[['clara','claras',33]]],
+  ['huevo_frito','Huevo frito','prot',196,13.6,.8,15,0,[['huevo','huevos',46]]],
+  ['pericos','Huevos pericos','prot',150,9,3,11,.5,[['porción de 2 huevos','porciones de 2 huevos',130]],'revueltos'],
+  // lácteos
+  ['leche_entera','Leche entera','lact',61,3.2,4.8,3.3,0,[['vaso','vasos',250],['taza','tazas',200]],'',1],
+  ['leche_semi','Leche semidescremada o deslactosada','lact',47,3.3,4.9,1.6,0,[['vaso','vasos',250],['taza','tazas',200]],'deslactosada',1],
+  ['yogur_fruta','Yogur con fruta','lact',95,3,16,2,0,[['vaso','vasos',200]],'dulce'],
+  ['kumis','Kumis','lact',85,3,13,2.5,0,[['vaso','vasos',200]]],
+  ['queso_doble','Queso doble crema','lact',330,22,2,26,0,[['tajada','tajadas',30]]],
+  ['mozzarella','Queso mozzarella','lact',300,22,2.2,22,0,[['tajada','tajadas',25],['taza rallado','tazas rallado',110]],'quesillo'],
+  ['cuajada','Cuajada o quesito','lact',200,17,3,13,0,[['porción','porciones',60]]],
+  ['queso_crema','Queso crema','lact',342,6,4,34,0,[['cucharada','cucharadas',15]]],
+  ['crema_leche','Crema de leche','lact',340,2.1,2.8,36,0,[['cucharada','cucharadas',15]]],
+  // cereales, panes y granos
+  ['arroz_int','Arroz integral cocido','gran',112,2.3,23.5,.8,1.8,[['taza','tazas',150]]],
+  ['granola','Granola','gran',470,10,64,20,7,[['cucharada','cucharadas',10],['porción','porciones',40]]],
+  ['cereal','Cereal de caja','gran',380,7,84,.9,3,[['taza','tazas',30]],'hojuelas corn flakes zucaritas'],
+  ['pan_blanco','Pan blanco tajado','gran',265,9,49,3.2,2.7,[['tajada','tajadas',25]],'pan de molde'],
+  ['pan_frances','Pan francés o aliñado','gran',280,9,52,4,2.5,[['pan','panes',50]],'blandito baguette'],
+  ['arepa_choclo','Arepa de chócolo','gran',260,6,38,9,2,[['arepa','arepas',100]]],
+  ['tortilla','Tortilla de trigo','gran',310,8,50,8,3,[['tortilla','tortillas',40]],'wrap'],
+  ['galleta_soda','Galletas de soda','gran',420,9,70,11,2.5,[['galleta','galletas',9]],'saltinas'],
+  ['galleta_int','Galletas integrales','gran',440,8,67,15,6,[['galleta','galletas',10]]],
+  ['mazorca','Mazorca cocida','gran',96,3.4,21,1.5,2.4,[['mazorca','mazorcas',150]],'choclo'],
+  ['quinua','Quinua cocida','gran',120,4.4,21.3,1.9,2.8,[['taza','tazas',150]]],
+  ['arveja','Arveja verde cocida','gran',84,5.4,15.6,.2,5.5,[['taza','tazas',150]]],
+  // papa, yuca y plátano
+  ['papa_criolla','Papa criolla cocida','tub',95,2,21,.1,1.6,[['papa','papas',20]]],
+  ['papas_fritas','Papas a la francesa','tub',312,3.4,41,15,3.8,[['porción pequeña','porciones pequeñas',100],['porción mediana','porciones medianas',150]],'fritas'],
+  ['pure','Puré de papa','tub',110,2,16,4,1.5,[['taza','tazas',200]]],
+  ['yuca_frita','Yuca frita','tub',300,1.5,42,14,2,[['trozo','trozos',70]]],
+  ['tajadas','Tajadas de maduro fritas','tub',260,1.5,40,11,2.3,[['tajada','tajadas',30]],'maduro frito'],
+  ['patacon','Patacón','tub',300,1.5,42,14,2.5,[['patacón','patacones',50]],'tostón'],
+  ['platano_verde','Plátano verde cocido','tub',122,1.3,32,.4,2.3,[['plátano','plátanos',200]]],
+  ['arracacha','Arracacha cocida','tub',100,1,24,.2,1.8,[['trozo','trozos',100]]],
+  // frutas
+  ['pera','Pera','fru',57,.4,15,.1,3.1,[['pera','peras',170]]],
+  ['naranja','Naranja','fru',47,.9,12,.1,2.4,[['naranja','naranjas',150]]],
+  ['mandarina','Mandarina','fru',53,.8,13.3,.3,1.8,[['mandarina','mandarinas',90]]],
+  ['pina','Piña','fru',50,.5,13,.1,1.4,[['tajada','tajadas',80],['taza','tazas',150]]],
+  ['uvas','Uvas','fru',69,.7,18,.2,.9,[['taza','tazas',150]]],
+  ['sandia','Sandía','fru',30,.6,7.6,.2,.4,[['tajada','tajadas',250],['taza','tazas',150]],'patilla'],
+  ['melon','Melón','fru',34,.8,8,.2,.9,[['tajada','tajadas',200],['taza','tazas',160]]],
+  ['guayaba','Guayaba','fru',68,2.6,14,1,5.4,[['guayaba','guayabas',100]]],
+  ['maracuya','Maracuyá','fru',97,2.2,23,.7,10,[['maracuyá','maracuyás',40]]],
+  ['granadilla','Granadilla','fru',97,2.4,23,.7,10,[['granadilla','granadillas',50]]],
+  ['mora','Mora','fru',43,1.4,10,.5,5.3,[['taza','tazas',140]]],
+  ['lulo','Lulo','fru',25,.6,6,.2,1.2,[['lulo','lulos',70]]],
+  ['uchuva','Uchuvas','fru',53,1.9,11,.7,4.9,[['taza','tazas',140]]],
+  ['kiwi','Kiwi','fru',61,1.1,15,.5,3,[['kiwi','kiwis',75]]],
+  ['pitahaya','Pitahaya','fru',50,1.1,12,.4,3,[['pitahaya','pitahayas',150]]],
+  ['durazno','Durazno','fru',39,.9,10,.3,1.5,[['durazno','duraznos',150]],'melocotón'],
+  // verduras y salsas
+  ['tomate','Tomate','ver',18,.9,3.9,.2,1.2,[['tomate','tomates',120]]],
+  ['lechuga','Lechuga','ver',15,1.4,2.9,.2,1.3,[['taza','tazas',50]]],
+  ['zanahoria','Zanahoria','ver',41,.9,9.6,.2,2.8,[['zanahoria','zanahorias',70]]],
+  ['brocoli','Brócoli cocido','ver',35,2.4,7.2,.4,3.3,[['taza','tazas',150]]],
+  ['cebolla','Cebolla','ver',40,1.1,9.3,.1,1.7,[['cebolla','cebollas',110]]],
+  ['pepino','Pepino','ver',15,.7,3.6,.1,.5,[['pepino','pepinos',200]]],
+  ['espinaca','Espinaca','ver',23,2.9,3.6,.4,2.2,[['taza','tazas',30]]],
+  ['habichuela','Habichuela cocida','ver',35,1.9,7.9,.3,3.2,[['taza','tazas',125]]],
+  ['ahuyama','Ahuyama cocida','ver',20,.7,4.9,.1,1.1,[['taza','tazas',200]],'zapallo calabaza'],
+  ['champi','Champiñones','ver',22,3.1,3.3,.3,1,[['taza','tazas',70]]],
+  ['guacamole','Guacamole','ver',160,2,9,14.7,6,[['cucharada','cucharadas',20]]],
+  ['mayonesa','Mayonesa','ver',680,1,.6,75,0,[['cucharada','cucharadas',15]]],
+  ['salsa_tomate','Salsa de tomate','ver',100,1.2,24,.2,.3,[['cucharada','cucharadas',15]],'ketchup'],
+  ['salsa_rosada','Salsa rosada','ver',420,1,12,42,0,[['cucharada','cucharadas',15]]],
+  // grasas y frutos secos
+  ['aceite_oliva','Aceite de oliva','gras',884,0,0,100,0,[['cucharadita','cucharaditas',5],['cucharada','cucharadas',14]]],
+  ['mantequilla','Mantequilla','gras',717,.9,.1,81,0,[['cucharadita','cucharaditas',5]]],
+  ['margarina','Margarina','gras',700,.2,.7,80,0,[['cucharadita','cucharaditas',5]]],
+  ['almendras','Almendras','gras',579,21,22,50,12.5,[['puñado','puñados',28]]],
+  ['nueces','Nueces','gras',654,15,14,65,6.7,[['puñado','puñados',28]]],
+  ['crema_mani','Mantequilla de maní','gras',588,25,20,50,6,[['cucharada','cucharadas',16]],'crema de maní'],
+  ['chia','Semillas de chía','gras',486,17,42,31,34,[['cucharada','cucharadas',12]]],
+  // bebidas (por 100 ml)
+  ['tinto','Tinto sin azúcar','beb',2,.1,0,0,0,[['pocillo','pocillos',150]],'café negro',1],
+  ['tinto_az','Tinto con azúcar','beb',21,.1,5.3,0,0,[['pocillo','pocillos',150]],'café',1],
+  ['cafe_leche','Café con leche','beb',45,2.2,4,2.2,0,[['taza','tazas',200]],'perico',1],
+  ['chocolate','Chocolate en leche','beb',85,3,12,3,.5,[['taza','tazas',250]],'',1],
+  ['aguapanela','Agua de panela','beb',38,0,9.5,0,0,[['vaso','vasos',250]],'aguapanela',1],
+  ['jugo_naranja','Jugo de naranja natural','beb',45,.7,10.4,.2,.2,[['vaso','vasos',250]],'',1],
+  ['jugo_agua','Jugo natural en agua con azúcar','beb',50,.2,12.5,0,.2,[['vaso','vasos',250]],'mora lulo maracuyá',1],
+  ['jugo_leche','Jugo natural en leche con azúcar','beb',80,2.5,13,2,.2,[['vaso','vasos',250]],'batido',1],
+  ['jugo_caja','Jugo de caja','beb',50,0,12.5,0,0,[['caja','cajas',200],['vaso','vasos',250]],'hit tutti',1],
+  ['avena_beb','Avena en leche (bebida)','beb',100,3,16,2.5,.8,[['vaso','vasos',250]],'',1],
+  ['salpicon','Salpicón de frutas','beb',50,.4,12,.1,.5,[['vaso','vasos',300]],'',1],
+  ['gaseosa','Gaseosa','beb',42,0,10.6,0,0,[['lata','latas',330],['botella personal','botellas personales',400],['vaso','vasos',250]],'coca cola refresco',1],
+  ['gaseosa0','Gaseosa cero o light','beb',.3,0,0,0,0,[['lata','latas',330],['vaso','vasos',250]],'zero',1],
+  ['malta','Malta','beb',60,.5,14,0,0,[['botella','botellas',330]],'pony',1],
+  ['energ','Bebida energizante','beb',45,0,11,0,0,[['lata','latas',250]],'',1],
+  ['hidrat','Bebida hidratante','beb',24,0,6,0,0,[['botella','botellas',500]],'gatorade powerade',1],
+  ['cerveza','Cerveza','beb',43,.5,3.6,0,0,[['lata o botella','latas o botellas',330]],'pola',1],
+  ['aguardiente','Aguardiente','beb',200,0,10,0,0,[['trago','tragos',30]],'guaro',1],
+  ['ron','Ron','beb',231,0,0,0,0,[['trago','tragos',30]],'',1],
+  ['vino','Vino','beb',85,.1,2.6,0,0,[['copa','copas',150]],'',1],
+  // platos típicos
+  ['bandeja','Bandeja paisa completa','tip',230,10,22,11,3,[['plato','platos',600]]],
+  ['sancocho','Sancocho con presa','tip',90,6,9,3.5,1.2,[['plato','platos',500]]],
+  ['ajiaco','Ajiaco con pollo','tip',100,7,11,3,1.5,[['plato','platos',450]]],
+  ['arroz_pollo','Arroz con pollo','tip',165,9,20,5.5,1,[['plato','platos',350]]],
+  ['frijolada','Fríjoles con carne o garra','tip',150,7,15,7,5,[['plato','platos',350]]],
+  ['calentado','Calentado','tip',180,7,22,7,3.5,[['plato','platos',300]]],
+  ['espagueti','Espaguetis a la boloñesa','tip',150,7,18,5,1.5,[['plato','platos',300]],'pasta'],
+  ['empanada','Empanada','tip',290,8,28,16,2,[['empanada','empanadas',70]]],
+  ['arepa_huevo','Arepa de huevo','tip',300,9,28,17,2,[['arepa','arepas',150]]],
+  ['arepa_queso','Arepa con queso','tip',260,9,36,9,2,[['arepa','arepas',120]]],
+  ['tamal','Tamal','tip',190,7,18,10,2,[['tamal','tamales',450]]],
+  ['lechona','Lechona','tip',260,14,12,17,1,[['porción','porciones',300]]],
+  ['caldo','Caldo de costilla','tip',60,4,4,3,.5,[['plato','platos',400]]],
+  ['changua','Changua','tip',70,4,5,4,0,[['plato','platos',350]]],
+  ['sopa_verd','Sopa de verduras','tip',35,1.5,6,.7,1.2,[['plato','platos',400]]],
+  ['crema_ahuyama','Crema de ahuyama','tip',60,1.5,7,3,1,[['plato','platos',300]]],
+  ['ensalada_frutas','Ensalada de frutas con crema y queso','tip',150,3,22,6,1.5,[['vaso','vasos',300]]],
+  // comida rápida y paquetes
+  ['hamburguesa','Hamburguesa','rap',250,13,24,11,1.5,[['hamburguesa','hamburguesas',220]]],
+  ['perro','Perro caliente','rap',260,9,25,14,1,[['perro','perros',180]],'hot dog'],
+  ['pizza','Pizza','rap',266,11,33,10,2.3,[['porción','porciones',110]]],
+  ['salchipapa','Salchipapa','rap',280,7,28,16,2.5,[['porción','porciones',350]]],
+  ['sandwich','Sándwich de jamón y queso','rap',260,13,28,11,2,[['sándwich','sándwiches',150]]],
+  ['papas_paq','Papas de paquete','rap',536,7,53,34,4,[['paquete','paquetes',45]],'chips todito'],
+  ['crispetas','Crispetas','rap',380,12,78,4.5,14,[['taza','tazas',8],['paquete mediano','paquetes medianos',60]],'palomitas'],
+  // panadería y dulces
+  ['bunuelo','Buñuelo','pan',370,9,40,19,.5,[['buñuelo','buñuelos',40]]],
+  ['pandebono','Pandebono','pan',330,9,40,15,.8,[['pandebono','pandebonos',50]]],
+  ['almojabana','Almojábana','pan',320,11,38,14,.5,[['almojábana','almojábanas',60]]],
+  ['pan_yuca','Pan de yuca','pan',320,8,38,15,.8,[['pan','panes',50]]],
+  ['croissant','Croissant','pan',406,8,46,21,2.6,[['croissant','croissants',60]],'cruasán'],
+  ['dona','Dona','pan',452,5,51,25,1.5,[['dona','donas',60]],'donut'],
+  ['torta','Ponqué o torta','pan',400,5,55,18,1,[['porción','porciones',70]],'pastel'],
+  ['oblea','Oblea con arequipe','pan',380,6,62,12,.5,[['oblea','obleas',50]]],
+  ['galleta_dulce','Galletas dulces o de chocolate','pan',480,5,68,21,2,[['galleta','galletas',12]]],
+  ['chocolatina','Chocolatina','pan',535,7.7,59,30,3,[['chocolatina','chocolatinas',30]],'jet chocolate'],
+  ['helado','Helado de crema','pan',207,3.5,24,11,.7,[['bola','bolas',70]]],
+  ['barra_cereal','Barra de cereal','pan',400,6,72,10,4,[['barra','barras',25]]],
+  ['gelatina','Gelatina preparada','pan',62,1.2,14,0,0,[['vaso','vasos',150]]],
+  ['azucar','Azúcar','pan',387,0,100,0,0,[['cucharadita','cucharaditas',4]]],
+  ['panela','Panela','pan',380,.4,95,.1,0,[['trozo','trozos',20]]],
+  ['miel','Miel','pan',304,.3,82,0,.2,[['cucharada','cucharadas',21]]],
+  ['arequipe','Arequipe','pan',315,7,55,8,0,[['cucharada','cucharadas',20]],'dulce de leche'],
+  ['leche_cond','Leche condensada','pan',321,8,54,8.7,0,[['cucharada','cucharadas',20]]],
+  ['mermelada','Mermelada','pan',250,.4,62,0,1,[['cucharada','cucharadas',20]]],
+  ['choc_mesa','Chocolate de mesa','pan',470,5,60,24,5,[['pastilla','pastillas',25]]],
+  // suplementos
+  ['ganador','Ganador de peso','sup',380,15,75,3,2,[['servicio','servicios',100]],'mass gainer']
+];
+// Alimentos del menú sugerido: categoría, fibra y porciones adicionales
+// Palabras de búsqueda extra para los alimentos del menú
+const FDB_KW={pollo:'pollo a la plancha asado',res:'carne res plancha asada bistec',molida:'carne molida',cerdo:'cerdo lomo plancha',pescado:'pescado mojarra tilapia',atun:'atún lata',
+  arroz:'arroz',pasta:'espagueti macarrones',arepa:'arepa blanca',pan:'pan tajado integral',platano:'plátano maduro asado',papa:'papa salada',ensalada:'ensalada',verduras:'verduras',cafe:'café tinto perico',whey:'proteína whey batido',huevo:'huevo cocido tibio'};
+const FDB_MENU={huevo:['prot',0],pollo:['prot',0,[['porción','porciones',120],['filete','filetes',150]]],res:['prot',0,[['porción','porciones',120]]],molida:['prot',0,[['porción','porciones',100]]],
+  cerdo:['prot',0,[['porción','porciones',120]]],pescado:['prot',0,[['filete','filetes',150]]],atun:['prot',0],queso:['lact',0],yogur:['lact',0],leche:['lact',0,null,1],whey:['sup',0],
+  lenteja:['gran',7.9],frijol:['gran',6.4],garbanzo:['gran',7.6],arroz:['gran',.4],pasta:['gran',1.8],arepa:['gran',3],pan:['gran',6],avena:['gran',10],
+  papa:['tub',1.8],yuca:['tub',1.8],platano:['tub',2.3],banano:['fru',2.6],papaya:['fru',1.7],mango:['fru',1.6],fresa:['fru',2],manzana:['fru',2.4],aguacate:['fru',6.7],
+  ensalada:['ver',1.2],verduras:['ver',2],hogao:['ver',1.2],aceite:['gras',0],mani:['gras',8.5],bocadillo:['pan',1],cafe:['beb',0,null,1]};
+
 (function(){
 "use strict";
 const VCLIPS="0015ce03 007b4dfb 00b950c7 0114c9af 011d0276 012a0ce1 0195422f 01c6cb4b 02151f9e 02357954 024ae961 029e3762 02d6b9d4 03663d85 0366421d 0398b02e 03a57c21 03bc333e 04258ce3 043dcd43 04965729 049b271d 051fe9dd 053de4a9 0563c26e 056d65d2 05d827ca 05e298e4 05feea59 060f38fc 06aa78a3 06ac38d4 06c000f5 06f1b991 078d5404 07c40be5 07f826f5 07f99b96 08057600 084017c7 084252ce 08b9fda1 08bfd212 08de7344 0920ffea 0954d299 09a6b528 09a7e72a 09d31892 0a468d61 0a52c6f2 0a9055da 0a9a93f7 0b4961da 0ba065b7 0bb3eecd 0bdfc19e 0bff2948 0c0bf53b 0c705bf0 0cc4c9c6 0ce1033e 0e6d4218 0ec8708e 0ed055d3 0edd28e5 0f310d09 0f355c07 0fbe6574 10040ad8 101fda0b 10337b4c 10588f09 106662a8 10a3239e 10a94a4b 10bf0b0f 10c29104 10c3d0a8 10cd7f62 1139c884 114631b5 119e9ad6 11c707f7 11c7ceb9 11e283e2 1212663d 12469b8e 124f61b3 12a611aa 12aa8ed8 12c8a3ec 130905ab 13f96fc0 140a6dbb 141d4af4 14409aa7 144f72e8 14674d18 14d4844e 15638ef7 1566a40b 1573b072 162cc548 1665cbba 16a39d08 16bd3228 16dc88dd 173caac9 175fedb4 1765c0b9 17b6d66b 1810854d 18c86a9f 1900837d 19159381 1924f643 193400cd 19765ed6 199dd4f7 19a70072 19d33899 19ddcdac 1a1707b0 1a227327 1a450569 1a459318 1a7bf9ac 1aa32fdf 1aaee8b5 1ace84a7 1adf3a80 1ae0a245 1ae1b8f7 1af9474a 1b1290e4 1b5045a8 1b5e06cc 1b6d1fd5 1bc11044 1bf31ed0 1c91f953 1cde0513 1ce21140 1dbbc705 1de0bc9d 1e05b30c 1e6cd4de 1e889608 1eba8486 1f148a1a 1f1cb2e3 1f2438d9 1f44e3ec 1f5d0908 20019117 2051600e 211638b1 21515cb1 217f8c7a 2186df90 219153ec 219d35c8 21a61479 21a644ea 21f59940 22635d1f 226f4887 22c4c09e 22d22438 22f86eca 23413adb 2361d405 23937f2d 23e305f6 23fc44d9 24aa6bb9 24ad2dff 24c8cb88 24c96ef7 24ee8055 25024709 253eae20 2541f806 25c55cc0 2607f3e8 2610cfd2 264fa938 2650b46f 2694ab99 26a80ec7 26c6e602 26cc1bad 26e7a228 2732f5b8 2771afe7 27bd7d4d 27d156cf 27dddde1 283f8e78 2858d626 2877c12e 28ca4c0f 28e6c404 29024f2e 297a9be3 297d919d 2980b17d 299374ae 299d8a69 29d281cb 29e5759e 2a05af0e 2a163c74 2a2e5ddb 2a4093ca 2a428ab4 2a571325 2adcc7f5 2af0e6db 2b65ff84 2b79f9f7 2baf6b3c 2c36bf36 2c3dd48e 2c633b66 2cc58759 2cd9ae0c 2cda5f83 2d7198f3 2e030aee 2e3d2f50 2e5cf1f6 2e94ff6e 2eebb7d4 2eedc736 2f229a53 2f49f0aa 2f87a072 30608779 309fdcb7 30bcec28 31bb3b51 322fc635 323865d2 3243931a 3254394a 32554481 3262ac86 32dfa028 32ec6fbe 330297fc 332dffd1 334db126 33519510 336cf97d 338ac2b8 3393132e 33a74844 33d45de2 341078aa 342924d8 34a885c7 34ad02f5 34cb1809 34f1a507 34f56e40 35241adf 35574769 3561a2da 3570c0c3 3573ad70 35978b17 36251d55 363182cf 368ff621 36cdcaf3 36e723fe 37525b21 37a4a71c 37ecff22 3842b04f 3850feb3 3875a4ca 389a2b77 38d2b31a 393bdfe5 3947e88d 395400b1 39588b42 39adc9d7 39f7bdfb 39ffd47e 3a648875 3a6c1a03 3aa84fd5 3b500980 3c5c2048 3c698d87 3c97d8b3 3cad3151 3d092e4b 3d0f1554 3d2352fb 3d2efbea 3d38a4de 3d4a9cdc 3d54822a 3d549665 3d6883f3 3d8eb9f8 3d9b077c 3dd09df3 3de61185 3dfa716a 3e04fdd7 3e5304ce 3e5fe6d3 3e74088b 3e7a91bf 3e9b2729 3ec3270c 3ed7a725 3ee4303a 3ee5651c 3f01c4f0 3f4b32dd 3f4c5210 3f7dbc84 3f99d728 3f9f3cae 3fa0843d 3fa5016b 403585b1 407342c8 410f0c9b 410f2bab 4179fb00 41b661ba 41dba2a8 41f7fbbc 422d9e06 423496de 427ec210 42aa768d 42b0755a 42c90a79 42e6baeb 430ff9be 433d8508 434cdc33 436fc3e7 43b1e39d 43cff532 43e92597 44539a50 44560d50 4481b2c2 44933cc6 4500b5f7 452fca06 4538e4cf 454b9136 45c2f015 4622af9a 464f967d 465a7f4c 466473cf 467a95c4 46855e44 469fa3b0 46c849c5 46ecb0e8 46fe58b8 47346667 4746518c 476cc7a5 477448f0 4779bdab 477a58c6 47a95f7b 4817b625 48400f4f 485b2b9a 48c0b0c9 48f84819 4922fc61 4947cc04 49b455be 49e02800 4a194f23 4a76279c 4a78989d 4af15f5a 4b20b096 4b359194 4b57094b 4b5e4f87 4b75c007 4b9fd854 4c08426f 4cbcd456 4cbcfd25 4ce3553d 4cf4153d 4d1b6ec4 4d32e051 4d9907e5 4db863b6 4dd53325 4ddbd4f2 4e1e6021 4e5226c7 4ea712d8 4eb3d4ad 4f92b72a 4f9da500 4fb91b30 4fced92a 50212815 50290bde 5053ebe4 50bed034 510a402a 51229a9e 51305ab5 513be60d 515ab417 5166f1a1 51e78320 520c02e4 521eef4e 52215ee0 525167b8 526fa7bf 527355ed 527c2162 528b18fb 528cddb6 52a18419 52a76581 532e50a4 5353091e 535e55ef 5393c34b 540e93b7 541cbf91 54342259 54369f54 545fdf1f 54aba38b 54b4087d 553086d2 555fd78b 557f0452 55d5f88b 55e9604a 563abd10 565e99b2 567c6939 56973566 56a8add0 56cc55e4 56db31df 56fcb2f9 57115c55 571bd814 5723be05 57392f5e 577deaa3 578d324f 57949d0e 57ac6d17 57dd2e9e 581cfe96 5823a06e 58a29bb2 58acb184 58b48569 58d3bad9 58dfd614 58e562e5 599f3d25 59a79794 59d9c337 5a0249af 5a34d0eb 5a5c5aab 5aa5d142 5aadaf5f 5b0cbb74 5b5adb32 5b5d1a47 5b5e243a 5b61844d 5bbde8e0 5bdb0ecf 5bde86dc 5be01ec0 5c092cfe 5c2d9bf0 5c46e2ec 5ce2a0b0 5d09828a 5d25d8c0 5d29dcee 5d2ae016 5d380925 5d84dcfa 5d88a71d 5d92de42 5da2f20e 5da76f3c 5dc77d0d 5e214b52 5e23d7b3 5e51c942 5ebdab23 5ec819b9 5efe938e 5f3ea7d9 5f4aee88 5f4ea3e6 5f750fdc 5fa099e7 5fa94ecb 5fdd3081 6006c586 609d82db 61069836 6181c37e 61bc72a4 61fc8e5f 620e7fea 621d0461 6248dc74 625ba04a 62767fce 627f4b98 62868dab 62936ce1 629f9ca9 62d33f56 632cf719 6331d9c4 633cb2db 636607e0 63713af5 638ed47b 63f05980 6407c858 640abcbf 64157a1f 64283cb0 645d3104 6461ae32 64a4e121 64c63a68 64ca2020 653b2eff 655ddbf0 6575010f 6589a5e7 658ed7a1 65d1498a 65de157d 6635a61e 666bad13 6674e0e7 6676e31a 66dc9a51 671108a3 6717642c 681cc283 6858a1a0 6882d596 68a2f0ec 695f6f90 69757d6a 6983e7e3 69c7077f 6a15b768 6a3f5bad 6aa734eb 6ad8d751 6ae619ce 6b187116 6b22c871 6b33b79e 6b623571 6b703466 6b907d27 6b9b927d 6baefc83 6bcdb903 6bd969d1 6beaa400 6bece098 6c1a2d68 6c1d0957 6c4d8a93 6cd4f72d 6d3cea00 6d3e8905 6de87130 6e4002ec 6ed59b76 6ee923c7 6f60f60f 6f7073b6 6f9f4ec1 707902e4 708bfd39 70b49d4f 712e1b02 71600739 716f1b58 71b21baf 71d7aa68 71e2a58f 7224b24d 722ca8d1 7249be1d 727913fe 72a58639 72b3c3a8 72cbfb83 72d3954e 732a0f3e 7376a4b9 739f054b 73b4b2f8 740c4235 741034c7 7415fc0b 74820b53 749d1b12 749e905d 74ae9044 74d395c9 75254495 75262bd6 757b271a 75809bee 75c9b924 766072da 76632278 767dcde0 7690f8cc 76b5ed03 76c96221 76d15591 772031a7 7732faef 776819d6 77a0228f 77b108f1 782b896d 783263ec 7840a65b 791adb63 79632e51 79f6497e 7a25b641 7a30244d 7a36f48c 7a4274e0 7a5ac650 7a6a6e34 7a6d0c7a 7b1ade89 7ba22045 7bbd6075 7c03984c 7c136150 7c1f3707 7c22476f 7c255afc 7c7958c6 7ca3894b 7cd085f6 7d374640 7d474bb1 7d4909f6 7d53a4be 7d68fb13 7d7151f2 7ddc3a7a 7de60c43 7e377a2e 7e731a27 7e9215a4 7eaee690 7ed15ec1 7ef2ecfd 7f7c6dbe 7fe5fe4d 800a793b 805fd37a 806d275d 8088a42f 80d97875 811de7f3 8142a3fa 8167d977 817b5dc2 8182c1bf 818765dd 81aef419 81cf3707 81d498e2 81fe12f3 823b2a67 8275a540 82ac2f5f 82d18001 82d7cf53 83174922 8326a4b4 836b0fb2 838eb339 83ab8009 83abdb77 83cb67dd 841b5b74 8427473b 8448e077 846985dd 8549666b 855f2878 858aaffa 85933f28 85cfb78c 85da9bd3 85e9fea6 85f4803d 86570007 86641df0 8694bfad 86d80bbd 86f9b8ff 872f711b 87522a2a 879bb728 87c966ea 87ce5601 87f9ca2d 8813b98c 8817f162 8819b501 881a356b 882332b7 88bb84e3 88fb3c60 8917784c 8923e666 892d31b5 8950bfea 898f9c1b 89bc9d7a 89ca3b4a 89e257ad 89e93865 8a44628c 8ae9250c 8af5f0ff 8b748bea 8bde925c 8c8557fe 8c9d1717 8ca1b4aa 8cdb0371 8cfc67fb 8d275552 8d3cee52 8d578168 8daeef8e 8e2f7320 8e39fed8 8e46cacb 8e6a7b44 8e8b3e3f 8ed31c2c 8f53c0a4 8f67c643 8f76802d 8f790254 8f84199b 8f8bbe77 8fe4d969 90049717 906b7017 906fbc8f 90d31f52 915e7646 918a56c0 9191e15f 919579c0 91d0d8dc 91e7bf8a 92099650 92258350 924180b1 92428e08 92824605 9283dc18 92ba9b7f 92d72425 935db6b1 9373fbaf 937b755d 93ebd461 94ca38e7 94d6488e 94f36c9b 95976fe0 95cb3404 95ea0ba9 95f6ae4b 96381cdc 963ceb7c 96582084 969005ea 9721c7b2 9763fe88 97791bfc 977d60f0 97b03165 980e1dd1 98875728 9940a652 9957b42c 9970b13c 99780ac4 99eb09c7 99fd4181 9a01da95 9a27b9d5 9a4a4fa6 9a571b99 9a5f8e39 9a8ed5a7 9ae76074 9b183e64 9b1ea95e 9bf3d0c9 9bf40f1b 9c0aeb3d 9c0da644 9c15e3a8 9c1dc258 9c1f7211 9c684d89 9c6d7c8e 9c7a47f3 9c8f4689 9cc4f302 9cd3710c 9d286e9c 9d614e9b 9d63b9f6 9d74e422 9d8b3f74 9e188186 9e676b92 9efd30c9 9f0c831b 9fdf04fb 9ff8c2ad a02848f1 a0b141ee a0d820d0 a1004341 a13bf8c9 a19fc620 a1a1ed63 a2237dc4 a22f2815 a25c506d a2bca5b5 a2bde471 a2c8ce1d a304e512 a34620b6 a34fb82c a354f3a2 a37a1d81 a38a7801 a3bd1c22 a3c78442 a3fd79f1 a413f17c a4887209 a498ad3d a4b9936e a5011071 a53cb1e7 a578d9a1 a591b625 a5a7969d a5b9478d a65babab a690be7a a6d29857 a6d7df8d a6da4696 a6e71289 a71c6ef4 a7429dc7 a7892f90 a79cc078 a7ce1072 a85cc086 a87df701 a8b4c8ff a8ce01b9 a96ccbed a973bb31 a9c74445 a9cfeb38 aa2e8b8a aa37ec55 aa445b7a aa5aa73b aa6e5cae aae22bf0 aaeb63bc aafb379d ab09d79b ab0edee0 ab6f59ae abb21fb5 ac425638 acd404bf ad8a98c5 ada4e374 adbcf8a3 ae7a477e ae7b74a0 ae83534e aeaf7efc aef86842 af27c5c9 af5297c7 af7ab0b9 afbcc003 b02967e2 b045fcbf b07d5b38 b0e6d125 b14c4c85 b1da779d b2085d17 b2452999 b249420e b24fd833 b28079dc b295dab1 b2aa7cd6 b3477a25 b36eb98f b42e84b2 b446950f b4481066 b4dcec8f b4ead545 b60431a0 b612cfc5 b6364e53 b6483d23 b6eee212 b70985f5 b70a2478 b749aeac b7612deb b76b0f09 b7b34e1c b7c09d40 b7cd4c97 b7d95882 b7fa503b b82c27d9 b8385a3f b848560d b8a7c06a b8d30638 b8f23679 b8f951f7 b961e9ab b988ea9a b9d77ca4 b9ee3a18 b9fabfca ba3a39a5 ba40b2d2 ba5fe3c4 ba72b473 ba8004b2 bab274f3 bac339ba bad89510 bb2c55db bb8127e9 bbf515e5 bc01856a bc341db4 bca13952 bce4b93c bced04bf bced1fb1 bd9d7900 be10782a be153f1b be17b259 be5992dc be90dfed bf1e4ad2 bf23261e bf592d13 bf87b5d7 bfaa4819 bfe0544f c0262b86 c043adf9 c06df134 c1293be5 c15d7912 c1880f41 c1b1f88b c1cfd993 c1eb37c5 c1fb9270 c24ccd35 c26c969c c2aace96 c33f9855 c37d063d c39a54e2 c3a64d73 c3e2077a c40288cf c4208ad7 c4307e3f c48552ae c5625344 c5b04ccd c5bcb799 c62aae3a c65cf522 c67bc236 c6db11e9 c6e1182b c7dc3014 c7e703e0 c88f4a69 c895ca93 c8d711f9 c8dcf2a5 c8e5ace8 c958c41d c9613fe2 c9833533 c9e12f4c ca5e22ee ca5f805e cabbf582 cb899e29 cbc925b8 cbdbeef7 cc265089 cc2c96b6 cc547806 cc6ad696 cca6ffea ccd7dcc0 cd1fdd89 cd234fd2 cd24e9d3 cd4297f5 cd67a390 cddf3476 ce1e6211 ce5fd083 ce7ce231 ce950fd7 ceb1bdb2 cf148461 cf3c9b6a cf416487 cf4df2da cf520e78 cf60e304 cfce1fcc d000df8b d00579b7 d0202b70 d0350e51 d04b8aba d0548d69 d0d45cc6 d0e910a8 d0fc8a39 d1128aac d1371666 d166119f d16a8003 d19ea03e d1b66dc4 d1de8fa0 d2025827 d2202e96 d244a9a0 d25cca22 d2636f0e d271396b d275d0bd d2a6a392 d2c5ae49 d33a38e6 d384dce6 d3cb9ec2 d3cc68eb d3ecdf83 d400d172 d4040daa d44e3956 d52b4024 d5752f31 d5e58192 d5f28b51 d6057d42 d630570d d63d37ae d65b9113 d67df22f d6d0033d d6da598d d6f932cc d721a8b4 d72904b3 d7980122 d7add5fd d8c936e5 d906e3c5 d9789f1c d9c6f875 d9d41cd2 d9d8bbeb d9ebe182 da49ee83 da9b1209 db00d973 db5e36cb db8c3845 dba2fe92 dbe1aec7 dbf68613 dbf7a71d dc125ba4 dcadb242 dcdc6528 dce90564 dd4c64a9 dd55042a dddb6887 ddeca936 de2cf281 de802487 deff7f22 df21b107 df3e5d39 df44cbb0 df753542 df9638eb dfb573ff dfe0f53a dfe2ef3b dfe738ff e0e2dffd e0f60253 e12122e7 e15d25fb e1638041 e1c1e739 e1ea11a4 e2397f7b e26e42af e2828241 e2c9691f e2d6cd5f e2d6f5d8 e34dd7aa e3b6be67 e3c78a51 e3f98e83 e4083330 e4586a2c e45c903e e48ce713 e4b9348f e4dbf752 e4df08ce e524dd23 e5377996 e5632e59 e5cd3b2d e5d250d6 e5df1cc9 e5ea2725 e5ef96ad e60ae7a1 e648424f e6612909 e6924874 e6b1bcae e70c844d e70edb64 e76e6a39 e79734ec e7a78ea4 e7dacbe8 e7fcb205 e832f582 e842dfca e84ca291 e8668254 e86ae5f9 e8733522 e8fa99c0 e9276ccd e986b2f9 e9997bb4 e9bcf68d e9c5e039 e9db8a79 e9fec251 ea1efeb5 ea338a40 ea78120a ea977a7b eaa415c5 eb413f55 eb91c454 ec191cbc ec262fdb ec626ea1 ec665506 ec82bd00 ecc9d797 ecdc37b6 ed0b5262 ed541b49 ee755e47 ee7d5570 ee82c026 eedf4f78 ef07959c ef1cf2cb ef3b1515 ef3cd767 ef82ca63 ef88f80f efbfdaca eff60302 f00e07be f01ad3b1 f042fbc1 f046c71f f0998921 f09fcdfc f0be2e11 f0cb9143 f0f4f8b5 f131b45c f161361b f173c9d3 f1f9b095 f21c60a3 f2238cbc f225ccca f226aca7 f2626bba f26fc232 f2b685ac f34da214 f3594a6a f36aa246 f3712040 f37e86e6 f3ca43e4 f40eb044 f42f733f f4378594 f476987e f47c9f02 f4887fa7 f4d3ecb4 f5482f95 f57f6736 f58967bb f5bc5e4f f5c4698e f5e57e10 f61cecb8 f64d14aa f6716e2b f69b1322 f6a41379 f7228226 f72db441 f7dee06e f803d5c0 f8132c01 f81fff0a f83671a9 f842914c f855a31b f88a65b8 f88dbe8a f8a5b166 f8cc84fb f92ae15e f94987b8 f981f097 f98dbef0 f9905198 f9a1d69a f9de4d4d f9f50294 fb89e7a8 fbd93a15 fbf752a3 fc013618 fc047667 fc1360c4 fcbdcd2b fd61fe5f fd745ae8 fd803283 fd91edc7 fda86d5d fdc82716 fddb332e fddc0e03 fde7ff21 fe6659a1 fe7a787b feb3a0f2 ff422025 ff476570 ff63fe8e ff6f3258 ff732646";
@@ -1860,9 +2218,9 @@ async function initDb(){
     const id=await user.id(); if(!id) return;
     COL=db.collection('data/users/'+id);
     const snap=await COL.get();
-    const remote=[],rbody=[],racts=[];let rs=null,rp=null;
+    const remote=[],rbody=[],racts=[],rfood={};let rs=null,rp=null,rflib=null;
     snap.docs.forEach(d=>{if(!d.exists)return;const v=d.data();
-      if(d.id==='mc-settings') rs=v; else if(d.id==='mc-program') rp=v; else if(d.id.indexOf('mca-')===0) racts.push(Object.assign({},v,{id:d.id})); else if(d.id.indexOf('mcb-')===0) rbody.push(Object.assign({},v,{id:d.id})); else if(d.id.indexOf('mc-')===0) remote.push(Object.assign({},v,{id:d.id}));});
+      if(d.id==='mc-settings') rs=v; else if(d.id==='mc-program') rp=v; else if(d.id==='mc-foodlib') rflib=v; else if(d.id.indexOf('mcf-')===0) rfood[d.id.slice(4)]=v; else if(d.id.indexOf('mca-')===0) racts.push(Object.assign({},v,{id:d.id})); else if(d.id.indexOf('mcb-')===0) rbody.push(Object.assign({},v,{id:d.id})); else if(d.id.indexOf('mc-')===0) remote.push(Object.assign({},v,{id:d.id}));});
     const bids=new Set(rbody.map(x=>x.id)),bLocal=S.body.filter(b=>!bids.has(b.id));
     for(const b of bLocal){try{await COL.doc(b.id).set(stripId(b));}catch(e){}}
     S.body=rbody.concat(bLocal).sort((a,b)=>a.ts-b.ts);LS.set('mc-body',S.body);
@@ -1874,6 +2232,7 @@ async function initDb(){
     if(rp&&rp.v===4&&(!S.program||(rp.at||0)>(S.program.at||0)||S.program.legacy&&!rp.legacy)){S.program=rp;LS.set('mc-prog',rp);rebuildProgram();}
     else if(!S.program.legacy||LS.get('mc-prog',null)){try{await COL.doc('mc-program').set(JSON.parse(JSON.stringify(S.program)));}catch(e){}}
     if(typeof mergeActs==='function')await mergeActs(racts);
+    if(typeof mergeFood==='function')await mergeFood(rfood,rflib);
     S.store='db';LS.set('mc-hist',S.history);LS.set('mc-set',S.settings);
     applyTheme();if($('#player').hidden&&$('#onb').hidden) render();
   }catch(e){COL=null;}
@@ -2090,7 +2449,7 @@ async function shareRec(rec){
 }
 async function exportData(){
   const d=new Date(),name=`mancuernas-respaldo-${d.getFullYear()}-${String(d.getMonth()+1).padStart(2,'0')}-${String(d.getDate()).padStart(2,'0')}.json`;
-  const json=JSON.stringify({app:'mancuernas',v:4,at:Date.now(),history:S.history,body:S.body,settings:S.settings,program:S.program,acts:S.acts});
+  const json=JSON.stringify({app:'mancuernas',v:4,at:Date.now(),history:S.history,body:S.body,settings:S.settings,program:S.program,acts:S.acts,food:S.food,flib:S.flib});
   try{
     if(FSP&&SHP){const r=await FSP.writeFile({path:name,data:json,directory:'CACHE',encoding:'utf8'});await SHP.share({title:'Respaldo de Mancuernas',files:[r.uri],dialogTitle:'Guardar respaldo'});return;}
     const r=await webSave(name,new Blob([json],{type:'application/json'}));if(r==='saved')toast('Respaldo guardado');
@@ -2106,7 +2465,9 @@ function importData(text){
   if(j.settings&&!S.settings.name&&j.settings.name){S.settings.name=j.settings.name;saveSettings();}
   if(j.program&&j.program.v===4&&Array.isArray(j.program.days)&&S.program.legacy){S.program=j.program;saveProgram();scheduleReminders();}
   if(Array.isArray(j.acts)){const ai=new Set(S.acts.map(a=>a.id));j.acts.forEach(a=>{if(a&&a.id&&!ai.has(a.id)){S.acts.push(a);if(COL)COL.doc(a.id).set(stripId(a)).catch(()=>{});}});S.acts.sort((a,b)=>a.ts-b.ts);LS.set('mc-acts',S.acts);}
-  render();toast(n?`Se importaron ${pl(n,'entrenamiento','entrenamientos')}`:'No había entrenamientos nuevos en el respaldo');
+  const nf=typeof importFood==='function'?importFood(j.food,j.flib):0;
+  const parts=[n?pl(n,'entrenamiento','entrenamientos'):'',nf?pl(nf,'día de comidas','días de comidas'):''].filter(Boolean);
+  render();toast(parts.length?'Se importaron '+parts.join(' y '):'No había datos nuevos en el respaldo');
 }
 
 
@@ -3642,7 +4003,7 @@ function missionsCard(){
   return `<h2 class="h2">Misiones de la semana <small>${M.filter(m=>m.ok).length}/3 · quedan ${pl(left,'día','días')}</small></h2><div class="card missions">${M.map(m=>{const pc=Math.min(100,m.cur/m.goal*100),f=m.fmt||(x=>x);
     return `<div class="ms ${m.ok?'ok':''}"><span class="mic">${m.ok?IC.check:m.ic}</span><div><b>${m.t}</b><span class="xpbar"><i style="width:${pc}%"></i></span><small>${f(Math.min(m.cur,m.goal))} / ${f(m.goal)}</small></div><em>+${m.xp}</em></div>`;}).join('')}</div>`;
 }
-function homeExtras(){return missionsCard()+`<h2 class="h2">Recuperación muscular</h2>`+recoveryCard(false);}
+function homeExtras(){return (typeof foodHomeCard==='function'?foodHomeCard():'')+missionsCard()+`<h2 class="h2">Recuperación muscular</h2>`+recoveryCard(false);}
 function deloadTip(){
   if(S.settings.mode==='suave')return '';const td=trainDays(),ws=weekStart(Date.now());if(S.settings.deloadDis===ws)return '';
   let run=0;for(let k=1;k<=12;k++){const a=ws-k*7*864e5,n=S.history.filter(h=>h.ts>=a&&h.ts<a+7*864e5).length;if(n>=Math.max(2,td-1))run++;else break;}
@@ -3971,7 +4332,9 @@ function progressCard(N,b){
     if(C.st==='ok')msg=`<b>Vas al ritmo ideal</b><span>${r} Sigue igual.</span>`;
     else{const why={slow:N.goal==='grasa'?'Estás bajando más lento de lo ideal.':'Estás subiendo más lento de lo ideal.',fast:N.goal==='grasa'?'Estás bajando muy rápido: puedes perder músculo.':'Estás subiendo muy rápido: puede ser grasa.',drift:'Tu peso se está moviendo y tu objetivo es mantenerlo.'}[C.st];
       msg=`<b>${why}</b><span>${r}</span>`;
-      if(C.d&&!recent)act=`<button class="btn sm pri" data-act="kadj" data-v="${C.d}">${C.d>0?'Subir':'Bajar'} ${Math.abs(C.d)} kcal al día</button>`;
+      const A=typeof fadherence==='function'?fadherence(N,14):null,off=A&&A.n>=5&&Math.abs(A.avg-A.tgt)>A.tgt*.1;
+      if(off)msg+=`<span class="fadh">Según tu registro, en las últimas dos semanas comiste en promedio <b>${fk(A.avg)} kcal</b> y tu meta era ${fk(A.tgt)}. Antes de cambiar la meta, intenta cumplirla una semana.</span>`;
+      if(C.d&&!recent)act=`<button class="btn sm ${off?'ghost':'pri'}" data-act="kadj" data-v="${C.d}">${C.d>0?'Subir':'Bajar'} ${Math.abs(C.d)} kcal al día${off?' de todas formas':''}</button>`;
       else if(recent)act=`<small class="nfine">Ya ajustamos hace poco. Dale una semana más antes de cambiar otra vez.</small>`;}}
   return `<div class="card nprog"><div class="nph"><div><span class="over">Peso meta</span><div class="ngw"><button class="iconbtn sm" data-act="gwt" data-v="-0.5" aria-label="Bajar meta">−</button><b>${NF.format(gw)} kg</b><button class="iconbtn sm" data-act="gwt" data-v="0.5" aria-label="Subir meta">+</button></div>
     <small>${wks?`${diff>0?'Te faltan':'Te sobran'} ${NF.format(Math.abs(diff))} kg · unas ${wks} semanas a ritmo seguro (${eta})`:'Ya estás en tu meta: ahora a mantener'}</small></div></div>
@@ -4013,6 +4376,7 @@ function menuView(N){
   ${M.map((m,i)=>`<div class="card meal ${i===WM.pre||i===WM.post?'wk':''}"><div class="mhd"><div><span class="over">${m.label}${wtag(i)}</span><b>${esc(m.t)}</b></div><button class="btn sm ghost" data-act="mswap" data-v="${d}-${m.slot}" aria-label="Cambiar ${esc(m.label.toLowerCase())}">${IC.swap}<span class="bl">Cambiar</span></button></div>
     <ul>${m.items.map(([id,q])=>`<li>${esc(cap1(qtyText(id,q)))}</li>`).join('')}</ul>${wtip(i)}<div class="mft"><span>${fk(m.tot.k)} kcal</span><span>${fk(m.tot.p)} g proteína</span><span>${fk(m.tot.c)} g carbos</span></div></div>`).join('')}
   <div class="mtot"><span>Total del día</span><b>${fk(tot.k)} kcal · ${fk(tot.p)} g de proteína</b><small>Meta del día: ${fk(kd)} kcal · ${N.p} g</small></div>
+  ${d===todayIdx?`<button class="btn pri block" style="margin-top:10px" data-act="fsugday">${IC.check}Registrar el menú de hoy en mi diario</button>`:''}
   <button class="btn ghost block" style="margin-top:10px" data-act="shop">${IC.cart}Lista de mercado</button>`;
 }
 function foodPrefs(){
@@ -4029,10 +4393,13 @@ function viewFood(){
   let h='';
   if(!bodyReady(b)||!b.sex)return h+`<div class="card empty nempty">${IC.food}<b>Calcula tu alimentación</b>Con tu edad, peso, estatura y sexo te damos tu rango de peso saludable, tus calorías, la proteína y un menú con comida de aquí.<button class="btn pri sm" style="margin:12px auto 0" data-act="mydata">Poner mis datos</button></div>
     <button class="btn ghost block" style="margin-top:10px" data-act="calc">${IC.ruler}Calcular para otra persona</button>`;
-  const N=myNutri();
-  h+=progressCard(N,b)+targetCard(N)+healthCard(b,N)+menuView(N)+foodPrefs();
-  h+=`<button class="btn ghost block" style="margin-top:10px" data-act="calc">${IC.ruler}Calcular para otra persona</button>
-  <p class="nfine" style="margin-top:14px">Guía general calculada con fórmulas estándar. Si tienes una condición médica, estás en embarazo o quieres un plan exacto, consulta a un nutricionista.</p>`;
+  const N=myNutri(),t=S.ftab||'diario';
+  h+=`<div class="utabs fseg" role="tablist">${[['diario','Diario'],['menu','Menú sugerido'],['metas','Progreso']].map(([k,l])=>`<button role="tab" data-act="ftabset" data-v="${k}" aria-pressed="${t===k}">${l}</button>`).join('')}</div>`;
+  if(t==='menu')h+=menuView(N);
+  else if(t==='metas'){h+=progressCard(N,b)+fweekCard(N)+ftdeeCard(N,b)+targetCard(N)+healthCard(b,N)+foodPrefs();
+    h+=`<button class="btn ghost block" style="margin-top:10px" data-act="calc">${IC.ruler}Calcular para otra persona</button>`;}
+  else h+=diaryView(N);
+  h+=`<p class="nfine" style="margin-top:14px">Guía general calculada con fórmulas estándar y tablas de composición de alimentos (ICBF y USDA). Si tienes una condición médica, estás en embarazo o quieres un plan exacto, consulta a un nutricionista.</p>`;
   return h;
 }
 /* Calculadora para cualquier persona */
@@ -4122,9 +4489,379 @@ function foodAct(a,v){
   return false;
 }
 
+/* Registro de comidas: lo que de verdad comes, comparado con tu meta del día.
+   - Un registro por día (comidas con alimentos, agua). Se guarda en el teléfono y, si hay cuenta, en la nube (mcf-AAAA-MM-DD).
+   - Alimentos de la base (FDB_X + los del menú), alimentos propios y comidas guardadas (mc-foodlib).
+   - Cada alimento registrado guarda sus valores calculados: si la base cambia, el historial no se mueve. */
+
+const FSLOT={des:'Desayuno',mm:'Media mañana',alm:'Almuerzo',onc:'Onces',cen:'Cena',otr:'Otros'};
+const fdk=d=>{d=d instanceof Date?d:new Date(d);return d.getFullYear()+'-'+String(d.getMonth()+1).padStart(2,'0')+'-'+String(d.getDate()).padStart(2,'0');};
+const fdDate=k=>{const [y,m,d]=k.split('-').map(Number);return new Date(y,m-1,d,12);};
+const fdShift=(k,n)=>{const d=fdDate(k);d.setDate(d.getDate()+n);return fdk(d);};
+const fToday=()=>fdk(new Date());
+const fid=()=>'fi'+Date.now().toString(36)+Math.random().toString(36).slice(2,6);
+const r1=x=>Math.round(x*10)/10;
+S.food=LS.get('mc-food',{});
+S.flib=Object.assign({foods:[],meals:[],at:0},LS.get('mc-foodlib',{}));
+
+/* ---------- guardado ---------- */
+function fday(k){const d=S.food[k];return d?{items:(d.items||[]).slice(),water:d.water||0,at:d.at||0}:{items:[],water:0,at:0};}
+// Los días vacíos se guardan igual (con fecha de cambio) para que la nube no los reviva
+// tg: la meta de ese día cuando se registró (las estadísticas comparan contra la meta que tenías, no la de hoy)
+function fsave(k,day){day.at=Date.now();let tg=0;try{const T=ftarget(k);tg=T?T.kcal:0;}catch(e){}
+  S.food[k]={items:day.items,water:day.water||0,at:day.at,tg};LS.set('mc-food',S.food);
+  if(COL)COL.doc('mcf-'+k).set(S.food[k]).catch(()=>{});}
+function flibSave(){S.flib.at=Date.now();LS.set('mc-foodlib',S.flib);if(COL)COL.doc('mc-foodlib').set(JSON.parse(JSON.stringify(S.flib))).catch(()=>{});}
+// Une lo del teléfono con lo de la nube: en cada día gana el último cambio
+async function mergeFood(rdays,rlib){
+  for(const k of Object.keys(rdays)){const r=rdays[k],l=S.food[k];if(!l||(r.at||0)>(l.at||0))S.food[k]={items:r.items||[],water:r.water||0,at:r.at||0,tg:r.tg||0};}
+  for(const k of Object.keys(S.food)){const r=rdays[k],l=S.food[k];if(!r||(l.at||0)>(r.at||0)){try{await COL.doc('mcf-'+k).set({items:l.items,water:l.water||0,at:l.at||0,tg:l.tg||0});}catch(e){}}}
+  LS.set('mc-food',S.food);
+  if(rlib&&(rlib.at||0)>(S.flib.at||0))S.flib=Object.assign({foods:[],meals:[],at:0},rlib);
+  else if(S.flib.at){try{await COL.doc('mc-foodlib').set(JSON.parse(JSON.stringify(S.flib)));}catch(e){}}
+  LS.set('mc-foodlib',S.flib);
+}
+// Respaldo: agrega días y alimentos que no estén
+function importFood(food,lib){
+  let n=0;if(food&&typeof food==='object')Object.keys(food).forEach(k=>{const r=food[k];if(!/^\d{4}-\d\d-\d\d$/.test(k)||!r||!Array.isArray(r.items))return;
+    const l=S.food[k];if(!l||(!l.items.length&&!l.water)||(r.at||0)>(l.at||0)){S.food[k]={items:r.items,water:r.water||0,at:r.at||Date.now(),tg:r.tg||0};n++;if(COL)COL.doc('mcf-'+k).set(S.food[k]).catch(()=>{});}});
+  LS.set('mc-food',S.food);
+  if(lib){const fi=new Set(S.flib.foods.map(x=>x.id)),mi=new Set(S.flib.meals.map(x=>x.id));let ch=0;
+    (lib.foods||[]).forEach(x=>{if(x&&x.id&&!fi.has(x.id)){S.flib.foods.push(x);ch++;}});(lib.meals||[]).forEach(x=>{if(x&&x.id&&!mi.has(x.id)){S.flib.meals.push(x);ch++;}});if(ch)flibSave();}
+  return n;
+}
+
+/* ---------- alimentos ---------- */
+let FDB=null;
+function fdb(){
+  if(FDB)return FDB;FDB={};
+  Object.keys(FOODS).forEach(id=>{const F=FOODS[id],M=FDB_MENU[id]||['ver',0],por=[];if(F.u[0]!=='g')por.push([F.u[0],F.u[1],F.u[2]]);(M[2]||[]).forEach(x=>por.push(x));
+    FDB[id]={id,n:cap1(F.n),cat:M[0],k:F.k,p:F.p,c:F.c,f:F.f,fb:M[1],por,liq:!!M[3],kw:(F.rn||'')+' '+(FDB_KW[id]||'')};});
+  FDB_X.forEach(([id,n,cat,k,p,c,f,fb,por,kw,liq])=>{FDB[id]={id,n,cat,k,p,c,f,fb,por,kw:kw||'',liq:!!liq};});
+  return FDB;
+}
+function food(id){if(!id)return null;if(id.indexOf('my-')===0)return S.flib.foods.find(z=>z.id===id)||null;return fdb()[id]||null;}
+const funits=F=>{const u=(F.por||[]).slice();if(!F.nog||!u.length)u.push(F.liq?['ml','ml',1]:['g','g',1]);return u;};
+const fbase=P=>P[2]===1&&(P[0]==='g'||P[0]==='ml');
+function fcalc(F,q,u){const U=funits(F),P=U[Math.max(0,Math.min(u,U.length-1))],w=q*P[2],r=w/100;return {w,k:F.k*r,p:F.p*r,c:F.c*r,fat:F.f*r,fib:(F.fb||0)*r};}
+const FQ={.25:'¼',.5:'½',.75:'¾'};
+function fq(q){const w=Math.floor(q+1e-6),r=Math.round((q-w)*100)/100,fr=FQ[r];if(!r)return NF.format(w);if(fr)return w?w+' y '+fr:fr;return NF.format(Math.round(q*100)/100);}
+function qlabel(F,q,u){const U=funits(F),P=U[Math.max(0,Math.min(u,U.length-1))];if(fbase(P))return NF.format(Math.round(q))+' '+P[0];
+  return `${fq(q)} ${q>1?P[1]:P[0]}${F.nog?'':' · '+NF.format(Math.round(q*P[2]))+' '+(F.liq?'ml':'g')}`;}
+function fitem(F,q,u,s){const m=fcalc(F,q,u);return {id:fid(),s,f:F.id,n:F.n,q,u,qt:qlabel(F,q,u),w:Math.round(m.w),k:Math.round(m.k),p:r1(m.p),c:r1(m.c),fat:r1(m.fat),fib:r1(m.fib),t:Date.now()};}
+function fdefault(F){const U=funits(F);return fbase(U[0])?{u:0,q:100}:{u:0,q:1};}
+const ftot=items=>items.reduce((a,i)=>{a.k+=i.k||0;a.p+=i.p||0;a.c+=i.c||0;a.fat+=i.fat||0;a.fib+=i.fib||0;return a;},{k:0,p:0,c:0,fat:0,fib:0});
+const fnorm=s=>String(s||'').toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g,'');
+// Recientes y frecuentes de los últimos 90 días, con la última cantidad usada
+function fhist(){
+  const out={},now=Date.now();
+  Object.keys(S.food).forEach(k=>{if(now-fdDate(k)>90*864e5)return;(S.food[k].items||[]).forEach(it=>{if(!it.f||!food(it.f))return;
+    const o=out[it.f]||(out[it.f]={id:it.f,n:0,t:0,u:it.u,q:it.q});o.n++;if((it.t||0)>o.t){o.t=it.t||0;o.u=it.u;o.q=it.q;}});});
+  return out;
+}
+function fsearch(q){
+  const t=fnorm(q).trim().split(/\s+/).filter(Boolean);if(!t.length)return [];
+  const H=fhist(),all=Object.values(fdb()).concat(S.flib.foods),res=[];
+  all.forEach(F=>{const n=fnorm(F.n),kw=fnorm(F.kw);let s=0,miss=0;
+    for(const w of t){const re=new RegExp('(^|[^a-z])'+w.replace(/[.*+?^${}()|[\]\\]/g,'\\$&'));
+      if(n.startsWith(w))s+=4;else if(re.test(n))s+=3;else if(n.includes(w))s+=1;else if(kw.includes(w))s+=1.5;else miss++;}
+    if(miss&&(t.length<2||miss>1||s<3))return;s-=miss*3;
+    s+=(F.id.indexOf('my-')===0?1:0)+Math.min(2,(H[F.id]?H[F.id].n:0)*.2)-n.length*.004;res.push([s,F]);});
+  return res.sort((a,b)=>b[0]-a[0]).slice(0,40).map(x=>x[1]);
+}
+
+/* ---------- metas del día ---------- */
+function ftarget(k,N){
+  N=N||myNutri();if(!N)return null;const wd=(fdDate(k).getDay()+6)%7,kcal=dayKcal(wd,N),tr=!!S.program.week[wd];
+  return {kcal,p:N.p,f:N.f,c:Math.max(50,Math.round((kcal-N.p*4-N.f*9)/4/5)*5),fib:Math.round(kcal/1000*14),water:tr?N.waterT:N.water,tr,wd};
+}
+function fslotsPlan(){const n=S.settings.meals||4;return n===3?['des','alm','cen']:n===5?['des','mm','alm','onc','cen']:['des','alm','onc','cen'];}
+function fslots(D){const s=fslotsPlan().concat(['otr']);(D?D.items:[]).forEach(i=>{if(!s.includes(i.s))s.splice(s.length-1,0,i.s);});return Object.keys(FSLOT).filter(k=>s.includes(k));}
+function fslotNow(){const h=new Date().getHours()+new Date().getMinutes()/60,P=fslotsPlan();
+  const s=h<10.5?'des':h<12?(P.includes('mm')?'mm':'des'):h<15?'alm':h<18.5?(P.includes('onc')?'onc':'otr'):'cen';return s;}
+// Comida sugerida por el menú para ese día y ese momento
+function fsugMeal(k,s,N){const i=fslotsPlan().indexOf(s);if(i<0)return null;const T=ftarget(k,N);try{return dayMenu(T.wd,N)[i]||null;}catch(e){return null;}}
+function fsugItems(m,s){return m.items.map(([id,q])=>{const F=food(id);if(!F)return null;const U=funits(F),u=FOODS[id]&&FOODS[id].u[0]==='g'?U.length-1:0;return fitem(F,q,u,s);}).filter(Boolean);}
+
+/* ---------- estadísticas ---------- */
+function fweek(N,days){
+  const today=fToday(),out=[];
+  for(let i=days-1;i>=0;i--){const k=fdShift(today,-i),D=S.food[k],T0=ftarget(k,N),T=D&&D.tg&&i>0?Object.assign({},T0,{kcal:D.tg}):T0,t=ftot(D?D.items||[]:[]);
+    out.push({k,T,t,n:D?(D.items||[]).length:0,today:i===0,full:i>0&&t.k>=T.kcal*.5});}
+  return out;
+}
+function fstreak(){let k=fToday(),n=0;if(!(S.food[k]&&S.food[k].items.length))k=fdShift(k,-1);
+  while(S.food[k]&&S.food[k].items&&S.food[k].items.length){n++;k=fdShift(k,-1);}return n;}
+// Promedio de lo comido contra la meta en los días completos
+function fadherence(N,days){const F=fweek(N,days+1).filter(d=>d.full);if(!F.length)return null;
+  const avg=F.reduce((a,d)=>a+d.t.k,0)/F.length,tgt=F.reduce((a,d)=>a+d.T.kcal,0)/F.length;return {n:F.length,avg,tgt,p:F.reduce((a,d)=>a+d.t.p,0)/F.length};}
+/* Gasto real: lo que comes en promedio menos lo que cambia tu peso (7.700 kcal por kg) */
+function realTdee(N){
+  const t=weightTrend(28),F=fweek(N,29).filter(d=>d.full);
+  if(F.length<10||!t)return {need:F.length<10?'dias':'peso',n:F.length};
+  const avg=F.reduce((a,d)=>a+d.t.k,0)/F.length,v=avg-t.rate*7700/7;
+  return {tdee:Math.round(Math.max(1200,Math.min(5000,v))/10)*10,avg:Math.round(avg),n:F.length,rate:t.rate};
+}
+
+/* Consejos del día según lo que llevas (máximo dos) */
+const FPROT=[['pollo','una porción de pechuga de pollo',37,1],['atun','una lata de atún',26,1],['whey','un scoop de proteína',24,2],['yogur','un vaso de yogur griego',13.5],['huevo','2 huevos',12.6],['queso','2 tajadas de queso campesino',12],['lenteja','un cucharón de lentejas',10.8]];
+function ftips(T,tot,D){
+  const h=new Date().getHours(),out=[],pr=T.p-tot.p;
+  if(pr>=20){const O=FPROT.filter(x=>!(x[3]===1&&S.settings.veg)&&!(x[3]===2&&!S.settings.whey)&&x[2]<=pr+8).slice(0,2);
+    if(O.length)out.push([IC.bolt,`Te faltan <b>${fk(pr)} g de proteína</b>. Por ejemplo: ${O.map(x=>`${x[1]} (${fk(x[2])} g)`).join(' o ')}.`]);}
+  if(tot.k>T.kcal*1.1)out.push([IC.info,`Te pasaste <b>${fk(tot.k-T.kcal)} kcal</b>. No pasa nada: mañana vuelve a tu meta normal, sin saltarte comidas.`]);
+  if(h>=20&&tot.k<T.kcal*.75)out.push([IC.list,`Te faltan ${fk(T.kcal-tot.k)} kcal. Si ya no vas a comer más, revisa que esté todo registrado: así tus promedios son reales.`]);
+  if(h>=15&&(D.water||0)/1000<T.water*.4)out.push([IC.drop,`Llevas ${NF.format((D.water||0)/1000)} de ${NF.format(T.water)} L de agua. Ten una botella cerca en la tarde.`]);
+  if(h>=18&&tot.fib<T.fib*.5&&tot.k>T.kcal*.5)out.push([IC.info,`Vas con poca fibra (${fk(tot.fib)} de ${T.fib} g). Suma verduras, fríjoles o una fruta.`]);
+  return out.slice(0,2).map(([ic,t])=>`<div class="ftip">${ic}<span>${t}</span></div>`).join('');
+}
+
+/* ---------- vistas ---------- */
+function fring(v,max,size){const r=size/2-6,C=2*Math.PI*r,p=Math.min(1,max?v/max:0),c=size/2,over=v>max*1.1;
+  return `<svg class="fring ${over?'over':''}" viewBox="0 0 ${size} ${size}" width="${size}" height="${size}" aria-hidden="true"><circle class="bg" cx="${c}" cy="${c}" r="${r}"/>${p>0?`<circle class="fg" cx="${c}" cy="${c}" r="${r}" stroke-dasharray="${(C*p).toFixed(1)} ${C.toFixed(1)}" transform="rotate(-90 ${c} ${c})"/>`:''}</svg>`;}
+function fbar(lbl,v,max,cls,u){const p=Math.min(100,max?v/max*100:0),over=v>max*1.15;
+  return `<div class="fmac ${cls}"><div class="fmt"><span>${lbl}</span><b>${fk(v)}<small> / ${fk(max)} ${u||'g'}</small></b></div><i><s style="width:${p}%"${over?' class="over"':''}></s></i></div>`;}
+function fdateLabel(k){const t=fToday();if(k===t)return 'Hoy';if(k===fdShift(t,-1))return 'Ayer';return cap1(fdDate(k).toLocaleDateString('es-CO',{weekday:'long'}));}
+function diaryView(N){
+  const today=fToday();let k=S.fdate||today;if(k>today)k=S.fdate=today;
+  const D=fday(k),T=ftarget(k,N),tot=ftot(D.items),rem=T.kcal-tot.k,prev=fday(fdShift(k,-1)),PL=fslotsPlan();
+  let MN=null;try{MN=dayMenu(T.wd,N);}catch(e){}
+  let h=`<div class="fdate"><button class="iconbtn" data-act="fdnav" data-v="-1" aria-label="Día anterior">${IC.left}</button>
+    <button class="fdl" data-act="fdtoday" aria-label="Ir a hoy"><b>${fdateLabel(k)}</b><small>${fdDate(k).toLocaleDateString('es-CO',{day:'numeric',month:'long'})}</small></button>
+    <button class="iconbtn" data-act="fdnav" data-v="1" aria-label="Día siguiente" ${k>=today?'disabled':''}>${IC.right}</button></div>`;
+  h+=`<div class="card fsum"><div class="fsum1"><div class="fringw">${fring(tot.k,T.kcal,112)}<div class="frc"><b>${fk(Math.abs(rem))}</b><span>${rem>=0?'kcal restantes':'kcal de más'}</span></div></div>
+    <div class="fkv"><div><span>Meta</span><b>${fk(T.kcal)}</b></div><div><span>Comido</span><b>${fk(tot.k)}</b></div>
+    <div class="fdt ${T.tr?'tr':''}">${T.tr?IC.dumb:IC.moon}${T.tr?'Día de entreno':'Día de descanso'}</div></div></div>
+    <div class="fmacs">${fbar('Proteína',tot.p,T.p,'m-p')}${fbar('Carbohidratos',tot.c,T.c,'m-c')}${fbar('Grasas',tot.fat,T.f,'m-f')}${fbar('Fibra',tot.fib,T.fib,'m-fb')}</div></div>`;
+  const wl=(D.water||0)/1000;
+  h+=`<div class="card fwat"><span class="nic">${IC.drop}</span><div class="fwt"><div><b>${NF.format(wl)} L</b><small> de ${NF.format(T.water)} L</small></div><i><s style="width:${Math.min(100,wl/T.water*100)}%"></s></i></div>
+    <button class="iconbtn sm" data-act="fwater" data-v="-250" aria-label="Quitar un vaso" ${D.water?'':'disabled'}>−</button><button class="btn sm pri" data-act="fwater" data-v="250" aria-label="Agregar un vaso de agua">+ Vaso</button></div>`;
+  if(k===today&&D.items.length){const tp=ftips(T,tot,D);if(tp)h+=`<div class="ftips">${tp}</div>`;}
+  fslots(D).forEach(s=>{
+    const its=D.items.filter(x=>x.s===s),t=ftot(its);
+    h+=`<div class="card fmeal"><div class="fmh"><div><b>${FSLOT[s]}</b><small>${its.length?`${fk(t.k)} kcal · P ${fk(t.p)} · C ${fk(t.c)} · G ${fk(t.fat)}`:'Sin registrar'}</small></div>
+      <button class="fplus" data-act="fadd" data-v="${s}" aria-label="Agregar a ${FSLOT[s].toLowerCase()}">${IC.plus}</button></div>`;
+    if(its.length)h+=`<ul class="fitems">${its.map(it=>`<li><button data-act="fedit" data-v="${it.id}"><span><b>${esc(it.n)}</b><small>${esc(it.qt||'')}</small></span><em>${fk(it.k)}</em></button></li>`).join('')}</ul>
+      ${its.length>1?`<div class="fmf"><button class="flink" data-act="fsavemeal" data-v="${s}">${IC.star}Guardar como comida</button></div>`:''}`;
+    else{const m=MN&&PL.indexOf(s)>=0?MN[PL.indexOf(s)]:null,py=prev.items.filter(x=>x.s===s);
+      if(m||py.length)h+=`<div class="fsug">${m?`<button class="fsg" data-act="fsug" data-v="${s}"><span><small>Sugerido</small><b>${esc(m.t)}</b><em>${fk(m.tot.k)} kcal · ${fk(m.tot.p)} g de proteína</em></span><span class="fsgb">${IC.plus}Registrar</span></button>`:''}
+        ${py.length?`<button class="flink" data-act="fcopy" data-v="${s}">${IC.swap}Copiar de ${k===today?'ayer':'el día anterior'} · ${fk(ftot(py).k)} kcal</button>`:''}</div>`;}
+    h+=`</div>`;
+  });
+  if(!D.items.length&&prev.items.length)h+=`<button class="btn ghost block" style="margin-top:10px" data-act="fcopyday">${IC.swap}Copiar todo lo de ${k===today?'ayer':'el día anterior'}</button>`;
+  h+=`<button class="btn ghost block" style="margin-top:10px" data-act="ftabset" data-v="metas">${IC.layers}Ver tu semana y tu gasto real</button>`;
+  return h;
+}
+/* Últimos 7 días */
+function fweekCard(N){
+  const W=fweek(N,7),F=W.filter(d=>d.full),st=fstreak();
+  const mx=Math.max(...W.map(d=>Math.max(d.t.k,d.T.kcal)))*1.12||1,Wd=340,H=132,L=8,R=8,T=16,B=22,iw=Wd-L-R,ih=H-T-B,bw=iw/7;
+  const Y=v=>T+ih-ih*v/mx;
+  const bars=W.map((d,i)=>{const x=L+bw*i,hb=ih*d.t.k/mx,cls=!d.n?'none':d.today?'now':Math.abs(d.t.k-d.T.kcal)<=d.T.kcal*.1?'ok':d.t.k<d.T.kcal?'lo':'hi';
+    return `<rect class="fb ${cls}" x="${(x+bw*.2).toFixed(1)}" y="${(T+ih-hb).toFixed(1)}" width="${(bw*.6).toFixed(1)}" height="${Math.max(0,hb).toFixed(1)}" rx="4"/>
+      <line class="ft" x1="${(x+bw*.1).toFixed(1)}" x2="${(x+bw*.9).toFixed(1)}" y1="${Y(d.T.kcal).toFixed(1)}" y2="${Y(d.T.kcal).toFixed(1)}"/>
+      ${d.n?`<text class="ax" x="${(x+bw/2).toFixed(1)}" y="${(T+ih-hb-4).toFixed(1)}" text-anchor="middle">${NF.format(Math.round(d.t.k/100)/10)}</text>`:''}
+      <text class="ax ${d.today?'b':''}" x="${(x+bw/2).toFixed(1)}" y="${H-6}" text-anchor="middle">${LETTERS3[(fdDate(d.k).getDay()+6)%7].slice(0,2)}</text>`;}).join('');
+  const avg=F.length?F.reduce((a,d)=>a+d.t.k,0)/F.length:0,tg=F.length?F.reduce((a,d)=>a+d.T.kcal,0)/F.length:0,pp=F.length?F.reduce((a,d)=>a+d.t.p,0)/F.length:0;
+  const ok=F.filter(d=>Math.abs(d.t.k-d.T.kcal)<=d.T.kcal*.1).length;
+  return `<h2 class="h2">Tu semana <small>miles de kcal</small></h2><div class="card fwk">
+    <svg class="fwc" viewBox="0 0 ${Wd} ${H}" role="img" aria-label="Calorías de los últimos 7 días contra la meta">${bars}</svg>
+    <div class="flg"><span><i class="ok"></i>En meta (±10 %)</span><span><i class="lo"></i>Por debajo</span><span><i class="hi"></i>Por encima</span><span><i class="tl"></i>Meta</span></div>
+    ${F.length?`<div class="fst"><div><span>Promedio</span><b>${fk(avg)}</b><small>meta ${fk(tg)} kcal</small></div><div><span>Proteína</span><b>${fk(pp)} g</b><small>meta ${N.p} g</small></div>
+      <div><span>Días en meta</span><b>${ok} de ${F.length}</b><small>días completos</small></div><div><span>Racha</span><b>${pl(st,'día','días')}</b><small>registrando</small></div></div>
+      ${avg&&Math.abs(avg-tg)>tg*.1?`<p class="fnote">${avg<tg?`Estás comiendo cerca de ${fk(tg-avg)} kcal menos de tu meta. ${N.goal==='musculo'||N.goal==='fuerza'?'Para ganar músculo necesitas llegar a la meta: suma una merienda o porciones un poco más grandes.':'Si te sientes con poca energía en el entreno, acércate a la meta.'}`:`Estás comiendo cerca de ${fk(avg-tg)} kcal más que tu meta. ${N.goal==='grasa'?'Para bajar grasa, revisa bebidas, salsas y meriendas: ahí suelen estar las calorías de más.':'Si tu peso sube más rápido de lo ideal, acércate a la meta.'}`}</p>`:''}`
+    :`<p class="fnote">Registra al menos un día completo para ver tu promedio y tu cumplimiento. Hoy no cuenta hasta que termine.</p>`}</div>`;
+}
+function ftdeeCard(N,b){
+  const R=realTdee(N);
+  if(R.need)return `<div class="card ftdee"><div class="nh1"><span class="nic">${IC.flame}</span><div><span class="over">Tu gasto real</span><b>Aún sin datos suficientes</b>
+    <small>${R.need==='dias'?`Llevas ${pl(R.n,'día completo','días completos')} de 10 en las últimas 4 semanas.`:'Te faltan registros de peso: pésate una vez por semana.'} Con tus comidas y tu peso calculo cuánto gastas de verdad, no solo por fórmula.</small></div></div></div>`;
+  const diff=R.tdee-N.tdee,use=Math.abs(diff)>=150;
+  return `<div class="card ftdee"><div class="nh1"><span class="nic">${IC.flame}</span><div><span class="over">Tu gasto real</span><b>${fk(R.tdee)} kcal al día</b>
+    <small>Comiste en promedio ${fk(R.avg)} kcal en ${R.n} días y tu peso va ${kgw(R.rate)} por semana. La fórmula decía ${fk(N.tdee)} kcal${use?` (${diff>0?'+':'−'}${fk(Math.abs(diff))})`:', así que vas bien calibrado'}.</small></div></div>
+    ${use?`<button class="btn sm pri block" style="margin-top:12px" data-act="frealuse" data-v="${R.tdee}">Calcular mi meta con mi gasto real</button>`:''}</div>`;
+}
+function foodHomeCard(){
+  const N=typeof myNutri==='function'&&myNutri();if(!N)return '';
+  const k=fToday(),D=fday(k),T=ftarget(k,N),t=ftot(D.items),rem=T.kcal-t.k;
+  return `<h2 class="h2">Alimentación de hoy</h2><div class="card fhome"><button class="fhl" data-act="fgo" aria-label="Abrir el registro de comidas"><span class="fringw sm">${fring(t.k,T.kcal,58)}<b>${Math.round(Math.min(999,T.kcal?t.k/T.kcal*100:0))}%</b></span>
+    <span class="fht"><b>${fk(t.k)} de ${fk(T.kcal)} kcal</b><small>${D.items.length?`Proteína ${fk(t.p)} de ${T.p} g · ${rem>=0?'faltan '+fk(rem):fk(-rem)+' de más'}`:'Aún no registras nada hoy'}</small></span></button>
+    <button class="btn sm pri" data-act="fadd" data-v="${fslotNow()}">${IC.plus}Registrar</button></div>`;
+}
+
+/* ---------- hoja: agregar ---------- */
+let FADD=null;
+const FTABS=[['rec','Recientes'],['freq','Frecuentes'],['meals','Mis comidas'],['mine','Mis alimentos'],['all','Todos']];
+let FTL=null; // última pestaña elegida a mano
+function addSheet(s,k){const H=fhist();FADD={k:k||S.fdate||fToday(),s,q:'',tab:Object.keys(H).length?FTL||'rec':FTL&&FTL!=='rec'&&FTL!=='freq'?FTL:'all',cat:(FADD&&FADD.cat)||'prot'};renderAdd();}
+function frow(F,q,u,extra){const m=fcalc(F,q,u);
+  return `<li><button class="frow" data-act="fpick" data-v="${F.id}|${u}|${q}"><span><b>${esc(F.n)}</b><small>${esc(qlabel(F,q,u))}${extra?' · '+extra:''}</small></span><em>${fk(m.k)}<small> kcal</small></em></button></li>`;}
+function addList(){
+  const A=FADD,q=A.q.trim();
+  if(q){const M=S.flib.meals.filter(m=>fnorm(m.n).includes(fnorm(q))),R=fsearch(q);
+    if(!M.length&&!R.length)return `<div class="fempty"><b>No encontramos «${esc(q)}»</b><span>Créalo con los datos de la etiqueta o de una porción que conozcas.</span><button class="btn sm pri" data-act="fnew" data-v="${esc(q)}">${IC.plus}Crear «${esc(q)}»</button></div>`;
+    return `<ul class="flist">${M.map(fmealRow).join('')}${R.map(F=>{const d=fdefault(F);return frow(F,d.q,d.u,F.id.indexOf('my-')===0?'mío':'');}).join('')}</ul>`;}
+  if(A.tab==='rec'||A.tab==='freq'){const H=Object.values(fhist()).sort((a,b)=>A.tab==='rec'?b.t-a.t:b.n-a.n||b.t-a.t).filter(x=>A.tab==='rec'||x.n>1).slice(0,25);
+    if(!H.length)return `<div class="fempty"><b>${A.tab==='rec'?'Aún no hay recientes':'Aún no hay frecuentes'}</b><span>${A.tab==='rec'?'Lo que registres aparece aquí con la última cantidad que usaste.':'Lo que registres dos o más veces aparece aquí.'}</span></div>`;
+    return `<ul class="flist">${H.map(x=>frow(food(x.id),x.q,x.u,A.tab==='freq'?pl(x.n,'vez','veces'):'')).join('')}</ul>`;}
+  if(A.tab==='meals')return S.flib.meals.length?`<ul class="flist">${S.flib.meals.map(fmealRow).join('')}</ul>`:`<div class="fempty"><b>Sin comidas guardadas</b><span>Registra una comida con varios alimentos y toca «Guardar como comida». Después la agregas completa con un toque.</span></div>`;
+  if(A.tab==='mine')return S.flib.foods.length?`<ul class="flist">${S.flib.foods.map(F=>{const d=fdefault(F);return frow(F,d.q,d.u);}).join('')}</ul><p class="fnote">Para editar o borrar un alimento tuyo, ábrelo y toca «Editar alimento».</p>`
+    :`<div class="fempty"><b>Sin alimentos propios</b><span>Crea los productos que compras con los datos de la tabla nutricional del empaque.</span><button class="btn sm pri" data-act="fnew">${IC.plus}Crear alimento</button></div>`;
+  const L=Object.values(fdb()).filter(F=>F.cat===A.cat).sort((a,b)=>a.n.localeCompare(b.n,'es'));
+  return `<div class="chips fcats">${Object.keys(FCAT).map(c=>`<button class="chip" data-act="fcat" data-v="${c}" aria-pressed="${A.cat===c}">${FCAT[c]}</button>`).join('')}</div>
+    <ul class="flist">${L.map(F=>{const d=fdefault(F);return frow(F,d.q,d.u);}).join('')}</ul>`;
+}
+function fmealRow(m){const t=ftot(m.items);
+  return `<li class="fmr"><button class="frow" data-act="fmealadd" data-v="${m.id}"><span><b>${IC.star}${esc(m.n)}</b><small>${esc(m.items.map(i=>i.n).slice(0,3).join(', '))}${m.items.length>3?'…':''}</small></span><em>${fk(t.k)}<small> kcal</small></em></button>
+    <button class="iconbtn sm" data-act="fmealdel" data-v="${m.id}" aria-label="Borrar ${esc(m.n)}">${IC.x}</button></li>`;}
+function renderAdd(){
+  const A=FADD,diff=A.k!==fToday();
+  sheet(`<h3>Agregar a ${FSLOT[A.s].toLowerCase()}</h3><p class="sub">${diff?fdateLabel(A.k)+', '+fdDate(A.k).toLocaleDateString('es-CO',{day:'numeric',month:'long'}):'Hoy'} · busca, elige y ajusta la porción.</p>
+  <label class="search fsearch">${IC.search}<input id="fsq" type="search" placeholder="Buscar: arepa, pollo, gaseosa…" autocomplete="off" enterkeyhint="search" value="${esc(A.q)}" aria-label="Buscar alimento"></label>
+  <div class="utabs ftabs" id="ftabs" ${A.q?'hidden':''}>${FTABS.map(([k,l])=>`<button data-act="ftab" data-v="${k}" aria-pressed="${A.tab===k}">${l}</button>`).join('')}</div>
+  <div id="faddlist">${addList()}</div>
+  <div class="fbtns"><button class="btn sm ghost" data-act="fnew">${IC.plus}Crear alimento</button><button class="btn sm ghost" data-act="fquick">${IC.flame}Solo calorías</button></div>
+  <div class="acts"><button class="btn" data-act="close">Cerrar</button></div>`);
+  const p=$('#sheet .pan');if(p)p.classList.add('tall');
+  const on=$('#ftabs [aria-pressed="true"]');if(on&&on.scrollIntoView)try{on.scrollIntoView({inline:'center',block:'nearest'});}catch(e){}
+}
+
+/* ---------- hoja: porción ---------- */
+let FP=null;
+function fstep(F,u){const P=funits(F)[u];if(fbase(P))return F.liq?50:10;return P[2]<=12?1:P[2]>=200?.25:.5;}
+function portionSheet(o){FP=o;renderPortion();}
+function fprev(F){const m=fcalc(F,FP.q,FP.u);
+  return `<div class="fpk"><b>${fk(m.k)}</b><span>kcal</span></div><div class="fpm"><span><b>${NF.format(r1(m.p))} g</b>proteína</span><span><b>${NF.format(r1(m.c))} g</b>carbohidratos</span><span><b>${NF.format(r1(m.fat))} g</b>grasas</span><span><b>${NF.format(r1(m.fib))} g</b>fibra</span></div>`;}
+function renderPortion(){
+  const F=food(FP.f);if(!F){closeSheet();return;}const U=funits(F),P=U[FP.u],st=fstep(F,FP.u),base=F.liq?'ml':'g',mine=F.id.indexOf('my-')===0;
+  sheet(`<h3>${esc(F.n)}</h3><p class="sub">${mine?'Alimento tuyo':FCAT[F.cat]||''}${F.nog?'':` · ${fk(F.k)} kcal en 100 ${base}`}</p>
+  ${U.length>1?`<div class="chips wrap funits">${U.map((x,i)=>`<button class="chip" data-act="funit" data-v="${i}" aria-pressed="${FP.u===i}">${fbase(x)?(F.liq?'Mililitros':'Gramos'):esc(cap1(x[0]))+`<small> ${NF.format(x[2])} ${base}</small>`}</button>`).join('')}</div>`:''}
+  <div class="fqty"><button class="iconbtn" data-act="fqstep" data-v="-1" aria-label="Menos">−</button><label><input id="fpq" inputmode="decimal" value="${NF.format(FP.q)}" aria-label="Cantidad"><span>${esc(fbase(P)?P[0]:FP.q>1?P[1]:P[0])}</span></label><button class="iconbtn" data-act="fqstep" data-v="1" aria-label="Más">+</button></div>
+  ${fbase(P)?`<div class="fqk">${(F.liq?[100,200,250,330,500]:[50,100,150,200,250]).map(n=>`<button class="chip" data-act="fqset" data-v="${n}" aria-pressed="${FP.q===n}">${n} ${base}</button>`).join('')}</div>`
+    :`<div class="fqk">${(st>=1?[1,2,3,4,5]:st===.25?[.25,.5,.75,1,1.5]:[.5,1,1.5,2,3]).map(n=>`<button class="chip" data-act="fqset" data-v="${n}" aria-pressed="${FP.q===n}">${fq(n)}</button>`).join('')}</div>`}
+  <div class="fprev" id="fprev">${fprev(F)}</div>
+  <div class="over" style="margin-top:14px">Comida</div><div class="chips wrap fslotc">${fslots(fday(FP.k)).map(s=>`<button class="chip" data-act="fpslot" data-v="${s}" aria-pressed="${FP.s===s}">${FSLOT[s]}</button>`).join('')}</div>
+  <div class="acts"><button class="btn pri" data-act="fpsave">${FP.id?'Guardar cambios':'Agregar a '+FSLOT[FP.s].toLowerCase()}</button>
+  ${FP.id?`<button class="btn danger" data-act="fpdel">${IC.x}Quitar del registro</button>`:''}
+  ${mine?`<button class="btn ghost" data-act="fmyedit" data-v="${F.id}">${IC.pen}Editar alimento</button>`:''}
+  <button class="btn" data-act="${FP.id?'close':'fpback'}">${FP.id?'Cancelar':'Volver'}</button></div>`);
+}
+function fpRead(){const i=$('#fpq');if(!i)return;const v=parseFloat(String(i.value).replace(',','.'));if(!isNaN(v)&&v>=0)FP.q=Math.min(5000,v);}
+
+/* ---------- hoja: solo calorías ---------- */
+let FQK=null;
+function quickSheet(o){FQK=o;const f=(id,l,v,ph)=>`<label><span>${l}</span><input inputmode="decimal" id="fqk-${id}" value="${v!=null&&v!==''?NF.format(v):''}" placeholder="${ph||''}" autocomplete="off"></label>`;
+  sheet(`<h3>${FQK.id?'Editar registro rápido':'Solo calorías'}</h3><p class="sub">Para cuando no encuentras el alimento o ya sabes las calorías. Los macros son opcionales.</p>
+  <div class="bform"><label class="wide"><span>Nombre</span><input id="fqk-n" value="${esc(FQK.n||'')}" placeholder="Ej.: almuerzo del restaurante" autocomplete="off" maxlength="60"></label>
+  ${f('k','Calorías <small>kcal</small>',FQK.k,'0')}${f('p','Proteína <small>g</small>',FQK.p)}${f('c','Carbohidratos <small>g</small>',FQK.c)}${f('fat','Grasas <small>g</small>',FQK.fat)}</div>
+  <div class="over" style="margin-top:14px">Comida</div><div class="chips wrap">${fslots(fday(FQK.dk)).map(s=>`<button class="chip" data-act="fqkslot" data-v="${s}" aria-pressed="${FQK.s===s}">${FSLOT[s]}</button>`).join('')}</div>
+  <div class="acts"><button class="btn pri" data-act="fqksave">${FQK.id?'Guardar cambios':'Agregar'}</button>${FQK.id?`<button class="btn danger" data-act="fqkdel">${IC.x}Quitar del registro</button>`:''}<button class="btn" data-act="${FQK.id?'close':'fqkback'}">${FQK.id?'Cancelar':'Volver'}</button></div>`);}
+const fnum=id=>{const i=$('#'+id);if(!i)return null;const s=String(i.value).trim();if(!s)return null;const v=parseFloat(s.replace(',','.'));return isNaN(v)||v<0?NaN:v;};
+function fqkRead(){['k','p','c','fat'].forEach(x=>{FQK[x]=fnum('fqk-'+x);});const n=$('#fqk-n');if(n)FQK.n=n.value.trim();}
+
+/* ---------- hoja: crear alimento ---------- */
+let FNEW=null;
+const fplural=w=>{const [a,...r]=w.trim().split(' '),p=/ón$/.test(a)?a.replace(/ón$/,'ones'):/[aeiouáéíóú]$/i.test(a)?a+'s':/z$/.test(a)?a.replace(/z$/,'ces'):a+'es';return [p].concat(r).join(' ');};
+function newFoodSheet(o){FNEW=Object.assign({per:'por',pn:'porción',pg:'',liq:false,n:'',k:'',p:'',c:'',f:'',fb:''},o||{});renderNewFood();}
+function renderNewFood(){
+  const A=FNEW,f=(id,l,v)=>`<label><span>${l}</span><input inputmode="decimal" id="fnw-${id}" value="${v!==''&&v!=null?NF.format(v):''}" autocomplete="off"></label>`;
+  sheet(`<h3>${A.id?'Editar alimento':'Crear alimento'}</h3><p class="sub">Copia los datos de la tabla nutricional del empaque. Queda guardado en «Mis alimentos».</p>
+  <div class="bform"><label class="wide"><span>Nombre</span><input id="fnw-n" value="${esc(A.n)}" placeholder="Ej.: yogur Alpina griego" autocomplete="off" maxlength="60"></label></div>
+  <div class="seg" style="margin-top:12px">${[['por','Valores por porción'],['100','Por 100 '+(A.liq?'ml':'g')]].map(([k,l])=>`<button data-act="fnwper" data-v="${k}" aria-pressed="${A.per===k}">${l}</button>`).join('')}</div>
+  <div class="bform" style="margin-top:10px">${A.per==='por'?`<label><span>Porción</span><input id="fnw-pn" value="${esc(A.pn)}" placeholder="porción" autocomplete="off" maxlength="30"></label>${f('pg','Tamaño <small>'+(A.liq?'ml':'g')+', opcional</small>',A.pg)}`:''}
+  ${f('k','Calorías <small>kcal</small>',A.k)}${f('p','Proteína <small>g</small>',A.p)}${f('c','Carbohidratos <small>g</small>',A.c)}${f('f','Grasas <small>g</small>',A.f)}${f('fb','Fibra <small>g, opcional</small>',A.fb)}</div>
+  <div class="set inline" style="margin-top:6px"><span class="lb">Es una bebida<small>Se mide en ml</small></span><button class="sw" data-act="fnwliq" aria-pressed="${!!A.liq}" aria-label="Es una bebida"></button></div>
+  <div class="acts"><button class="btn pri" data-act="fnwsave">${A.id?'Guardar cambios':'Crear y elegir porción'}</button>${A.id?`<button class="btn danger" data-act="fnwdel">${IC.x}Borrar alimento</button>`:''}<button class="btn" data-act="fnwback">Volver</button></div>`);
+}
+function fnwRead(){const A=FNEW,g=id=>{const i=$('#fnw-'+id);return i?i.value.trim():undefined;};
+  const n=g('n');if(n!==undefined)A.n=n;const pn=g('pn');if(pn!==undefined)A.pn=pn;
+  ['pg','k','p','c','f','fb'].forEach(x=>{const v=g(x);if(v!==undefined)A[x]=v===''?'':parseFloat(v.replace(',','.'));});}
+
+/* ---------- operaciones ---------- */
+function faddItems(k,items,msg){const D=fday(k);D.items=D.items.concat(items);fsave(k,D);render();
+  const ids=new Set(items.map(i=>i.id)),t=ftot(items);
+  undoable(`${msg||(items.length===1?esc(items[0].n):pl(items.length,'alimento','alimentos'))} · ${fk(t.k)} kcal`,()=>{const E=fday(k);E.items=E.items.filter(i=>!ids.has(i.id));fsave(k,E);render();});}
+function fcloneItems(L,s){return L.map(i=>Object.assign({},i,{id:fid(),s:s||i.s,t:Date.now()}));}
+function flogAct(a,v){
+  const N=()=>myNutri();
+  switch(a){
+    case 'ftabset':S.ftab=v;render();window.scrollTo(0,0);return true;
+    case 'fgo':S.tab='plan';S.planTab='food';S.ftab='diario';S.fdate=fToday();S.mePage=null;render();window.scrollTo(0,0);return true;
+    case 'fdnav':{const k=fdShift(S.fdate||fToday(),+v);if(k>fToday())return true;S.fdate=k;render();return true;}
+    case 'fdtoday':S.fdate=fToday();render();return true;
+    case 'fwater':{const k=S.fdate||fToday(),D=fday(k);D.water=Math.max(0,(D.water||0)+(+v));fsave(k,D);render();if(+v>0){const T=ftarget(k,N());if(T&&D.water/1000>=T.water&&D.water-250<T.water*1000)toast(IC.check+'<span>Meta de agua cumplida</span>',true);}return true;}
+    case 'fadd':if(!N()){toast('Primero pon tus datos en Plan → Alimentación');return true;}addSheet(v,S.tab==='plan'&&S.planTab==='food'?S.fdate:fToday());return true;
+    case 'ftab':FADD.tab=FTL=v;renderAdd();return true;
+    case 'fcat':FADD.cat=v;$('#faddlist').innerHTML=addList();return true;
+    case 'fpick':{const [id,u,q]=v.split('|'),F=food(id);if(!F)return true;portionSheet({k:FADD.k,s:FADD.s,f:id,u:Math.min(+u||0,funits(F).length-1),q:+q||1});return true;}
+    case 'fedit':{const k=S.fdate||fToday(),it=fday(k).items.find(i=>i.id===v);if(!it)return true;
+      if(!it.f||!food(it.f)){quickSheet({dk:k,s:it.s,id:it.id,n:it.n,k:it.k,p:it.p,c:it.c,fat:it.fat});return true;}
+      portionSheet({k,s:it.s,f:it.f,u:it.u,q:it.q,id:it.id});return true;}
+    case 'funit':{fpRead();const F=food(FP.f),U=funits(F),w=FP.q*U[FP.u][2],nu=+v,st=fstep(F,nu);FP.u=nu;FP.q=Math.max(st,Math.round(w/U[nu][2]/st)*st);renderPortion();return true;}
+    case 'fqstep':{fpRead();const F=food(FP.f),st=fstep(F,FP.u);FP.q=Math.max(st,Math.round((FP.q+st*(+v))/st)*st);FP.q=Math.round(FP.q*100)/100;renderPortion();return true;}
+    case 'fqset':FP.q=+v;renderPortion();return true;
+    case 'fpslot':fpRead();FP.s=v;renderPortion();return true;
+    case 'fpback':fpRead();if(FADD)renderAdd();else closeSheet();return true;
+    case 'fpsave':{fpRead();if(!(FP.q>0)){toast('Pon una cantidad');return true;}const F=food(FP.f),it=fitem(F,FP.q,FP.u,FP.s);
+      if(FP.id){const D=fday(FP.k),i=D.items.findIndex(x=>x.id===FP.id);if(i>=0){it.id=FP.id;it.t=D.items[i].t;D.items[i]=it;}fsave(FP.k,D);closeSheet();render();toast(IC.check+'<span>Cambios guardados</span>');}
+      else{closeSheet();faddItems(FP.k,[it]);}return true;}
+    case 'fpdel':{const k=FP.k,D=fday(k),it=D.items.find(x=>x.id===FP.id);D.items=D.items.filter(x=>x.id!==FP.id);fsave(k,D);closeSheet();render();
+      if(it)undoable(esc(it.n)+' quitado',()=>{const E=fday(k);E.items.push(it);fsave(k,E);render();});return true;}
+    case 'fquick':quickSheet({dk:FADD?FADD.k:S.fdate||fToday(),s:FADD?FADD.s:fslotNow(),n:''});return true;
+    case 'fqkslot':fqkRead();FQK.s=v;quickSheet(FQK);return true;
+    case 'fqkback':if(FADD)renderAdd();else closeSheet();return true;
+    case 'fqksave':{fqkRead();const Q=FQK;if([Q.k,Q.p,Q.c,Q.fat].some(x=>Number.isNaN(x))){toast('Revisa los números');return true;}
+      let kc=Q.k;if(kc==null&&(Q.p||Q.c||Q.fat))kc=(Q.p||0)*4+(Q.c||0)*4+(Q.fat||0)*9;if(!(kc>0)){toast('Pon las calorías');return true;}
+      const it={id:Q.id||fid(),s:Q.s,f:null,n:Q.n||'Calorías rápidas',q:1,u:0,qt:'Registro rápido',w:0,k:Math.round(kc),p:r1(Q.p||0),c:r1(Q.c||0),fat:r1(Q.fat||0),fib:0,t:Date.now()};
+      if(Q.id){const D=fday(Q.dk),i=D.items.findIndex(x=>x.id===Q.id);if(i>=0){it.t=D.items[i].t;D.items[i]=it;}fsave(Q.dk,D);closeSheet();render();toast(IC.check+'<span>Cambios guardados</span>');}
+      else{closeSheet();faddItems(Q.dk,[it]);}return true;}
+    case 'fqkdel':{const k=FQK.dk,D=fday(k),it=D.items.find(x=>x.id===FQK.id);D.items=D.items.filter(x=>x.id!==FQK.id);fsave(k,D);closeSheet();render();
+      if(it)undoable(esc(it.n)+' quitado',()=>{const E=fday(k);E.items.push(it);fsave(k,E);render();});return true;}
+    case 'fnew':newFoodSheet({n:v&&v!=='undefined'?cap1(v):''});return true;
+    case 'fnwper':fnwRead();FNEW.per=v;renderNewFood();return true;
+    case 'fnwliq':fnwRead();FNEW.liq=!FNEW.liq;renderNewFood();return true;
+    case 'fnwback':if(FNEW.id&&FP)renderPortion();else if(FADD)renderAdd();else closeSheet();return true;
+    case 'fnwsave':{fnwRead();const A=FNEW;if(!A.n){toast('Ponle un nombre');return true;}
+      if([A.k,A.p,A.c,A.f,A.fb,A.pg].some(x=>Number.isNaN(x))||A.k===''||!(A.k>=0)){toast(A.k===''?'Pon las calorías':'Revisa los números');return true;}
+      const per=A.per==='100'?100:(A.pg>0?A.pg:100),sc=100/per,pn=(A.pn||'porción').toLowerCase();
+      const F={id:A.id||'my-'+Date.now().toString(36),n:cap1(A.n),cat:'my',k:r1(A.k*sc),p:r1((A.p||0)*sc),c:r1((A.c||0)*sc),f:r1((A.f||0)*sc),fb:r1((A.fb||0)*sc),liq:!!A.liq,
+        por:A.per==='100'?[]:[[pn,fplural(pn),per]],nog:A.per==='por'&&!(A.pg>0),src:{per:A.per,pn,pg:A.pg,k:A.k,p:A.p,c:A.c,f:A.f,fb:A.fb}};
+      const i=S.flib.foods.findIndex(x=>x.id===F.id);if(i>=0)S.flib.foods[i]=F;else S.flib.foods.push(F);flibSave();FDB=null;
+      if(A.id&&FP){FP.u=Math.min(FP.u,funits(F).length-1);renderPortion();toast(IC.check+'<span>Alimento actualizado</span>');return true;}
+      const d=fdefault(F);portionSheet({k:FADD?FADD.k:fToday(),s:FADD?FADD.s:fslotNow(),f:F.id,u:d.u,q:d.q});return true;}
+    case 'fmyedit':{const F=food(v);if(!F)return true;const s=F.src||{per:'100',k:F.k,p:F.p,c:F.c,f:F.f,fb:F.fb};newFoodSheet({id:F.id,n:F.n,liq:F.liq,per:s.per,pn:s.pn||'porción',pg:s.pg||'',k:s.k,p:s.p,c:s.c,f:s.f,fb:s.fb});return true;}
+    case 'fnwdel':{const id=FNEW.id;S.flib.foods=S.flib.foods.filter(x=>x.id!==id);flibSave();FP=null;if(FADD)renderAdd();else closeSheet();toast('Alimento borrado. Lo que ya registraste no cambia.');return true;}
+    case 'fsug':{const k=S.fdate||fToday(),m=fsugMeal(k,v,N());if(!m)return true;faddItems(k,fsugItems(m,v),esc(m.t));return true;}
+    case 'fsugday':{const n=N();if(!n)return true;const k=fToday(),wd=(fdDate(k).getDay()+6)%7,P=fslotsPlan(),M=dayMenu(wd,n),D=fday(k);
+      const items=[].concat(...M.map((m,i)=>D.items.some(x=>x.s===P[i])?[]:fsugItems(m,P[i])));if(!items.length){toast('Ya tienes registradas todas las comidas de hoy');return true;}
+      S.ftab='diario';S.fdate=k;faddItems(k,items,'Menú de hoy');return true;}
+    case 'fcopy':{const k=S.fdate||fToday(),py=fday(fdShift(k,-1)).items.filter(x=>x.s===v);if(py.length)faddItems(k,fcloneItems(py),FSLOT[v]+' de ayer');return true;}
+    case 'fcopyday':{const k=S.fdate||fToday(),py=fday(fdShift(k,-1)).items;if(py.length)faddItems(k,fcloneItems(py),'Todo lo de ayer');return true;}
+    case 'fsavemeal':{const k=S.fdate||fToday(),its=fday(k).items.filter(x=>x.s===v);if(!its.length)return true;
+      sheet(`<h3>Guardar como comida</h3><p class="sub">${pl(its.length,'alimento','alimentos')} · ${fk(ftot(its).k)} kcal. La encuentras en «Mis comidas» para registrarla con un toque.</p>
+        <div class="bform"><label class="wide"><span>Nombre</span><input id="fml-n" value="${esc(FSLOT[v]+' de siempre')}" maxlength="50" autocomplete="off"></label></div>
+        <div class="acts"><button class="btn pri" data-act="fmlsave" data-v="${v}">Guardar</button><button class="btn" data-act="close">Cancelar</button></div>`);return true;}
+    case 'fmlsave':{const k=S.fdate||fToday(),its=fday(k).items.filter(x=>x.s===v),n=($('#fml-n')||{}).value;if(!its.length)return true;
+      S.flib.meals.push({id:'mm-'+Date.now().toString(36),n:(n&&n.trim())||FSLOT[v],items:its.map(i=>{const c=Object.assign({},i);delete c.id;delete c.s;delete c.t;return c;})});flibSave();closeSheet();toast(IC.star+'<span>Comida guardada</span>');return true;}
+    case 'fmealadd':{const m=S.flib.meals.find(x=>x.id===v);if(!m)return true;closeSheet();faddItems(FADD.k,m.items.map(i=>Object.assign({},i,{id:fid(),s:FADD.s,t:Date.now()})),esc(m.n));return true;}
+    case 'fmealdel':{const i=S.flib.meals.findIndex(x=>x.id===v);if(i<0)return true;const m=S.flib.meals[i];S.flib.meals.splice(i,1);flibSave();const l=$('#faddlist');if(l)l.innerHTML=addList();
+      undoable(esc(m.n)+' borrada',()=>{S.flib.meals.splice(i,0,m);flibSave();const l2=$('#faddlist');if(l2)l2.innerHTML=addList();});return true;}
+    case 'frealuse':{const n=N(),b=myBody();if(!n)return true;const base=nutri(b,n.goal,n.days,0),want=Math.round(+v*(1+n.adj)/10)*10;
+      S.settings.kadj=Math.max(-Math.round(base.tdee*.25),Math.min(Math.round(base.tdee*.25),want-base.kcal));S.settings.kadjAt=Date.now();saveSettings();render();
+      toast(IC.check+`<span>Meta calculada con tu gasto real: ${fk(myNutri().kcal)} kcal</span>`);return true;}
+  }
+  return false;
+}
+document.addEventListener('input',ev=>{const t=ev.target;
+  if(t.id==='fsq'&&FADD){FADD.q=t.value;const l=$('#faddlist'),tb=$('#ftabs');if(l)l.innerHTML=addList();if(tb)tb.hidden=!!FADD.q.trim();}
+  else if(t.id==='fpq'&&FP){fpRead();const F=food(FP.f),p=$('#fprev');if(F&&p)p.innerHTML=fprev(F);}
+});
+document.addEventListener('keydown',ev=>{if(ev.key==='Enter'&&ev.target.id==='fsq'){ev.preventDefault();ev.target.blur();}
+  if(ev.key==='Enter'&&ev.target.id==='fpq'){ev.preventDefault();flogAct('fpsave');}});
+
 /* Despachador de acciones de los módulos */
 function V4ACT(a,v,b,L){
-  for(const f of [planAct,typeof audioAct==='function'?audioAct:null,typeof bodyAct==='function'?bodyAct:null,typeof toolsAct==='function'?toolsAct:null,typeof metaAct==='function'?metaAct:null,typeof foodAct==='function'?foodAct:null])if(f&&f(a,v,b,L))return true;
+  for(const f of [planAct,typeof audioAct==='function'?audioAct:null,typeof bodyAct==='function'?bodyAct:null,typeof toolsAct==='function'?toolsAct:null,typeof metaAct==='function'?metaAct:null,typeof foodAct==='function'?foodAct:null,typeof flogAct==='function'?flogAct:null])if(f&&f(a,v,b,L))return true;
   return false;
 }
 
