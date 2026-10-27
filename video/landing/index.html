@@ -1,0 +1,151 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Mancuernas</title>
+<meta name="description" content="App de Android para entrenar en casa o en el gimnasio, con plan personalizado, coach de voz paisa y comida colombiana.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@500;700;800;900&family=Barlow:wght@400;500;600&display=swap">
+<link rel="stylesheet" href="styles.css">
+<script type="importmap">
+{"imports":{
+  "three":"https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.js",
+  "three/addons/":"https://cdn.jsdelivr.net/npm/three@0.160.0/examples/jsm/"
+}}
+</script>
+</head>
+<body>
+
+<header class="nav">
+  <a class="brand" href="#top">Mancuernas</a>
+  <nav aria-label="Secciones">
+    <a href="#plan">Plan</a>
+    <a href="#coach">Coach</a>
+    <a href="#comida">Comida</a>
+    <a href="#descargar">Descargar</a>
+  </nav>
+</header>
+
+<main id="top">
+
+  <!-- 1. La mancuerna se arma sola y termina como plano técnico -->
+  <section class="s s-ensamble" id="plan">
+    <div class="sticky">
+      <div class="bp-grid" aria-hidden="true"></div>
+      <canvas id="gl" aria-hidden="true"></canvas>
+      <svg class="overlay" aria-hidden="true"></svg>
+      <div class="tags" aria-hidden="true"></div>
+
+      <div class="copy copy-a">
+        <h1>Ingeniería pesada.</h1>
+      </div>
+      <p class="aside">Mancuernas es una app para entrenar en casa o en el gimnasio. La diseñamos con el rigor de un programa espacial y el presupuesto de un parche de barrio.</p>
+
+      <div class="copy copy-b">
+        <h2>Tu plan se arma con siete piezas.</h2>
+        <p>Le cuentas qué equipo tienes, qué quieres lograr, tu nivel, qué días puedes, cuánto tiempo tienes, qué zona priorizar y si algo te molesta. La app ensambla la rutina.</p>
+      </div>
+
+      <div class="copy copy-c">
+        <h2>Calculado al milímetro.</h2>
+        <p>Series, repeticiones y descansos medidos para tu nivel. El margen para excusas quedó en cero.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 2. Capturas reales de la app -->
+  <section class="s s-app">
+    <div class="sticky">
+      <h2>Abres la app y ya sabes qué toca hoy.</h2>
+      <div class="phones">
+        <figure class="phone">
+          <div class="frame"><img src="assets/app/home.webp" alt="Pantalla de inicio con la rutina Pierna A del martes" width="390" height="844"></div>
+          <figcaption>El entreno del día, con tiempo y series.</figcaption>
+        </figure>
+        <figure class="phone">
+          <div class="frame"><img src="assets/app/player1.webp" alt="Calentamiento guiado con ilustración y cronómetro" width="390" height="844"></div>
+          <figcaption>Cada ejercicio con ilustración y cronómetro.</figcaption>
+        </figure>
+        <figure class="phone">
+          <div class="frame"><img src="assets/app/food.webp" alt="Diario de comidas con calorías y proteína del día" width="390" height="844"></div>
+          <figcaption>Comidas de acá, ajustadas a tus calorías.</figcaption>
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <!-- 3. Coach de voz -->
+  <section class="s s-coach" id="coach">
+    <div class="sticky">
+      <div class="marquee m1" aria-hidden="true"><span>¡Qué berraquera!</span><i></i><span>¡Ave María, qué fuerza!</span><i></i><span>¡Hágale pues!</span><i></i><span>¡Esa estuvo limpiecita!</span><i></i><span>¡Qué berraquera!</span><i></i><span>¡Ave María, qué fuerza!</span><i></i></div>
+      <div class="marquee m2" aria-hidden="true"><span>¡Vas volando!</span><i></i><span>Respirá hondo.</span><i></i><span>¡Uy, récord personal!</span><i></i><span>¡Coronamos!</span><i></i><span>¡Vas volando!</span><i></i><span>Respirá hondo.</span><i></i></div>
+      <div class="wave" aria-hidden="true"></div>
+      <div class="coach-copy">
+        <h2>Salomé te entrena en paisa.</h2>
+        <p>Es tu coach de voz. Cuenta las series, te avisa cuándo descansar y celebra cada récord. Tiene más de 1.300 clips grabados.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 4. Comida -->
+  <section class="s s-comida" id="comida">
+    <div class="sticky">
+      <div class="comida-head">
+        <h2>Comida de acá.</h2>
+        <p>El menú sale de lo que se come en Colombia y se ajusta a tus calorías. También arma la lista de mercado y registra lo que comiste con una foto.</p>
+      </div>
+      <dl class="menu">
+        <div><dt>Desayuno</dt><dd>Huevos pericos con arepa y fruta</dd></div>
+        <div><dt>Almuerzo</dt><dd>Bandeja paisa liviana</dd></div>
+        <div><dt>Onces</dt><dd>Queso campesino con bocadillo</dd></div>
+        <div><dt>Cena</dt><dd>Sudado de pollo con papa y yuca</dd></div>
+      </dl>
+    </div>
+  </section>
+
+  <!-- 5. Constancia y niveles -->
+  <section class="s s-constancia">
+    <div class="sticky">
+      <p class="giant" aria-hidden="true">constancia</p>
+      <div class="levels">
+        <p>Cada serie suma experiencia. Vas de Novato a Leyenda, cuidas tu racha y ves en un mapa los días que entrenaste.</p>
+        <ol>
+          <li>Novato</li><li>Aprendiz</li><li>Guerrero</li><li>Veterano</li><li>Maestro</li><li>Leyenda</li>
+        </ol>
+        <div class="rail"><span></span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 6. Opiniones (de la casa, no de clientes) -->
+  <section class="s s-resenas">
+    <div class="sticky">
+      <h2>Opiniones de la casa.</h2>
+      <ul class="quotes">
+        <li><blockquote>Llevaba dos años deteniendo la puerta del cuarto. Ahora trabajo cuatro días a la semana.</blockquote><cite>La mancuerna de 5 kg</cite></li>
+        <li><blockquote>Antes pasábamos las tardes juntos. No digo más.</blockquote><cite>El sofá</cite></li>
+        <li><blockquote>No soy imparcial, pero qué berraquera de app.</blockquote><cite>Salomé, la coach</cite></li>
+        <li><blockquote>Sin comentarios. Bueno, uno: vamos bien.</blockquote><cite>La báscula</cite></li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- 7. Descarga -->
+  <section class="s s-final" id="descargar">
+    <p class="wordmark" aria-hidden="true">Mancuernas</p>
+    <div class="final-row">
+      <p>Para Android y gratis. La app te avisa cuando sale una versión nueva.</p>
+      <a class="cta" href="https://github.com/harrisonuribe03-beep/mancuernas-app/releases/download/app/Mancuernas.apk">Descargar para Android</a>
+    </div>
+  </section>
+
+</main>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/lenis@1.1.13/dist/lenis.min.js"></script>
+<script type="module" src="main.js"></script>
+</body>
+</html>
