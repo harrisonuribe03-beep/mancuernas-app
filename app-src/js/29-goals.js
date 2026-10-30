@@ -74,8 +74,21 @@ function noteSheet(n){const t=(S.settings.notes||{})[n]||'';
 /* ---------- color ---------- */
 const ACC={azul:['#3d5afe','#5b74ff'],rojo:['#e11d48','#fb4e6f'],verde:['#059669','#34d399'],morado:['#7c3aed','#a78bfa'],naranja:['#ea580c','#fb923c'],cian:['#0891b2','#22d3ee'],grafito:['#334155','#94a3b8']};
 function hexMix(a,b,t){const p=h=>[1,3,5].map(i=>parseInt(h.slice(i,i+2),16));const x=p(a),y=p(b);return '#'+x.map((v,i)=>Math.round(v*(1-t)+y[i]*t).toString(16).padStart(2,'0')).join('');}
-function applyAccent(dark){const c=ACC[S.settings.accent]||ACC.azul,r=document.documentElement.style,acc=dark?c[1]:c[0];
-  r.setProperty('--acc',acc);r.setProperty('--acc-soft',dark?hexMix(acc,'#16191f',.8):hexMix(acc,'#ffffff',.88));r.setProperty('--acc-tx',S.settings.accent==='grafito'&&dark?'#0d0f13':'#ffffff');}
+/* Contraste: cada color de acento se ajusta para que el texto se lea (WCAG AA, 4,5:1).
+   --acc relleno de botones y barras · --acc-tx texto encima del relleno · --acc-ink acento usado como texto · --acc-soft fondo suave */
+const hexLum=h=>{const c=[1,3,5].map(i=>parseInt(h.slice(i,i+2),16)/255).map(x=>x<=.03928?x/12.92:((x+.055)/1.055)**2.4);return .2126*c[0]+.7152*c[1]+.0722*c[2];};
+const hexCr=(a,b)=>{const x=hexLum(a),y=hexLum(b);return (Math.max(x,y)+.05)/(Math.min(x,y)+.05);};
+function accTokens(acc,dark){
+  const soft=dark?hexMix(acc,'#16191f',.8):hexMix(acc,'#ffffff',.88),bgs=dark?['#16191f','#0d0f13','#1e2229',soft]:['#ffffff','#f4f5f8','#eef0f4',soft];
+  let ink=acc;for(let t=0;t<=.6;t+=.04){ink=hexMix(acc,dark?'#ffffff':'#000000',t);if(bgs.every(b=>hexCr(ink,b)>=4.5))break;}
+  let fill=acc,tx='#ffffff';
+  if(hexCr('#ffffff',acc)<4.5){let ok=null;for(let t=.04;t<=(dark?.2:.28)+1e-9;t+=.04){const f=hexMix(acc,'#000000',t);if(hexCr('#ffffff',f)>=4.5){ok=f;break;}}
+    if(ok&&(!dark||hexCr(ok,'#0d0f13')>=3))fill=ok;else tx='#0d0f13';}
+  let deep=acc;for(let t=0;t<=.7;t+=.04){deep=hexMix(acc,'#000000',t);if(hexCr('#ffffff',deep)>=4.5)break;} // fondo de la tarjeta de hoy, siempre con texto blanco
+  return {acc:fill,ink,tx,soft,deep};
+}
+function applyAccent(dark){const c=ACC[S.settings.accent]||ACC.azul,r=document.documentElement.style,T=accTokens(dark?c[1]:c[0],dark);
+  r.setProperty('--acc',T.acc);r.setProperty('--acc-ink',T.ink);r.setProperty('--acc-soft',T.soft);r.setProperty('--acc-tx',T.tx);r.setProperty('--acc-deep',T.deep);}
 function accentPicker(){return `<div class="accs">${Object.keys(ACC).map(k=>`<button data-act="accent" data-v="${k}" aria-pressed="${(S.settings.accent||'azul')===k}" aria-label="Color ${k}" style="--c:${ACC[k][0]}"></button>`).join('')}</div>`;}
 
 function metaAct(a,v){

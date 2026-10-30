@@ -24,7 +24,7 @@
 #toast.low{top:auto;bottom:calc(96px + env(safe-area-inset-bottom,0px));transform:translate(-50%,200%)}
 #toast.low.show{transform:translate(-50%,0)}
 #toast span{white-space:nowrap}
-#toast.gold{background:var(--gold);color:#1a1300}
+#toast.gold{background:#f2b43a;color:#1a1300}
 #toast svg{width:18px;height:18px}
 
 .fig path{fill:none;stroke-linecap:round;stroke-linejoin:round}

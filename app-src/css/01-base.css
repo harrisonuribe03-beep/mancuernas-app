@@ -1,24 +1,24 @@
 /* Layout: app Android de una columna (máx. 560px). 4 pestañas abajo. El entrenamiento es pantalla completa: cabecera compacta con la figura, tabla de series como protagonista y barra inferior que se convierte en temporizador de descanso. Radios: 16 tarjetas, 12 controles, 10 miniaturas. */
 :root{
   --bg:#f4f5f8; --s1:#ffffff; --s2:#eef0f4; --s3:#e3e6ec; --line:#e4e7ec;
-  --tx:#0f1115; --tx2:#5a6170; --tx3:#8c93a1;
-  --acc:#3d5afe; --acc-tx:#ffffff; --acc-soft:#e9edff;
-  --ok:#0f9f6e; --ok-soft:#e2f5ec; --gold:#b86e00; --gold-soft:#fdf1dc; --warn:#c2410c; --warn-soft:#fdece3; --bad:#d92d20;
+  --tx:#0f1115; --tx2:#5a6170; --tx3:#656c7a;
+  --acc:#3d5afe; --acc-deep:#3d5afe; --acc-ink:#3b56f4; --acc-tx:#ffffff; --acc-soft:#e8ebff;
+  --ok:#077a53; --ok-soft:#e2f5ec; --gold:#965a00; --gold-soft:#fdf1dc; --warn:#c2410c; --warn-soft:#fdece3; --bad:#d92d20;
   --fig:#3b414d; --fig2:#a7aebb; --mus:#3d5afe; --mus2:#9fb0ff; --metal:#111318; --metal2:#7a8190; --prop:#d9dde4; --prop2:#c9ced7; --shadow:#0f1115;
   --font:"Plus Jakarta Sans",system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
   --tabs:64px; --art-bg:#eef0f4;
 }
 @media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
   --bg:#0d0f13; --s1:#16191f; --s2:#1e2229; --s3:#282d36; --line:#252a32;
-  --tx:#f3f4f6; --tx2:#a3a9b5; --tx3:#6f7683;
-  --acc:#5b74ff; --acc-tx:#ffffff; --acc-soft:#1c2347;
+  --tx:#f3f4f6; --tx2:#a3a9b5; --tx3:#8e95a3;
+  --acc:#5066e0; --acc-deep:#5066e0; --acc-ink:#7c90ff; --acc-tx:#ffffff; --acc-soft:#242b4c;
   --ok:#34d399; --ok-soft:#0f2a1f; --gold:#fbbf24; --gold-soft:#2b2210; --warn:#fb923c; --warn-soft:#2b1a10; --bad:#f97066;
   --fig:#a3abb9; --fig2:#5a616e; --mus:#6f86ff; --mus2:#3a4a9c; --metal:#f3f4f6; --metal2:#8a919e; --prop:#2c313b; --prop2:#232831; --shadow:#000; --art-bg:#1b1f26;
   color-scheme:dark}}
 :root[data-theme="dark"]{
   --bg:#0d0f13; --s1:#16191f; --s2:#1e2229; --s3:#282d36; --line:#252a32;
-  --tx:#f3f4f6; --tx2:#a3a9b5; --tx3:#6f7683;
-  --acc:#5b74ff; --acc-tx:#ffffff; --acc-soft:#1c2347;
+  --tx:#f3f4f6; --tx2:#a3a9b5; --tx3:#8e95a3;
+  --acc:#5066e0; --acc-deep:#5066e0; --acc-ink:#7c90ff; --acc-tx:#ffffff; --acc-soft:#242b4c;
   --ok:#34d399; --ok-soft:#0f2a1f; --gold:#fbbf24; --gold-soft:#2b2210; --warn:#fb923c; --warn-soft:#2b1a10; --bad:#f97066;
   --fig:#a3abb9; --fig2:#5a616e; --mus:#6f86ff; --mus2:#3a4a9c; --metal:#f3f4f6; --metal2:#8a919e; --prop:#2c313b; --prop2:#232831; --shadow:#000; --art-bg:#1b1f26;
   color-scheme:dark}
@@ -50,17 +50,17 @@ svg.i{width:20px;height:20px;flex:none;fill:none;stroke:currentColor;stroke-widt
 .btn.danger{color:var(--bad)}
 .btn.block{width:100%}
 .btn:disabled{opacity:.4}
-.tbtn{color:var(--acc);font-weight:700;padding:10px 4px;min-height:44px}
+.tbtn{color:var(--acc-ink);font-weight:700;padding:10px 4px;min-height:44px}
 .iconbtn{width:44px;height:44px;display:grid;place-items:center;border-radius:12px;background:var(--s2);flex:none}
 .iconbtn:disabled{opacity:.35}
 .seg{display:grid;grid-auto-flow:column;grid-auto-columns:1fr;background:var(--s2);border-radius:12px;padding:3px;gap:3px}
-.seg button{padding:9px 6px;font-weight:700;font-size:.86rem;border-radius:9px;color:var(--tx2)}
+.seg button{padding:9px 6px;min-height:42px;font-weight:700;font-size:.86rem;border-radius:9px;color:var(--tx2)}
 .seg button[aria-pressed="true"]{background:var(--s1);color:var(--tx);box-shadow:0 1px 3px rgba(0,0,0,.12)}
 
 .tabs{position:fixed;left:0;right:0;bottom:0;z-index:10;background:var(--s1);border-top:1px solid var(--line);padding-bottom:env(safe-area-inset-bottom,0px)}
 .tabs .col{display:grid;grid-template-columns:repeat(4,1fr);height:var(--tabs);padding-inline:8px}
-.tabs button{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:3px;font-size:.7rem;font-weight:600;color:var(--tx3)}
+.tabs button{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:3px;font-size:.75rem;font-weight:600;color:var(--tx2)}
 .tabs .pill{display:grid;place-items:center;width:58px;height:30px;border-radius:15px;transition:background .2s}
 .tabs button[aria-current="page"]{color:var(--tx)}
-.tabs button[aria-current="page"] .pill{background:var(--acc-soft);color:var(--acc)}
+.tabs button[aria-current="page"] .pill{background:var(--acc-soft);color:var(--acc-ink)}
 

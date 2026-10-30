@@ -43,7 +43,7 @@ function renderPlayer(keep){
   else if(!it.sets.some(s=>s.done)&&it.prev.length){const fl=lastFeelFor(it.n);
     if(fl==='facil'&&!bw&&!ds.timed)h+=`<div class="tip">${IC.up}<div>La última vez el entreno se sintió <b>fácil</b>. Si la técnica estuvo bien, prueba con un poco más de peso hoy.</div></div>`;
     else if(fl==='duro')h+=`<div class="tip soft">${IC.info}<div>La última vez se sintió <b>duro</b>. Mantén el peso y busca completar el rango con buena técnica.</div></div>`;}
-  h+=`<div class="card sets ${bw||ds.timed?'bw':''}"><div class="hdr"><span>#</span><span>Anterior</span>${bw||ds.timed?'':`<span>${kgLabel(e)}</span>`}<span>${ds.timed?'Seg':ds.side?'Reps/'+ds.side:'Reps'}</span><span></span></div>`;
+  h+=`<div class="card sets ${bw||ds.timed?'bw':''}"><div class="hdr"><span>#</span><span>Antes</span>${bw||ds.timed?'':`<span>${kgLabel(e)}</span>`}<span>${ds.timed?'Seg':ds.side?'Reps/'+ds.side:'Reps'}</span><span></span></div>`;
   it.sets.forEach((s,k)=>{
     const st=s.done?'done':k===cr?'cur':'',pv=s.ty==='c'?'Aprox.':it.prev[k]?fmtShort(it.n,it.prev[k]):ds.label.replace(/ por .*/,'');
     const tr=L.timed&&L.timed.row===k&&L.i===L.timed.i;

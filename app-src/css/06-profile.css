@@ -1,6 +1,6 @@
 /* perfil */
 .me{display:flex;align-items:center;gap:14px;margin-top:12px;padding:14px 16px}
-.avatar{width:52px;height:52px;border-radius:50%;background:var(--acc);color:#fff;display:grid;place-items:center;font-weight:800;font-size:1.3rem;flex:none}
+.avatar{width:52px;height:52px;border-radius:50%;background:var(--acc);color:var(--acc-tx);display:grid;place-items:center;font-weight:800;font-size:1.3rem;flex:none}
 .namefield{display:flex;align-items:center;gap:6px}
 .namefield input{flex:1;min-width:0;border:0;background:transparent;font-weight:800;font-size:1.15rem;padding:2px 0;outline:none;border-bottom:1.5px dashed var(--line)}
 .namefield svg{color:var(--tx3);width:16px;height:16px}

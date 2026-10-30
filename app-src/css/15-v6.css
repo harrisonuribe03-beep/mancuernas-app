@@ -1,7 +1,7 @@
 /* v6 · equipo, asistente ampliado y nutrición */
 
 /* ficha sin ilustración: ícono del equipo */
-.xph{display:grid;place-items:center;width:100%;height:100%;color:var(--acc);background:linear-gradient(145deg,var(--acc-soft),transparent 80%)}
+.xph{display:grid;place-items:center;width:100%;height:100%;color:var(--acc-ink);background:linear-gradient(145deg,var(--acc-soft),transparent 80%)}
 .xph svg{width:42%;height:42%;stroke-width:1.6}
 .xph.big{aspect-ratio:1;max-height:100%;gap:8px;align-content:center}
 .xph.big svg{width:96px;height:96px}
@@ -27,7 +27,7 @@
 /* nutrición */
 .ntarget{padding:16px}
 .nkcal{display:flex;align-items:baseline;gap:6px;margin-top:2px}
-.nkcal b{font-size:2.4rem;font-weight:800;letter-spacing:-.03em;color:var(--acc)}
+.nkcal b{font-size:2.4rem;font-weight:800;letter-spacing:-.03em;color:var(--acc-ink)}
 .nkcal span{font-weight:700;color:var(--tx2)}
 .nsub{font-size:.82rem;color:var(--tx2);margin-top:2px}
 .nmac{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-top:14px}
@@ -43,7 +43,7 @@
 .nwater b{color:var(--tx)}
 .nhealth{padding:16px;margin-top:10px}
 .nh1{display:flex;gap:12px;align-items:center}
-.nic{width:42px;height:42px;border-radius:12px;background:var(--acc-soft);color:var(--acc);display:grid;place-items:center;flex:none}
+.nic{width:42px;height:42px;border-radius:12px;background:var(--acc-soft);color:var(--acc-ink);display:grid;place-items:center;flex:none}
 .nic svg{width:22px;height:22px}
 .nh1 b{display:block;font-size:1.25rem;font-weight:800}
 .nh1 small{display:block;font-size:.8rem;color:var(--tx2)}
@@ -56,7 +56,7 @@
 .bmibar .z.lo{left:0;background:#3b82f6;border-radius:6px 0 0 6px;opacity:.5}.bmibar .z.ok{background:var(--ok)}
 .bmibar .z.hi{background:var(--gold)}.bmibar .z.ob{background:var(--warn);border-radius:0 6px 6px 0;opacity:.8}
 .bmibar b{position:absolute;top:-4px;width:6px;height:18px;margin-left:-3px;border-radius:3px;background:var(--tx);box-shadow:0 0 0 2px var(--bg)}
-.bmiax{position:relative;height:16px;font-size:.66rem;color:var(--tx3);font-weight:600}
+.bmiax{position:relative;height:18px;font-size:.7rem;color:var(--tx3);font-weight:600}
 .bmiax span{position:absolute;transform:translateX(-50%)}
 .bmiax span:nth-child(1){left:14%}.bmiax span:nth-child(2){left:40%}.bmiax span:nth-child(3){left:60%}
 .nkv{display:flex;align-items:center;gap:8px;margin-top:12px;font-size:.86rem}
@@ -69,12 +69,12 @@
 .mhd b{display:block;font-size:1rem;margin-top:1px}
 .mhd .btn{flex:none}
 .meal ul{margin:10px 0 0;padding:0 0 0 18px;display:flex;flex-direction:column;gap:4px;font-size:.9rem}
-.meal li::marker{color:var(--acc)}
+.meal li::marker{color:var(--acc-ink)}
 .mft{display:flex;flex-wrap:wrap;gap:4px 12px;margin-top:10px;font-size:.74rem;font-weight:700;color:var(--tx2)}
 .mtot{margin-top:12px;padding:12px 14px;border-radius:14px;background:var(--acc-soft);display:flex;flex-direction:column;gap:2px}
-.mtot span{font-size:.74rem;font-weight:700;color:var(--acc);text-transform:uppercase;letter-spacing:.05em}
+.mtot span{font-size:.74rem;font-weight:700;color:var(--acc-ink);text-transform:uppercase;letter-spacing:.05em}
 .mtot b{font-size:1rem}.mtot small{font-size:.78rem;color:var(--tx2)}
-.nempty svg{width:40px;height:40px;color:var(--acc);margin:0 auto 6px;display:block}
+.nempty svg{width:40px;height:40px;color:var(--acc-ink);margin:0 auto 6px;display:block}
 .shopg{margin-top:14px}
 .shopg>b{display:block;font-size:.8rem;color:var(--tx2);margin-bottom:6px}
 .shopg ul{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:4px}

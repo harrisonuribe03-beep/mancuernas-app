@@ -88,7 +88,11 @@ function qtyText(id,q){
   if(['aceite','hogao','cafe','ensalada','verduras'].includes(id)&&q===1)return `${u[0]==='plato'?'1 plato de':u[0]==='taza'?'1 taza de':u[0]==='pocillo'?'1 pocillo de':'1 '+u[0]+' de'} ${F.n}`;
   if(id==='huevo'||id==='banano'||id==='manzana'||id==='arepa'||id==='bocadillo')return `${num} ${one?F.u[0]:F.u[1]}`.replace('½ huevo','medio huevo');
   if(id==='platano')return q>=1?`${num} ${q>1?'plátanos maduros asados':'plátano maduro asado'}`:`${num} de plátano maduro asado`;
-  if(id==='aguacate')return `${num} ${one?'cuarto':'cuartos'} de aguacate`.replace('1 cuarto','¼').replace('2 cuartos','½');
+  if(id==='aguacate'){const a=q/4,aw=Math.floor(a+1e-6),af=FRAC[Math.round((a-aw)*4)/4]||'';
+    return aw?`${aw}${af?' y '+af:''} ${a>1?'aguacates':'aguacate'}`:af==='½'?'½ aguacate':`${af} de aguacate`;}
+  if(id==='papa')return `${num} ${one?'papa pequeña cocida':'papas pequeñas cocidas'}`;
+  if(u[0]==='cucharada'&&q>6){const g=Math.round(q*u[2]),t=Math.round(g/80*4)/4,tw=Math.floor(t+1e-6),tf=FRAC[Math.round((t-tw)*4)/4]||'';
+    return `${g} g de ${F.n} (${tw&&tf?tw+' y '+tf:tw||tf} ${t>1?'tazas':'taza'})`;}
   return `${num} ${one?u[0]:u[1]} de ${F.n}`;
 }
 const grams=(id,q)=>FOODS[id].u[2]*q;
@@ -96,7 +100,8 @@ const grams=(id,q)=>FOODS[id].u[2]*q;
 const mac=(id,q)=>{const F=FOODS[id],g=grams(id,q)/100;return {k:F.k*g,p:F.p*g,c:F.c*g,f:F.f*g};};
 // Con metas altas las porciones pueden crecer (CAPS > 1)
 let CAPS=1;
-const roundQ=(id,q)=>{const F=FOODS[id],mx=id==='huevo'?Math.min(4,Math.round(F.mx*CAPS)):F.mx*CAPS;return Math.min(mx,Math.max(F.mn,Math.round(q/F.st)*F.st));};
+// el tope también va en pasos enteros de la porción (antes salían cosas como «2 y ¾ bocadillos»)
+const roundQ=(id,q)=>{const F=FOODS[id],mx=id==='huevo'?Math.min(4,Math.round(F.mx*CAPS)):Math.max(F.mx,Math.floor(F.mx*CAPS/F.st+1e-9)*F.st);return Math.min(mx,Math.max(F.mn,Math.round(q/F.st)*F.st));};
 /* Arma una comida para una meta de calorías y proteína */
 function buildMeal(tpl,kcal,prot){
   const veg=!!S.settings.veg,items=[];
@@ -255,7 +260,7 @@ function viewFood(){
   if(!bodyReady(b)||!b.sex)return h+`<div class="card empty nempty">${IC.food}<b>Calcula tu alimentación</b>Con tu edad, peso, estatura y sexo te damos tu rango de peso saludable, tus calorías, la proteína y un menú con comida de aquí.<button class="btn pri sm" style="margin:12px auto 0" data-act="mydata">Poner mis datos</button></div>
     <button class="btn ghost block" style="margin-top:10px" data-act="calc">${IC.ruler}Calcular para otra persona</button>`;
   const N=myNutri(),t=S.ftab||'diario';
-  h+=`<div class="utabs fseg" role="tablist">${[['diario','Diario'],['menu','Menú sugerido'],['metas','Progreso']].map(([k,l])=>`<button role="tab" data-act="ftabset" data-v="${k}" aria-pressed="${t===k}">${l}</button>`).join('')}</div>`;
+  h+=`<div class="utabs fseg" role="tablist">${[['diario','Diario'],['menu','Menú sugerido'],['metas','Progreso']].map(([k,l])=>`<button role="tab" data-act="ftabset" data-v="${k}" aria-selected="${t===k}">${l}</button>`).join('')}</div>`;
   if(t==='menu')h+=menuView(N);
   else if(t==='metas'){h+=progressCard(N,b)+fweekCard(N)+ftdeeCard(N,b)+targetCard(N)+healthCard(b,N)+foodPrefs();
     h+=`<button class="btn ghost block" style="margin-top:10px" data-act="fcsv">${IC.dl}Exportar mi registro de comidas (Excel)</button>

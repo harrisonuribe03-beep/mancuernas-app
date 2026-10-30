@@ -8,10 +8,10 @@
 .cal .hd b{font-weight:700}
 .cal .hd .iconbtn{width:36px;height:36px;border-radius:10px}
 .cal .grid{display:grid;grid-template-columns:repeat(7,1fr);row-gap:4px;text-align:center}
-.cal .dn{font-size:.66rem;font-weight:700;color:var(--tx3);padding:2px 0 4px}
+.cal .dn{font-size:.72rem;font-weight:700;color:var(--tx3);padding:2px 0 4px}
 .cal .d{width:32px;height:32px;margin:0 auto;display:grid;place-items:center;border-radius:50%;font-size:.8rem;font-weight:600;color:var(--tx2)}
-.cal .d.on{background:var(--acc-soft);color:var(--acc);font-weight:800}
-.cal .d.today{background:var(--acc);color:#fff;font-weight:800}
+.cal .d.on{background:var(--acc-soft);color:var(--acc-ink);font-weight:800}
+.cal .d.today{background:var(--acc);color:var(--acc-tx);font-weight:800}
 .cal .ft{margin-top:8px;font-size:.8rem;color:var(--tx2)}
 .chart{padding:14px 12px 8px}
 .chart .cap{display:flex;justify-content:space-between;align-items:baseline;gap:8px;padding:0 4px}
@@ -38,7 +38,7 @@
 .badge .ic{width:40px;height:40px;border-radius:50%;display:grid;place-items:center;background:var(--s2);color:var(--tx3)}
 .badge.on .ic{background:var(--gold-soft);color:var(--gold)}
 .badge b{font-size:.7rem;line-height:1.2}
-.badge span{font-size:.66rem;color:var(--tx3);font-weight:600}
+.badge span{font-size:.72rem;color:var(--tx3);font-weight:600}
 .kvrow{display:flex;justify-content:space-between;align-items:center;gap:10px;padding:12px 14px}
 .kvrow .v{font-weight:800;white-space:nowrap}
 .hrow{display:grid;grid-template-columns:1fr auto;gap:2px 12px;align-items:center;padding:12px 14px;width:100%;text-align:left}
@@ -47,9 +47,9 @@
 .hrow .r{grid-row:1/3;grid-column:2;text-align:right;font-size:.82rem;color:var(--tx2)}
 .hrow .r b{color:var(--tx);display:block;font-size:.9rem}
 .wkhead{display:flex;justify-content:space-between;font-size:.74rem;font-weight:700;color:var(--tx3);margin:16px 4px 8px;letter-spacing:.02em}
-.tag{display:inline-block;font-size:.64rem;font-weight:800;border-radius:8px;padding:2px 7px;margin-left:6px;vertical-align:2px;letter-spacing:.03em}
+.tag{display:inline-block;font-size:.7rem;font-weight:800;border-radius:8px;padding:2px 7px;margin-left:6px;vertical-align:2px;letter-spacing:.03em}
 .tag.pr{color:var(--gold);background:var(--gold-soft)}
-.tag.ex{color:var(--acc);background:var(--acc-soft)}
+.tag.ex{color:var(--acc-ink);background:var(--acc-soft)}
 .empty{padding:22px 16px;text-align:center;color:var(--tx2)}
 .empty b{display:block;color:var(--tx);margin-bottom:4px}
 

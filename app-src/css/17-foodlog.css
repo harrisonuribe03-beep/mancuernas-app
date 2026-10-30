@@ -2,7 +2,7 @@
 .utabs{display:flex;gap:2px;border-bottom:1px solid var(--line);overflow-x:auto;scrollbar-width:none}
 .utabs::-webkit-scrollbar{display:none}
 .utabs button{flex:none;padding:11px 10px 10px;font-weight:700;font-size:.88rem;color:var(--tx2);border-bottom:2.5px solid transparent;margin-bottom:-1px;white-space:nowrap}
-.utabs button[aria-pressed="true"]{color:var(--acc);border-bottom-color:var(--acc)}
+.utabs button[aria-pressed="true"],.utabs button[aria-selected="true"]{color:var(--acc-ink);border-bottom-color:var(--acc)}
 .fseg{margin:12px 0 2px}
 .fseg button{flex:1}
 #sheet .utabs.ftabs{margin:12px -16px 0;padding:0 10px}
@@ -33,7 +33,7 @@
 .fkv b{font-size:1.2rem;font-weight:800}
 .fdt{grid-column:1/-1;display:flex;align-items:center;gap:6px;font-size:.8rem;font-weight:700;color:var(--tx2);background:var(--s2);border-radius:10px;padding:7px 10px}
 .fdt svg{width:16px;height:16px;flex:none}
-.fdt.tr{color:var(--acc);background:var(--acc-soft)}
+.fdt.tr{color:var(--acc-ink);background:var(--acc-soft)}
 .fmacs{display:grid;grid-template-columns:1fr 1fr;gap:12px 14px;margin-top:16px}
 .fmac .fmt{display:flex;justify-content:space-between;align-items:baseline;gap:6px;margin-bottom:5px}
 .fmac span{font-size:.78rem;font-weight:700;color:var(--tx2);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
@@ -53,14 +53,14 @@
 .fwt small{font-size:.8rem;color:var(--tx2);font-weight:600}
 .fwt i{display:block;height:6px;border-radius:3px;background:var(--s2);overflow:hidden;margin-top:6px}
 .fwt s{display:block;height:100%;background:#3b9bff;border-radius:3px;text-decoration:none}
-.iconbtn.sm{width:38px;height:38px;border-radius:10px;font-size:1.2rem;font-weight:700}
+.iconbtn.sm{width:40px;height:40px;border-radius:10px;font-size:1.2rem;font-weight:700}
 .iconbtn:disabled{opacity:.4}
 .fwat .btn{flex:none;padding:0 12px}
 
 /* consejos */
 .ftips{display:flex;flex-direction:column;gap:6px;margin-top:10px}
 .ftip{display:flex;gap:10px;align-items:flex-start;padding:11px 12px;border-radius:14px;background:var(--acc-soft);font-size:.86rem;line-height:1.45}
-.ftip svg{width:18px;height:18px;flex:none;color:var(--acc);margin-top:1px}
+.ftip svg{width:18px;height:18px;flex:none;color:var(--acc-ink);margin-top:1px}
 .ftip b{font-weight:800}
 
 /* comidas */
@@ -68,7 +68,7 @@
 .fmh{display:flex;align-items:center;justify-content:space-between;gap:10px;padding:10px 12px 10px 14px}
 .fmh b{display:block;font-size:1rem;font-weight:800}
 .fmh small{display:block;font-size:.78rem;color:var(--tx2);font-weight:600;margin-top:2px}
-.fplus{width:40px;height:40px;border-radius:12px;background:var(--acc-soft);color:var(--acc);display:grid;place-items:center;flex:none}
+.fplus{width:40px;height:40px;border-radius:12px;background:var(--acc-soft);color:var(--acc-ink);display:grid;place-items:center;flex:none}
 .fplus svg{width:20px;height:20px;stroke-width:2.6}
 .fitems{list-style:none;margin:0;padding:0;border-top:1px solid var(--line)}
 .fitems li+li{border-top:1px solid var(--line)}
@@ -78,15 +78,15 @@
 .fitems small{font-size:.76rem;color:var(--tx2);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 .fitems em{font-style:normal;font-weight:800;font-size:.9rem;color:var(--tx2);flex:none}
 .fmf{border-top:1px solid var(--line);padding:4px 8px}
-.flink{display:inline-flex;align-items:center;gap:6px;min-height:40px;padding:0 8px;font-size:.82rem;font-weight:700;color:var(--acc);border-radius:10px}
+.flink{display:inline-flex;align-items:center;gap:6px;min-height:40px;padding:0 8px;font-size:.82rem;font-weight:700;color:var(--acc-ink);border-radius:10px}
 .flink svg{width:16px;height:16px}
 .fsug{border-top:1px dashed var(--line);padding:8px;display:flex;flex-direction:column;gap:2px}
 .fsg{display:flex;align-items:center;gap:10px;width:100%;text-align:left;padding:8px 6px;border-radius:12px}
 .fsg>span:first-child{flex:1;min-width:0;display:flex;flex-direction:column;gap:1px}
-.fsg small{font-size:.68rem;font-weight:800;letter-spacing:.06em;text-transform:uppercase;color:var(--tx3)}
+.fsg small{font-size:.7rem;font-weight:800;letter-spacing:.06em;text-transform:uppercase;color:var(--tx3)}
 .fsg b{font-size:.88rem;font-weight:700;line-height:1.25}
 .fsg em{font-style:normal;font-size:.76rem;color:var(--tx2);font-weight:600}
-.fsgb{flex:none;display:inline-flex;align-items:center;gap:4px;font-size:.8rem;font-weight:800;color:var(--acc);background:var(--acc-soft);border-radius:10px;padding:8px 10px}
+.fsgb{flex:none;display:inline-flex;align-items:center;gap:4px;font-size:.8rem;font-weight:800;color:var(--acc-ink);background:var(--acc-soft);border-radius:10px;padding:8px 10px}
 .fsgb svg{width:14px;height:14px;stroke-width:2.6}
 
 /* semana y gasto real */
@@ -128,10 +128,10 @@
 .fsrow{display:flex;gap:8px;align-items:center;margin-top:12px}
 .fsrow .fsearch{flex:1;margin-top:0;min-width:0}
 .fsrow .fsearch input{min-width:0;width:100%}
-.fscan{width:48px;height:48px;border-radius:12px;background:var(--acc-soft);color:var(--acc)}
+.fscan{width:48px;height:48px;border-radius:12px;background:var(--acc-soft);color:var(--acc-ink)}
 .fscan svg{width:24px;height:24px}
 .fonline{display:flex;align-items:center;gap:12px;width:100%;text-align:left;margin-top:10px;padding:12px;border-radius:14px;border:1.5px dashed var(--line)}
-.fonline svg{width:20px;height:20px;color:var(--acc);flex:none}
+.fonline svg{width:20px;height:20px;color:var(--acc-ink);flex:none}
 .fonline span{display:flex;flex-direction:column;gap:2px}
 .fonline b{font-size:.9rem;font-weight:700}
 .fonline small{font-size:.76rem;color:var(--tx2)}
@@ -148,7 +148,7 @@
 .fsearch{margin-top:12px}
 .fsearch input::-webkit-search-cancel-button{display:none}
 #sheet .chips.fcats{margin:12px -16px 4px}
-#sheet .chips .chip{height:34px;padding:0 12px;font-size:.82rem}
+#sheet .chips .chip{height:40px;padding:0 12px;font-size:.82rem}
 .flist{list-style:none;margin:6px 0 0;padding:0}
 .flist li{border-bottom:1px solid var(--line)}
 .frow{display:flex;align-items:center;gap:10px;width:100%;text-align:left;padding:11px 2px;min-height:56px}
@@ -167,7 +167,7 @@
 .fbtns .btn{padding:0 8px}
 .fbtns .btn svg{width:18px;height:18px;flex:none}
 #sheet .chips.wrap{margin:10px 0 0;padding:0;flex-wrap:wrap}
-.funits .chip small{font-weight:600;opacity:.75}
+.funits .chip small{font-weight:600}
 .fqty{display:flex;align-items:center;gap:10px;margin-top:14px}
 .fqty .iconbtn{width:52px;height:52px;font-size:1.5rem;font-weight:700}
 .fqty label{flex:1;min-width:0;display:flex;align-items:center;gap:8px;height:52px;border-radius:12px;border:1.5px solid var(--line);background:var(--s2);padding:0 12px}
@@ -175,11 +175,11 @@
 .fqty label:focus-within{border-color:var(--acc)}
 .fqty span{font-weight:700;color:var(--tx2);font-size:.92rem;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:55%}
 .fqk{display:flex;flex-wrap:wrap;gap:6px;margin-top:10px}
-.fqk .chip{height:34px;padding:0 12px;font-size:.84rem}
+.fqk .chip{height:40px;min-width:44px;padding:0 12px;font-size:.84rem}
 .fprev{display:flex;align-items:center;gap:14px;margin-top:14px;padding:14px;border-radius:14px;background:var(--acc-soft)}
 .fpk{display:flex;flex-direction:column;align-items:center;flex:none;min-width:72px}
-.fpk b{font-size:1.8rem;font-weight:800;letter-spacing:-.02em;color:var(--acc);line-height:1}
-.fpk span{font-size:.74rem;font-weight:700;color:var(--acc)}
+.fpk b{font-size:1.8rem;font-weight:800;letter-spacing:-.02em;color:var(--acc-ink);line-height:1}
+.fpk span{font-size:.74rem;font-weight:700;color:var(--acc-ink)}
 .fpm{flex:1;display:grid;grid-template-columns:1fr 1fr;gap:6px 10px}
 .fpm span{display:flex;flex-direction:column;font-size:.72rem;color:var(--tx2);font-weight:600}
 .fpm b{font-size:.95rem;font-weight:800;color:var(--tx)}
@@ -196,7 +196,7 @@
 /* comida por foto */
 .fsrow .fscan+.fscan{margin-left:-2px}
 .fphpick{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:14px}
-.fphb{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;min-height:104px;padding:14px 8px;border-radius:16px;background:var(--acc-soft);color:var(--acc);text-align:center;cursor:pointer}
+.fphb{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;min-height:104px;padding:14px 8px;border-radius:16px;background:var(--acc-soft);color:var(--acc-ink);text-align:center;cursor:pointer}
 .fphb svg{width:30px;height:30px}
 .fphb b{font-size:.9rem;font-weight:800;color:var(--tx)}
 .fphb:active{transform:scale(.98)}
@@ -209,7 +209,7 @@
 .fphr.off .fphn,.fphr.off .fphk,.fphr.off .fphq{opacity:.4}
 .fchk{grid-area:c;width:28px;height:28px;border-radius:8px;border:2px solid var(--line);display:grid;place-items:center;color:transparent}
 .fchk svg{width:16px;height:16px;stroke-width:3}
-.fchk[aria-pressed="true"]{background:var(--acc);border-color:var(--acc);color:#fff}
+.fchk[aria-pressed="true"]{background:var(--acc);border-color:var(--acc);color:var(--acc-tx)}
 .fphn{grid-area:n;min-width:0;display:flex;flex-direction:column;gap:2px}
 .fphn b{font-size:.94rem;font-weight:700;line-height:1.25}
 .fphn small{font-size:.74rem;color:var(--tx2)}
@@ -229,3 +229,21 @@
 .ferr{margin:10px 0 0;padding:10px 12px;border-radius:12px;background:var(--warn-soft);color:var(--warn);font-size:.85rem;font-weight:700;line-height:1.4}
 .fnote .flink{min-height:32px;padding:0 4px;vertical-align:middle}
 .fphimg+h3{margin-top:16px}
+
+/* accesibilidad: área de toque de los números de serie y pestañas con aria-selected */
+.sets .no::after{content:'';position:absolute;inset:-8px -6px}
+.sw::before{content:'';position:absolute;inset:-8px -6px}
+.fqty input{min-height:40px}
+
+/* Letra grande del sistema (Android → Tamaño de fuente): que nada se salga ni se corte a la mitad de una palabra */
+.wkplan b{word-break:normal;overflow-wrap:normal;max-width:100%;overflow:hidden;text-overflow:ellipsis;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical}
+.tabs button{min-width:0;padding-left:2px;padding-right:2px}
+.tabs .tl{max-width:100%;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.fmacs{grid-template-columns:repeat(auto-fit,minmax(min(100%,9.6rem),1fr))}
+.kpis{grid-template-columns:repeat(auto-fit,minmax(min(100%,6.4rem),1fr))}
+.kpis .card{min-width:0;overflow-wrap:anywhere}
+.ladder{grid-template-columns:repeat(auto-fit,minmax(3.4rem,1fr))}
+.ladder span{min-width:0}
+.wkplan{grid-template-columns:repeat(7,minmax(0,1fr))}
+.wkplan button{min-width:0}
+.wkplan .l{max-width:100%;overflow:hidden;text-overflow:clip}
