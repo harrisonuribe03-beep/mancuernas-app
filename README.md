@@ -15,7 +15,7 @@ La app avisa sola cuando hay una versión nueva.
 app-src/                Código fuente de la app (HTML, CSS y JavaScript sin frameworks)
   index.html            Esqueleto de la página
   css/                  Estilos por pantalla (se concatenan en orden); 18-editorial.css es el estilo 7.0
-  data/                 Ejercicios originales, biblioteca ampliada por equipo (05), alimentos y comidas (06),
+  data/                 Recetas económicas (08), ejercicios originales, biblioteca ampliada por equipo (05), alimentos y comidas (06),
                         textos de técnica y figuras de respaldo
   js/                   Módulos de la app (se concatenan en orden dentro de un mismo ámbito)
     00-errors.js          Registro de errores: nada que falle borra datos
@@ -35,6 +35,7 @@ app-src/                Código fuente de la app (HTML, CSS y JavaScript sin fra
     31-native.js          Widget, accesos directos, notificación en curso y resumen semanal
     32-nutrition.js       Peso saludable, calorías, macros, agua, menú diario y lista de mercado
     36-redesign.js        7.0: registro rápido (botón +), entreno libre y paso al color nuevo
+    37-v71.js             7.1: cómo amaneciste, cardio, coach con IA, suplementos, recetas, errores y variantes, peso meta
     98-99                 Despachador de acciones, eventos e inicio
   audio/                Voz de la coach (clips), paquetes de sonidos y scripts para regenerarlos
   build.js              Une todo y escribe www/ (Android) y dist/ (versión web)

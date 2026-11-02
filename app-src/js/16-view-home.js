@@ -30,6 +30,7 @@ function viewHoy(){
   for(let i=0;i<7;i++){const dt=new Date(ws);dt.setDate(ws.getDate()+i);const dd=dayAt(i),k=dayKey(dt.getTime()),on=S.history.some(x=>dayKey(x.ts)===k);
     h+=`<button data-act="day" data-v="${i}" aria-pressed="${S.sel===i}" class="${i===todayIdx?'today':''}" aria-label="${DAYNAMES[i]} ${dt.getDate()}${dd?', '+esc(dd.t):', descanso'}${on?', entrenado':''}"><span class="l">${LETTERS[i]}</span><span class="c ${on?'on':''} ${dd?'':'rest'}">${dt.getDate()}</span><span class="sel"></span></button>`;}
   h+=`</div><div class="wkcap"><b>${Math.min(w.days,td)}</b> de ${td} entrenos esta semana</div>`;
+  h+=typeof checkinCard==='function'?checkinCard():'';
   const d=selDay();
   if(!d){
     let nx=null;for(let k=1;k<=7;k++){const j=(S.sel+k)%7;if(dayAt(j)){nx=j;break;}}
@@ -50,5 +51,6 @@ function viewHoy(){
     h+=(typeof deloadTip==='function'?deloadTip():'');
     h+=`<h2 class="h2">En esta sesión <small>${p.length} ejercicios</small></h2><ol class="glist exlist">${p.map((x,k)=>exRow(x.e,`${x.sets} × ${dose(x.e).label}${x.core?' · abdomen':''}`).replace('<li>',`<li data-n="${String(k+1).padStart(2,'0')}">`)).join('')}</ol>`;
   }
+  h+=`<button class="coachlink" data-act="coach"><span class="kick">Coach</span><b>¿Dudas con tu rutina, cargas o comida?</b><span class="chev">${IC.right}</span></button>`;
   return h;
 }

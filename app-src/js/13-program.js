@@ -24,14 +24,14 @@ const FOCUS={equilibrado:{t:'Todo el cuerpo por igual',s:'Plan balanceado'},glut
 /* Candidatos por puesto, del más completo al más simple: el generador toma el primero que se pueda hacer con el equipo */
 const SLOT={
   H:['Press de banca con barra','Press de banca con mancuernas','Press de pecho en máquina','Press de pecho en el piso','Flexiones de pecho','Flexiones inclinadas'],
-  H2:['Press inclinado con mancuernas','Press inclinado en Smith','Press de pecho en máquina','Press de pecho agarre neutro','Flexiones con pies elevados','Flexiones de pecho','Flexiones inclinadas'],
+  H2:['Press inclinado con mancuernas','Press inclinado en Smith','Press de pecho en máquina','Press de pecho agarre neutro','Flexiones declinadas en banco','Flexiones con pies elevados','Flexiones de pecho','Flexiones inclinadas'],
   PU:['Flexiones de pecho','Flexiones cerradas','Flexiones inclinadas'],
   V:['Press militar con barra','Press militar sentado','Press de hombro en máquina','Press Arnold','Flexiones pica'],
   V2:['Press Arnold','Press de hombro en máquina','Press militar sentado','Flexiones pica'],
   VP:['Jalón al pecho','Dominadas','Jalón con banda','Pullover en polea'],VP2:['Dominadas supinas','Jalón agarre cerrado','Pullover en polea','Jalón con banda'],
-  R:['Remo con barra','Remo sentado en máquina','Remo a una mano','Remo en polea baja','Remo con banda','Remo invertido bajo la mesa'],
-  R2:['Remo en polea baja','Remo apoyado en banco inclinado','Remo inclinado','Remo a una mano con pausa','Remo a una mano','Remo con banda','Remo invertido bajo la mesa'],
-  R3:['Remo apoyado en banco inclinado','Remo inclinado agarre supino','Remo a una mano con pausa','Remo sentado en máquina','Remo a una mano','Remo invertido bajo la mesa'],
+  R:['Remo con barra','Remo sentado en máquina','Remo a una mano','Remo en polea baja','Remo con banda','Remo australiano en barra baja','Remo invertido bajo la mesa'],
+  R2:['Remo en polea baja','Remo apoyado en banco inclinado','Remo inclinado','Remo a una mano con pausa','Remo a una mano','Remo con banda','Remo australiano en barra baja','Remo invertido bajo la mesa'],
+  R3:['Remo apoyado en banco inclinado','Remo inclinado agarre supino','Remo a una mano con pausa','Remo sentado en máquina','Remo a una mano','Remo australiano en barra baja','Remo invertido bajo la mesa'],
   SQ:['Sentadilla con barra','Prensa de piernas','Sentadilla goblet','Sentadilla en Smith','Sentadilla libre'],
   SQ2:['Prensa de piernas','Sentadilla hack','Sentadilla sumo','Sentadilla goblet','Sentadilla en Smith','Sentadilla libre'],
   HI:['Peso muerto rumano con barra','Peso muerto rumano','Swing con kettlebell','Peso muerto a una pierna sin peso'],
@@ -40,14 +40,14 @@ const SLOT={
   GL2:['Patada de glúteo en máquina','Patada de glúteo en polea','Abducción de cadera en máquina','Puente de glúteo a una pierna'],
   LU:['Zancada reversa','Step-ups','Zancada reversa sin peso','Puente de glúteo con mancuerna'],LU2:['Sentadilla búlgara','Zancadas alternas','Sentadilla búlgara sin peso','Step-ups'],
   LU3:['Zancadas alternas','Step-ups','Zancada reversa','Zancada reversa sin peso'],
-  Q:['Extensión de cuádriceps'],HM:['Curl femoral acostado','Curl femoral sentado'],ABD:['Abducción de cadera en máquina'],ADD:['Aducción de cadera en máquina'],BK:['Hiperextensiones','Superman'],
+  Q:['Extensión de cuádriceps','Saltos al banco'],HM:['Curl femoral acostado','Curl femoral sentado'],ABD:['Abducción de cadera en máquina'],ADD:['Aducción de cadera en máquina'],BK:['Hiperextensiones','Superman'],
   FLY:['Cruce de poleas','Aperturas en pec deck','Aperturas en banco','Aperturas en el piso'],PO:['Pullover en polea','Pullover acostado'],
   LAT:['Elevaciones laterales','Elevación lateral en polea'],REAR:['Face pull en polea','Pájaros en pec deck','Pájaros','Face pull con banda','Separación de banda','Y-T-W boca abajo'],
   TRI:['Extensión de tríceps en polea','Press francés con barra','Extensión de tríceps sobre la cabeza','Fondos en paralelas','Fondos en silla','Flexiones cerradas'],
-  TRI2:['Extensión de tríceps sobre la cabeza en polea','Patada de tríceps','Fondos en paralelas','Flexiones cerradas','Extensión de tríceps sobre la cabeza','Fondos en silla'],
+  TRI2:['Extensión de tríceps sobre la cabeza en polea','Patada de tríceps','Fondos en paralelas','Fondos en banco','Flexiones diamante','Flexiones cerradas','Extensión de tríceps sobre la cabeza','Fondos en silla'],
   BI:['Curl con barra','Curl de bíceps','Curl en polea','Dominadas supinas'],BI2:['Curl martillo','Curl inclinado','Curl en banco predicador','Curl en polea'],BI3:['Curl en banco predicador','Curl concentrado','Curl inverso','Curl martillo'],
   CALF:['Elevación de talones en máquina','Elevación de talones','Elevación de talones a una pierna'],
-  C1:['Plancha'],C2:['Bird dog','Pallof press en polea','Pallof press con banda'],C3:['Elevación de rodillas colgado','Crunch en polea','Elevación de piernas con rodillas dobladas'],C4:['Plancha lateral'],C5:['Hollow hold','Crunch','Escaladores']};
+  C1:['Plancha'],C2:['Bird dog','Pallof press en polea','Pallof press con banda'],C3:['Elevación de rodillas colgado','Rodillas al pecho en paralelas','Crunch en polea','Elevación de piernas con rodillas dobladas'],C4:['Plancha lateral'],C5:['Hollow hold','Crunch','Escaladores','Burpees']};
 /* Días: "A|B" toma A y, si no se puede, B */
 const DAYT={
   fa:{t:'Cuerpo completo A',w:'full',sl:'SQ H VP|R R V HI C1'},fb:{t:'Cuerpo completo B',w:'full',sl:'LU H2 VP2|R2 R2 LAT BI TRI C2'},fc:{t:'Cuerpo completo C',w:'full',sl:'SQ2 GL HM H2 R3 V2 TRI2 C3'},

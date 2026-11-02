@@ -201,8 +201,8 @@ function progressCard(N,b){
       if(off)msg+=`<span class="fadh">Según tu registro, en las últimas dos semanas comiste en promedio <b>${fk(A.avg)} kcal</b> y tu meta era ${fk(A.tgt)}. Antes de cambiar la meta, intenta cumplirla una semana.</span>`;
       if(C.d&&!recent)act=`<button class="btn sm ${off?'ghost':'pri'}" data-act="kadj" data-v="${C.d}">${C.d>0?'Subir':'Bajar'} ${Math.abs(C.d)} kcal al día${off?' de todas formas':''}</button>`;
       else if(recent)act=`<small class="nfine">Ya ajustamos hace poco. Dale una semana más antes de cambiar otra vez.</small>`;}}
-  return `<div class="card nprog"><div class="nph"><div><span class="over">Peso meta</span><div class="ngw"><button class="iconbtn sm" data-act="gwt" data-v="-0.5" aria-label="Bajar meta">−</button><b>${NF.format(gw)} kg</b><button class="iconbtn sm" data-act="gwt" data-v="0.5" aria-label="Subir meta">+</button></div>
-    <small>${wks?`${diff>0?'Te faltan':'Te sobran'} ${NF.format(Math.abs(diff))} kg · unas ${wks} semanas a ritmo seguro (${eta})`:'Ya estás en tu meta: ahora a mantener'}</small></div></div>
+  return `<div class="card nprog"><div class="nph"><div><span class="over">Peso meta</span><div class="ngw"><button class="iconbtn sm" data-act="gwt" data-v="-0.5" aria-label="Bajar meta">−</button><button class="ngwv" data-act="gwset" aria-label="Escribir peso meta">${NF.format(gw)} kg</button><button class="iconbtn sm" data-act="gwt" data-v="0.5" aria-label="Subir meta">+</button></div>
+    <small>${wks?`${diff>0?'Te faltan':'Te sobran'} ${NF.format(Math.abs(diff))} kg · unas ${wks} semanas a ritmo seguro (${eta})`:'Ya estás en tu meta: ahora a mantener'}</small>${typeof goalTrendTxt==='function'&&goalTrendTxt(gw,b.wt)?`<small class="gtr">${goalTrendTxt(gw,b.wt)}</small>`:''}</div></div>
   ${wgChart(gw)}
   <div class="ncheck ${C.st}"><span class="nic">${C.st==='ok'?IC.check:C.st==='data'?IC.scale:IC.info}</span><div>${msg}${act?`<div class="nca">${act}</div>`:''}</div></div>
   ${stale?`<button class="btn sm ghost block" style="margin-top:10px" data-act="bodyadd">${IC.scale}Registrar mi peso de hoy</button>`:''}
@@ -260,12 +260,13 @@ function viewFood(){
   if(!bodyReady(b)||!b.sex)return h+`<div class="card empty nempty">${IC.food}<b>Calcula tu alimentación</b>Con tu edad, peso, estatura y sexo te damos tu rango de peso saludable, tus calorías, la proteína y un menú con comida de aquí.<button class="btn pri sm" style="margin:12px auto 0" data-act="mydata">Poner mis datos</button></div>
     <button class="btn ghost block" style="margin-top:10px" data-act="calc">${IC.ruler}Calcular para otra persona</button>`;
   const N=myNutri(),t=S.ftab||'diario';
-  h+=`<div class="utabs fseg" role="tablist">${[['diario','Diario'],['menu','Menú sugerido'],['metas','Progreso']].map(([k,l])=>`<button role="tab" data-act="ftabset" data-v="${k}" aria-selected="${t===k}">${l}</button>`).join('')}</div>`;
+  h+=`<div class="utabs fseg" role="tablist">${[['diario','Diario'],['menu','Menú'],['recetas','Recetas'],['metas','Progreso']].map(([k,l])=>`<button role="tab" data-act="ftabset" data-v="${k}" aria-selected="${t===k}">${l}</button>`).join('')}</div>`;
   if(t==='menu')h+=menuView(N);
+  else if(t==='recetas')h+=recipesView();
   else if(t==='metas'){h+=progressCard(N,b)+fweekCard(N)+ftdeeCard(N,b)+targetCard(N)+healthCard(b,N)+foodPrefs();
     h+=`<button class="btn ghost block" style="margin-top:10px" data-act="fcsv">${IC.dl}Exportar mi registro de comidas (Excel)</button>
     <button class="btn ghost block" style="margin-top:10px" data-act="calc">${IC.ruler}Calcular para otra persona</button>`;}
-  else h+=diaryView(N);
+  else h+=diaryView(N)+(typeof supCard==='function'?supCard(S.fdate||fToday()):'');
   h+=`<p class="nfine" style="margin-top:14px">Guía general calculada con fórmulas estándar y tablas de composición de alimentos (ICBF y USDA). Si tienes una condición médica, estás en embarazo o quieres un plan exacto, consulta a un nutricionista.</p>`;
   return h;
 }

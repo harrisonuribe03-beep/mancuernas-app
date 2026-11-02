@@ -24,35 +24,39 @@ function weekSets(days){
   S.history.forEach(h=>{if(h.ts<since)return;(h.ex||[]).forEach(z=>{const R=regionsOf(z.n),n=z.s.filter(x=>x[2]!=='c').length;for(const r in R)if(r in o)o[r]+=n*R[r];});});
   return o;
 }
+/* Cuerpo anatómico (7.1): músculos con forma real y líneas de fibra. Rojo = en recuperación (más fuerte = más cansado), gris = listo.
+   Se dibuja la mitad izquierda y se refleja. viewBox 200 × 420. */
 function bodySVG(side,rec,mini,hl){
   const c=r=>hl?`class="mu ${hl[r]===1?'hp':hl[r]?'hs':'rn'}" data-r="${r}"`:`class="mu ${recCls(rec[r])}" data-r="${r}"`;
-  const M=(inner)=>`<g>${inner}</g><g transform="translate(120,0) scale(-1,1)">${inner}</g>`;
-  const base=`<g class="sk"><ellipse cx="60" cy="17" rx="10.5" ry="12.5"/><rect x="54.5" y="26" width="11" height="12" rx="3"/><path d="M42 39 Q60 35 78 39 L80 70 Q80 96 77 112 L80 132 Q60 141 40 132 L43 112 Q40 96 40 70 Z" stroke-linejoin="round"/>
-    ${M(`<path d="M37 46 L30 88 L22 121" fill="none" stroke-width="11" stroke-linecap="round" stroke-linejoin="round" class="limb"/><ellipse cx="21" cy="128" rx="4.6" ry="7"/><path d="M49 132 L47.5 186 L46 232" fill="none" stroke-width="15" stroke-linecap="round" stroke-linejoin="round" class="limb"/><ellipse cx="46.5" cy="238" rx="7.5" ry="4.2"/>`)}</g>`;
+  const M=inner=>`<g>${inner}</g><g transform="translate(200,0) scale(-1,1)">${inner}</g>`;
+  const F=d=>`<path class="fib" d="${d}"/>`;
+  // silueta: cabeza, cuello, tronco, brazos, piernas, manos y pies
+  const sk=`<g class="sk"><ellipse cx="100" cy="27" rx="15" ry="19"/><path d="M90 42 h20 l3 16 h-26 Z"/>
+    ${M(`<path d="M100 54 L84 56 Q62 60 50 70 Q40 80 41 100 L36 150 L28 212 Q26 226 30 238 L38 240 Q44 226 44 214 L56 158 L64 120 Q66 150 68 176 Q62 196 62 214 Q58 260 64 300 Q60 330 62 380 L60 400 Q62 410 78 410 L84 404 L82 380 Q86 340 84 306 Q96 260 98 214 L100 212 Z"/>`)}</g>`;
   let m='';
   if(side==='f'){
-    m=M(`<path ${c('traps')} d="M55 33 Q47 37 41 41 L55 41 Z"/>
-      <path ${c('delt')} d="M40 41 Q29 42 27 55 Q28 62 31 63 Q35 52 43 47 Z"/>
-      <path ${c('chest')} d="M59 43 L44 45 Q35 52 37 62 Q46 70 59 66 Z"/>
-      <path ${c('bi')} d="M30 64 Q24 74 26 86 Q30 89 34 86 Q37 75 36 63 Z"/>
-      <path ${c('fore')} d="M26 89 Q20 103 19 119 L24 120 Q30 106 33 90 Z"/>
-      <path ${c('abs')} d="M51.5 69 h7.5 v10 h-7.5 Z M51.5 81 h7.5 v10 h-7.5 Z M51.5 93 h7.5 v10 h-7.5 Z M51.5 105 h7.5 v14 q-4 0 -7.5 -4 Z"/>
-      <path ${c('obl')} d="M49.5 68 Q41 74 41 90 Q41 104 46 114 L49.5 116 Z"/>
-      <path ${c('quad')} d="M43 129 Q37 148 40 170 Q43 181 50 181 Q55 172 56 152 Q57 138 55 134 Z"/>
-      <path ${c('add')} d="M57.5 135 Q59.5 150 57 168 L55.5 170 Q57.5 150 56 136 Z"/>
-      <path ${c('calf')} d="M42 194 Q38 210 42 228 L48 230 Q52 212 51 194 Z"/>`);
+    m=M(`<path ${c('traps')} d="M90 54 Q78 60 66 66 Q80 66 92 62 Z"/>
+      <path ${c('delt')} d="M68 66 Q50 64 44 80 Q41 96 47 108 Q52 92 60 84 Q66 76 74 72 Z"/>${F('M60 70 Q52 84 50 100')}${F('M66 72 Q58 84 56 96')}
+      <path ${c('chest')} d="M99 68 L78 69 Q64 74 60 88 Q58 104 68 112 Q82 120 99 112 Z"/>${F('M98 76 Q80 80 64 94')}${F('M98 90 Q82 92 66 104')}${F('M98 104 Q86 106 74 112')}
+      <path ${c('bi')} d="M48 110 Q41 124 41 140 Q43 152 50 152 Q58 138 59 118 Q57 108 52 106 Z"/>${F('M50 114 Q46 130 47 146')}
+      <path ${c('fore')} d="M42 156 Q34 178 31 210 L38 214 Q48 190 54 158 Z"/>${F('M46 162 Q40 182 36 206')}
+      <path ${c('abs')} d="M88.5 117 h10 v15 h-10 Q87 124 88.5 117 Z M88.5 134 h10 v15 h-10 Z M88.5 151 h10 v15 h-10 Z M88.5 168 h10 v22 Q92 188 88.5 182 Z"/>
+      <path ${c('obl')} d="M85 116 Q72 118 68 132 Q66 154 70 174 Q76 188 86 194 L86 120 Z"/>${F('M84 124 L72 136')}${F('M84 140 L70 152')}${F('M84 156 L71 168')}
+      <path ${c('quad')} d="M70 206 Q62 232 64 266 Q67 292 80 302 Q88 296 92 270 Q96 240 92 214 Q84 204 70 206 Z"/>${F('M74 212 Q70 250 76 292')}${F('M86 214 Q86 252 84 290')}
+      <path ${c('add')} d="M93 214 Q100 232 98 260 Q96 270 93 272 Q96 244 90 222 Z"/>
+      <path ${c('calf')} d="M66 316 Q60 340 64 372 Q68 382 74 380 Q80 354 80 320 Q74 312 66 316 Z"/>${F('M70 322 Q66 348 69 372')}`);
   }else{
-    m=M(`<path ${c('traps')} d="M60 30 L48 38 Q42 41 43 46 L50 60 L60 66 Z"/>
-      <path ${c('rdelt')} d="M42 42 Q29 42 27 55 Q28 62 31 63 Q36 52 43 48 Z"/>
-      <path ${c('lats')} d="M48 60 Q41 64 41 72 Q42 88 50 98 L59 100 L59 68 Z"/>
-      <path ${c('tri')} d="M30 64 Q24 74 26 86 Q30 89 34 86 Q37 75 36 63 Z"/>
-      <path ${c('fore')} d="M26 89 Q20 103 19 119 L24 120 Q30 106 33 90 Z"/>
-      <path ${c('lower')} d="M51 101 L59 102 L59 116 L50 114 Q48 108 51 101 Z"/>
-      <path ${c('glute')} d="M44 116 Q40 126 44 134 Q52 140 59.5 134 L59.5 118 Q52 114 44 116 Z"/>
-      <path ${c('ham')} d="M43 137 Q38 156 42 178 Q48 183 53 180 Q57 160 57 141 Q50 141 43 137 Z"/>
-      <path ${c('calf')} d="M41 193 Q36 206 40 220 Q45 228 50 220 Q53 205 51 193 Z"/>`);
+    m=M(`<path ${c('traps')} d="M100 44 L88 54 Q76 62 66 66 Q76 72 84 82 Q94 102 100 124 Z"/>${F('M98 56 L72 68')}${F('M98 80 L84 74')}
+      <path ${c('rdelt')} d="M66 66 Q50 64 44 80 Q41 96 47 108 Q52 92 60 84 Q66 76 74 72 Z"/>${F('M60 70 Q52 84 50 100')}
+      <path ${c('lats')} d="M82 84 Q68 92 66 112 Q66 142 78 162 Q88 172 99 176 L99 128 Q92 104 82 84 Z"/>${F('M80 96 Q74 120 80 150')}${F('M90 110 Q84 136 92 166')}
+      <path ${c('tri')} d="M48 110 Q41 124 41 140 Q43 152 50 152 Q58 138 59 118 Q57 108 52 106 Z"/>${F('M53 112 Q50 130 51 148')}
+      <path ${c('fore')} d="M42 156 Q34 178 31 210 L38 214 Q48 190 54 158 Z"/>${F('M46 162 Q40 182 36 206')}
+      <path ${c('lower')} d="M90 166 L99 178 L99 198 L84 194 Q82 180 90 166 Z"/>
+      <path ${c('glute')} d="M70 196 Q62 212 66 232 Q82 246 99 236 L99 202 Q86 192 70 196 Z"/>${F('M72 206 Q84 216 98 214')}${F('M70 222 Q84 232 98 228')}
+      <path ${c('ham')} d="M66 240 Q60 266 64 292 Q74 306 86 302 Q94 278 94 246 Q80 248 66 240 Z"/>${F('M72 248 Q68 272 74 298')}${F('M84 250 Q86 276 84 300')}
+      <path ${c('calf')} d="M64 312 Q56 336 62 360 Q72 374 82 362 Q86 336 80 312 Q72 306 64 312 Z"/>${F('M72 316 L72 362')}`);
   }
-  return `<svg class="bsvg${mini?' mini':''}" viewBox="0 0 120 246" role="img" aria-label="Mapa muscular ${side==='f'?'de frente':'de espalda'}">${base}${m}</svg>`;
+  return `<svg class="bsvg${mini?' mini':''}" viewBox="0 0 200 420" role="img" aria-label="Mapa muscular ${side==='f'?'de frente':'de espalda'}">${sk}${m}</svg>`;
 }
 function recoveryCard(full){
   const rec=recovery(),ready=[],tired=[];

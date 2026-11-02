@@ -35,7 +35,7 @@ function renderOnb(){
   if(st==='goal')h+=`<h1>¿Qué quieres lograr?</h1><div class="opts">${Object.keys(GOALS).map(k=>opt('obgoal',k,OB.goal===k,GOALS[k].t,GOALS[k].s,IC[GOALS[k].ic])).join('')}</div>`;
   if(st==='lvl')h+=`<h1>¿Cuánta experiencia tienes?</h1><div class="opts">${Object.keys(LEVELS).map(k=>opt('oblvl',k,OB.lvl===k,LEVELS[k].t,LEVELS[k].s)).join('')}</div>`;
   if(st==='place'){const pk=OB.eqOpen?'custom':placeOf(OB.eq);
-    h+=`<h1>¿Dónde vas a entrenar?</h1><p>El plan usa solo lo que tengas. Lo puedes cambiar cuando quieras.</p><div class="opts">${Object.keys(PLACES).map(k=>opt('obplace',k,pk===k,PLACES[k].t,PLACES[k].s,IC[{casa0:'body',casadb:'dumb',casaeq:'home',gym:'gym'}[k]])).join('')}
+    h+=`<h1>¿Dónde vas a entrenar?</h1><p>El plan usa solo lo que tengas. Lo puedes cambiar cuando quieras.</p><div class="opts">${Object.keys(PLACES).map(k=>opt('obplace',k,pk===k,PLACES[k].t,PLACES[k].s,IC[{casa0:'body',casadb:'dumb',casaeq:'home',parque:'up',gym:'gym'}[k]])).join('')}
     ${opt('obplace','custom',pk==='custom','Elegir mi equipo uno por uno','Máquinas, poleas, barra, bandas…',IC.list)}</div>${pk==='custom'?`<div class="eqlist">${eqChecklist(OB.eq,'obeq')}</div>`:''}`;}
   if(st==='days'){const n=OB.wd.length;ok=n>=2&&n<=6;
     h+=`<h1>¿Qué días puedes entrenar?</h1><p>Elige entre 2 y 6. Se arma el tipo de rutina que mejor rinde con esos días.</p><div class="wdpick">${LETTERS3.map((l,i)=>`<button data-act="obwd" data-v="${i}" aria-pressed="${OB.wd.includes(i)}">${l}</button>`).join('')}</div>

@@ -14,11 +14,11 @@ S.food=LS.get('mc-food',{});
 S.flib=Object.assign({foods:[],meals:[],at:0},LS.get('mc-foodlib',{}));
 
 /* ---------- guardado ---------- */
-function fday(k){const d=S.food[k];return d?{items:(d.items||[]).slice(),water:d.water||0,at:d.at||0}:{items:[],water:0,at:0};}
+function fday(k){const d=S.food[k];return d?{items:(d.items||[]).slice(),water:d.water||0,at:d.at||0,sup:(d.sup||[]).slice(),supW:d.supW||null}:{items:[],water:0,at:0,sup:[],supW:null};}
 // Los días vacíos se guardan igual (con fecha de cambio) para que la nube no los reviva
 // tg: la meta de ese día cuando se registró (las estadísticas comparan contra la meta que tenías, no la de hoy)
 function fsave(k,day){day.at=Date.now();let tg=0;try{const T=ftarget(k);tg=T?T.kcal:0;}catch(e){}
-  S.food[k]={items:day.items,water:day.water||0,at:day.at,tg};LS.set('mc-food',S.food);
+  S.food[k]={items:day.items,water:day.water||0,at:day.at,tg};if(day.sup&&day.sup.length){S.food[k].sup=day.sup;if(day.supW)S.food[k].supW=day.supW;}LS.set('mc-food',S.food);
   if(COL)COL.doc('mcf-'+k).set(S.food[k]).catch(()=>{});
   if(typeof fremDirty==='function')fremDirty();}
 function flibSave(){S.flib.at=Date.now();LS.set('mc-foodlib',S.flib);if(COL)COL.doc('mc-foodlib').set(JSON.parse(JSON.stringify(S.flib))).catch(()=>{});}

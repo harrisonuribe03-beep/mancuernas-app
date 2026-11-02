@@ -92,7 +92,7 @@ function viewProg(){
   if(S.ptab==='res'){
     const w=weekStats(),td=trainDays();
     h+=rankCard(false)+`<h2 class="h2">Esta semana</h2><div class="minis"><div class="card"><b>${Math.min(w.days,td)}/${td}</b><span>entrenos</span></div><div class="card"><b>${w.min}</b><span>minutos</span></div><div class="card"><b>${NF.format(w.vol)}</b><span>kg movidos</span></div></div>`
-      +(typeof missionsCard==='function'?missionsCard():'')+(typeof recoveryCard==='function'?`<h2 class="h2">Recuperación muscular</h2>`+recoveryCard(false):'');
+      +(typeof missionsCard==='function'?missionsCard():'')+(typeof cardioCard==='function'?cardioCard():'')+(typeof recoveryCard==='function'?`<h2 class="h2">Recuperación muscular</h2>`+recoveryCard(false):'');
     h+=`<h2 class="h2">Desde que empezaste</h2><div class="kpis"><div class="card"><b>${S.history.length}</b><span>entrenamientos</span></div><div class="card"><b>${vol>=100000?NF.format(Math.round(vol/1000))+'k':NF.format(vol)}</b><span>kg movidos</span></div><div class="card"><b>${min>=120?NF.format(Math.round(min/6)/10)+' h':min+' min'}</b><span>entrenando</span></div></div>
     <h2 class="h2">Constancia</h2>${heatmap()}
     <h2 class="h2">Calendario</h2>${calendar()}
@@ -103,6 +103,7 @@ function viewProg(){
   }else if(S.ptab==='cuerpo'){
     h+=`<h2 class="h2">Recuperación muscular</h2>${recoveryCard(true)}
     <h2 class="h2">Series por músculo</h2>${setsCard()}
+    ${typeof goalBodyCard==='function'?goalBodyCard():''}
     <h2 class="h2">Peso y medidas</h2>${bodyCard()}
     <h2 class="h2">Fotos de progreso <small>solo en este teléfono</small></h2>${photosCard()}`;
   }else if(S.ptab==='logros'){

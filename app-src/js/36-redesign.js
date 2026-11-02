@@ -4,7 +4,7 @@
 (function(){const st=S.settings;if(!st.ed7){st.ed7=1;if(!st.accent||st.accent==='azul')st.accent='rojo';try{saveSettings();}catch(e){}}})();
 
 /* ---------- registro rápido ---------- */
-function quickSheet(){
+function quickLogSheet(){
   const ok=typeof myNutri==='function'&&!!myNutri();
   let water='';
   if(ok){const D=fday(fToday()),T=ftarget(fToday(),myNutri());water=`<small>${NF.format((D.water||0)/1000)} de ${T?NF.format(T.water):'—'} L hoy</small>`;}
@@ -13,7 +13,9 @@ function quickSheet(){
   ${R('qfood','',IC.food,'Comida','Lo que acabas de comer')}
   <li><div class="row qrow"><span class="mico">${IC.drop}</span><span><div class="nm">Agua</div><div class="ds">${ok?water:'Pon tus datos en Comida para ver tu meta'}</div></span><button class="btn sm pri" data-act="qwater" data-v="250">+ Vaso</button></div></li>
   ${R('qweight','',IC.scale,'Peso','Tu peso de hoy')}
-  ${R('freecfg','',IC.dumb,'Entreno libre','Una sesión rápida a tu medida')}</ul>
+  ${R('cardio','',IC.up,'Cardio','Caminata, trote, bici o cuerda')}
+  ${R('freecfg','',IC.dumb,'Entreno libre','Una sesión rápida a tu medida')}
+  ${R('coach','',IC.info,'Preguntarle al coach','Dudas de rutina, cargas o comida')}</ul>
   <div class="acts"><button class="btn" data-act="close">Cerrar</button></div>`);
 }
 
@@ -54,10 +56,10 @@ function freeStart(){
 
 function redesignAct(a,v){
   switch(a){
-    case 'quick':quickSheet();return true;
+    case 'quick':quickLogSheet();return true;
     case 'qfood':closeSheet(true);if(typeof myNutri!=='function'||!myNutri()){S.tab='food';render();window.scrollTo(0,0);toast('Primero pon tus datos aquí');return true;}launchFood();return true;
     case 'qwater':{if(typeof myNutri!=='function'||!myNutri()){closeSheet(true);S.tab='food';render();toast('Primero pon tus datos aquí');return true;}
-      const k=fToday(),D=fday(k);D.water=Math.max(0,(D.water||0)+(+v||250));fsave(k,D);buzz(10);toast(IC.drop+`<span>Vaso anotado · ${NF.format(D.water/1000)} L hoy</span>`,true);quickSheet();if(S.tab==='food')render();return true;}
+      const k=fToday(),D=fday(k);D.water=Math.max(0,(D.water||0)+(+v||250));fsave(k,D);buzz(10);toast(IC.drop+`<span>Vaso anotado · ${NF.format(D.water/1000)} L hoy</span>`,true);quickLogSheet();if(S.tab==='food')render();return true;}
     case 'qweight':closeSheet(true);bodySheet();return true;
     case 'freecfg':freeSheet(false);return true;
     case 'freeg':{const i=FREE.g.indexOf(v);if(i>=0){if(FREE.g.length>1)FREE.g.splice(i,1);}else FREE.g.push(v);FREE.g.sort((a,b)=>GORDER.indexOf(a)-GORDER.indexOf(b));freeSheet(true);return true;}

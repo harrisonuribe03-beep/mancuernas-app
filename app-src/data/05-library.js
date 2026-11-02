@@ -15,6 +15,7 @@ const PLACES={
   casa0:{t:'Casa sin equipo',s:'Solo tu cuerpo',eq:[]},
   casadb:{t:'Casa con mancuernas',s:'Un par de mancuernas',eq:['db']},
   casaeq:{t:'Casa equipada',s:'Mancuernas, banco, barra de dominadas, bandas y kettlebell',eq:['db','bench','pull','band','kb']},
+  parque:{t:'Parque',s:'Barras de dominadas, paralelas y bancos al aire libre',eq:['pull','dip','bench']},
   gym:{t:'Gimnasio',s:'Máquinas, poleas, barras y mancuernas',eq:Object.keys(EQ)}
 };
 const XLIB=[
@@ -60,6 +61,25 @@ const XLIB=[
   steps:['Sube con ayuda de una silla hasta tener la barbilla sobre la barra.','Retira los pies y baja lo más lento que puedas, unos 4 segundos.','Vuelve a subir con la silla y repite.'],err:'Dejarte caer en el último tramo.'},
  {n:'Elevación de rodillas colgado',eq:['pull'],ld:'bw',p:'core',r:'3 × 10–15',rest:60,m:['Abdomen bajo','Core','Antebrazo'],c:'Colgado, sube las rodillas al pecho sin balancearte.',
   steps:['Cuélgate de la barra con los brazos estirados.','Sube las rodillas hacia el pecho redondeando un poco la pelvis.','Baja controlado sin balancearte.'],err:'Usar el impulso del balanceo.'},
+ // ---------- parque y calistenia (7.1) ----------
+ {n:'Remo australiano en barra baja',eq:['pull'],ld:'bw',p:'row',r:'3 × 8–12',rest:75,m:['Espalda','Bíceps','Hombro posterior'],c:'Debajo de una barra a la altura de la cadera, jala el pecho hacia la barra con el cuerpo recto.',
+  steps:['Agarra una barra baja con las manos al ancho de los hombros y quédate colgado debajo, talones en el piso.','Con el cuerpo recto como una tabla, jala el pecho hacia la barra juntando los omóplatos.','Baja despacio hasta estirar los brazos.'],err:'Dejar caer la cadera o subir solo con los brazos sin juntar los omóplatos.'},
+ {n:'Colgado de la barra',eq:['pull'],ld:'bw',p:'core',r:'3 × 20–40 s',rest:60,m:['Antebrazo','Espalda','Core'],c:'Cuélgate con los brazos estirados y los hombros activos, sin balancearte.',
+  steps:['Agarra la barra con las palmas al frente, manos al ancho de los hombros.','Cuélgate con los brazos estirados y baja un poco los hombros, lejos de las orejas.','Aguanta respirando normal y aprieta el abdomen.'],err:'Quedarte con los hombros pegados a las orejas, colgado solo de las articulaciones.'},
+ {n:'Rodillas al pecho en paralelas',eq:['dip'],ld:'bw',p:'core',r:'3 × 10–15',rest:60,m:['Abdomen bajo','Core','Hombro'],c:'Sostente en las paralelas con los brazos estirados y sube las rodillas al pecho.',
+  steps:['Sube a las paralelas y sostente con los brazos estirados y los hombros abajo.','Sube las rodillas hacia el pecho redondeando un poco la espalda baja.','Bájalas despacio sin balancearte.'],err:'Usar impulso y balancear las piernas.'},
+ {n:'Flexiones declinadas en banco',eq:['bench'],ld:'bw',p:'hpush',r:'3 × 8–15',rest:75,m:['Pecho superior','Hombro','Tríceps'],c:'Pies sobre el banco, manos en el piso. Cuerpo recto de la cabeza a los talones.',
+  steps:['Apoya las manos en el piso un poco más abiertas que los hombros y los pies sobre el banco.','Baja el pecho hacia el piso con los codos a unos 45° del cuerpo.','Empuja hasta estirar los brazos sin dejar caer la cadera.'],err:'Dejar caer la cadera o abrir los codos a 90°.'},
+ {n:'Fondos en banco',eq:['bench'],ld:'bw',p:'tri',r:'3 × 10–15',rest:60,m:['Tríceps','Pecho','Hombro anterior'],c:'Manos en el borde del banco, piernas al frente. Baja doblando solo los codos.',
+  steps:['Siéntate en el borde del banco, apoya las manos a los lados de la cadera y saca la cadera al frente.','Baja doblando los codos hacia atrás hasta unos 90°.','Empuja hasta estirar los brazos.'],err:'Abrir los codos hacia los lados o bajar demasiado y forzar el hombro.'},
+ {n:'Step-ups al banco',eq:['bench'],ld:'bw',p:'lunge',r:'3 × 10–12 por pierna',rest:60,m:['Cuádriceps','Glúteo'],c:'Sube al banco con una pierna empujando con el talón, sin impulsarte con la de abajo.',
+  steps:['De frente al banco, pon un pie completo encima.','Empuja con el talón de arriba hasta quedar de pie sobre el banco.','Baja controlando con la misma pierna.'],err:'Impulsarte con la pierna de abajo en vez de subir con la de arriba.'},
+ {n:'Saltos al banco',eq:['bench'],ld:'bw',p:'quad',r:'3 × 6–8',rest:75,m:['Cuádriceps','Glúteo','Pantorrilla'],c:'Salta con los dos pies al banco y cae suave. Baja caminando, no saltando.',
+  steps:['De pie frente a un banco firme, pies al ancho de la cadera.','Lleva los brazos atrás, baja un poco y salta para caer con los dos pies sobre el banco.','Cae suave con las rodillas dobladas y baja caminando.'],err:'Caer con las piernas rígidas o bajar saltando hacia atrás.'},
+ {n:'Flexiones diamante',eq:[],ld:'bw',p:'tri',r:'3 × 6–12',rest:60,m:['Tríceps','Pecho'],c:'Manos juntas formando un rombo bajo el pecho. Codos pegados al cuerpo.',
+  steps:['En posición de flexión, junta las manos bajo el pecho tocando pulgares e índices.','Baja el pecho hacia las manos con los codos cerca del cuerpo.','Empuja hasta estirar los brazos.'],err:'Abrir los codos hacia los lados. Si no puedes, apoya las rodillas.'},
+ {n:'Burpees',eq:[],ld:'bw',p:'core',r:'3 × 30–40 s',rest:60,m:['Cuerpo completo','Cuádriceps','Pecho'],c:'Baja, lleva los pies atrás, vuelve y salta. Ritmo constante.',
+  steps:['De pie, baja en cuclillas y apoya las manos en el piso.','Lleva los pies atrás a posición de plancha y regresa los pies a las manos.','Sube y da un salto con los brazos arriba.'],err:'Dejar caer la cadera al llevar los pies atrás.'},
  {n:'Fondos en paralelas',eq:['dip'],ld:'bw',p:'tri',r:'3 × 6–12',rest:90,m:['Tríceps','Pecho','Hombro anterior'],c:'Baja hasta que los codos queden a 90° y empuja.',
   steps:['Sostente en las paralelas con los brazos estirados.','Baja doblando los codos hasta unos 90°, con el pecho un poco al frente.','Empuja hasta estirar los brazos.'],err:'Bajar demasiado y forzar el hombro.'},
  // ---------- bandas y kettlebell ----------

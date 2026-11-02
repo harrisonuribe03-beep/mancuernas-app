@@ -16,6 +16,7 @@ function exDetail(name,tab){
     ${muscleMap(name)}
     <h2 class="h2" style="margin-top:14px">Cómo hacerlo</h2><ol class="steps">${inf.steps.map(s=>`<li><span>${s}</span></li>`).join('')}</ol>
     ${inf.err?`<div class="callout warn">${IC.warn}<div><b>Error común.</b> ${inf.err}</div></div>`:''}
+    ${typeof exExtra==='function'?exExtra(name):''}
     <button class="pnote" data-act="note" data-v="${esc(name)}">${IC.pen}<span>${nt?esc(nt):'Agregar una nota personal para este ejercicio'}</span></button>`;
   }else if(tab==='prog'){
     if(!sess.length)h+=`<div class="card empty" style="margin-top:12px"><b>Sin registros todavía</b>Cuando lo entrenes verás aquí tu récord, tu fuerza estimada y la evolución.</div>`;
