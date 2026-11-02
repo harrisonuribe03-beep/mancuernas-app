@@ -1,26 +1,29 @@
-/* Layout: app Android de una columna (máx. 560px). 4 pestañas abajo. El entrenamiento es pantalla completa: cabecera compacta con la figura, tabla de series como protagonista y barra inferior que se convierte en temporizador de descanso. Radios: 16 tarjetas, 12 controles, 10 miniaturas. */
+/* Estilo 7.0 "editorial": crema, negro y rojo. Títulos en Big Shoulders Display, texto en Barlow, etiquetas en JetBrains Mono. Ver 18-editorial.css.
+   Layout: app Android de una columna (máx. 560px). 4 pestañas abajo. El entrenamiento es pantalla completa: cabecera compacta con la figura, tabla de series como protagonista y barra inferior que se convierte en temporizador de descanso. Radios: 16 tarjetas, 12 controles, 10 miniaturas. */
 :root{
-  --bg:#f4f5f8; --s1:#ffffff; --s2:#eef0f4; --s3:#e3e6ec; --line:#e4e7ec;
-  --tx:#0f1115; --tx2:#5a6170; --tx3:#656c7a;
-  --acc:#3d5afe; --acc-deep:#3d5afe; --acc-ink:#3b56f4; --acc-tx:#ffffff; --acc-soft:#e8ebff;
-  --ok:#077a53; --ok-soft:#e2f5ec; --gold:#965a00; --gold-soft:#fdf1dc; --warn:#c2410c; --warn-soft:#fdece3; --bad:#d92d20;
-  --fig:#3b414d; --fig2:#a7aebb; --mus:#3d5afe; --mus2:#9fb0ff; --metal:#111318; --metal2:#7a8190; --prop:#d9dde4; --prop2:#c9ced7; --shadow:#0f1115;
-  --font:"Plus Jakarta Sans",system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
-  --tabs:64px; --art-bg:#eef0f4;
+  --bg:#f4efe6; --s1:#fffdf8; --s2:#ebe5d9; --s3:#ddd5c6; --line:#ddd4c4;
+  --tx:#16130f; --tx2:#57504a; --tx3:#6b6359;
+  --acc:#d4231a; --acc-deep:#a81a12; --acc-ink:#b81d14; --acc-tx:#ffffff; --acc-soft:#f8e2d9;
+  --ok:#1d6b45; --ok-soft:#e0ecdf; --gold:#865500; --gold-soft:#f5e7c8; --warn:#ad3f0c; --warn-soft:#f6e1d2; --bad:#c41d12;
+  --fig:#3a342c; --fig2:#a99f90; --mus:#d4231a; --mus2:#f0a59c; --metal:#16130f; --metal2:#7c7365; --prop:#ddd5c6; --prop2:#cdc4b3; --shadow:#16130f; --art-bg:#ebe4d6;
+  --font:"Barlow",system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
+  --disp:"Big Shoulders Display","Barlow",system-ui,sans-serif;
+  --mono:"JetBrains Mono",ui-monospace,monospace;
+  --tabs:64px;
 }
 @media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
-  --bg:#0d0f13; --s1:#16191f; --s2:#1e2229; --s3:#282d36; --line:#252a32;
-  --tx:#f3f4f6; --tx2:#a3a9b5; --tx3:#8e95a3;
-  --acc:#5066e0; --acc-deep:#5066e0; --acc-ink:#7c90ff; --acc-tx:#ffffff; --acc-soft:#242b4c;
-  --ok:#34d399; --ok-soft:#0f2a1f; --gold:#fbbf24; --gold-soft:#2b2210; --warn:#fb923c; --warn-soft:#2b1a10; --bad:#f97066;
-  --fig:#a3abb9; --fig2:#5a616e; --mus:#6f86ff; --mus2:#3a4a9c; --metal:#f3f4f6; --metal2:#8a919e; --prop:#2c313b; --prop2:#232831; --shadow:#000; --art-bg:#1b1f26;
+  --bg:#12110f; --s1:#1b1916; --s2:#24211d; --s3:#302c26; --line:#2e2a24;
+  --tx:#f4efe6; --tx2:#b5ac9e; --tx3:#9e9586;
+  --acc:#e2372c; --acc-deep:#a81a12; --acc-ink:#ff7a6c; --acc-tx:#ffffff; --acc-soft:#3a1d18;
+  --ok:#5fc08a; --ok-soft:#16281d; --gold:#e9b44c; --gold-soft:#2c2412; --warn:#f08a4b; --warn-soft:#2e1c11; --bad:#ff6b5e;
+  --fig:#b3aa9b; --fig2:#5c554b; --mus:#ff5b4c; --mus2:#7a2a22; --metal:#f4efe6; --metal2:#8f8676; --prop:#302c26; --prop2:#272420; --shadow:#000; --art-bg:#201d19;
   color-scheme:dark}}
 :root[data-theme="dark"]{
-  --bg:#0d0f13; --s1:#16191f; --s2:#1e2229; --s3:#282d36; --line:#252a32;
-  --tx:#f3f4f6; --tx2:#a3a9b5; --tx3:#8e95a3;
-  --acc:#5066e0; --acc-deep:#5066e0; --acc-ink:#7c90ff; --acc-tx:#ffffff; --acc-soft:#242b4c;
-  --ok:#34d399; --ok-soft:#0f2a1f; --gold:#fbbf24; --gold-soft:#2b2210; --warn:#fb923c; --warn-soft:#2b1a10; --bad:#f97066;
-  --fig:#a3abb9; --fig2:#5a616e; --mus:#6f86ff; --mus2:#3a4a9c; --metal:#f3f4f6; --metal2:#8a919e; --prop:#2c313b; --prop2:#232831; --shadow:#000; --art-bg:#1b1f26;
+  --bg:#12110f; --s1:#1b1916; --s2:#24211d; --s3:#302c26; --line:#2e2a24;
+  --tx:#f4efe6; --tx2:#b5ac9e; --tx3:#9e9586;
+  --acc:#e2372c; --acc-deep:#a81a12; --acc-ink:#ff7a6c; --acc-tx:#ffffff; --acc-soft:#3a1d18;
+  --ok:#5fc08a; --ok-soft:#16281d; --gold:#e9b44c; --gold-soft:#2c2412; --warn:#f08a4b; --warn-soft:#2e1c11; --bad:#ff6b5e;
+  --fig:#b3aa9b; --fig2:#5c554b; --mus:#ff5b4c; --mus2:#7a2a22; --metal:#f4efe6; --metal2:#8f8676; --prop:#302c26; --prop2:#272420; --shadow:#000; --art-bg:#201d19;
   color-scheme:dark}
 *{box-sizing:border-box}
 html,body{height:100%}

@@ -27,26 +27,26 @@ function viewMe(){
       <h3>Semana suave</h3><p>Cada 6 a 8 semanas, o cuando te sientas agotado, usa el modo Suave: menos series y un poco menos de peso.</p>
       <h3>Tipos de serie</h3><p><b>C</b> calentamiento (no cuenta para récords), <b>D</b> drop set (bajas el peso y sigues), <b>F</b> al fallo.</p>
       <h3>Superseries</h3><p>Dos ejercicios alternados sin descanso entre ellos. Ahorran tiempo; funcionan mejor con músculos opuestos, como pecho y espalda.</p></div>`;
-    if(S.mePage==='about'){const el=LS.get(ERRLOG,[]);h+=`<div class="card about">${emblem(L.ri,56)}<div><b>Mancuernas 6.0</b><span>${BUILD?'Versión '+BUILD+' · ':''}Para entrenar en casa o en el gimnasio</span></div></div>
+    if(S.mePage==='about'){const el=LS.get(ERRLOG,[]);h+=`<div class="card about">${emblem(L.ri,56)}<div><b>Mancuernas 7.0</b><span>${BUILD?'Versión '+BUILD+' · ':''}Para entrenar en casa o en el gimnasio</span></div></div>
       <div class="card" style="margin-top:10px"><div class="set inline"><span class="lb">Registro de errores<small>${el.length?pl(el.length,'error guardado','errores guardados'):'Sin errores registrados'}</small></span>${el.length?`<button class="btn sm ghost" data-act="errcopy">Copiar</button>`:''}</div>
       <div class="set inline"><span class="lb">Ver la presentación otra vez</span><button class="btn sm ghost" data-act="wizard">Abrir</button></div></div>`;}
     return h;
   }
   const row=(k,ic,t,sub)=>`<li><button class="row mrow" data-act="mepage" data-v="${k}"><span class="mico">${ic}</span><span><div class="nm">${t}</div><div class="ds">${sub}</div></span><span class="chev">${IC.right}</span></button></li>`;
-  return `<h1 class="h1" style="padding-top:6px">Perfil</h1>
+  return `<div class="subhd"><button class="iconbtn" data-act="tab" data-v="hoy" aria-label="Volver">${IC.left}</button><h1 class="h1">Perfil</h1></div>
   <div class="card me"><span class="avatar emb">${emblem(L.ri,54)}</span><div style="flex:1;min-width:0"><label class="namefield"><input id="in-name" value="${esc(st.name||'')}" placeholder="Tu nombre" maxlength="24" autocomplete="off" aria-label="Nombre">${IC.pen}</label><div class="sub">${L.rank} · nivel ${L.lv}</div></div></div>
   <div class="mestats"><div><b>${S.history.length}</b><span>entrenos</span></div><div><b>${s}</b><span>racha</span></div><div><b>${prs}</b><span>récords</span></div><div><b>${achievements().filter(a=>a.on).length}</b><span>logros</span></div></div>
   <h2 class="h2">Tu rango</h2>${rankCard(true)}
   <h2 class="h2">Tú</h2><ul class="glist">
   <li><button class="row mrow" data-act="mydata"><span class="mico">${IC.user}</span><span><div class="nm">Mis datos</div><div class="ds">${st.age&&st.ht?`${st.sex&&SEXES[st.sex]&&st.sex!=='x'?SEXES[st.sex][0]+' · ':''}${st.age} años · ${NF.format((lastWeight()||st.wt||0))} kg · ${st.ht} cm`:'Sexo, edad, peso y estatura'}</div></span><span class="chev">${IC.right}</span></button></li>
   <li><button class="row mrow" data-act="myeq"><span class="mico">${IC.gym}</span><span><div class="nm">Dónde entrenas</div><div class="ds">${esc(placeLabel())}</div></span><span class="chev">${IC.right}</span></button></li>
-  <li><button class="row mrow" data-act="ptabgo" data-v="food"><span class="mico">${IC.food}</span><span><div class="nm">Alimentación</div><div class="ds">Calorías, peso saludable y menú</div></span><span class="chev">${IC.right}</span></button></li></ul>
+  <li><button class="row mrow" data-act="tab" data-v="food"><span class="mico">${IC.food}</span><span><div class="nm">Alimentación</div><div class="ds">Calorías, peso saludable y menú</div></span><span class="chev">${IC.right}</span></button></li></ul>
   <h2 class="h2">Ajustes</h2><ul class="glist">
   ${row('train',IC.dumb,'Entrenamiento',`Peso inicial ${NF.format(st.kg)} kg · descanso ${st.rest==='auto'?'del plan':st.rest+' s'}`)}
   ${row('sound',IC.vol,'Sonido y voz',`${st.sound?PACKS[packOf()][0]:'Sin sonidos'} · coach ${VOICES[st.voice||'basic'][0].toLowerCase()}`)}
   ${row('notif',IC.bell,'Avisos y recordatorios',st.remind?'Recordatorio a las '+esc(st.remindTime||'18:00'):'Vibración, pantalla y notificaciones')}
-  ${row('look',IC.star,'Apariencia',`Color ${st.accent||'azul'} · tema ${({system:'del sistema',light:'claro',dark:'oscuro'})[st.theme]}`)}
+  ${row('look',IC.star,'Apariencia',`Color ${st.accent||'rojo'} · tema ${({system:'del sistema',light:'claro',dark:'oscuro'})[st.theme]}`)}
   ${row('data',IC.layers,'Datos y respaldo',S.store==='db'?'Guardado en tu cuenta':'Guardado en este teléfono')}
   ${row('guide',IC.info,'Cómo progresar','Guía rápida de entrenamiento')}
-  ${row('about',IC.trophy,'Acerca de','Mancuernas 6.0')}</ul>`;
+  ${row('about',IC.trophy,'Acerca de','Mancuernas 7.0')}</ul>`;
 }

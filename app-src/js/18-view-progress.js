@@ -88,9 +88,12 @@ function viewProg(){
   const vol=S.history.reduce((a,h)=>a+(h.vol||0),0),min=Math.round(S.history.reduce((a,h)=>a+h.dur,0)/60);
   const names=ALLEX.map(e=>e.n).filter(n=>S.history.some(h=>(h.ex||[]).some(z=>z.n===n)));
   if(!S.prog.ex||!names.includes(S.prog.ex))S.prog.ex=names[0]||null;
-  let h=`<h1 class="h1" style="padding-top:6px">Progreso</h1><div class="subtabs" role="tablist">${PTABS.map(([k,l])=>`<button role="tab" data-act="ptab" data-v="${k}" aria-selected="${S.ptab===k}">${l}</button>`).join('')}</div>`;
+  let h=`<header class="phead"><div class="kick">Tu historial</div><h1 class="h1">Progreso</h1></header><div class="subtabs" role="tablist">${PTABS.map(([k,l])=>`<button role="tab" data-act="ptab" data-v="${k}" aria-selected="${S.ptab===k}">${l}</button>`).join('')}</div>`;
   if(S.ptab==='res'){
-    h+=`<div class="kpis"><div class="card"><b>${S.history.length}</b><span>entrenamientos</span></div><div class="card"><b>${vol>=100000?NF.format(Math.round(vol/1000))+'k':NF.format(vol)}</b><span>kg movidos</span></div><div class="card"><b>${min>=120?NF.format(Math.round(min/6)/10)+' h':min+' min'}</b><span>entrenando</span></div></div>
+    const w=weekStats(),td=trainDays();
+    h+=rankCard(false)+`<h2 class="h2">Esta semana</h2><div class="minis"><div class="card"><b>${Math.min(w.days,td)}/${td}</b><span>entrenos</span></div><div class="card"><b>${w.min}</b><span>minutos</span></div><div class="card"><b>${NF.format(w.vol)}</b><span>kg movidos</span></div></div>`
+      +(typeof missionsCard==='function'?missionsCard():'')+(typeof recoveryCard==='function'?`<h2 class="h2">Recuperación muscular</h2>`+recoveryCard(false):'');
+    h+=`<h2 class="h2">Desde que empezaste</h2><div class="kpis"><div class="card"><b>${S.history.length}</b><span>entrenamientos</span></div><div class="card"><b>${vol>=100000?NF.format(Math.round(vol/1000))+'k':NF.format(vol)}</b><span>kg movidos</span></div><div class="card"><b>${min>=120?NF.format(Math.round(min/6)/10)+' h':min+' min'}</b><span>entrenando</span></div></div>
     <h2 class="h2">Constancia</h2>${heatmap()}
     <h2 class="h2">Calendario</h2>${calendar()}
     <h2 class="h2">Kilos por semana <small>8 semanas</small></h2><div class="card chart">${barChart(weeklyVolume())}</div>

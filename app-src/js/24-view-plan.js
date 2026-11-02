@@ -6,9 +6,11 @@ function weekdaysOf(id){const o=[];S.program.week.forEach((x,i)=>{if(x===id)o.pu
 const LETTERS3=['Lun','Mar','Mié','Jue','Vie','Sáb','Dom'];
 function touchProgram(){S.program.legacy=false;saveProgram();scheduleReminders();}
 function viewPlan(){
-  const tabs=`<div class="subtabs ptop" role="tablist">${[['train','Entreno'],['food','Alimentación']].map(([k,l])=>`<button role="tab" data-act="ptabset" data-v="${k}" aria-selected="${(S.planTab||'train')===k}">${l}</button>`).join('')}</div>`;
-  if(S.planTab==='food')return `<h1 class="h1" style="padding-top:6px">Tu plan</h1>${tabs}`+viewFood();
-  const P=S.program;let h=`<h1 class="h1" style="padding-top:6px">Tu plan</h1>${tabs}<div class="sub">${esc(P.name||'Plan personalizado')} · ${esc(placeLabel())}</div>
+  const pt=['lib','more'].includes(S.planTab)?S.planTab:'train';
+  const top=`<header class="phead"><div class="kick">Entrenar</div><h1 class="h1">${pt==='lib'?'Ejercicios':pt==='more'?'Más':'Tu plan'}</h1></header><div class="subtabs ptop" role="tablist">${[['train','Mi plan'],['lib','Ejercicios'],['more','Más']].map(([k,l])=>`<button role="tab" data-act="ptabset" data-v="${k}" aria-selected="${pt===k}">${l}</button>`).join('')}</div>`;
+  if(pt==='lib')return top+viewLib();
+  if(pt==='more')return top+extrasSection();
+  const P=S.program;let h=`${top}<div class="sub">${esc(P.name||'Plan personalizado')} · ${esc(placeLabel())}</div>
   <div class="card planhd"><div class="ph1">${IC.star}<span>${esc(progSummary())}${P.gen&&P.gen.lim&&P.gen.lim.length?`<small>Cuidando: ${P.gen.lim.map(l=>LIMITS[l].t.toLowerCase()).join(', ')}</small>`:''}</span></div>
   <button class="btn sm ${P.legacy?'pri':'ghost'}" data-act="wizard">${P.legacy?'Personalizar mi plan':'Rehacer con el asistente'}</button></div>
   <h2 class="h2">Semana <small>toca un día para cambiarlo</small></h2><div class="wkplan">`;
@@ -21,7 +23,6 @@ function viewPlan(){
     else h+=d.ex.length?`<ul class="glist flat">${R.ex.map((e,k)=>{const x=d.ex[k],ssA=x.ss&&d.ex[k+1],ssB=k>0&&d.ex[k-1].ss;return `<li class="${ssA?'ssA':''} ${ssB?'ssB':''}"><button class="row" data-act="exedit" data-v="${d.id}|${k}">${thumb(e)}<span><div class="nm">${e.n}</div><div class="ds">${x.sets} × ${esc(x.reps)} · ${x.rest} s${ssA?' · <b class="ssl">Superserie ↓</b>':''}</div></span><span class="chev">${IC.pen}</span></button></li>`;}).join('')}</ul>`:'<div class="empty" style="padding:14px">Todavía no tiene ejercicios.</div>';
     h+=`<div class="racts">${open||!d.ex.length?`<button class="btn sm ghost" data-act="exadd" data-v="${d.id}">${IC.plus}Añadir</button>`:`<button class="btn sm ghost" data-act="rtog" data-v="${d.id}">${IC.pen}Editar</button>`}${d.ex.length?`<button class="btn sm pri" data-act="startid" data-v="${d.id}">${IC.play}Empezar</button>`:''}</div></div>`;});
   h+=`<button class="btn ghost block" style="margin-top:10px" data-act="rnew">${IC.plus}Nueva rutina</button>`;
-  h+=typeof extrasSection==='function'?extrasSection():'';
   return h;
 }
 function wkSetSheet(i){

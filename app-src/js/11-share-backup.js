@@ -13,8 +13,8 @@ function wrapText(g,t,maxW){const w=t.split(' '),out=[];let ln='';w.forEach(x=>{
 function rr(g,x,y,w,h,r){g.beginPath();g.moveTo(x+r,y);g.arcTo(x+w,y,x+w,y+h,r);g.arcTo(x+w,y+h,x,y+h,r);g.arcTo(x,y+h,x,y,r);g.arcTo(x,y,x+w,y,r);g.closePath();}
 async function drawCard(rec){
   const W=1080,H=1350,c=document.createElement('canvas');c.width=W;c.height=H;const g=c.getContext('2d');
-  try{await document.fonts.load('800 80px "Plus Jakarta Sans"');await document.fonts.load('600 40px "Plus Jakarta Sans"');}catch(e){}
-  const F=(w,s)=>`${w} ${s}px "Plus Jakarta Sans", system-ui, sans-serif`;
+  try{await document.fonts.load('800 80px "Big Shoulders Display"');await document.fonts.load('600 40px "Barlow"');}catch(e){}
+  const F=(w,s)=>+w>=800?`${w} ${Math.round(s*1.15)}px "Big Shoulders Display", system-ui, sans-serif`:`${w} ${s}px "Barlow", system-ui, sans-serif`;
   const gr=g.createLinearGradient(0,0,W*.5,H);gr.addColorStop(0,'#4a63ff');gr.addColorStop(.6,'#2d43d9');gr.addColorStop(1,'#16237f');g.fillStyle=gr;g.fillRect(0,0,W,H);
   const cx=W*.56,cy=H*.47;
   g.save();g.globalAlpha=.09;g.strokeStyle='#fff';

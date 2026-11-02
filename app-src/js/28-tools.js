@@ -110,8 +110,9 @@ function hiitSheet(){
 }
 function extrasSection(){
   const C=(act,v,ic,t,s)=>`<button class="card xcard" data-act="${act}" data-v="${v}"><span class="xic">${ic}</span><b>${t}</b><small>${s}</small></button>`;
-  return `<h2 class="h2">Más entrenamientos</h2><div class="xgrid">${C('hiitcfg','',IC.bolt,'Intervalos HIIT','Tabata, EMOM o a tu medida')}${C('seq','abs',IC.flame.replace('<svg','<svg class="i"'),'Abdomen exprés','12 minutos')}${C('seq','stretch-full',IC.clock,'Estiramiento','10 minutos')}${C('seq','mob',IC.body,'Movilidad','8 minutos al despertar')}</div>
-  <h2 class="h2">Herramientas</h2><div class="xgrid">${C('calc1rm','',IC.trophy,'Calculadora 1RM','Tu fuerza máxima estimada')}${C('ptabgo','food',IC.food,'Alimentación','Calorías, peso saludable y menú')}</div>`;
+  return `<button class="card freecard" data-act="freecfg"><span class="kick">Nuevo</span><b>Entreno libre</b><small>Eliges músculos y minutos y se arma la sesión al momento, sin tocar tu plan.</small><span class="arrow">${IC.right}</span></button>
+  <h2 class="h2">Sesiones guiadas</h2><div class="xgrid">${C('hiitcfg','',IC.bolt,'Intervalos HIIT','Tabata, EMOM o a tu medida')}${C('seq','abs',IC.flame.replace('<svg','<svg class="i"'),'Abdomen exprés','12 minutos')}${C('seq','stretch-full',IC.clock,'Estiramiento','10 minutos')}${C('seq','mob',IC.body,'Movilidad','8 minutos al despertar')}</div>
+  <h2 class="h2">Herramientas</h2><div class="xgrid">${C('calc1rm','',IC.trophy,'Calculadora 1RM','Tu fuerza máxima estimada')}${C('tab','food',IC.food,'Comida','Calorías, diario y menú')}</div>`;
 }
 function rmSheet(kg,reps){
   const st=S.settings;kg=kg??st.rmkg??10;reps=reps??st.rmreps??8;

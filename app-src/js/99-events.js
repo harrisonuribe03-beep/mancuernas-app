@@ -40,7 +40,7 @@ document.addEventListener('click',ev=>{
     if(b.dataset.i!=null&&L&&+b.dataset.i!==L.i)return;
   }
   switch(a){
-    case 'tab':{const was=!!S.mePage;S.tab=v;S.prog.bar=null;if(v!=='me'||b.closest('.tabs'))S.mePage=null;render();window.scrollTo(0,0);if(was)syncGuard();break;}
+    case 'tab':{const was=!!S.mePage;S.tab=v;S.prog.bar=null;if(v!=='me'||b.closest('.tabs'))S.mePage=null;render();window.scrollTo(0,0);syncGuard();break;}
     case 'day':S.sel=+v;render();break;
     case 'mode':S.settings.mode=v;saveSettings();render();scheduleReminders();break;
     case 'info':infoSheet(v);break;

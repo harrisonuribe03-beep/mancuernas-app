@@ -302,7 +302,7 @@ function flogAct(a,v){
     case 'fdnav':{const k=fdShift(S.fdate||fToday(),+v);if(k>fToday())return true;S.fdate=k;render();return true;}
     case 'fdtoday':S.fdate=fToday();render();return true;
     case 'fwater':{const k=S.fdate||fToday(),D=fday(k);D.water=Math.max(0,(D.water||0)+(+v));fsave(k,D);render();if(+v>0){const T=ftarget(k,N());if(T&&D.water/1000>=T.water&&D.water-250<T.water*1000)toast(IC.check+'<span>Meta de agua cumplida</span>',true);}return true;}
-    case 'fadd':if(!N()){toast('Primero pon tus datos en Plan → Alimentación');return true;}addSheet(v,S.tab==='plan'&&S.planTab==='food'?S.fdate:fToday());return true;
+    case 'fadd':if(!N()){toast('Primero pon tus datos en Comida');return true;}addSheet(v,S.tab==='food'?S.fdate:fToday());return true;
     case 'ftab':FADD.tab=FTL=v;renderAdd();return true;
     case 'fcat':FADD.cat=v;$('#faddlist').innerHTML=addList();return true;
     case 'fpick':{const [id,u,q]=v.split('|'),F=food(id);if(!F)return true;portionSheet({k:FADD.k,s:FADD.s,f:id,u:Math.min(+u||0,funits(F).length-1),q:+q||1});return true;}

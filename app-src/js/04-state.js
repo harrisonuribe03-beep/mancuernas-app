@@ -1,7 +1,7 @@
 /* Estado global, sincronización con la nube y persistencia */
 let todayIdx=(new Date().getDay()+6)%7;
 const S={tab:'hoy',sel:todayIdx,
-  settings:Object.assign({name:'',kg:5,rest:'auto',warm:true,sound:true,vib:true,wake:true,notif:true,mode:'full',theme:'system',remind:false,remindTime:'18:00',core:false,pack:'gym',voice:'basic',vvoice:'salome',vrate:1,vol:.9,accent:'azul',weekly:true},LS.get('mc-set',{})),
+  settings:Object.assign({name:'',kg:5,rest:'auto',warm:true,sound:true,vib:true,wake:true,notif:true,mode:'full',theme:'system',remind:false,remindTime:'18:00',core:false,pack:'gym',voice:'basic',vvoice:'salome',vrate:1,vol:.9,accent:'rojo',weekly:true},LS.get('mc-set',{})),
   history:LS.get('mc-hist',[]),body:LS.get('mc-body',[]),store:'local',live:null,summary:null,
   lib:{q:'',g:'Todos'},prog:{ex:null,mo:0,bar:null}};
 // v6: sonidos reales y voz de Salomé para todos (una sola vez)

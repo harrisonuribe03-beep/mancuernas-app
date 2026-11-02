@@ -14,7 +14,7 @@ La app avisa sola cuando hay una versión nueva.
 ```
 app-src/                Código fuente de la app (HTML, CSS y JavaScript sin frameworks)
   index.html            Esqueleto de la página
-  css/                  Estilos por pantalla (se concatenan en orden)
+  css/                  Estilos por pantalla (se concatenan en orden); 18-editorial.css es el estilo 7.0
   data/                 Ejercicios originales, biblioteca ampliada por equipo (05), alimentos y comidas (06),
                         textos de técnica y figuras de respaldo
   js/                   Módulos de la app (se concatenan en orden dentro de un mismo ámbito)
@@ -23,7 +23,7 @@ app-src/                Código fuente de la app (HTML, CSS y JavaScript sin fra
     05-12                 Tema, ilustraciones, cálculos, niveles, recordatorios, respaldo, medidas
     13-program.js         Generador del plan personalizado (objetivo, nivel, días, tiempo, molestias)
     14-15                 Sonido básico, vibración, notificaciones y botón atrás
-    16-19                 Pantallas: Inicio, Ejercicios, Progreso y Perfil
+    16-19                 Pantallas: Hoy, Ejercicios, Progreso y Perfil (Perfil se abre con el botón redondo de arriba)
     20-23                 Hojas, reproductor de entrenamiento, resumen y reloj
     24-25                 Pantalla Plan (editor de rutinas) y asistente
     26-audio.js           Sonidos y motor de voz (clips pregrabados, respaldo con la voz del teléfono)
@@ -34,6 +34,7 @@ app-src/                Código fuente de la app (HTML, CSS y JavaScript sin fra
     30-fx.js              Celebraciones
     31-native.js          Widget, accesos directos, notificación en curso y resumen semanal
     32-nutrition.js       Peso saludable, calorías, macros, agua, menú diario y lista de mercado
+    36-redesign.js        7.0: registro rápido (botón +), entreno libre y paso al color nuevo
     98-99                 Despachador de acciones, eventos e inicio
   audio/                Voz de la coach (clips), paquetes de sonidos y scripts para regenerarlos
   build.js              Une todo y escribe www/ (Android) y dist/ (versión web)

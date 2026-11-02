@@ -68,8 +68,8 @@ function renderBottom(){
   const L=S.live,el=$('#pbottom');if(!el||!L)return;
   if(L.rest){
     const rem=Math.max(0,(L.rest.until-Date.now())/1000),it=L.items[L.i],cr=curRow(it);
-    el.className='resting';
-    el.innerHTML=`<div class="rbar"><i id="rpb" style="transform:scaleX(${Math.min(1,rem/L.rest.total).toFixed(3)})"></i></div><div class="col rest"><div class="tt"><span>Descanso</span><b id="rcd">${mmss(Math.ceil(rem))}</b>${cr>=0?`<small>Serie ${cr+1} · ${esc(nextLabel(it,cr))}</small>`:''}</div><button class="ob" data-act="radd" data-v="-15" aria-label="Quitar 15 segundos">−15</button><button class="ob" data-act="radd" data-v="15" aria-label="Sumar 15 segundos">+15</button><button class="skip" data-act="rskip">Saltar</button></div>`;
+    el.className=L.restMin?'resting mini':'resting';
+    el.innerHTML=`<div class="rbar"><i id="rpb" style="transform:scaleX(${Math.min(1,rem/L.rest.total).toFixed(3)})"></i></div><div class="col rest"><div class="tt"><span>Descanso</span><b id="rcd">${mmss(Math.ceil(rem))}</b>${cr>=0?`<small>Serie ${cr+1} · ${esc(nextLabel(it,cr))}</small>`:''}</div><button class="ob" data-act="radd" data-v="-15" aria-label="Quitar 15 segundos">−15</button><button class="ob" data-act="radd" data-v="15" aria-label="Sumar 15 segundos">+15</button><button class="skip" data-act="rskip">Saltar</button><button class="rmin" data-act="rmin" aria-label="${L.restMin?'Descanso en pantalla completa':'Ver mis series'}">${L.restMin?IC.up:'Ver mis series'}</button></div>`;
     return;
   }
   const it=L.items[L.i],allDone=it.sets.every(s=>s.done),nx=nextOpen(L.i+1);
@@ -82,7 +82,7 @@ function ring(rem,total,label){const C=2*Math.PI*88,off=C*(1-(total?Math.max(0,r
 function nextOpen(from){const L=S.live;for(let j=from;j<L.items.length;j++)if(L.items[j].sets.some(s=>!s.done))return j;return -1;}
 function bestNow(n){const L=S.live;let b=L.best0[n]||null;const it=L.items.find(x=>x.n===n);if(it)it.sets.forEach(s=>{if(s.done&&s.ty!=='c'&&better(n,[+s.kg,+s.reps],b))b=[+s.kg,+s.reps];});return b;}
 function recomputePRs(){const L=S.live;L.prs=L.items.filter(it=>{const b0=L.best0[it.n];return b0&&it.sets.some(s=>s.done&&s.ty!=='c'&&better(it.n,[+s.kg,+s.reps],b0));}).map(it=>it.n);}
-function startRest(e){const L=S.live,r=restOf(e);L.rest={until:Date.now()+r*1000,total:r};L.lastBeep=null;L.said10=false;V.restStart(e,r);if(document.visibilityState==='hidden')notifSchedule();}
+function startRest(e){const L=S.live,r=restOf(e);L.restMin=false;L.rest={until:Date.now()+r*1000,total:r};L.lastBeep=null;L.said10=false;V.restStart(e,r);if(document.visibilityState==='hidden')notifSchedule();}
 function readRow(k){
   const kgI=document.querySelector(`#player input[data-k="kg"][data-r="${k}"]`),rpI=document.querySelector(`#player input[data-k="reps"][data-r="${k}"]`);
   const num=i=>{if(!i)return null;const v=parseFloat(String(i.value).replace(',','.'));return isNaN(v)?NaN:v;};
