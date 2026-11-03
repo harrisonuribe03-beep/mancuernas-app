@@ -107,6 +107,7 @@ document.addEventListener('click',ev=>{
       addBody(b);closeSheet();render();toast('Registro guardado');break;}
     case 'upddis':if(UPD){UPD.dis=UPD.b;LS.set('mc-upd',UPD);}render();break;
     case 'updgo':break;
+    case 'updcheck':updManual();break;
     default:V4ACT(a,v,b,L);
   }
 });

@@ -48,5 +48,6 @@ function viewMe(){
   ${row('look',IC.star,'Apariencia',`Color ${st.accent||'rojo'} · tema ${({system:'del sistema',light:'claro',dark:'oscuro'})[st.theme]}`)}
   ${row('data',IC.layers,'Datos y respaldo',S.store==='db'?'Guardado en tu cuenta':'Guardado en este teléfono')}
   ${row('guide',IC.info,'Cómo progresar','Guía rápida de entrenamiento')}
+  <li><button class="row mrow" data-act="updcheck"><span class="mico">${IC.dl}</span><span><div class="nm">Buscar actualizaciones</div><div class="ds">${BUILD?'Versión '+BUILD+(hasUpdate()?' · hay una nueva':''):'Versión web, siempre al día'}</div></span><span class="chev">${IC.right}</span></button></li>
   ${row('about',IC.trophy,'Acerca de','Mancuernas 7.2')}</ul>`;
 }
