@@ -317,3 +317,8 @@ body:has(#fab:not([hidden])) #view{padding-bottom:calc(var(--tabs) + 100px + env
 .mstat span{font-family:var(--mono);font-size:.56rem;letter-spacing:.08em;text-transform:uppercase;color:var(--tx2)}
 .recov:not(.mini) .bodies::after{content:"Toca un músculo";display:block;width:100%;text-align:center;font-family:var(--mono);font-size:.6rem;letter-spacing:.1em;text-transform:uppercase;color:var(--tx3);margin-top:4px}
 .recov:not(.mini) .bodies{flex-wrap:wrap}
+.mpick{margin-top:12px}
+.mpick .row{grid-template-columns:1fr auto;padding:12px 14px}
+.mpick .row[aria-current="true"]{box-shadow:inset 4px 0 0 var(--acc)}
+.mpick .ds{font-size:.82rem;margin-top:3px}
+.mpick .mk{font-family:var(--mono);font-size:.62rem;letter-spacing:.06em;text-transform:uppercase;color:var(--acc-ink);margin-top:5px}

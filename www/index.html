@@ -1523,6 +1523,11 @@ body:has(#fab:not([hidden])) #view{padding-bottom:calc(var(--tabs) + 100px + env
 .mstat span{font-family:var(--mono);font-size:.56rem;letter-spacing:.08em;text-transform:uppercase;color:var(--tx2)}
 .recov:not(.mini) .bodies::after{content:"Toca un músculo";display:block;width:100%;text-align:center;font-family:var(--mono);font-size:.6rem;letter-spacing:.1em;text-transform:uppercase;color:var(--tx3);margin-top:4px}
 .recov:not(.mini) .bodies{flex-wrap:wrap}
+.mpick{margin-top:12px}
+.mpick .row{grid-template-columns:1fr auto;padding:12px 14px}
+.mpick .row[aria-current="true"]{box-shadow:inset 4px 0 0 var(--acc)}
+.mpick .ds{font-size:.82rem;margin-top:3px}
+.mpick .mk{font-family:var(--mono);font-size:.62rem;letter-spacing:.06em;text-transform:uppercase;color:var(--acc-ink);margin-top:5px}
 
 </style>
 
@@ -4856,6 +4861,7 @@ function qtyText(id,q){
   const num=w&&fr?`${w} y ${fr}`:w?String(w):fr;
   const one=q<=1;
   if(['aceite','hogao','cafe','ensalada','verduras'].includes(id)&&q===1)return `${u[0]==='plato'?'1 plato de':u[0]==='taza'?'1 taza de':u[0]==='pocillo'?'1 pocillo de':'1 '+u[0]+' de'} ${F.n}`;
+  if(['bollo','almojabana','pandebono','guayaba','mazorca'].includes(id))return `${num} ${one?F.u[0]:F.u[1]}${id==='bollo'?' limpio'+(one?'':'s'):''}`;
   if(id==='huevo'||id==='banano'||id==='manzana'||id==='arepa'||id==='bocadillo')return `${num} ${one?F.u[0]:F.u[1]}`.replace('½ huevo','medio huevo');
   if(id==='platano')return q>=1?`${num} ${q>1?'plátanos maduros asados':'plátano maduro asado'}`:`${num} de plátano maduro asado`;
   if(id==='aguacate'){const a=q/4,aw=Math.floor(a+1e-6),af=FRAC[Math.round((a-aw)*4)/4]||'';
@@ -4909,7 +4915,7 @@ function dayMenu(d,N){
   N=Object.assign({},N,{kcal:dayKcal(d,N)});
   const n=MEALPLAN[S.settings.meals||4],sw=S.settings.mswap||{},used={};CAPS=Math.max(1,N.kcal/2100);
   const WM=workoutMeals(d,n);
-  const tpls=n.map(([k],i)=>{let L=MEALS[k];const o=(sw[d+'-'+i]||0)+(used[k]=(used[k]||0)+1)*3;
+  const tpls=n.map(([k],i)=>{let L=MEALS[k];const pk=(S.settings.mpick||{})[d+'-'+i];if(pk){const t=L.find(x=>x.t===pk);if(t){used[k]=(used[k]||0)+1;return t;}}const o=(sw[d+'-'+i]||0)+(used[k]=(used[k]||0)+1)*3;
     if(i===WM.pre){const pl=L.filter(t=>t.pre);if(pl.length)L=pl;} // antes de entrenar: carbohidratos fáciles y poca grasa
     return L[(d*2+i+o)%L.length];});
   // Se arma comida por comida; si el día queda corto o largo, se reparte la diferencia y se arma otra vez
@@ -5000,6 +5006,19 @@ function targetCard(N){
   <div class="nwater">${IC.drop}<span>Agua: <b>${NF.format(N.water)} L</b> al día, <b>${NF.format(N.waterT)} L</b> los días que entrenas</span></div>
   ${N.note?`<div class="tip soft" style="margin-top:12px">${IC.info}<div>${N.note}</div></div>`:''}</div>`;
 }
+/* 7.3: todas las opciones de una comida, ajustadas a las calorías y la proteína de ese momento del día */
+function mealPickSheet(d,i){
+  const N=myNutri();if(!N)return;const M=dayMenu(d,N),m=M[i];if(!m)return;
+  const k=m.k,L=MEALS[k],WM=workoutMeals(d,M),pre=i===WM.pre;
+  const opts=L.map((t,j)=>({j,t,b:buildMeal(t,m.tot.k,m.tot.p)})).sort((a,b)=>(b.t.t===m.t||b.b.t===m.t)-(a.t.t===m.t||a.b.t===m.t)||(pre?(b.t.pre?1:0)-(a.t.pre?1:0):0));
+  const sumTxt=b=>b.items.slice(0,4).map(([id,q])=>qtyText(id,q)).join(' · ')+(b.items.length>4?' · …':'');
+  sheet(`<div class="over">${esc(m.label)} · ${LETTERS3[d]}</div><h3>Elige tu ${esc(m.label.toLowerCase())}</h3>
+  <p class="sub">${L.length} opciones, todas ajustadas a unas ${fk(m.tot.k)} kcal y ${fk(m.tot.p)} g de proteína.${pre?' Las marcadas sirven antes de entrenar.':''}</p>
+  <button class="btn ghost block" style="margin-top:12px" data-act="mrand" data-v="${d}|${i}">${IC.swap}Otra al azar</button>
+  <ul class="glist mpick">${opts.map(o=>{const cur=o.b.t===m.t;return `<li><button class="row" data-act="mpickset" data-v="${d}|${i}|${o.j}" ${cur?'aria-current="true"':''}><span><div class="nm">${esc(o.b.t)}${cur?' <span class="tag ex">ACTUAL</span>':''}${pre&&o.t.pre?' <span class="tag">PRE</span>':''}</div><div class="ds">${esc(cap1(sumTxt(o.b)))}</div><div class="mk">${fk(o.b.tot.k)} kcal · ${fk(o.b.tot.p)} g proteína</div></span><span class="chev">${IC.right}</span></button></li>`;}).join('')}</ul>
+  <div class="acts"><button class="btn" data-act="close">Cerrar</button></div>`);
+  const p=$('#sheet .pan');if(p)p.classList.add('tall');
+}
 function menuView(N){
   const d=S.fday??todayIdx,M=dayMenu(d,N),WM=workoutMeals(d,M),tr=!!S.program.week[d],kd=dayKcal(d,N);
   const tot=M.reduce((a,m)=>{a.k+=m.tot.k;a.p+=m.tot.p;return a;},{k:0,p:0});
@@ -5008,7 +5027,7 @@ function menuView(N){
   return `<h2 class="h2">Menú <small>${pl(S.settings.meals||4,'comida','comidas')} al día</small></h2>
   <div class="wkplan fdays">${LETTERS3.map((l,i)=>`<button data-act="fday" data-v="${i}" class="${i===d?'on':''} ${i===todayIdx?'today':''}"><span class="l">${l}</span></button>`).join('')}</div>
   <div class="dayk ${tr?'tr':''}">${tr?IC.dumb:IC.moon}<span><b>${tr?'Día de entreno':'Día de descanso'}</b> · ${fk(kd)} kcal${tr&&WM.pre<0&&WM.post>=0&&(S.settings.trainAt||'tar')==='man'?' · antes de entrenar basta un banano o un café':''}</span></div>
-  ${M.map((m,i)=>`<div class="card meal ${i===WM.pre||i===WM.post?'wk':''}"><div class="mhd"><div><span class="over">${m.label}${wtag(i)}</span><b>${esc(m.t)}</b></div><button class="btn sm ghost" data-act="mswap" data-v="${d}-${m.slot}" aria-label="Cambiar ${esc(m.label.toLowerCase())}">${IC.swap}<span class="bl">Cambiar</span></button></div>
+  ${M.map((m,i)=>`<div class="card meal ${i===WM.pre||i===WM.post?'wk':''}"><div class="mhd"><div><span class="over">${m.label}${wtag(i)}</span><b>${esc(m.t)}</b></div><button class="btn sm ghost" data-act="mpick" data-v="${d}|${m.slot}" aria-label="Cambiar ${esc(m.label.toLowerCase())}">${IC.swap}<span class="bl">Cambiar</span></button></div>
     <ul>${m.items.map(([id,q])=>`<li>${esc(cap1(qtyText(id,q)))}</li>`).join('')}</ul>${wtip(i)}<div class="mft"><span>${fk(m.tot.k)} kcal</span><span>${fk(m.tot.p)} g proteína</span><span>${fk(m.tot.c)} g carbos</span></div></div>`).join('')}
   <div class="mtot"><span>Total del día</span><b>${fk(tot.k)} kcal · ${fk(tot.p)} g de proteína</b><small>Meta del día: ${fk(kd)} kcal · ${N.p} g</small></div>
   ${d===todayIdx?`<button class="btn pri block" style="margin-top:10px" data-act="fsugday">${IC.check}Registrar el menú de hoy en mi diario</button>`:''}
@@ -5096,7 +5115,10 @@ function foodAct(a,v){
     case 'ptabgo':S.planTab=v;S.tab='plan';S.mePage=null;render();window.scrollTo(0,0);return true;
     case 'fday':S.fday=+v;render();return true;
     case 'libeq':S.lib.eq=v;render();return true;
-    case 'mswap':{const sw=st.mswap||(st.mswap={});sw[v]=(sw[v]||0)+1;saveSettings();render();return true;}
+    case 'mswap':{const sw=st.mswap||(st.mswap={});sw[v]=(sw[v]||0)+1;if(st.mpick)delete st.mpick[v];saveSettings();render();return true;}
+    case 'mpick':{const [d,i]=v.split('|').map(Number);mealPickSheet(d,i);return true;}
+    case 'mrand':{const [d,i]=v.split('|').map(Number),key=d+'-'+i,sw=st.mswap||(st.mswap={});sw[key]=(sw[key]||0)+1;if(st.mpick)delete st.mpick[key];saveSettings();closeSheet();render();const N=myNutri();if(N){const m=dayMenu(d,N)[i];if(m)toast(IC.swap+`<span>${esc(m.t)}</span>`,true);}return true;}
+    case 'mpickset':{const [d,i,j]=v.split('|').map(Number),k=(MEALPLAN[st.meals||4][i]||[])[0],t=k&&MEALS[k][j];if(!t)return true;st.mpick=st.mpick||{};st.mpick[d+'-'+i]=t.t;saveSettings();closeSheet();render();toast(IC.check+`<span>${esc(st.veg&&t.tv?t.tv:t.t)}</span>`,true);return true;}
     case 'fmeals':st.meals=+v;st.mswap={};saveSettings();render();if(typeof fremDirty==='function')fremDirty();return true;
     case 'fact':st.act=v;saveSettings();render();return true;
     case 'ftime':st.trainAt=v;saveSettings();render();return true;
@@ -5283,7 +5305,7 @@ function diaryView(N){
     if(its.length)h+=`<ul class="fitems">${its.map(it=>`<li><button data-act="fedit" data-v="${it.id}"><span><b>${esc(it.n)}</b><small>${esc(it.qt||'')}</small></span><em>${fk(it.k)}</em></button></li>`).join('')}</ul>
       ${its.length>1||k!==today?`<div class="fmf">${k!==today?`<button class="flink" data-act="fcopyto" data-v="${s}">${IC.swap}Copiar a hoy</button>`:''}${its.length>1?`<button class="flink" data-act="fsavemeal" data-v="${s}">${IC.star}Guardar como comida</button>`:''}</div>`:''}`;
     else{const m=MN&&PL.indexOf(s)>=0?MN[PL.indexOf(s)]:null,py=prev.items.filter(x=>x.s===s);
-      if(m||py.length)h+=`<div class="fsug">${m?`<button class="fsg" data-act="fsug" data-v="${s}"><span><small>Sugerido</small><b>${esc(m.t)}</b><em>${fk(m.tot.k)} kcal · ${fk(m.tot.p)} g de proteína</em></span><span class="fsgb">${IC.plus}Registrar</span></button>`:''}
+      if(m||py.length)h+=`<div class="fsug">${m?`<button class="fsg" data-act="fsug" data-v="${s}"><span><small>Sugerido</small><b>${esc(m.t)}</b><em>${fk(m.tot.k)} kcal · ${fk(m.tot.p)} g de proteína</em></span><span class="fsgb">${IC.plus}Registrar</span></button><button class="flink" data-act="mpick" data-v="${T.wd}|${PL.indexOf(s)}">${IC.swap}Ver otras opciones</button>`:''}
         ${py.length?`<button class="flink" data-act="fcopy" data-v="${s}">${IC.swap}Copiar de ${k===today?'ayer':'el día anterior'} · ${fk(ftot(py).k)} kcal</button>`:''}</div>`;}
     h+=`</div>`;
   });

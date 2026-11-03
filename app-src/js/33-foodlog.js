@@ -154,7 +154,7 @@ function diaryView(N){
     if(its.length)h+=`<ul class="fitems">${its.map(it=>`<li><button data-act="fedit" data-v="${it.id}"><span><b>${esc(it.n)}</b><small>${esc(it.qt||'')}</small></span><em>${fk(it.k)}</em></button></li>`).join('')}</ul>
       ${its.length>1||k!==today?`<div class="fmf">${k!==today?`<button class="flink" data-act="fcopyto" data-v="${s}">${IC.swap}Copiar a hoy</button>`:''}${its.length>1?`<button class="flink" data-act="fsavemeal" data-v="${s}">${IC.star}Guardar como comida</button>`:''}</div>`:''}`;
     else{const m=MN&&PL.indexOf(s)>=0?MN[PL.indexOf(s)]:null,py=prev.items.filter(x=>x.s===s);
-      if(m||py.length)h+=`<div class="fsug">${m?`<button class="fsg" data-act="fsug" data-v="${s}"><span><small>Sugerido</small><b>${esc(m.t)}</b><em>${fk(m.tot.k)} kcal · ${fk(m.tot.p)} g de proteína</em></span><span class="fsgb">${IC.plus}Registrar</span></button>`:''}
+      if(m||py.length)h+=`<div class="fsug">${m?`<button class="fsg" data-act="fsug" data-v="${s}"><span><small>Sugerido</small><b>${esc(m.t)}</b><em>${fk(m.tot.k)} kcal · ${fk(m.tot.p)} g de proteína</em></span><span class="fsgb">${IC.plus}Registrar</span></button><button class="flink" data-act="mpick" data-v="${T.wd}|${PL.indexOf(s)}">${IC.swap}Ver otras opciones</button>`:''}
         ${py.length?`<button class="flink" data-act="fcopy" data-v="${s}">${IC.swap}Copiar de ${k===today?'ayer':'el día anterior'} · ${fk(ftot(py).k)} kcal</button>`:''}</div>`;}
     h+=`</div>`;
   });
