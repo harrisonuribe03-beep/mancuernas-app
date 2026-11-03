@@ -1281,7 +1281,7 @@ body{font-size:16px;line-height:1.42}
 .tday .go svg{width:18px;height:18px;fill:currentColor}
 .tday .alts{display:flex;justify-content:center;gap:22px;margin-top:6px}
 .tday .alt{min-height:44px;font-weight:700;font-size:.92rem;color:var(--tx);text-decoration:underline;text-decoration-color:var(--acc);text-decoration-thickness:2px;text-underline-offset:5px}
-.tday.rest h2{color:var(--tx2)}
+.tday.off h2{color:var(--tx2)}
 .tday .lede{color:var(--tx2);margin:0 0 14px}
 .tday .restacts{display:grid;grid-template-columns:1fr 1fr;gap:8px}
 
@@ -3262,7 +3262,7 @@ function viewHoy(){
   const d=selDay();
   if(!d){
     let nx=null;for(let k=1;k<=7;k++){const j=(S.sel+k)%7;if(dayAt(j)){nx=j;break;}}
-    h+=`<section class="tday rest"><div class="kick">${DAYNAMES[S.sel]}${todayIdx===S.sel?' · hoy':''}</div><h2>Descanso</h2><p class="lede">El músculo crece mientras descansas. Si quieres moverte, haz algo suave.</p>
+    h+=`<section class="tday off"><div class="kick">${DAYNAMES[S.sel]}${todayIdx===S.sel?' · hoy':''}</div><h2>Descanso</h2><p class="lede">El músculo crece mientras descansas. Si quieres moverte, haz algo suave.</p>
       <div class="restacts"><button class="btn sm" data-act="seq" data-v="mob">${IC.bolt}Movilidad 8 min</button><button class="btn sm" data-act="seq" data-v="stretch-full">${IC.clock}Estiramiento</button></div>
       <div class="alts">${nx!=null?`<button class="alt" data-act="day" data-v="${nx}">Ver ${DAYNAMES[nx].toLowerCase()}</button>`:''}<button class="alt" data-act="pickday">Entrenar igual</button><button class="alt" data-act="freecfg">Entreno libre</button></div></section>`;
   }else{

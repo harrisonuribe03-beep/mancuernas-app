@@ -75,7 +75,7 @@ body{font-size:16px;line-height:1.42}
 .tday .go svg{width:18px;height:18px;fill:currentColor}
 .tday .alts{display:flex;justify-content:center;gap:22px;margin-top:6px}
 .tday .alt{min-height:44px;font-weight:700;font-size:.92rem;color:var(--tx);text-decoration:underline;text-decoration-color:var(--acc);text-decoration-thickness:2px;text-underline-offset:5px}
-.tday.rest h2{color:var(--tx2)}
+.tday.off h2{color:var(--tx2)}
 .tday .lede{color:var(--tx2);margin:0 0 14px}
 .tday .restacts{display:grid;grid-template-columns:1fr 1fr;gap:8px}
 

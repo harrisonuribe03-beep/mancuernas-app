@@ -34,7 +34,7 @@ function viewHoy(){
   const d=selDay();
   if(!d){
     let nx=null;for(let k=1;k<=7;k++){const j=(S.sel+k)%7;if(dayAt(j)){nx=j;break;}}
-    h+=`<section class="tday rest"><div class="kick">${DAYNAMES[S.sel]}${todayIdx===S.sel?' · hoy':''}</div><h2>Descanso</h2><p class="lede">El músculo crece mientras descansas. Si quieres moverte, haz algo suave.</p>
+    h+=`<section class="tday off"><div class="kick">${DAYNAMES[S.sel]}${todayIdx===S.sel?' · hoy':''}</div><h2>Descanso</h2><p class="lede">El músculo crece mientras descansas. Si quieres moverte, haz algo suave.</p>
       <div class="restacts"><button class="btn sm" data-act="seq" data-v="mob">${IC.bolt}Movilidad 8 min</button><button class="btn sm" data-act="seq" data-v="stretch-full">${IC.clock}Estiramiento</button></div>
       <div class="alts">${nx!=null?`<button class="alt" data-act="day" data-v="${nx}">Ver ${DAYNAMES[nx].toLowerCase()}</button>`:''}<button class="alt" data-act="pickday">Entrenar igual</button><button class="alt" data-act="freecfg">Entreno libre</button></div></section>`;
   }else{
