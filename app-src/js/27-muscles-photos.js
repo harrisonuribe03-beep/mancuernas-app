@@ -32,7 +32,21 @@ function bodySVG(side,rec,mini,hl){
   const A=ANAT[side];if(!A)return '';
   const lv=r=>hl?(hl[r]===1?'hp':hl[r]?'hs':''):recCls(rec[r]);
   const ov=Object.keys(A.r).map(r=>{const [x,y,w,h,u]=A.r[r],c=lv(r);return c&&c!=='rn'&&c!=='r4'?`<image class="ov ${c}" x="${x}" y="${y}" width="${w}" height="${h}" href="${anUrl(u)}"/>`:'';}).join('');
-  return `<svg class="bsvg anat${mini?' mini':''}" viewBox="0 0 ${A.w} ${A.h}" role="img" aria-label="Mapa muscular ${side==='f'?'de frente':'de espalda'}"><image width="${A.w}" height="${A.h}" href="${anUrl(A.base)}"/>${ov}</svg>`;
+  const hit=!mini&&!hl&&A.p?Object.keys(A.p).map(r=>`<path class="hit" d="${A.p[r]}" data-act="muscle" data-v="${r}"><title>${RNAME[r]||r}</title></path>`).join(''):'';
+  return `<svg class="bsvg anat${mini?' mini':''}" viewBox="0 0 ${A.w} ${A.h}" role="img" aria-label="Mapa muscular ${side==='f'?'de frente':'de espalda'}${hit?'. Toca un músculo para ver detalles':''}"><image width="${A.w}" height="${A.h}" href="${anUrl(A.base)}"/>${ov}${hit}</svg>`;
+}
+/* 7.2: tocar un músculo → cuándo lo entrenaste, cómo va y ejercicios para él */
+const RGROUP={chest:'Pecho',lats:'Espalda',traps:'Espalda',lower:'Espalda',delt:'Hombro',rdelt:'Hombro',bi:'Brazos',tri:'Brazos',fore:'Brazos',quad:'Piernas',ham:'Piernas',glute:'Piernas',calf:'Piernas',add:'Piernas',abs:'Core',obl:'Core'};
+function muscleSheet(r){
+  const x=recovery()[r],ws=weekSets(7)[r],nm=RNAME[r]||r;
+  const st=!x?'Sin entrenar en los últimos 8 días':x.pct>=100?'Listo para entrenar':x.pct>=67?'Casi recuperado':x.pct>=34?'Recuperándose':'Cansado';
+  const ago=x?(x.hrs<24?`hace ${Math.max(1,Math.round(x.hrs))} h`:`hace ${Math.round(x.hrs/24)} ${Math.round(x.hrs/24)===1?'día':'días'}`):'';
+  const ex=ALLEX.filter(e=>regionsOf(e.n)[r]===1&&canDo(e)).slice(0,6);
+  sheet(`<div class="over">Músculo</div><h3>${nm}</h3>
+  <div class="mstat"><div><b class="${recCls(x)}">${x?Math.min(100,x.pct)+'%':'100%'}</b><span>recuperado</span></div><div><b>${ago||'—'}</b><span>último entreno</span></div><div><b>${ws!=null?NF.format(Math.round(ws*10)/10):'—'}</b><span>series esta semana</span></div></div>
+  <p class="sub" style="margin:10px 0 0"><b style="color:var(--tx)">${st}.</b> ${x&&x.pct<67?'Dale descanso o entrena otra zona hoy.':'Lo puedes entrenar hoy.'}</p>
+  ${ex.length?`<h2 class="h2">Ejercicios para ${nm.toLowerCase()} <small>con tu equipo</small></h2><ul class="glist exlist">${ex.map(e=>exRow(e,info(e.n).m.join(', '))).join('')}</ul>`:''}
+  <div class="acts">${RGROUP[r]?`<button class="btn pri" data-act="freemus" data-v="${RGROUP[r]}">${IC.play}Entreno libre de ${RGROUP[r].toLowerCase()}</button>`:''}<button class="btn" data-act="close">Cerrar</button></div>`);
 }
 function recoveryCard(full){
   const rec=recovery(),ready=[],tired=[];
@@ -95,6 +109,8 @@ document.addEventListener('change',ev=>{const t=ev.target;
   if((t.id==='in-photo'||t.id==='in-photo2')&&t.files&&t.files[0]){phAdd(t.files[0]);t.value='';}
   else if(t.id==='cmpa'){CMP.a=t.value;phCompare();}else if(t.id==='cmpbsel'){CMP.b=t.value;phCompare();}});
 function bodyAct(a,v){
+  if(a==='muscle'){muscleSheet(v);return true;}
+  if(a==='freemus'){FREE.g=[v];FREE.seed++;freeSheet(true);return true;}
   switch(a){
     case 'phview':phView(v);return true;
     case 'phdel':{const old=PH.find(x=>x.id===v);phDel(v).then(phLoad).then(()=>{closeSheet();render();if(old)undoable('Foto borrada',()=>{phPut(old).then(phLoad).then(render);});});return true;}

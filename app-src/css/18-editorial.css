@@ -281,3 +281,39 @@ body:has(#fab:not([hidden])) #view{padding-bottom:calc(var(--tabs) + 100px + env
 .rleg .r1{background:#b22a25}.rleg .r2{background:#bd5a52}.rleg .r3{background:#c39790}.rleg .r4{background:#9a9a9a}
 .mleg .hp{background:#b22a25}.mleg .hs{background:#c97a73}
 [data-theme="dark"] .bsvg.anat image:first-child{filter:brightness(.9)}
+
+/* ---------- 7.2: bienvenida y asistente del plan ---------- */
+#onb .art{background:var(--s2);border-bottom:3px solid var(--tx)}
+#onb h1{font-family:var(--disp);font-weight:900;font-size:2.6rem;line-height:.92;letter-spacing:.005em;text-transform:uppercase;margin:0 0 10px}
+#onb p{font-size:1rem}
+#onb .skip{font-family:var(--mono);font-size:.7rem;letter-spacing:.1em;text-transform:uppercase;color:var(--tx)}
+#onb .dots i{border-radius:0;height:4px;width:14px}
+#onb .dots i.on{width:28px;background:var(--acc)}
+#onb .big{border-radius:6px;border:1.5px solid var(--tx);font-family:var(--disp);font-weight:800;font-size:1.5rem}
+#onb .kg button{border-radius:6px}
+#onb .kg b{font-family:var(--disp);font-weight:900;font-size:3.4rem}
+#onb .obft .btn{min-height:56px;font-family:var(--disp);font-weight:900;font-size:1.3rem;text-transform:uppercase;letter-spacing:.04em}
+.opt{border-radius:6px;border:1px solid var(--line);background:var(--s1)}
+.opt b{font-size:1.02rem}
+.opt .oic{border-radius:4px}
+.opt .ock{border-radius:4px}
+.opt[aria-pressed="true"]{border-color:var(--tx);background:var(--s1);box-shadow:inset 4px 0 0 var(--acc)}
+.opt[aria-pressed="true"] .oic{background:var(--tx);color:var(--bg)}
+.opt[aria-pressed="true"] .ock{background:var(--acc);border-color:var(--acc);color:#fff}
+.obnote{border-radius:4px;background:var(--s2);border-left:3px solid var(--acc)}
+.obrow{border-radius:6px;border-width:1px}
+.obplan .wd{border-radius:4px;background:var(--tx);color:var(--bg);font-family:var(--mono);font-size:.68rem;letter-spacing:.04em}
+.coact{display:flex;align-items:center;gap:10px;width:100%;text-align:left;margin-top:-2px;padding:10px 12px;border:1.5px solid var(--tx);border-radius:6px;font-weight:700;font-size:.92rem;background:var(--s1)}
+.coact svg{color:var(--acc);flex:none}
+.coact.done{border-color:var(--line);color:var(--tx2);font-weight:600}
+.coact.done svg{color:var(--ok)}
+.chkm{font-size:.8rem;min-height:32px;padding:2px 0}
+.bsvg .hit{fill:transparent;cursor:pointer;-webkit-tap-highlight-color:transparent}
+.bsvg .hit:active{fill:rgba(212,35,26,.18)}
+.mstat{display:grid;grid-template-columns:repeat(3,1fr);margin-top:12px;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.mstat div{padding:10px 0 8px}.mstat div+div{border-left:1px solid var(--line);padding-left:10px}
+.mstat b{display:block;font-family:var(--disp);font-weight:900;font-size:1.6rem;line-height:1}
+.mstat b.r1{color:#b22a25}.mstat b.r2{color:#bd5a52}.mstat b.r3{color:#c3786f}
+.mstat span{font-family:var(--mono);font-size:.56rem;letter-spacing:.08em;text-transform:uppercase;color:var(--tx2)}
+.recov:not(.mini) .bodies::after{content:"Toca un músculo";display:block;width:100%;text-align:center;font-family:var(--mono);font-size:.6rem;letter-spacing:.1em;text-transform:uppercase;color:var(--tx3);margin-top:4px}
+.recov:not(.mini) .bodies{flex-wrap:wrap}

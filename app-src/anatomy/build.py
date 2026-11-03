@@ -65,3 +65,17 @@ for side,fn in [('f','front.png'),('b','back.png')]:
     bg=Image.new('RGBA',pv.size,(244,239,230,255));bg.alpha_composite(pv);bg.save(side+'_preview.png')
 print('bytes',tot)
 json.dump(res,open('anat.json','w'))
+
+# ---------- contornos para tocar cada músculo ----------
+for side,R,fn in [('f',F,'front.png'),('b',B,'back.png')]:
+    masks,bb=pickle.load(open(side+'_masks.pkl','rb'));ax=float(np.load(side+'_ax.npy')[0]);x0,y0=int(bb[0]),int(bb[1])
+    dx=ax-(300 if side=='f' else 292.5);P={}
+    for k,p in R.items():
+        kk='traps' if k=='infra' else k
+        p=[(x+dx,y) for x,y in p]
+        for poly in (p,[(2*ax-x,y) for x,y in p]):
+            d='M'+' L'.join(f'{x-x0:.0f} {y-y0:.0f}' for x,y in poly)+'Z'
+            P[kk]=P.get(kk,'')+d
+    res[side]['p']=P
+json.dump(res,open('anat.json','w'))
+print('polys ok')

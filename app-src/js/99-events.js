@@ -15,6 +15,7 @@ document.addEventListener('focusin',ev=>{const t=ev.target;if(t.matches('#player
 document.addEventListener('change',ev=>{const t=ev.target;
   if(t.id==='exsel'){S.prog.ex=t.value;render();}
   else if(t.id==='in-vol'){S.settings.vol=+t.value;saveSettings();sfx('set');}
+  else if(t.id==='in-mtime'&&t.value){S.settings.morningTime=t.value;saveSettings();scheduleReminders();toast('Aviso de la mañana a las '+t.value);}
   else if(t.id==='in-rtime'&&t.value){S.settings.remindTime=t.value;saveSettings();scheduleReminders();toast('Recordatorio a las '+t.value);}
   else if(t.id==='in-import'&&t.files&&t.files[0]){const f=t.files[0];if(f.size>5e6){toast('El archivo es demasiado grande');return;}const rd=new FileReader();rd.onload=()=>importData(String(rd.result));rd.readAsText(f);t.value='';}
 });
@@ -61,7 +62,7 @@ document.addEventListener('click',ev=>{
     case 'discard':S.live=null;saveLive();render();break;
     case 'rest':S.settings.rest=v==='auto'?'auto':+v;saveSettings();render();break;
     case 'kg':S.settings.kg=Math.max(0.5,Math.round((S.settings.kg+(+v))*2)/2);saveSettings();render();break;
-    case 'tog':S.settings[v]=!S.settings[v];saveSettings();if(v==='notif'&&S.settings.notif)askNotif();if(v==='remind'||v==='core'||v==='name')scheduleReminders();if(v==='weekly'||v==='notif')scheduleWeekly();render();if(v==='remind'&&S.settings.remind)toast('Te aviso a las '+S.settings.remindTime+' de lunes a sábado');break;
+    case 'tog':S.settings[v]=!S.settings[v];saveSettings();if(v==='notif'&&S.settings.notif)askNotif();if(v==='remind'||v==='core'||v==='name'||v==='morning')scheduleReminders();if(v==='morning'&&S.settings.morning)toast('Te pregunto cada día a las '+(S.settings.morningTime||'07:00'));if(v==='weekly'||v==='notif')scheduleWeekly();render();if(v==='remind'&&S.settings.remind)toast('Te aviso a las '+S.settings.remindTime+' de lunes a sábado');break;
     case 'theme':S.settings.theme=v;saveSettings();applyTheme();render();break;
     case 'askdel':sheet(`<h3>¿Borrar esta sesión?</h3><p class="sub">Se quita del historial y no se puede recuperar.</p><div class="acts"><button class="btn pri" data-act="del" data-v="${v}">Borrar</button><button class="btn" data-act="close">Cancelar</button></div>`);break;
     case 'del':{const old=S.history.find(h=>h.id===v);delSession(v);closeSheet();render();if(old)undoable('Sesión borrada',()=>{addSession(old);S.history.sort((a,b)=>b.ts-a.ts);LS.set('mc-hist',S.history);render();});break;}

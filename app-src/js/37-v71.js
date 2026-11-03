@@ -21,7 +21,7 @@ function checkinCard(){
   if(!S.settings.onb)return '';
   const c=chkToday()||{};
   if(chkDone(c)&&!CHKOPEN)return `<section class="chk done"><div class="chkl"><span class="kick">Cómo amaneciste</span><button class="tbtn" data-act="chkedit">Cambiar</button></div>
-    <div class="chks">${CHQ.map(q=>`<span>${q[0]==='s'?'Sueño':q[0]==='e'?'Energía':'Dolor'} <b>${q[2][c[q[0]]].toLowerCase()}</b></span>`).join('')}</div>${chkRec(c)}</section>`;
+    ${CAP&&!S.settings.morning?'<button class="tbtn chkm" data-act="tog" data-v="morning">Avisarme cada mañana</button>':''}<div class="chks">${CHQ.map(q=>`<span>${q[0]==='s'?'Sueño':q[0]==='e'?'Energía':'Dolor'} <b>${q[2][c[q[0]]].toLowerCase()}</b></span>`).join('')}</div>${chkRec(c)}</section>`;
   return `<section class="chk"><div class="kick">Cómo amaneciste</div>${CHQ.map(q=>`<div class="chkq"><span>${q[1]}</span><div class="seg">${q[2].map((l,v)=>`<button data-act="chk" data-v="${q[0]}|${v}" aria-pressed="${c[q[0]]===v}">${l}</button>`).join('')}</div></div>`).join('')}</section>`;
 }
 
@@ -71,7 +71,8 @@ ${days}
 Esta semana: ${w.days} de ${trainDays()} entrenos, ${w.min} min, ${w.vol} kg movidos. Racha: ${streak()} días.
 Últimos entrenamientos:
 ${last||'- todavía no ha registrado entrenamientos'}
-${cardio?'Cardio reciente: '+cardio+'\n':''}${N?`Nutrición: meta ${N.kcal} kcal al día y ${N.p} g de proteína; peso meta ${goalWeight(N,b)} kg.\n`:''}${chkDone(c)?`Hoy amaneció: sueño ${CHQ[0][2][c.s].toLowerCase()}, energía ${CHQ[1][2][c.e].toLowerCase()}, dolor muscular ${CHQ[2][2][c.d].toLowerCase()}.\n`:''}Fecha de hoy: ${new Date().toLocaleDateString('es-CO',{weekday:'long',day:'numeric',month:'long',year:'numeric'})}.`;
+${cardio?'Cardio reciente: '+cardio+'\n':''}${N?`Nutrición: meta ${N.kcal} kcal al día y ${N.p} g de proteína; peso meta ${goalWeight(N,b)} kg.\n`:''}${chkDone(c)?`Hoy amaneció: sueño ${CHQ[0][2][c.s].toLowerCase()}, energía ${CHQ[1][2][c.e].toLowerCase()}, dolor muscular ${CHQ[2][2][c.d].toLowerCase()}.\n`:''}Ejercicios que puede hacer con su equipo: ${ALLEX.filter(e=>canDo(e)).map(e=>e.n).join('; ')}.
+Fecha de hoy: ${new Date().toLocaleDateString('es-CO',{weekday:'long',day:'numeric',month:'long',year:'numeric'})}.`;
 }
 const COSYS=`Eres el coach de la app Mancuernas: un entrenador personal y nutricionista deportivo que habla español de Colombia, cercano y directo, como un buen entrenador de gimnasio.
 Reglas:
@@ -80,7 +81,11 @@ Reglas:
 - No diagnostiques ni trates lesiones o enfermedades. Si menciona dolor fuerte, punzante, en una articulación, mareo o algo médico, dile que pare ese ejercicio y consulte a un médico o fisioterapeuta; puedes sugerir qué entrenar mientras tanto que no moleste esa zona.
 - No recomiendes medicamentos ni suplementos más allá de proteína, creatina o cafeína con información general, y nunca dosis por encima de las habituales.
 - No inventes datos que no estén en el contexto. Si falta algo, pregúntalo en una frase.
-- Sin saludos largos ni despedidas. Puedes usar **negrita** y listas con guiones.`;
+- Sin saludos largos ni despedidas. Puedes usar **negrita** y listas con guiones.
+- Si propones cambiar algo de su rutina, explícalo y al final agrega una línea por cambio, con este formato exacto (la app muestra un botón para aplicarlo):
+  [[CAMBIAR|nombre exacto del ejercicio actual|nombre exacto del ejercicio nuevo|nombre exacto de la rutina]]
+  [[SERIES|nombre exacto del ejercicio|nombre exacto de la rutina|número de series|repeticiones, ej. 8–12]]
+  Usa solo nombres de ejercicios y rutinas que aparecen en los datos. No uses ese formato si no hay un cambio concreto.`;
 async function coAsk(msgs){
   const ctx=coachCtx(),hist=msgs.slice(-12);
   const s=await coSample();
@@ -102,7 +107,7 @@ function mdLite(t){return esc(t).replace(/\*\*(.+?)\*\*/g,'<b>$1</b>').split(/\n
 const COSUG=['¿Qué peso uso hoy?','Solo tengo 20 minutos, ¿qué hago?','¿Estoy progresando bien?','¿Qué como antes de entrenar?'];
 async function coachSheet(){
   const who=(await coSample())?'claude':gkey()?'gemini':null;
-  const msgs=COACH.map(m=>`<div class="cm ${m.r}">${m.r==='u'?esc(m.t):mdLite(m.t)}</div>`).join('')+(COB?'<div class="cm a typing"><i></i><i></i><i></i></div>':'')+(COERR?`<div class="cm err">${COERR}</div>`:'');
+  const msgs=COACH.map((m,i)=>`<div class="cm ${m.r}">${m.r==='u'?esc(m.t):mdLite(m.t)}</div>${(m.acts||[]).map((x,j)=>`<button class="coact ${x.done?'done':''}" data-act="coapply" data-v="${i}|${j}" ${x.done?'disabled':''}>${x.done?IC.check:IC.swap}<span>${x.done?'Aplicado: ':''}${esc(coActLabel(x))}</span></button>`).join('')}`).join('')+(COB?'<div class="cm a typing"><i></i><i></i><i></i></div>':'')+(COERR?`<div class="cm err">${COERR}</div>`:'');
   sheet(`<div class="cohd"><h3>Coach</h3>${COACH.length?'<button class="tbtn" data-act="coclear">Borrar chat</button>':''}</div>
   <p class="sub">Pregúntale sobre tu rutina, técnica, cargas o comida. Conoce tu plan y tus últimos entrenos.</p>
   ${who?'':`<div class="card coempty"><b>Activa el coach</b><span>Usa la IA de Google (Gemini), gratis para uso personal. Necesitas una clave, la misma que sirve para reconocer la comida por foto.</span><button class="btn pri sm" data-act="cokey">Poner mi clave</button></div>`}
@@ -115,11 +120,33 @@ async function coachSheet(){
 async function coachSend(text){
   text=String(text||'').trim();if(!text||COB)return;
   COACH.push({r:'u',t:text,ts:Date.now()});COB=true;COERR='';coachSheet();
-  try{const a=await coAsk(COACH);COACH.push({r:'a',t:a||'No tengo una respuesta para eso. Pregúntame de otra forma.',ts:Date.now()});}
+  try{const a=await coAsk(COACH),P=coParse(a||'');COACH.push({r:'a',t:P.t||'No tengo una respuesta para eso. Pregúntame de otra forma.',acts:P.acts,ts:Date.now()});}
   catch(e){COACH.pop();COERR=e.code==='nokey'?'Primero pon tu clave de Gemini.':e.code==='net'?'Sin internet. Revisa la conexión e intenta otra vez.':(typeof fphMsg==='function'?fphMsg(e.code)[0]:'No se pudo responder')+'. Intenta otra vez.';
     setTimeout(()=>{const i=$('#co-in');if(i)i.value=text;},0);}
   COB=false;COACH=COACH.slice(-40);LS.set('mc-coach',COACH);
   if(!$('#sheet').hidden&&$('#cochat'))coachSheet();
+}
+
+// Cambios que el coach propone en la rutina: [[CAMBIAR|actual|nuevo|rutina]] y [[SERIES|ejercicio|rutina|series|reps]]
+const lc=s=>norm(String(s||'').trim());
+function coFindDay(name,ex){const L=S.program.days;return L.find(d=>lc(d.t)===lc(name)&&(!ex||d.ex.some(x=>lc(x.n)===lc(ex))))||(ex?L.find(d=>d.ex.some(x=>lc(x.n)===lc(ex))):null);}
+const coEx=n=>ALLEX.find(e=>lc(e.n)===lc(n));
+function coParse(t){
+  const acts=[];
+  t=String(t).replace(/\[\[\s*(CAMBIAR|SERIES)\s*\|([^\]]+)\]\]/gi,(m,k,rest)=>{const f=rest.split('|').map(x=>x.trim());k=k.toUpperCase();
+    if(k==='CAMBIAR'&&f.length>=2){const a=coEx(f[0]),b=coEx(f[1]),d=coFindDay(f[2],f[0]);if(a&&b&&d&&a.n!==b.n)acts.push({k:'swap',a:a.n,b:b.n,d:d.id,dt:d.t});}
+    if(k==='SERIES'&&f.length>=3){const a=coEx(f[0]),d=coFindDay(f[1],f[0]),n=parseInt(f[2],10);if(a&&d&&n>=1&&n<=8)acts.push({k:'sets',a:a.n,d:d.id,dt:d.t,n,r:(f[3]||'').replace(/-/g,'–').slice(0,14)});}
+    return '';});
+  return {t:t.trim(),acts};
+}
+function coActLabel(x){return x.k==='swap'?`Cambiar ${x.a} por ${x.b} en ${x.dt}`:`${x.a} en ${x.dt}: ${x.n} series${x.r?' de '+x.r:''}`;}
+function coApply(i,j){
+  const m=COACH[i],x=m&&m.acts&&m.acts[j];if(!x||x.done)return;
+  const d=S.program.days.find(z=>z.id===x.d),k=d?d.ex.findIndex(z=>z.n===x.a):-1;
+  if(k<0){toast('Ese ejercicio ya no está en esa rutina');return;}
+  if(x.k==='swap'){const e=EXMAP[x.b];if(!e)return;const rr=(String(e.r||'').split('×')[1]||'').trim();d.ex[k]=Object.assign({},d.ex[k],{n:x.b,reps:rr||d.ex[k].reps});}
+  else{d.ex[k].sets=x.n;if(x.r)d.ex[k].reps=x.r;}
+  x.done=true;LS.set('mc-coach',COACH);touchProgram();buzz(12);toast(IC.check+'<span>Rutina actualizada</span>',true);coachSheet();
 }
 
 /* ===================== suplementos ===================== */
@@ -263,6 +290,7 @@ function v71Act(a,v){
     case 'cddel':{const i=S.acts.findIndex(x=>x.id===v);if(i<0)return true;const it=S.acts[i];S.acts.splice(i,1);LS.set('mc-acts',S.acts);if(COL)COL.doc(v).delete().catch(()=>{});render();
       undoable(esc(it.t)+' borrada',()=>{S.acts.push(it);S.acts.sort((x,y)=>x.ts-y.ts);LS.set('mc-acts',S.acts);if(COL)COL.doc(it.id).set(stripId(it)).catch(()=>{});render();});return true;}
     case 'coach':coachSheet();return true;
+    case 'coapply':{const [i,j]=v.split('|').map(Number);coApply(i,j);return true;}
     case 'cosend':{const i=$('#co-in');coachSend(i?i.value:'');return true;}
     case 'cosug':coachSend(v);return true;
     case 'coclear':COACH=[];COERR='';LS.set('mc-coach',COACH);coachSheet();return true;

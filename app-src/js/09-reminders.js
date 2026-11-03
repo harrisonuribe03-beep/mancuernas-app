@@ -3,7 +3,8 @@
 const RIDS=[101,102,103,104,105,106,107];
 async function scheduleReminders(){
   if(!LN)return;
-  try{await LN.cancel({notifications:RIDS.map(id=>({id}))});}catch(e){}
+  try{await LN.cancel({notifications:RIDS.concat([MRID]).map(id=>({id}))});}catch(e){}
+  if(S.settings.morning)scheduleMorning();
   if(!S.settings.remind)return;
   try{const p=await LN.checkPermissions();if(p.display!=='granted'){const q=await LN.requestPermissions();if(q.display!=='granted'){toast('Activa las notificaciones de la app para recibir el recordatorio');return;}}}catch(e){}
   const [hh,mm]=String(S.settings.remindTime||'18:00').split(':').map(Number);
@@ -13,3 +14,12 @@ async function scheduleReminders(){
   call(LN,'schedule',{notifications:list});
 }
 
+
+/* 7.2: aviso de la mañana para responder cómo amaneciste */
+const MRID=120;
+async function scheduleMorning(){
+  if(!LN||!S.settings.morning)return;
+  try{const p=await LN.checkPermissions();if(p.display!=='granted'){const q=await LN.requestPermissions();if(q.display!=='granted'){toast('Activa las notificaciones de la app para recibir el aviso');return;}}}catch(e){}
+  const [hh,mm]=String(S.settings.morningTime||'07:00').split(':').map(Number),nm=S.settings.name?S.settings.name+', ':'';
+  call(LN,'schedule',{notifications:[{id:MRID,title:`${nm}¿cómo amaneciste?`,body:'Sueño, energía y dolor en 3 toques. Te digo si hoy conviene ir con todo o suave.',schedule:{on:{hour:hh,minute:mm},allowWhileIdle:true}}]});
+}
