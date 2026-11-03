@@ -271,3 +271,13 @@ body:has(#fab:not([hidden])) #view{padding-bottom:calc(var(--tabs) + 100px + env
 .vrow small{display:block;font-family:var(--mono);font-size:.6rem;letter-spacing:.1em;text-transform:uppercase;color:var(--acc-ink)}
 .vrow em{display:block;font-style:normal;font-size:.8rem;color:var(--tx2)}
 .vrow .chev{color:var(--tx3)}
+/* 7.2: cuerpo anatómico con capas rojas */
+.bsvg.anat{width:112px;height:auto;display:block}
+.bsvg.anat.mini{width:54px}
+.mmap .bsvg.anat{width:96px}
+.bsvg.anat .ov{opacity:1}
+.bsvg.anat .ov.r2{opacity:.72}.bsvg.anat .ov.r3{opacity:.42}
+.bsvg.anat .ov.hp{opacity:1}.bsvg.anat .ov.hs{opacity:.5}
+.rleg .r1{background:#b22a25}.rleg .r2{background:#bd5a52}.rleg .r3{background:#c39790}.rleg .r4{background:#9a9a9a}
+.mleg .hp{background:#b22a25}.mleg .hs{background:#c97a73}
+[data-theme="dark"] .bsvg.anat image:first-child{filter:brightness(.9)}

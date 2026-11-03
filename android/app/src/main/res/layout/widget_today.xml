@@ -104,7 +104,7 @@
                 android:paddingTop="7dp"
                 android:paddingBottom="7dp"
                 android:text="Empezar"
-                android:textColor="#2236B8"
+                android:textColor="#16130F"
                 android:textSize="13sp"
                 android:textStyle="bold" />
             <TextView
