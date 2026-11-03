@@ -176,7 +176,7 @@ const FDB_X=[
 // Palabras de búsqueda extra para los alimentos del menú
 const FDB_KW={pollo:'pollo a la plancha asado',res:'carne res plancha asada bistec',molida:'carne molida',cerdo:'cerdo lomo plancha',pescado:'pescado mojarra tilapia',atun:'atún lata',
   arroz:'arroz',pasta:'espagueti macarrones',arepa:'arepa blanca',pan:'pan tajado integral',platano:'plátano maduro asado',papa:'papa salada',ensalada:'ensalada',verduras:'verduras',cafe:'café tinto perico',whey:'proteína whey batido',huevo:'huevo cocido tibio'};
-const FDB_MENU={huevo:['prot',0],pollo:['prot',0,[['porción','porciones',120],['filete','filetes',150]]],res:['prot',0,[['porción','porciones',120]]],molida:['prot',0,[['porción','porciones',100]]],
+const FDB_MENU={bollo:['tub',2,[['bollo','bollos',120]]],name:['tub',1.5],pernil:['prot',0,[['pernil','perniles',150]]],huevo:['prot',0],pollo:['prot',0,[['porción','porciones',120],['filete','filetes',150]]],res:['prot',0,[['porción','porciones',120]]],molida:['prot',0,[['porción','porciones',100]]],
   cerdo:['prot',0,[['porción','porciones',120]]],pescado:['prot',0,[['filete','filetes',150]]],atun:['prot',0],queso:['lact',0],yogur:['lact',0],leche:['lact',0,null,1],whey:['sup',0],
   lenteja:['gran',7.9],frijol:['gran',6.4],garbanzo:['gran',7.6],arroz:['gran',.4],pasta:['gran',1.8],arepa:['gran',3],pan:['gran',6],avena:['gran',10],
   papa:['tub',1.8],yuca:['tub',1.8],platano:['tub',2.3],banano:['fru',2.6],papaya:['fru',1.7],mango:['fru',1.6],fresa:['fru',2],manzana:['fru',2.4],aguacate:['fru',6.7],

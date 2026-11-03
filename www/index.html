@@ -2253,12 +2253,37 @@ const FOODS={
   aceite:{n:'aceite',k:884,p:0,c:0,f:100,u:['cucharadita','cucharaditas',5],st:1,mn:1,mx:3,g:'otros'},
   mani:{n:'maní',k:567,p:26,c:16,f:49,u:['puñado','puñados',30],st:.5,mn:.5,mx:1.5,g:'otros'},
   bocadillo:{n:'bocadillo',k:300,p:.5,c:75,f:0,u:['bocadillo','bocadillos',30],st:1,mn:1,mx:2,g:'otros'},
-  cafe:{n:'tinto o café con poca leche',k:20,p:1,c:2,f:.6,u:['pocillo','pocillos',150],st:1,mn:1,mx:1,g:'otros'}
+  cafe:{n:'tinto o café con poca leche',k:20,p:1,c:2,f:.6,u:['pocillo','pocillos',150],st:1,mn:1,mx:1,g:'otros'},
+  // 7.3: comida típica de las regiones (mismos valores que la base de alimentos del diario)
+  cuajada:{n:'cuajada o quesito',k:200,p:17,c:3,f:13,u:['porción','porciones',60],st:.5,mn:.5,mx:2,g:'lact'},
+  kumis:{n:'kumis',k:85,p:3,c:13,f:2.5,u:['vaso','vasos',200],st:.5,mn:.5,mx:2,g:'lact'},
+  chocolate:{n:'chocolate en leche',k:85,p:3,c:12,f:3,u:['pocillo','pocillos',200],st:1,mn:1,mx:1,g:'otros'},
+  aguapanela:{n:'agua de panela',k:38,p:0,c:9.5,f:0,u:['vaso','vasos',250],st:1,mn:1,mx:1,g:'otros'},
+  almojabana:{n:'almojábana',k:320,p:11,c:38,f:14,u:['almojábana','almojábanas',60],st:1,mn:1,mx:2,g:'granos'},
+  pandebono:{n:'pandebono',k:330,p:9,c:40,f:15,u:['pandebono','pandebonos',50],st:1,mn:1,mx:2,g:'granos'},
+  bollo:{n:'bollo limpio',k:190,p:2,c:42,f:1.5,u:['bollo','bollos',120],st:.5,mn:.5,mx:2,g:'granos'},
+  mazorca:{n:'mazorca cocida',k:96,p:3.4,c:21,f:1.5,u:['mazorca','mazorcas',150],st:.5,mn:.5,mx:1.5,g:'fruver'},
+  name:{n:'ñame cocido',k:118,p:1.5,c:28,f:.2,u:['trozo','trozos',100],st:.5,mn:.5,mx:3,g:'fruver'},
+  platano_verde:{n:'plátano verde (patacón asado)',k:122,p:1.3,c:32,f:.4,u:['plátano','plátanos',200],st:.25,mn:.25,mx:1,g:'fruver'},
+  guayaba:{n:'guayaba',k:68,p:2.6,c:14,f:1,u:['guayaba','guayabas',100],st:1,mn:1,mx:3,g:'fruver'},
+  pina:{n:'piña picada',k:50,p:.5,c:13,f:.1,u:['taza','tazas',160],st:.5,mn:.5,mx:2,g:'fruver'},
+  sandia:{n:'patilla',k:30,p:.6,c:7.6,f:.2,u:['tajada','tajadas',250],st:.5,mn:.5,mx:2,g:'fruver'},
+  pernil:{n:'pernil de pollo sin piel',k:180,p:26,c:0,f:8,u:['g','g',1],st:10,mn:80,mx:260,g:'prot'},
+  higado:{n:'hígado de res',k:175,p:27,c:5,f:5,u:['g','g',1],st:10,mn:80,mx:200,g:'prot'},
+  sardinas:{n:'sardinas en salsa de tomate',k:170,p:17,c:2,f:10,u:['lata','latas',155],st:.5,mn:.5,mx:1.5,g:'prot'}
 };
 const FGROUP={prot:'Carnes, pollo, pescado y huevos',lact:'Lácteos',granos:'Granos, arroz y harinas',fruver:'Frutas, verduras y tubérculos',otros:'Otros'};
 /* Comidas: p = proteína que se ajusta (alternativa sin carne en pv), c = carbohidratos que se ajustan, x = fijos [alimento, unidades] */
 const MEALS={
   des:[
+    {t:'Changua con huevo y pan',p:['huevo'],c:['pan'],x:[['leche',1]]},
+    {t:'Arepa con cuajada y chocolate',p:['cuajada'],c:['arepa'],x:[['chocolate',1]]},
+    {t:'Bollo limpio con huevo y queso',p:['huevo'],c:['bollo'],x:[['queso',1],['cafe',1]]},
+    {t:'Huevos con tomate y cebolla y pandebono',p:['huevo'],c:['pandebono'],x:[['hogao',1],['cafe',1]]},
+    {t:'Kumis con almojábana y papaya',pre:1,p:['kumis'],c:['almojabana'],x:[['papaya',1]]},
+    {t:'Mazorca con queso y huevo',p:['huevo'],c:['mazorca'],x:[['queso',1],['cafe',1]]},
+    {t:'Arepa con huevo, queso y aguapanela',p:['huevo'],c:['arepa'],x:[['aguapanela',1],['queso',1]]},
+    {t:'Patacón asado con huevo y hogao',p:['huevo'],c:['platano_verde'],x:[['hogao',2],['cafe',1]]},
     {t:'Arepa con huevos y queso',p:['huevo'],c:['arepa'],x:[['queso',1],['cafe',1]]},
     {t:'Huevos pericos con arepa y fruta',p:['huevo'],c:['arepa'],x:[['hogao',2],['papaya',1]]},
     {t:'Calentado liviano con huevo',p:['huevo'],c:['arroz','frijol'],x:[['hogao',1],['cafe',1]]},
@@ -2267,6 +2292,16 @@ const MEALS={
     {t:'Yogur griego con avena y fresas',pre:1,p:['yogur'],c:['avena'],x:[['fresa',1]]}
   ],
   alm:[
+    {t:'Ajiaco con pollo, mazorca y aguacate',pre:1,tv:'Ajiaco con garbanzos, mazorca y aguacate',p:['pollo'],pv:['garbanzo'],c:['papa','mazorca','arroz'],x:[['aguacate',1]]},
+    {t:'Sancocho de pollo con yuca, papa y plátano',tv:'Sancocho de garbanzos con yuca, papa y plátano',p:['pernil'],pv:['garbanzo'],c:['yuca','papa','platano_verde'],x:[['aguacate',1]]},
+    {t:'Mojarra asada con patacón, arroz y ensalada',tv:'Huevos con patacón, arroz y ensalada',p:['pescado'],pv:['huevo'],c:['platano_verde','arroz'],x:[['ensalada',1]]},
+    {t:'Arroz con pollo y ensalada',pre:1,tv:'Arroz con garbanzos y verduras',p:['pollo'],pv:['garbanzo'],c:['arroz'],x:[['verduras',1],['ensalada',1]]},
+    {t:'Bistec a caballo con arroz y papa',tv:'Huevos a caballo con arroz y papa',p:['res'],pv:['huevo'],c:['arroz','papa'],x:[['huevo',1],['hogao',2],['ensalada',1]]},
+    {t:'Mote de queso con ñame y arroz',p:['queso'],c:['name','arroz'],x:[['hogao',2],['aguacate',1]]},
+    {t:'Hígado encebollado con arroz y ensalada',tv:'Lentejas con arroz y ensalada',p:['higado'],pv:['lenteja'],c:['arroz'],x:[['ensalada',1],['aceite',1]]},
+    {t:'Sardinas con arroz, tajadas y ensalada',tv:'Fríjoles con arroz, tajadas y ensalada',p:['sardinas'],pv:['frijol'],c:['arroz','platano'],x:[['ensalada',1]]},
+    {t:'Frijolada con carne molida, arroz y aguacate',tv:'Frijolada con huevo, arroz y aguacate',p:['molida'],pv:['huevo'],c:['frijol','arroz'],x:[['hogao',1],['aguacate',1]]},
+    {t:'Cerdo en salsa criolla con yuca y ensalada',tv:'Garbanzos en salsa criolla con yuca',p:['cerdo'],pv:['garbanzo'],c:['yuca','arroz'],x:[['hogao',2],['ensalada',1]]},
     {t:'Bandeja paisa liviana',tv:'Bandeja paisa vegetariana',p:['molida'],pv:['huevo'],c:['arroz','frijol'],x:[['platano',.25],['aguacate',1],['ensalada',1]]},
     {t:'Pollo a la plancha con arroz, maduro y ensalada',pre:1,tv:'Garbanzos con arroz, maduro y ensalada',p:['pollo'],pv:['garbanzo'],c:['arroz','platano'],x:[['ensalada',1],['aceite',1]]},
     {t:'Tilapia con arroz, patacón al horno y ensalada',tv:'Huevos con arroz, maduro y ensalada',p:['pescado'],pv:['huevo'],c:['arroz','platano'],x:[['ensalada',1],['aguacate',1]]},
@@ -2276,6 +2311,12 @@ const MEALS={
     {t:'Pasta con pollo y verduras',pre:1,tv:'Pasta con garbanzos y verduras',p:['pollo'],pv:['garbanzo'],c:['pasta'],x:[['verduras',1],['aceite',1]]}
   ],
   cen:[
+    {t:'Caldo de papa con huevo y arepa',p:['huevo'],c:['papa','arepa'],x:[['hogao',1]]},
+    {t:'Arepa rellena de pollo desmechado y queso',tv:'Arepa rellena de huevo y queso',p:['pollo'],pv:['huevo'],c:['arepa'],x:[['queso',1],['hogao',1]]},
+    {t:'Patacón con pollo desmechado y hogao',tv:'Patacón con fríjoles y hogao',p:['pollo'],pv:['frijol'],c:['platano_verde'],x:[['hogao',2],['ensalada',1]]},
+    {t:'Ñame con queso, huevo y aguacate',p:['huevo'],c:['name'],x:[['queso',1],['aguacate',1]]},
+    {t:'Calentado con huevo',p:['huevo'],c:['arroz','frijol'],x:[['hogao',1],['arepa',.5]]},
+    {t:'Mazorca con pollo y ensalada',tv:'Mazorca con queso y ensalada',p:['pollo'],pv:['queso'],c:['mazorca'],x:[['ensalada',1]]},
     {t:'Pechuga con papa y verduras',tv:'Tortilla de huevo con papa y verduras',p:['pollo'],pv:['huevo'],c:['papa'],x:[['verduras',1],['aceite',1]]},
     {t:'Tortilla de huevos con verduras y arepa',p:['huevo'],c:['arepa'],x:[['verduras',1],['queso',1]]},
     {t:'Atún con arroz y ensalada',tv:'Fríjoles con arroz, queso y ensalada',p:['atun'],pv:['frijol','queso'],c:['arroz'],x:[['ensalada',1],['aguacate',1]]},
@@ -2284,6 +2325,14 @@ const MEALS={
     {t:'Lomo de cerdo con papa y ensalada',tv:'Lentejas con papa y ensalada',p:['cerdo'],pv:['lenteja'],c:['papa'],x:[['ensalada',1]]}
   ],
   med:[
+    {t:'Kumis con almojábana',pre:1,p:['kumis'],c:['almojabana'],x:[]},
+    {t:'Chocolate con queso y pan',p:['queso'],c:['pan'],x:[['chocolate',1]]},
+    {t:'Guayaba con queso',pre:1,p:['queso'],c:['guayaba'],x:[]},
+    {t:'Salpicón de papaya y piña con yogur',pre:1,p:['yogur'],c:['papaya','pina'],x:[]},
+    {t:'Patilla con yogur griego',pre:1,p:['yogur'],c:['sandia'],x:[]},
+    {t:'Aguapanela con queso y arepa',p:['queso'],c:['arepa'],x:[['aguapanela',1]]},
+    {t:'Cuajada con bocadillo',pre:1,p:['cuajada'],c:['bocadillo'],x:[]},
+    {t:'Tinto con pandebono y huevo cocido',p:['huevo'],c:['pandebono'],x:[['cafe',1]]},
     {t:'Fruta con yogur griego',pre:1,p:['yogur'],c:['mango'],x:[]},
     {t:'Queso campesino con bocadillo',pre:1,p:['queso'],c:['bocadillo'],x:[]},
     {t:'Maní y banano',p:['mani'],c:['banano'],x:[]},
@@ -2475,7 +2524,7 @@ const FDB_X=[
 // Palabras de búsqueda extra para los alimentos del menú
 const FDB_KW={pollo:'pollo a la plancha asado',res:'carne res plancha asada bistec',molida:'carne molida',cerdo:'cerdo lomo plancha',pescado:'pescado mojarra tilapia',atun:'atún lata',
   arroz:'arroz',pasta:'espagueti macarrones',arepa:'arepa blanca',pan:'pan tajado integral',platano:'plátano maduro asado',papa:'papa salada',ensalada:'ensalada',verduras:'verduras',cafe:'café tinto perico',whey:'proteína whey batido',huevo:'huevo cocido tibio'};
-const FDB_MENU={huevo:['prot',0],pollo:['prot',0,[['porción','porciones',120],['filete','filetes',150]]],res:['prot',0,[['porción','porciones',120]]],molida:['prot',0,[['porción','porciones',100]]],
+const FDB_MENU={bollo:['tub',2,[['bollo','bollos',120]]],name:['tub',1.5],pernil:['prot',0,[['pernil','perniles',150]]],huevo:['prot',0],pollo:['prot',0,[['porción','porciones',120],['filete','filetes',150]]],res:['prot',0,[['porción','porciones',120]]],molida:['prot',0,[['porción','porciones',100]]],
   cerdo:['prot',0,[['porción','porciones',120]]],pescado:['prot',0,[['filete','filetes',150]]],atun:['prot',0],queso:['lact',0],yogur:['lact',0],leche:['lact',0,null,1],whey:['sup',0],
   lenteja:['gran',7.9],frijol:['gran',6.4],garbanzo:['gran',7.6],arroz:['gran',.4],pasta:['gran',1.8],arepa:['gran',3],pan:['gran',6],avena:['gran',10],
   papa:['tub',1.8],yuca:['tub',1.8],platano:['tub',2.3],banano:['fru',2.6],papaya:['fru',1.7],mango:['fru',1.6],fresa:['fru',2],manzana:['fru',2.4],aguacate:['fru',6.7],
@@ -2540,7 +2589,51 @@ const RECIPES=[
  {id:'batido',n:'Batido casero de banano y avena',t:'snk',min:3,tags:['rapida','sin_fuego'],
   ing:[['leche',300,'1 vaso grande de leche'],['banano',100,'1 banano'],['avena',30,'3 cucharadas de avena'],['crema_mani',15,'1 cucharada de mantequilla de maní']],
   steps:['Licúa todo junto 30 segundos.','Tómalo después de entrenar o como media mañana.'],
-  tip:'Una opción para subir calorías y proteína sin comprar proteína en polvo.'}
+  tip:'Una opción para subir calorías y proteína sin comprar proteína en polvo.'},
+ {id:'ajiaco',n:'Ajiaco santafereño',t:'alm',min:60,tags:['proteina'],
+  ing:[['pollo',130,'1 pechuga pequeña'],['papa_criolla',100,'5 papas criollas'],['papa',120,'1 papa sabanera'],['mazorca',75,'½ mazorca'],['aguacate',50,'¼ de aguacate'],['arroz',80,'½ taza de arroz (opcional)']],
+  steps:['Cocina el pollo en agua con sal, ajo, cebolla larga y guascas unos 25 minutos. Sácalo y desmécha.','En ese caldo echa la papa sabanera y la criolla en rodajas y la mazorca en trozos.','Cocina a fuego medio 30 minutos, hasta que la criolla se deshaga y espese el caldo.','Vuelve a echar el pollo y sirve con aguacate. Si quieres alcaparras, una cucharadita.'],
+  tip:'La crema de leche le sube mucha grasa: si la usas, que sea una cucharada.'},
+ {id:'sancocho',n:'Sancocho de pollo',t:'alm',min:70,tags:['proteina'],
+  ing:[['pernil',150,'1 pernil de pollo sin piel'],['yuca',100,'1 trozo de yuca'],['papa',100,'1 papa'],['platano_verde',80,'⅓ de plátano verde'],['mazorca',75,'½ mazorca'],['aguacate',40,'¼ de aguacate']],
+  steps:['Pon a hervir el pollo con cebolla larga, ajo, cilantro y sal.','A los 20 minutos agrega el plátano verde en trozos y la mazorca.','10 minutos después echa la yuca y la papa.','Cocina hasta que la yuca esté blanda. Sirve con cilantro y aguacate.'],
+  tip:'Quítale la piel al pollo antes de cocinarlo: ahorras casi la mitad de la grasa y sabe igual.'},
+ {id:'arroz_pollo',n:'Arroz con pollo',t:'alm',min:40,tags:['proteina'],
+  ing:[['pollo',120,'1 pechuga pequeña desmechada'],['arroz',180,'1 taza larga de arroz'],['verduras',100,'Zanahoria, arveja y pimentón'],['hogao',30,'2 cucharadas de hogao'],['aceite',5,'1 cucharadita de aceite'],['ensalada',100,'Ensalada']],
+  steps:['Cocina el pollo con sal y ajo y desmécha. Guarda el caldo.','Sofríe el hogao en el aceite con color (achiote) y comino.','Agrega el arroz, las verduras y el pollo, y cubre con el caldo.','Cocina tapado a fuego bajo 20 minutos. Sirve con ensalada.'],
+  tip:'Rinde para toda la semana: sepáralo en cocas apenas se enfríe.'},
+ {id:'mote_queso',n:'Mote de queso costeño',t:'alm',min:40,tags:['sin_carne'],
+  ing:[['name',200,'2 trozos de ñame'],['queso',60,'2 tajadas de queso costeño'],['hogao',30,'2 cucharadas de hogao con ajo'],['arroz',100,'½ taza de arroz'],['aguacate',40,'¼ de aguacate']],
+  steps:['Cocina el ñame en trozos en agua con sal hasta que esté muy blando (25 minutos).','Aplasta algunos trozos para que el caldo espese.','Agrega el hogao y el queso en cubos y apaga apenas empiece a derretirse.','Sirve con arroz y aguacate. Con unas gotas de limón queda mejor.'],
+  tip:'El queso costeño es salado: no le pongas más sal al final.'},
+ {id:'changua',n:'Changua con huevo',t:'des',min:12,tags:['rapida'],
+  ing:[['leche',250,'1 taza de leche'],['huevo',100,'2 huevos'],['pan',60,'2 tajadas de pan'],['cebolla',15,'Un poco de cebolla larga']],
+  steps:['Calienta la leche con media taza de agua, sal y la cebolla larga picada.','Cuando hierva, baja el fuego y casca los huevos uno por uno sin revolver.','Deja 3 minutos hasta que cuajen.','Sirve con cilantro y el pan en trozos dentro del plato.'],
+  tip:'Desayuno bogotano con buena proteína y pocas calorías.'},
+ {id:'caldo_costilla',n:'Caldo de costilla',t:'des',min:40,tags:['proteina'],
+  ing:[['costilla',100,'1 trozo de costilla'],['papa',150,'1 papa grande'],['arepa',80,'1 arepa']],
+  steps:['Hierve la costilla en agua con sal, ajo y cebolla larga 25 minutos. Quita la grasa que sube.','Agrega la papa pelada en trozos.','Cocina 15 minutos más, hasta que la papa esté blanda.','Sirve con cilantro y la arepa.'],
+  tip:'Si dejas el caldo en la nevera, la grasa se endurece arriba y la quitas fácil.'},
+ {id:'calentado',n:'Calentado paisa con huevo',t:'des',min:10,tags:['rapida'],
+  ing:[['arroz',100,'½ taza de arroz del día anterior'],['frijol',120,'1 cucharón de fríjoles'],['hogao',15,'1 cucharada de hogao'],['huevo',50,'1 huevo'],['arepa',40,'½ arepa']],
+  steps:['Calienta en un sartén los fríjoles con el hogao.','Agrega el arroz y revuelve hasta que esté caliente.','Haz el huevo en otro sartén con muy poco aceite.','Sirve el calentado con el huevo encima y la arepa.'],
+  tip:'Aprovecha lo que sobró del almuerzo: es la receta más barata de todas.'},
+ {id:'sudado_pescado',n:'Sudado de pescado',t:'alm',min:30,tags:['proteina'],
+  ing:[['pescado',150,'1 filete de mojarra o bagre'],['tomate',80,'1 tomate'],['cebolla',40,'½ cebolla'],['papa',120,'1 papa'],['arroz',100,'½ taza de arroz'],['aceite',5,'1 cucharadita de aceite']],
+  steps:['Sofríe en el aceite la cebolla y el tomate con ajo y comino.','Agrega la papa en rodajas y medio vaso de agua. Tapa 10 minutos.','Pon el pescado encima, tapa y cocina 10 minutos más sin moverlo.','Sirve con el arroz y la salsa por encima.'],
+  tip:'La mojarra y el bagre suelen salir más baratos que el salmón y tienen igual de proteína.'},
+ {id:'frijolada',n:'Frijolada con carne molida',t:'alm',min:30,tags:['proteina'],
+  ing:[['frijol',180,'1 taza de fríjoles cocidos'],['molida',90,'90 g de carne molida'],['arroz',120,'¾ de taza de arroz'],['platano',80,'½ maduro'],['aguacate',40,'¼ de aguacate']],
+  steps:['Dora la carne molida con ajo, cebolla y comino.','Mézclala con los fríjoles calientes y un poco de su caldo.','Asa el maduro en el sartén o en el horno.','Sirve con arroz, maduro y aguacate: es la bandeja sin chicharrón.'],
+  tip:'Tiene casi la misma proteína que una bandeja paisa con la mitad de las calorías.'},
+ {id:'bistec_caballo',n:'Bistec a caballo',t:'cen',min:25,tags:['proteina'],
+  ing:[['res',120,'1 bistec de res'],['huevo',50,'1 huevo'],['tomate',60,'½ tomate'],['cebolla',40,'½ cebolla'],['arroz',120,'¾ de taza de arroz'],['aceite',5,'1 cucharadita de aceite']],
+  steps:['Sazona el bistec con sal, ajo y comino, y ásalo en el aceite.','En el mismo sartén cocina la cebolla y el tomate en rodajas con un chorrito de agua.','Haz el huevo frito con muy poco aceite.','Sirve el bistec con la salsa, el huevo encima y el arroz.'],
+  tip:'Pide en la carnicería un corte magro como bola o pierna, que es más barato que el lomo.'},
+ {id:'patacon_hogao',n:'Patacón con hogao y queso',t:'snk',min:20,tags:['sin_carne'],
+  ing:[['platano_verde',120,'½ plátano verde'],['hogao',30,'2 cucharadas de hogao'],['queso',30,'1 tajada de queso']],
+  steps:['Corta el plátano en trozos y cocínalo al vapor o en agua 10 minutos.','Aplástalo con un plato o una tabla.','Ásalo en el sartén sin aceite o en el horno hasta que dore por los dos lados.','Sirve con el hogao y el queso rallado encima.'],
+  tip:'Asado en vez de frito te ahorras casi 100 calorías por patacón.'}
 ];
 const RTYPE={des:'Desayuno',alm:'Almuerzo',cen:'Cena',snk:'Algo rápido'};
 
@@ -4782,7 +4875,7 @@ const roundQ=(id,q)=>{const F=FOODS[id],mx=id==='huevo'?Math.min(4,Math.round(F.
 /* Arma una comida para una meta de calorías y proteína */
 function buildMeal(tpl,kcal,prot){
   const veg=!!S.settings.veg,items=[];
-  let pIds=(veg&&tpl.pv?tpl.pv:tpl.p).filter(id=>!(veg&&['pollo','res','molida','cerdo','pescado','atun'].includes(id)));
+  let pIds=(veg&&tpl.pv?tpl.pv:tpl.p).filter(id=>!(veg&&['pollo','res','molida','cerdo','pescado','atun','pernil','higado','sardinas'].includes(id)));
   if(!pIds.length)pIds=['huevo'];
   if(tpl.w&&S.settings.whey)pIds=[tpl.w].concat(pIds);
   tpl.x.forEach(([id,q])=>items.push([id,q]));

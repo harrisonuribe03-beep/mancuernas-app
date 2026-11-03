@@ -36,12 +36,37 @@ const FOODS={
   aceite:{n:'aceite',k:884,p:0,c:0,f:100,u:['cucharadita','cucharaditas',5],st:1,mn:1,mx:3,g:'otros'},
   mani:{n:'maní',k:567,p:26,c:16,f:49,u:['puñado','puñados',30],st:.5,mn:.5,mx:1.5,g:'otros'},
   bocadillo:{n:'bocadillo',k:300,p:.5,c:75,f:0,u:['bocadillo','bocadillos',30],st:1,mn:1,mx:2,g:'otros'},
-  cafe:{n:'tinto o café con poca leche',k:20,p:1,c:2,f:.6,u:['pocillo','pocillos',150],st:1,mn:1,mx:1,g:'otros'}
+  cafe:{n:'tinto o café con poca leche',k:20,p:1,c:2,f:.6,u:['pocillo','pocillos',150],st:1,mn:1,mx:1,g:'otros'},
+  // 7.3: comida típica de las regiones (mismos valores que la base de alimentos del diario)
+  cuajada:{n:'cuajada o quesito',k:200,p:17,c:3,f:13,u:['porción','porciones',60],st:.5,mn:.5,mx:2,g:'lact'},
+  kumis:{n:'kumis',k:85,p:3,c:13,f:2.5,u:['vaso','vasos',200],st:.5,mn:.5,mx:2,g:'lact'},
+  chocolate:{n:'chocolate en leche',k:85,p:3,c:12,f:3,u:['pocillo','pocillos',200],st:1,mn:1,mx:1,g:'otros'},
+  aguapanela:{n:'agua de panela',k:38,p:0,c:9.5,f:0,u:['vaso','vasos',250],st:1,mn:1,mx:1,g:'otros'},
+  almojabana:{n:'almojábana',k:320,p:11,c:38,f:14,u:['almojábana','almojábanas',60],st:1,mn:1,mx:2,g:'granos'},
+  pandebono:{n:'pandebono',k:330,p:9,c:40,f:15,u:['pandebono','pandebonos',50],st:1,mn:1,mx:2,g:'granos'},
+  bollo:{n:'bollo limpio',k:190,p:2,c:42,f:1.5,u:['bollo','bollos',120],st:.5,mn:.5,mx:2,g:'granos'},
+  mazorca:{n:'mazorca cocida',k:96,p:3.4,c:21,f:1.5,u:['mazorca','mazorcas',150],st:.5,mn:.5,mx:1.5,g:'fruver'},
+  name:{n:'ñame cocido',k:118,p:1.5,c:28,f:.2,u:['trozo','trozos',100],st:.5,mn:.5,mx:3,g:'fruver'},
+  platano_verde:{n:'plátano verde (patacón asado)',k:122,p:1.3,c:32,f:.4,u:['plátano','plátanos',200],st:.25,mn:.25,mx:1,g:'fruver'},
+  guayaba:{n:'guayaba',k:68,p:2.6,c:14,f:1,u:['guayaba','guayabas',100],st:1,mn:1,mx:3,g:'fruver'},
+  pina:{n:'piña picada',k:50,p:.5,c:13,f:.1,u:['taza','tazas',160],st:.5,mn:.5,mx:2,g:'fruver'},
+  sandia:{n:'patilla',k:30,p:.6,c:7.6,f:.2,u:['tajada','tajadas',250],st:.5,mn:.5,mx:2,g:'fruver'},
+  pernil:{n:'pernil de pollo sin piel',k:180,p:26,c:0,f:8,u:['g','g',1],st:10,mn:80,mx:260,g:'prot'},
+  higado:{n:'hígado de res',k:175,p:27,c:5,f:5,u:['g','g',1],st:10,mn:80,mx:200,g:'prot'},
+  sardinas:{n:'sardinas en salsa de tomate',k:170,p:17,c:2,f:10,u:['lata','latas',155],st:.5,mn:.5,mx:1.5,g:'prot'}
 };
 const FGROUP={prot:'Carnes, pollo, pescado y huevos',lact:'Lácteos',granos:'Granos, arroz y harinas',fruver:'Frutas, verduras y tubérculos',otros:'Otros'};
 /* Comidas: p = proteína que se ajusta (alternativa sin carne en pv), c = carbohidratos que se ajustan, x = fijos [alimento, unidades] */
 const MEALS={
   des:[
+    {t:'Changua con huevo y pan',p:['huevo'],c:['pan'],x:[['leche',1]]},
+    {t:'Arepa con cuajada y chocolate',p:['cuajada'],c:['arepa'],x:[['chocolate',1]]},
+    {t:'Bollo limpio con huevo y queso',p:['huevo'],c:['bollo'],x:[['queso',1],['cafe',1]]},
+    {t:'Huevos con tomate y cebolla y pandebono',p:['huevo'],c:['pandebono'],x:[['hogao',1],['cafe',1]]},
+    {t:'Kumis con almojábana y papaya',pre:1,p:['kumis'],c:['almojabana'],x:[['papaya',1]]},
+    {t:'Mazorca con queso y huevo',p:['huevo'],c:['mazorca'],x:[['queso',1],['cafe',1]]},
+    {t:'Arepa con huevo, queso y aguapanela',p:['huevo'],c:['arepa'],x:[['aguapanela',1],['queso',1]]},
+    {t:'Patacón asado con huevo y hogao',p:['huevo'],c:['platano_verde'],x:[['hogao',2],['cafe',1]]},
     {t:'Arepa con huevos y queso',p:['huevo'],c:['arepa'],x:[['queso',1],['cafe',1]]},
     {t:'Huevos pericos con arepa y fruta',p:['huevo'],c:['arepa'],x:[['hogao',2],['papaya',1]]},
     {t:'Calentado liviano con huevo',p:['huevo'],c:['arroz','frijol'],x:[['hogao',1],['cafe',1]]},
@@ -50,6 +75,16 @@ const MEALS={
     {t:'Yogur griego con avena y fresas',pre:1,p:['yogur'],c:['avena'],x:[['fresa',1]]}
   ],
   alm:[
+    {t:'Ajiaco con pollo, mazorca y aguacate',pre:1,tv:'Ajiaco con garbanzos, mazorca y aguacate',p:['pollo'],pv:['garbanzo'],c:['papa','mazorca','arroz'],x:[['aguacate',1]]},
+    {t:'Sancocho de pollo con yuca, papa y plátano',tv:'Sancocho de garbanzos con yuca, papa y plátano',p:['pernil'],pv:['garbanzo'],c:['yuca','papa','platano_verde'],x:[['aguacate',1]]},
+    {t:'Mojarra asada con patacón, arroz y ensalada',tv:'Huevos con patacón, arroz y ensalada',p:['pescado'],pv:['huevo'],c:['platano_verde','arroz'],x:[['ensalada',1]]},
+    {t:'Arroz con pollo y ensalada',pre:1,tv:'Arroz con garbanzos y verduras',p:['pollo'],pv:['garbanzo'],c:['arroz'],x:[['verduras',1],['ensalada',1]]},
+    {t:'Bistec a caballo con arroz y papa',tv:'Huevos a caballo con arroz y papa',p:['res'],pv:['huevo'],c:['arroz','papa'],x:[['huevo',1],['hogao',2],['ensalada',1]]},
+    {t:'Mote de queso con ñame y arroz',p:['queso'],c:['name','arroz'],x:[['hogao',2],['aguacate',1]]},
+    {t:'Hígado encebollado con arroz y ensalada',tv:'Lentejas con arroz y ensalada',p:['higado'],pv:['lenteja'],c:['arroz'],x:[['ensalada',1],['aceite',1]]},
+    {t:'Sardinas con arroz, tajadas y ensalada',tv:'Fríjoles con arroz, tajadas y ensalada',p:['sardinas'],pv:['frijol'],c:['arroz','platano'],x:[['ensalada',1]]},
+    {t:'Frijolada con carne molida, arroz y aguacate',tv:'Frijolada con huevo, arroz y aguacate',p:['molida'],pv:['huevo'],c:['frijol','arroz'],x:[['hogao',1],['aguacate',1]]},
+    {t:'Cerdo en salsa criolla con yuca y ensalada',tv:'Garbanzos en salsa criolla con yuca',p:['cerdo'],pv:['garbanzo'],c:['yuca','arroz'],x:[['hogao',2],['ensalada',1]]},
     {t:'Bandeja paisa liviana',tv:'Bandeja paisa vegetariana',p:['molida'],pv:['huevo'],c:['arroz','frijol'],x:[['platano',.25],['aguacate',1],['ensalada',1]]},
     {t:'Pollo a la plancha con arroz, maduro y ensalada',pre:1,tv:'Garbanzos con arroz, maduro y ensalada',p:['pollo'],pv:['garbanzo'],c:['arroz','platano'],x:[['ensalada',1],['aceite',1]]},
     {t:'Tilapia con arroz, patacón al horno y ensalada',tv:'Huevos con arroz, maduro y ensalada',p:['pescado'],pv:['huevo'],c:['arroz','platano'],x:[['ensalada',1],['aguacate',1]]},
@@ -59,6 +94,12 @@ const MEALS={
     {t:'Pasta con pollo y verduras',pre:1,tv:'Pasta con garbanzos y verduras',p:['pollo'],pv:['garbanzo'],c:['pasta'],x:[['verduras',1],['aceite',1]]}
   ],
   cen:[
+    {t:'Caldo de papa con huevo y arepa',p:['huevo'],c:['papa','arepa'],x:[['hogao',1]]},
+    {t:'Arepa rellena de pollo desmechado y queso',tv:'Arepa rellena de huevo y queso',p:['pollo'],pv:['huevo'],c:['arepa'],x:[['queso',1],['hogao',1]]},
+    {t:'Patacón con pollo desmechado y hogao',tv:'Patacón con fríjoles y hogao',p:['pollo'],pv:['frijol'],c:['platano_verde'],x:[['hogao',2],['ensalada',1]]},
+    {t:'Ñame con queso, huevo y aguacate',p:['huevo'],c:['name'],x:[['queso',1],['aguacate',1]]},
+    {t:'Calentado con huevo',p:['huevo'],c:['arroz','frijol'],x:[['hogao',1],['arepa',.5]]},
+    {t:'Mazorca con pollo y ensalada',tv:'Mazorca con queso y ensalada',p:['pollo'],pv:['queso'],c:['mazorca'],x:[['ensalada',1]]},
     {t:'Pechuga con papa y verduras',tv:'Tortilla de huevo con papa y verduras',p:['pollo'],pv:['huevo'],c:['papa'],x:[['verduras',1],['aceite',1]]},
     {t:'Tortilla de huevos con verduras y arepa',p:['huevo'],c:['arepa'],x:[['verduras',1],['queso',1]]},
     {t:'Atún con arroz y ensalada',tv:'Fríjoles con arroz, queso y ensalada',p:['atun'],pv:['frijol','queso'],c:['arroz'],x:[['ensalada',1],['aguacate',1]]},
@@ -67,6 +108,14 @@ const MEALS={
     {t:'Lomo de cerdo con papa y ensalada',tv:'Lentejas con papa y ensalada',p:['cerdo'],pv:['lenteja'],c:['papa'],x:[['ensalada',1]]}
   ],
   med:[
+    {t:'Kumis con almojábana',pre:1,p:['kumis'],c:['almojabana'],x:[]},
+    {t:'Chocolate con queso y pan',p:['queso'],c:['pan'],x:[['chocolate',1]]},
+    {t:'Guayaba con queso',pre:1,p:['queso'],c:['guayaba'],x:[]},
+    {t:'Salpicón de papaya y piña con yogur',pre:1,p:['yogur'],c:['papaya','pina'],x:[]},
+    {t:'Patilla con yogur griego',pre:1,p:['yogur'],c:['sandia'],x:[]},
+    {t:'Aguapanela con queso y arepa',p:['queso'],c:['arepa'],x:[['aguapanela',1]]},
+    {t:'Cuajada con bocadillo',pre:1,p:['cuajada'],c:['bocadillo'],x:[]},
+    {t:'Tinto con pandebono y huevo cocido',p:['huevo'],c:['pandebono'],x:[['cafe',1]]},
     {t:'Fruta con yogur griego',pre:1,p:['yogur'],c:['mango'],x:[]},
     {t:'Queso campesino con bocadillo',pre:1,p:['queso'],c:['bocadillo'],x:[]},
     {t:'Maní y banano',p:['mani'],c:['banano'],x:[]},

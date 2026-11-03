@@ -105,7 +105,7 @@ const roundQ=(id,q)=>{const F=FOODS[id],mx=id==='huevo'?Math.min(4,Math.round(F.
 /* Arma una comida para una meta de calorías y proteína */
 function buildMeal(tpl,kcal,prot){
   const veg=!!S.settings.veg,items=[];
-  let pIds=(veg&&tpl.pv?tpl.pv:tpl.p).filter(id=>!(veg&&['pollo','res','molida','cerdo','pescado','atun'].includes(id)));
+  let pIds=(veg&&tpl.pv?tpl.pv:tpl.p).filter(id=>!(veg&&['pollo','res','molida','cerdo','pescado','atun','pernil','higado','sardinas'].includes(id)));
   if(!pIds.length)pIds=['huevo'];
   if(tpl.w&&S.settings.whey)pIds=[tpl.w].concat(pIds);
   tpl.x.forEach(([id,q])=>items.push([id,q]));
